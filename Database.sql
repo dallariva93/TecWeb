@@ -27,7 +27,7 @@ CREATE TABLE Libro
 	Casa_Editrice	varchar (20) NOT NULL,
 	Genere enum('Commedia','Horror','Fantasy','Narrativa','Saggistica','Classico','Thriller','Fantascienza','Carta da fuoco') NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)
-    ON DELETE CASCADE
+   	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 DROP TABLE IF EXISTS Recensione;
@@ -40,10 +40,10 @@ CREATE TABLE Recensione
 	Valutazione enum('1','2','3','4','5'),
 	Testo	text,
 	FOREIGN KEY (Autore) REFERENCES Redazione(Id)
-    ON DELETE CASCADE
+  	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Libro) REFERENCES Libro(Id)
-    ON DELETE CASCADE
+   	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 DROP TABLE IF EXISTS Redazione;
@@ -60,10 +60,10 @@ CREATE TABLE Commento
 	Data_Pubblicazione	date NOT NULL,
 	Commento text(2000),
 	FOREIGN KEY (Autore) REFERENCES Utente(Id)
-    ON DELETE CASCADE
+	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Recensione) REFERENCES Recensione(Id)
-    ON DELETE CASCADE
+    	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 DROP TABLE IF EXISTS Amicizia;
@@ -72,10 +72,10 @@ CREATE TABLE Amicizia
 	Persona2	varchar(8),
 	PRIMARY KEY(Persona1,Persona2),
 	FOREIGN KEY (Persona1) REFERENCES Utente(Id)
-    ON DELETE CASCADE
+    	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Persona2) REFERENCES Utente(Id)
-    ON DELETE CASCADE
+    	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 DROP TABLE IF EXISTS DaLeggere;
@@ -84,10 +84,10 @@ CREATE TABLE DaLeggere
 	Libro	varchar(13),
 	PRIMARY KEY(Utente,Libro),
 	FOREIGN KEY (Utente) REFERENCES Utente(Id)
-    ON DELETE CASCADE
+    	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Libro) REFERENCES Libro(ISBN)
-    ON DELETE CASCADE
+    	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 DROP TABLE IF EXISTS Letti;
@@ -96,10 +96,10 @@ CREATE TABLE Letti
 	Libro	varchar(13),
 	PRIMARY KEY(Utente,Libro),
 	FOREIGN KEY (Utente) REFERENCES Utente(Id)
-    ON DELETE CASCADE
+    	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Libro) REFERENCES Libro(ISBN)
-    ON DELETE CASCADE
+    	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 SET foreign_key_checks = 1;
