@@ -52,7 +52,7 @@ CREATE TABLE Libro
 CREATE TABLE Recensione
 (	Id	varchar(20)	PRIMARY KEY,
 	Libro varchar(13),
-	Autore varchar(8),
+	Autore varchar(20),
 	Data_Pubblicazione	datetime NOT NULL,
 	Valutazione enum('1','2','3','4','5'),
 	Testo	text,
@@ -66,7 +66,7 @@ CREATE TABLE Recensione
 
 CREATE TABLE Redazione
 (	/*Id varchar(8) PRIMARY KEY,*/
-	Email	varchar (15) PRIMARY KEY,
+	Email	varchar (20) PRIMARY KEY,
 	Nome	varchar(10) NOT NULL,
 	Cognome	varchar(10) NOT NULL
 	
@@ -74,11 +74,11 @@ CREATE TABLE Redazione
 
 CREATE TABLE Commento
 (	Recensione varchar(20),
-	Autore varchar(8),
+	Autore varchar(20),
 	Data_Pubblicazione	datetime,
 	Commento text(2000),
 	PRIMARY KEY (Recensione, Autore, Data_Pubblicazione),
-	FOREIGN KEY (Autore) REFERENCES Utente(Id)
+	FOREIGN KEY (Autore) REFERENCES Utente(Email)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Recensione) REFERENCES Recensione(Id)
@@ -87,22 +87,22 @@ CREATE TABLE Commento
 );
 
 CREATE TABLE Amicizia
-(	Persona1	varchar(8),
-	Persona2	varchar(8),
+(	Persona1	varchar(20),
+	Persona2	varchar(20),
 	PRIMARY KEY(Persona1,Persona2),
-	FOREIGN KEY (Persona1) REFERENCES Utente(Id)
+	FOREIGN KEY (Persona1) REFERENCES Utente(Email)
     	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-	FOREIGN KEY (Persona2) REFERENCES Utente(Id)
+	FOREIGN KEY (Persona2) REFERENCES Utente(Email)
     	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
 CREATE TABLE DaLeggere
-(	Utente	varchar(8),
+(	Utente	varchar(20),
 	Libro	varchar(13),
 	PRIMARY KEY(Utente,Libro),
-	FOREIGN KEY (Utente) REFERENCES Utente(Id)
+	FOREIGN KEY (Utente) REFERENCES Utente(Email)
     	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Libro) REFERENCES Libro(ISBN)
@@ -111,10 +111,10 @@ CREATE TABLE DaLeggere
 );
 
 CREATE TABLE Letti
-(	Utente	varchar(8),
+(	Utente	varchar(20),
 	Libro	varchar(13),
 	PRIMARY KEY(Utente,Libro),
-	FOREIGN KEY (Utente) REFERENCES Utente(Id)
+	FOREIGN KEY (Utente) REFERENCES Utente(Email)
     	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Libro) REFERENCES Libro(ISBN)
@@ -144,7 +144,6 @@ END$
 
 /*DELIMITER $*/
 CREATE PROCEDURE Error (err varchar(20))
-RETURNS varchar(20)
 BEGIN
 	 SIGNAL SQLSTATE '45000'
      SET MESSAGE_TEXT = err;
