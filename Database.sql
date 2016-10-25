@@ -2,6 +2,10 @@ SET foreign_key_checks = 0;
 
 /* PULIZIA DATABASE */
 
+DROP FUNCTION IF EXISTS Sposta_In_Letti;
+
+DROP TRIGGER IF EXISTS Incongruenza;
+
 DROP TABLE IF EXISTS Utente;
 DROP TABLE IF EXISTS Scrittore;
 DROP TABLE IF EXISTS Libro;
@@ -12,15 +16,11 @@ DROP TABLE IF EXISTS Letti;
 DROP TABLE IF EXISTS Commento;
 DROP TABLE IF EXISTS Amicizia;
 
-DROP FUNCTION IF EXISTS Sposta_In_Letti;
-
-DROP PROCEDURE IF EXISTS Error;
 
 /* TABELLE */
 
 CREATE TABLE Utente
-(	/*Id varchar(8) PRIMARY KEY,*/
-	Email	varchar (20) PRIMARY KEY,
+(	Email	varchar (20) PRIMARY KEY,
 	Nome	varchar(20) NOT NULL,
 	Cognome	varchar(20) NOT NULL,
 	Nickname	varchar(20) NOT NULL,
@@ -53,8 +53,8 @@ CREATE TABLE Recensione
 (	Id	varchar(20)	PRIMARY KEY,
 	Libro varchar(13),
 	Autore varchar(20),
-	Data_Pubblicazione	datetime NOT NULL,
-	Valutazione enum('1','2','3','4','5'),
+	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	Valutazione enum('1','1,5','2','2,5','3','3,5','4','4,5','5'),
 	Testo	text,
 	FOREIGN KEY (Autore) REFERENCES Redazione(Email)
   	ON DELETE CASCADE
@@ -65,8 +65,7 @@ CREATE TABLE Recensione
 );
 
 CREATE TABLE Redazione
-(	/*Id varchar(8) PRIMARY KEY,*/
-	Email	varchar (20) PRIMARY KEY,
+(	Email	varchar (20) PRIMARY KEY,
 	Nome	varchar(10) NOT NULL,
 	Cognome	varchar(10) NOT NULL
 	
@@ -75,14 +74,14 @@ CREATE TABLE Redazione
 CREATE TABLE Commento
 (	Recensione varchar(20),
 	Autore varchar(20),
-	Data_Pubblicazione	datetime,
 	Commento text(2000),
+	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
 	PRIMARY KEY (Recensione, Autore, Data_Pubblicazione),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
 	FOREIGN KEY (Recensione) REFERENCES Recensione(Id)
-    	ON DELETE CASCADE
+   	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
@@ -125,6 +124,7 @@ CREATE TABLE Letti
 /* FUNZIONI */
 
 DELIMITER $
+
 CREATE FUNCTION Sposta_In_Letti(utente_dato varchar (20), libro_dato varchar(13))
 RETURNS BOOL
 BEGIN
@@ -138,16 +138,17 @@ BEGIN
 	END IF;
 	RETURN Risultato;
 END$
-/*DELIMITER ;*/
 
-/* PROCEDURE */
-
-/*DELIMITER $*/
-CREATE PROCEDURE Error (err varchar(20))
+CREATE TRIGGER Incongruenza BEFORE INSERT ON Amicizia
+FOR EACH ROW
 BEGIN
-	 SIGNAL SQLSTATE '45000'
-     SET MESSAGE_TEXT = err;
+	IF (NEW.Persona1 = NEW.Persona2)
+	THEN
+		SIGNAL SQLSTATE '45000'
+    		SET MESSAGE_TEXT = "Si sta cercando di inserire la stessa persona";
+	END IF;
 END$
+
 DELIMITER ;
 
 SET foreign_key_checks = 1;
