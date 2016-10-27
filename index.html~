@@ -44,6 +44,14 @@
 	<div id="breadcrumb">
 		<p>Ti tovi in: <span xml:lang="en">Home</span></p>
 	</div>
+	<div>
+		<form action="search.php" method="post">
+			<fieldset>
+				<input type="text" name="search" id="searchform"/>
+				<input type="submit" value="Cerca" />		
+			</fieldset>		
+		</form>	
+	</div>
 	<div id="contenitore_recensioni_importanti"> <!-- Une pezzo nella home dove vengono visualizzate 5 6 copertine di libri "importanti" cioe con voti e numero di rensioni alte, vedremo come calcolare questo valore di " -->
 		<img class="libri_home" src="copertine/IGiardiniDellaLuna.jpg" alt="I giardini della luna | Steven Erikson" width="170" height="250"/>
 		<img class="libri_home" src="copertine/IlTronoDiSpade.jpg" alt="Il trono di Spade | George R.R. Martin" width="170" height="250"/>
