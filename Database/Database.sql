@@ -148,7 +148,6 @@ BEGIN
     		SET MESSAGE_TEXT = "Si sta cercando di inserire la stessa persona";
 	END IF;
 END$
-
 DELIMITER ;
 
 SET foreign_key_checks = 1;
