@@ -12,60 +12,103 @@
 	<link rel="stylesheet" media="screen" href="screen.css" type="text/css" />
 	<link rel="stylesheet" media="print" href="print.css" type="text/css" />
 	<link rel="stylesheet" media="aural" href="screenreader.css" type="text/css" />
-	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="oldphone.css" type="text/css" />
+	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
 </head>
 <body>
-	<h1>VERY BEAUTIFUL!!</h1>
 	<div id="menu"> <!-- Barra di navigazione -->
 		<ul>
-			<li>Home</li>
-			<li>News</li>
-			<li>Recensioni</li>
-			<li>Classifica</li>
-			<li><a href="contacts.html">Contatti</a></li>
-			<li>Accedi <span> o Registrati </span>
-			<ul>
-				<li>	<!-- Form per l'accesso (classe xxx= classe non ancora definita)-->
-					<form action="submission.php" method="post">
-						<fieldset>
-							<label for="username_input" xml:lang="en">E-mail:</label>
-							<input type="text" name="username_input" id="username_input" />
-							<label for="username_psw" xml:lang="en">Password:</label>
-							<input type="password" name="username_psw" id="username_psw" />
-							<input type="submit" value="Accedi"/>
-							<input type="submit" onclick="alert('MUCH THANK YOU!')" value="Iscriviti!"/>
-						</fieldset>
-					</form>
-				</li>
-			</ul>
+			<li xml:lang="en">Home</li>
+			<li><a href="index.html" xml:lang="en">News</a></li>
+			<li><a href="index.html">Recensioni</a></li>
+			<li><a href="index.html">Classifica</a></li>
+			<li><a href="contacts.html">Contatti</a></li>		
+			<li id="Accesso" >Accedi
+				<ul id="ulAccesso">
+					<li>	<!-- Form per l'accesso (classe xxx= classe non ancora definita)-->
+						<form action="submission.php" method="post">
+							<fieldset>
+								<label for="username_input" xml:lang="en">E-mail:</label>
+								<input type="text" name="username_input" id="username_input" />
+								<label for="username_psw" xml:lang="en">Password:</label>
+								<input type="password" name="username_psw" id="username_psw" />
+								<input type="submit" value="Accedi"/>
+								<a href="" ><span xml:lang="en">Password</span> dimenticata?</a>
+								<input type="submit" onclick="alert('MUCH THANK YOU!')" value="Iscriviti!" id="iscriviti"/>
+							</fieldset>
+						</form>
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</div>
-	<div id="breadcrumb">
+	<!--<div id="breadcrumb">
 		<p>Ti tovi in: <span xml:lang="en">Home</span></p>
-	</div>
-	<div>
+	</div>  Nella home non serve, lascio per copiarlo nelle altre pagine!!-->
+	<div id="searchform">
 		<form action="search.php" method="post">
 			<fieldset>
-				<input type="text" name="search" id="searchform"/>
+				<input type="text" name="search" id="searcharea"/>
 				<input type="submit" value="Cerca" />		
 			</fieldset>		
 		</form>	
 	</div>
-	<div id="contenitore_recensioni_importanti"> <!-- Une pezzo nella home dove vengono visualizzate 5 6 copertine di libri "importanti" cioe con voti e numero di rensioni alte, vedremo come calcolare questo valore di " -->
-		<img class="libri_home" src="copertine/IGiardiniDellaLuna.jpg" alt="I giardini della luna | Steven Erikson" width="170" height="250"/>
-		<img class="libri_home" src="copertine/IlTronoDiSpade.jpg" alt="Il trono di Spade | George R.R. Martin" width="170" height="250"/>
-		<img class="libri_home" src="copertine/50sfumaturedicretini.jpg" alt="50 sfumature di cretini | Romina Viola" width="170" height="250"/>
-		<img class="libri_home" src="copertine/IlSignoreDegliAnelli.jpg" alt="Il Signore Degli Anelli | J.R. Tolkien" width="170" height="250"/>
-		<img class="libri_home" src="copertine/Narnia.jpg" alt="Le Cronache Di Narnia | C.S Lewis" width="170" height="250"/>
+	<div class="text">
+		<h2>
+			Entra a far parte della <span xml:lang="en">community</span> di <span xml:lang="en">FaceOnTheBook</span>.
+		</h2>
+			<cite>*Descrizione bellissima del sito che non ho voglia di fare perchè sono pigro*</cite>
+		<h3>	
+			Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
+		</h3>	
 	</div>
-	<div>
-			<h2>
-				Entra a far parte della community di SUCHWOW.
-			</h2>
-			<h3>
-				Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
-			</h3>	
+	<div class="slideshow"> <!-- http://www.w3schools.com/howto/howto_js_slideshow.asp -->
+		<div class="slide">
+			<img src="copertine/IlSignoreDegliAnelli.jpg" id="libro1" alt="Libro bellissimo che proprio più bello non si può"></img>
+				<label for="libro1" class="slideText">Titolo: </label>				
+				<label for="libro1" class="slideText">Autore: </label>
+				<label for="libro1" class="slideText">Valutazione:</label>
+		</div>
+		<div class="slide">
+				<img src="copertine/IGiardiniDellaLuna.jpg" id="libro2" alt="Altro bellissimo chee. mamma mia se lo vedessii"></img>
+				<label for="libro2" class="slideText">Titolo: </label>				
+				<label for="libro2" class="slideText">Autore: </label>
+				<label for="libro2" class="slideText">Valutazione:</label>
+		</div>
+		<div class="slide">
+				<img src="copertine/50sfumaturedicretini.jpg" id="libro3" alt="Maronna che meraviglia!!"></img>
+				<label for="libro3" class="slideText">Titolo: </label>				
+				<label for="libro3" class="slideText">Autore: </label>
+				<label for="libro3" class="slideText">Valutazione:</label>
+		</div>
+		<a class="back" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	</div>
+	
+	<div style="text-align:center">
+		<span class="dot" onclick="currentSlide(1)"></span>
+		<span class="dot" onclick="currentSlide(2)"></span>
+		<span class="dot" onclick="currentSlide(3)"></span>
+	</div>
+
+	<div id="lastRecensioni">
+		<h3>Ultime Recensioni</h3>
+			<ul>
+				<li><a href="index.html">Recensione1</a></li>			
+				<li><a href="index.html">Recensione2</a></li>			
+				<li><a href="index.html">Recensione3</a></li>			
+				<li><a href="index.html">Recensione4</a></li>			
+				<li><a href="index.html">Recensione5</a></li>						
+			</ul>
+	</div>
+	<div id="lastNews">
+		<h3>Ultime Novit&agrave;</h3>
+			<ul>
+				<li><a href="index.html">Novit&agrave;1</a></li>			
+				<li><a href="index.html">Novit&agrave;2</a></li>			
+				<li><a href="index.html">Novit&agrave;3</a></li>			
+				<li><a href="index.html">Novit&agrave;4</a></li>			
+				<li><a href="index.html">Novit&agrave;5</a></li>
+			</ul>
 	</div>
 </body>
 </html>
