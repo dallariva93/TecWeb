@@ -9,7 +9,7 @@
 	<meta name="keywords" content="Libri,Social,Network"/>
 	<meta name="robots" content="index"/>
 	<meta name="viewport" content="width=device-width"/>
-	<link rel="stylesheet" media="screen" href="screen.css" type="text/css" />
+	<link rel="stylesheet" media="screen" href="homescreen.css" type="text/css" />
 	<link rel="stylesheet" media="print" href="print.css" type="text/css" />
 	<link rel="stylesheet" media="aural" href="screenreader.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
@@ -17,14 +17,14 @@
 <body>
 	<div id="menu"> <!-- Barra di navigazione -->
 		<ul>
-			<li xml:lang="en">Home</li>
-			<li><a href="index.html" xml:lang="en">News</a></li>
-			<li><a href="index.html">Recensioni</a></li>
-			<li><a href="index.html">Classifica</a></li>
-			<li><a href="contacts.html">Contatti</a></li>		
+			<li class="simpli" xml:lang="en">Home</li>
+			<li class="simpli"><a href="index.html" xml:lang="en">News</a></li>
+			<li class="simpli"><a href="index.html">Recensioni</a></li>
+			<li class="simpli"><a href="index.html">Classifica</a></li>
+			<li class="simpli"><a href="contacts.html">Contatti</a></li>			
 			<li id="Accesso" >Accedi
 				<ul id="ulAccesso">
-					<li>	<!-- Form per l'accesso (classe xxx= classe non ancora definita)-->
+					<li id="tendina">	
 						<form action="submission.php" method="post">
 							<fieldset>
 								<label for="username_input" xml:lang="en">E-mail:</label>
@@ -36,23 +36,24 @@
 								<input type="submit" onclick="alert('MUCH THANK YOU!')" value="Iscriviti!" id="iscriviti"/>
 							</fieldset>
 						</form>
-					</li>
-				</ul>
+					</li>					
+				</ul> 
 			</li>
+
 		</ul>
+		
 	</div>
-	<!--<div id="breadcrumb">
-		<p>Ti tovi in: <span xml:lang="en">Home</span></p>
-	</div>  Nella home non serve, lascio per copiarlo nelle altre pagine!!-->
-	<div id="searchform">
-		<form action="search.php" method="post">
-			<fieldset>
-				<input type="text" name="search" id="searcharea"/>
-				<input type="submit" value="Cerca" />		
-			</fieldset>		
-		</form>	
+	<div id="breadcrumb">
+		<span id="path"><p>Ti trovi in: <span xml:lang="en">Home</span></p></span>
+		<div id="searchform">
+			<form action="action_page.php">
+				<input type="search" name="googlesearch">
+				<input type="Submit">
+			</form>
+		</div>
 	</div>
-	<div class="text">
+	<div id="corpo">
+	 <div class="text">
 		<h2>
 			Entra a far parte della <span xml:lang="en">community</span> di <span xml:lang="en">FaceOnTheBook</span>.
 		</h2>
@@ -60,7 +61,7 @@
 		<h3>	
 			Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
 		</h3>	
-	</div>
+	</div> 
 	<div class="slideshow"> <!-- http://www.w3schools.com/howto/howto_js_slideshow.asp -->
 		<div class="slide">
 			<img src="copertine/IlSignoreDegliAnelli.jpg" id="libro1" alt="Libro bellissimo che proprio più bello non si può"></img>
@@ -109,6 +110,7 @@
 				<li><a href="index.html">Novit&agrave;4</a></li>			
 				<li><a href="index.html">Novit&agrave;5</a></li>
 			</ul>
+	</div>
 	</div>
 </body>
 </html>
