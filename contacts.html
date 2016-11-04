@@ -9,22 +9,22 @@
 	<meta name="keywords" content="Libri,Social,Network"/>
 	<meta name="robots" content="index"/>
 	<meta name="viewport" content="width=device-width"/>
-	<link rel="stylesheet" media="screen" href="screen.css" type="text/css" />
+	<link rel="stylesheet" media="screen" href="homescreen.css" type="text/css" />
 	<link rel="stylesheet" media="print" href="print.css" type="text/css" />
 	<link rel="stylesheet" media="aural" href="screenreader.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
 </head>
 <body>
-	<div id="menu"> <!-- Barra di navigazione -->
+	<div class="menu"> <!-- Barra di navigazione -->
 		<ul>
-			<li xml:lang="en"><a href="index.html" xml:lang="en">Home</a></li>
+			<li><a href="index.html" xml:lang="en">Home</a></li>
 			<li><a href="index.html" xml:lang="en">News</a></li>
 			<li><a href="index.html">Recensioni</a></li>
 			<li><a href="index.html">Classifica</a></li>
-			<li>Contatti</li>		
-			<li id="Accesso" >Accedi
-				<ul id="ulAccesso">
-					<li>	<!-- Form per l'accesso (classe xxx= classe non ancora definita)-->
+			<li><a href="contacts.html">Contatti</a></li>			
+			<li class="Accesso" >Accedi
+				<ul class="Dropdown">
+					<li>	
 						<form action="submission.php" method="post">
 							<fieldset>
 								<label for="username_input" xml:lang="en">E-mail:</label>
@@ -36,23 +36,25 @@
 								<input type="submit" onclick="alert('MUCH THANK YOU!')" value="Iscriviti!" id="iscriviti"/>
 							</fieldset>
 						</form>
-					</li>
-				</ul>
+					</li>					
+				</ul> 
 			</li>
+
 		</ul>
+		
 	</div>
-	<div id="breadcrumb">
-		<p>Ti tovi in: <span xml:lang="en">Home</span>/<span>Contatti</span></p>
+	<div class="breadcrumb">
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/Contatti</p>
+		<div class="searchform">
+			<form action="action_page.php">
+				<fieldset>
+					<input type="text" name="googlesearch"/>
+					<input type="submit" value="Cerca"/>
+				</fieldset>
+			</form>
+		</div>
 	</div>
-	<div id="searchform">
-		<form action="search.php" method="post">
-			<fieldset>
-				<input type="text" name="search" id="searcharea"/>
-				<input type="submit" value="Cerca" />		
-			</fieldset>		
-		</form>	
-	</div>
-	<div>
+	<div id="emailform">
 		<h2>Contatta la redazione</h2>
 		<form action="send_email.php" method="post">
 			<fieldset id="invio_email">
