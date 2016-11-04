@@ -1,100 +1,101 @@
+* {	
+	margin: 0em;
+	padding: 0em;
+}
 html, body{
-
-	margin: 0px;
-	padding: 0px;
-   	font-family: Verdana, Helvetica, sans-serif;
+	max-width: 1024px;
+	font-family: Verdana, Helvetica, sans-serif;
+	margin: auto;
 	background-color:#ddd;
 }
-
-body{
-	margin-right:15%;
-	margin-left:15%;
-	border-left:1px solid black;
-	border-right:1px solid black;
-	}
-
-#menu {
-	position: fixed;
-	top: 0em;
-	right: 0em;
-	left: 0em;
-	width: 100%;
-
+fieldset {
+	border:0;
 }
-
-#menu ul {
+a:link {
+	color: blue;
+}
+a:visited {
+	color:#8b2323;
+	
+}
+/**************************
+			MENU
+***************************/
+.menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+}
+.menu ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
 	background-color: grey;
-
+}
+.menu li {
+	display:inline-block;
+	width: 100px;
 }
 
-#menu > ul > .simpli {
-	float: left;
+.menu li a , .Accesso{
+	padding: 0.5em;
 	display: block;
+	text-decoration: none;
+	color: black;
 	text-align: center;
-	width:100px;
-	padding: 0.5em ;
-	border-right : 1px solid black;
-	border-top : 1px solid black;
-	border-bottom : 1px solid black;
-	
-	
 }
-
-
-
-#menu li.simpli:hover {
-    background-color: orange;
+.menu li a:hover{
+	color: white;
+	background-color: orange;
 }
-
-#menu #Accesso:hover #ulAccesso{
-
-	padding:0em;    
-	display: block;
-   	position: absolute;
-	text-align:left;
-    	width:20em;
-    	margin: 0.5em 0 0 0;
-   	border:1px solid black;
-   	background: grey;
-}
-
-#Accesso {
+/**************************
+		MENU - ACCESSO
+***************************/
+.Accesso{
 	float: right;
-	margin-left: 5%;
-	margin-right: 1px;
-	display: block;
-	text-align: center;
-	width:100px;
-	padding: 0.5em ;
 	border: 1px solid black;
-
 }
-
-#Accesso>#ulAccesso {
-
+.Dropdown {
 	display: none;
+	position: absolute;
+	top: 2.4em;
+	border-top:1px solid #ddd; 
+	max-width: 40em;
+	min-width: 30em;
 }
-
-#breadcrumb {
-	position: relative;
-	float: none;
-	margin-top:2em;
+.Accesso:hover  .Dropdown{
+	float: left;	
+	background-color: #aaaaaa;
+	display: block;
+	left: auto;
+	right: 0.1em;
+}
+.Dropdown li {
+	width: auto;
+}
+/**************************
+	BREADCRUMB E RICERCA
+***************************/
+.breadcrumb {
+	margin-top:4em;
 	border: 1px solid black;
 }	
 
-#path {
+.path {
 	float:left;
 }
 
-#searchform {
+.searchform {
 	padding-top:1em;
 	float: right;
-	
 }
+
+/**************************
+			INDEX
+***************************/
 
 .text {
 	padding-left:0.2em;
@@ -106,31 +107,67 @@ body{
 	float:left;
 }
 
-#lastRecensioni{
-	float:left;
-	width:49%;
-	padding:0.2em;
-	border-right:1px solid #F2F2F2;
-	
-	
-}
-
-#lastRecensioni li{
-	list-style-type:none;
-}
-
-#lastNews{
-	float:left;
-	width:49%;
-	padding:0.2em;
-}
+/**************************
+			SLIDESHOW
+***************************/
 .slideshow{
 	padding-bottom:6em;
 	border-bottom:1px solid #F2F2F2;
-	
-}
-#lastNews li{
-	list-style-type:none;
 }
 
+/**************************
+		RECENSIONI E NEWS
+***************************/
+
+.doubletable{
+	padding: 0.2em;	
+	float: left;
+	min-width: 49%;
+	margin: auto;
+	border-bottom:1px solid #F2F2F2;
+}
+.doubletable dt{
+	margin: 0;
+	padding-bottom: 0.5em;
+	text-align: center;
+	font-size:1em;
+	font-weight:bold; 
+}
+.doubletable dd{
+	list-style-type:none;
+	display: block;
+	padding: 0.2em;
+	overflow: hidden; 
+}
+.doubletable dd:hover{
+	background-color: #F2F2F2; 
+}
+#newsrec {
+	border: 1px solid #F2F2F2;
+	margin-bottom: 5em;
+}
+#news {
+	border-left: 1px solid #F2F2F2;
+}
+/**************************
+		CONTATTI
+***************************/
+#emailform {
+	margin-top: 5em;
+	width: 100%;
+}
+#emailform fieldset {
+	padding-left: 1em;
+	border: 1px solid #F2F2F2;
+}
+#emailform label {
+	
+	text-align: left;
+	display: block;
+}
+#emailform textarea {
+	width: 60%;
+	max-width: 100%;
+	
+}
 

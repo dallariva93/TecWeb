@@ -13,18 +13,19 @@
 	<link rel="stylesheet" media="print" href="print.css" type="text/css" />
 	<link rel="stylesheet" media="aural" href="screenreader.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
+	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
 <body>
-	<div id="menu"> <!-- Barra di navigazione -->
+	<div class="menu"> <!-- Barra di navigazione -->
 		<ul>
-			<li class="simpli" xml:lang="en">Home</li>
-			<li class="simpli"><a href="index.html" xml:lang="en">News</a></li>
-			<li class="simpli"><a href="index.html">Recensioni</a></li>
-			<li class="simpli"><a href="index.html">Classifica</a></li>
-			<li class="simpli"><a href="contacts.html">Contatti</a></li>			
-			<li id="Accesso" >Accedi
-				<ul id="ulAccesso">
-					<li id="tendina">	
+			<li><a href="index.html" xml:lang="en">Home</a></li>
+			<li><a href="index.html" xml:lang="en">News</a></li>
+			<li><a href="index.html">Recensioni</a></li>
+			<li><a href="index.html">Classifica</a></li>
+			<li><a href="contacts.html">Contatti</a></li>			
+			<li class="Accesso" >Accedi
+				<ul class="Dropdown">
+					<li>	
 						<form action="submission.php" method="post">
 							<fieldset>
 								<label for="username_input" xml:lang="en">E-mail:</label>
@@ -43,14 +44,17 @@
 		</ul>
 		
 	</div>
-	<div id="breadcrumb">
-		<span id="path"><p>Ti trovi in: <span xml:lang="en">Home</span></p></span>
-		<div id="searchform">
+	
+	<div class="breadcrumb">
+		<!--<p class="path">Ti trovi in: <span xml:lang="en">Home</span></p>-->
+		<div class="searchform">
 			<form action="action_page.php">
-				<input type="search" name="googlesearch">
-				<input type="Submit">
+				<fieldset>
+					<input type="text" name="googlesearch"/>
+					<input type="submit" value="Cerca"/>
+				</fieldset>
 			</form>
-		</div>
+		</div> 
 	</div>
 	<div id="corpo">
 	 <div class="text">
@@ -62,8 +66,8 @@
 			Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
 		</h3>	
 	</div> 
-	<div class="slideshow"> <!-- http://www.w3schools.com/howto/howto_js_slideshow.asp -->
-		<div class="slide">
+	<!-- <div class="slideshow">  http://www.w3schools.com/howto/howto_js_slideshow.asp -->
+	<!--	<div class="slide">
 			<img src="copertine/IlSignoreDegliAnelli.jpg" id="libro1" alt="Libro bellissimo che proprio più bello non si può"></img>
 				<label for="libro1" class="slideText">Titolo: </label>				
 				<label for="libro1" class="slideText">Autore: </label>
@@ -83,33 +87,32 @@
 		</div>
 		<a class="back" onclick="plusSlides(-1)">&#10094;</a>
 		<a class="next" onclick="plusSlides(1)">&#10095;</a>
-	</div>
-	
 	<div style="text-align:center">
 		<span class="dot" onclick="currentSlide(1)"></span>
 		<span class="dot" onclick="currentSlide(2)"></span>
 		<span class="dot" onclick="currentSlide(3)"></span>
+	</div>	
 	</div>
+	-->
+	
 
-	<div id="lastRecensioni">
-		<h3>Ultime Recensioni</h3>
-			<ul>
-				<li><a href="index.html">Recensione1</a></li>			
-				<li><a href="index.html">Recensione2</a></li>			
-				<li><a href="index.html">Recensione3</a></li>			
-				<li><a href="index.html">Recensione4</a></li>			
-				<li><a href="index.html">Recensione5</a></li>						
-			</ul>
-	</div>
-	<div id="lastNews">
-		<h3>Ultime Novit&agrave;</h3>
-			<ul>
-				<li><a href="index.html">Novit&agrave;1</a></li>			
-				<li><a href="index.html">Novit&agrave;2</a></li>			
-				<li><a href="index.html">Novit&agrave;3</a></li>			
-				<li><a href="index.html">Novit&agrave;4</a></li>			
-				<li><a href="index.html">Novit&agrave;5</a></li>
-			</ul>
+	<div id="newsrec">		
+			<dl class="doubletable">
+			<dt>Ultime Recensioni</dt>
+				<dd><a href="index.html">Recensione1</a></dd>			
+				<dd><a href="index.html">Recensione2</a></dd>			
+				<dd><a href="index.html">Recensione3</a></dd>			
+				<dd><a href="index.html">Recensione4</a></dd>			
+				<dd><a href="index.html">Recensione5</a></dd>						
+			</dl>
+			<dl class="doubletable" id="news">
+			<dt>Ultime Novit&agrave;</dt>
+				<dd><a href="index.html">Novit&agrave;1</a></dd>			
+				<dd><a href="index.html">Novit&agrave;2</a></dd>			
+				<dd><a href="index.html">Novit&agrave;3</a></dd>			
+				<dd><a href="index.html">Novit&agrave;4</a></dd>			
+				<dd><a href="index.html">Novit&agrave;5</a></dd>
+			</dl>
 	</div>
 	</div>
 </body>
