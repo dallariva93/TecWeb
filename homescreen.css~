@@ -81,7 +81,7 @@ a:visited {
 ***************************/
 .breadcrumb {
 	height: 2.5em;
-	margin-top:2.7em;
+	margin-top:2.5em;
 	border: 1px solid black;
 }	
 
