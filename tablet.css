@@ -1,3 +1,11 @@
 .doubletable {
 	width: 100%;
 }
+/** {	background-color: lightblue;}*/
+#news {
+	border-left: 0;
+}
+.menu li a,.menu li.Accesso{
+	display: none;
+	width: 100%;
+}

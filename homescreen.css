@@ -21,12 +21,14 @@ a:visited {
 /**************************
 			MENU
 ***************************/
+
 .menu {
 	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
 	width: 100%;
+	z-index: 9;
 }
 .menu ul {
 	list-style-type: none;
@@ -65,6 +67,7 @@ a:visited {
 	border-top:1px solid #ddd; 
 	max-width: 40em;
 	min-width: 30em;
+	z-index: 8;
 }
 .Accesso:hover  .Dropdown{
 	float: left;	
@@ -81,8 +84,10 @@ a:visited {
 ***************************/
 .breadcrumb {
 	height: 2.5em;
-	margin-top:2.7em;
-	border: 1px solid black;
+	margin-top:2.4em;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 }	
 
 .path {
@@ -94,7 +99,6 @@ a:visited {
 
 .searchform {
 	padding-top: 1em;
-	padding-right: 0.2em;
 	float: right;
 	
 }
@@ -117,19 +121,56 @@ a:visited {
 			SLIDESHOW
 ***************************/
 .slideshow{
-	padding-bottom:6em;
-	border-bottom:1px solid #F2F2F2;
+	border:1px solid black;
+	max-width: 100%;
+	max-height: 40em;
+	position: relative;
+	z-index: 1;
+	background-color: #F2F2F2;
 }
-
+.back, .next  {
+ 	cursor: pointer;
+	color: white;
+	background-color: grey;
+	padding: 1em;
+	top: 40%;
+	position: absolute;
+}
+.next {
+	right: 0;
+}
+.back:hover, .next:hover {
+	background-color: orange;
+}
+.slideshow img {
+	position: relative;
+	padding: 1em;
+	margin-left: 3em;
+	max-width: 45%;
+	height: 15em;
+}
+.slideTitle, .slideAuthor, .slideRate {
+	display:block;
+	top: 1em;
+	left: 50%;
+	position: absolute;
+	font-weight: bold;
+	font-size: 1em;
+}
+.slideAuthor {
+	top: 7em;
+}
+.slideRate {
+	top: 14em;
+}
 /**************************
 		RECENSIONI E NEWS
 ***************************/
 
 .doubletable{
-	padding: 0.2em;	
+	padding: 0.2em 0 0.2em 0;
 	float: left;
 	min-width: 49%;
-	margin: auto;
 	border-bottom:1px solid #F2F2F2;
 }
 .doubletable dt{
@@ -139,10 +180,14 @@ a:visited {
 	font-size:1em;
 	font-weight:bold; 
 }
-.doubletable dd{
+.doubletable dd {
+	width: 100%;
+	overflow: hidden;
+}
+.doubletable dd a{
 	list-style-type:none;
 	display: block;
-	padding: 0.2em;
+	padding: 0.3em;
 	overflow: hidden; 
 }
 .doubletable dd:hover{
@@ -172,8 +217,8 @@ a:visited {
 	display: block;
 }
 #emailform textarea {
-	width: 60%;
-	max-width: 100%;
+	width: 95%;
+	height: 10em;
 	
 }
 

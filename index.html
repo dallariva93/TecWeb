@@ -40,9 +40,7 @@
 					</li>					
 				</ul> 
 			</li>
-
 		</ul>
-		
 	</div>
 	
 	<div class="breadcrumb">
@@ -50,7 +48,7 @@
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
-					<input type="text" name="googlesearch"/>
+					<input type="text" name="googlesearch" id="search" />
 					<input type="submit" value="Cerca"/>
 				</fieldset>
 			</form>
@@ -66,40 +64,35 @@
 			Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
 		</h3>	
 	</div> 
-	<!-- <div class="slideshow">  http://www.w3schools.com/howto/howto_js_slideshow.asp -->
-	<!--	<div class="slide">
+	 <div class="slideshow">  <!--http://www.w3schools.com/howto/howto_js_slideshow.asp -->
+	
+	<div class="slide">
 			<img src="copertine/IlSignoreDegliAnelli.jpg" id="libro1" alt="Libro bellissimo che proprio più bello non si può"></img>
-				<label for="libro1" class="slideText">Titolo: </label>				
-				<label for="libro1" class="slideText">Autore: </label>
-				<label for="libro1" class="slideText">Valutazione:</label>
+				<label for="libro1" class="slideTitle">Titolo: </label>				
+				<label for="libro1" class="slideAuthor">Autore: </label>
+				<label for="libro1" class="slideRate">Valutazione:</label>
 		</div>
+		 
 		<div class="slide">
 				<img src="copertine/IGiardiniDellaLuna.jpg" id="libro2" alt="Altro bellissimo chee. mamma mia se lo vedessii"></img>
-				<label for="libro2" class="slideText">Titolo: </label>				
-				<label for="libro2" class="slideText">Autore: </label>
-				<label for="libro2" class="slideText">Valutazione:</label>
+				<label for="libro2" class="slideTitle">Titolo: </label>				
+				<label for="libro2" class="slideAuthor">Autore: </label>
+				<label for="libro2" class="slideRate">Valutazione:</label>
 		</div>
 		<div class="slide">
 				<img src="copertine/50sfumaturedicretini.jpg" id="libro3" alt="Maronna che meraviglia!!"></img>
-				<label for="libro3" class="slideText">Titolo: </label>				
-				<label for="libro3" class="slideText">Autore: </label>
-				<label for="libro3" class="slideText">Valutazione:</label>
+				<label for="libro3" class="slideTitle">Titolo: </label>				
+				<label for="libro3" class="slideAuthor">Autore: </label>
+				<label for="libro3" class="slideRate">Valutazione:</label>
 		</div>
-		<a class="back" onclick="plusSlides(-1)">&#10094;</a>
-		<a class="next" onclick="plusSlides(1)">&#10095;</a>
-	<div style="text-align:center">
-		<span class="dot" onclick="currentSlide(1)"></span>
-		<span class="dot" onclick="currentSlide(2)"></span>
-		<span class="dot" onclick="currentSlide(3)"></span>
-	</div>	
+		<a class="back" onclick="cambioSlide(-1)">&#10094;</a>
+		<a class="next" onclick="cambioSlide(1)">&#10095;</a>
 	</div>
-	-->
-	
 
 	<div id="newsrec">		
 			<dl class="doubletable">
 			<dt>Ultime Recensioni</dt>
-				<dd><a href="index.html">Recensione1</a></dd>			
+				<dd><a href="index.html">Recensione1</a></dd>
 				<dd><a href="index.html">Recensione2</a></dd>			
 				<dd><a href="index.html">Recensione3</a></dd>			
 				<dd><a href="index.html">Recensione4</a></dd>			
@@ -115,5 +108,10 @@
 			</dl>
 	</div>
 	</div>
+	
+	
+
+<script src="script.js" type="text/javascript"></script>	
+	
 </body>
 </html>
