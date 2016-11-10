@@ -18,6 +18,7 @@ a:visited {
 	color:#8b2323;
 	
 }
+
 /**************************
 			MENU
 ***************************/
@@ -29,76 +30,98 @@ a:visited {
 	left: 0;
 	width: 100%;
 	z-index: 9;
+	background-color: grey;
+
 }
 .menu ul {
+	max-width: 1024px;
 	list-style-type: none;
-	margin: 0;
+	margin:auto ;
 	padding: 0;
 	overflow: hidden;
-	background-color: grey;
 }
 .menu li {
-	display:inline-block;
+	float: left;
 	width: 100px;
 }
 
-.menu li a , .Accesso{
+.menu li > a , #Accesso{
 	padding: 0.5em;
 	display: block;
 	text-decoration: none;
 	color: black;
 	text-align: center;
 }
-.menu li a:hover{
+.menu li > a:hover, #Accesso:hover {
 	color: white;
-	background-color: orange;
+	background-color: black;
 }
 /**************************
 		MENU - ACCESSO
 ***************************/
-.Accesso{
-	float: right;
-	border: 1px solid black;
+#Accesso{
+	float:right;
 }
-.Dropdown {
+#Dropdown {
+
+	right:0;
 	display: none;
 	position: absolute;
-	top: 2.4em;
-	border-top:1px solid #ddd; 
-	max-width: 40em;
-	min-width: 30em;
+	top: 2.1em;
+	border:1px solid black; 
+	max-width: 25em;
+	min-width: 15em;
 	z-index: 8;
+	padding:0.5em;
 }
-.Accesso:hover  .Dropdown{
-	float: left;	
+.textBox{
+	display:block;
+	margin: 0.3em auto 0.3em auto;
+	width:80%;
+	float: top;
+	
+}
+
+#btnAccedi{
+	margin-top:1em;
+	width:80%;
+}
+
+#forgot, #register{
+   display: block;
+   vertical-align:top;
+	font-size: 0.8em;
+	text-align: left;
+	padding-left: 10%;
+
+}
+
+
+#Accesso:hover  #Dropdown{
 	background-color: #aaaaaa;
 	display: block;
-	left: auto;
-	right: 0.1em;
 }
-.Dropdown li {
-	width: auto;
-}
+
 /**************************
 	BREADCRUMB E RICERCA
 ***************************/
 .breadcrumb {
 	height: 2.5em;
-	margin-top:2.4em;
-	border-left: 1px solid black;
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
+	margin-top:2.1em;
+	border: 1px solid black;
+
 }	
 
 .path {
-	padding-left: 0.2em;
-	padding-top: 1em;
+	padding-left: 0.5em;
+	padding-top: 0.8em;
 	float: left;
 	
 }
 
 .searchform {
-	padding-top: 1em;
+	padding-right:0.5em;
+	padding-top: 0.7em;
 	float: right;
 	
 }
@@ -108,7 +131,7 @@ a:visited {
 ***************************/
 
 .text {
-	padding-left:0.2em;
+	padding:0.5em;
 }
 
 #corpo{
@@ -221,4 +244,9 @@ a:visited {
 	height: 10em;
 	
 }
+#emailbt {
+	display: block;
+   vertical-align:top;
+}
+
 
