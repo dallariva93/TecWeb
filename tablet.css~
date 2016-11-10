@@ -5,7 +5,7 @@
 #news {
 	border-left: 0;
 }
-.menu ul li a,.menu ul li.Accesso{
+.menu li a,.menu li.Accesso{
 	display: none;
 	width: 100%;
 }

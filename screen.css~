@@ -66,7 +66,7 @@ a:visited {
 	display: none;
 	position: absolute;
 	right:0;
-	left:auto;
+	left:-50%;
 	top: 2.1em;
 	border:1px solid black; 
 	max-width: 25em;
