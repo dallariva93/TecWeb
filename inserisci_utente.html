@@ -15,62 +15,32 @@
 	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
-<body>
-       
-           <h1>INSERISCI</H1>
-<br>
-           <table border="1" align="center">
-  <tr>
-    <td align="center"><b>Dati del nuovo cliente</b></td> 
-  </tr>
-  <tr>
-    <td>
-      <table>
+    <body>
+       <p align="center"><strong>Inserisci i dati dell' utente</strong> </p>
         <form method="post" action="inserisci_utente.php">
- 	<tr>
-          <td>Nickname</td>
-          <td><input type="text" name="nickname" size="20">
-          </td>
-        </tr>
-        <tr>
-          <td>Nome</td>
-          <td><input type="text" name="nome" size="20">
-          </td>
-        </tr>
- 	<tr>
-          <td>Cognome</td>
-          <td><input type="text" name="cognome" size="20">
-          </td>
-        </tr>
-        <tr>
-          <td>Email</td>
-          <td><input type="text" name="email" size="20">
-          </td>
-        </tr>
- <tr>
-          <td>Residenza</td>
-          <td><input type="text" name="residenza" size="20">
-          </td>
-        </tr>
-<tr>
-          <td>Password</td>
-          <td><input type="text" name="password" size="20">
-          </td>
-        </tr>
-        <tr>
-
-          <td></td>
-          <td align="center"><button><h1>
+         <p align = "center"><label for="nickname">Nickname</label>
+<input name="nickname" id="nickname" maxlength=“20”/>
+</p>
+ <p align = "center"><label for="nome">Nome   </label>
+<input name="nome" id="nome" maxlength=“20”/>
+</p>
+ <p align = "center"><label for="cognome">Cognome</label>
+<input name="cognome" id="cognome" maxlength=“20”/>
+</p>
+ <p align = "center"><label for="email">Email</label>
+<input name="email" id="email" maxlength=“20”/>
+</p>
+ <p align = "center"><label for="residenza">Residenza</label>
+<input name="residenza" id="residenza" maxlength=“20”/>
+</p>
+<p align="center">
+<label for="password">Password</label> <input type="password" name="password" id="password" maxlength=“20” /></p> 
+<p align="center">
+          <button><h1>
 Aggiungi
 </h1></button>
-</td>
-        </tr>
+</p>
         </form>
-        </table>
-      </td>
-    </tr>
-</table>
-
 </body>
 
 </html>

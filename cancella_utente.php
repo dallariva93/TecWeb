@@ -25,7 +25,7 @@ $nickname= $_POST['nickname'];
 if ($nickname=="")
 {echo "<br><h1>Inserire il nickname utente </h1>";}
 else{
-$delete = "DELETE FROM `utente` WHERE nicknamr='$nickname'";
+$delete = "DELETE FROM `utente` WHERE nickname='$nickname'";
 } 
 $result = mysqli_multi_query($db,$delete);
 if($result){
