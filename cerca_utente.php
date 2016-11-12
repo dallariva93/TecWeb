@@ -23,14 +23,47 @@
 include ('connect.php') ;
 
 
-$nickname= $_POST['nickname'];
+$email= $_POST['email'];
 
-if ($nickname=="")
-{echo ("<br><h1>Inserire il nickname</h1") ;} 
+if ($email=="")
+{echo ("<br><h1>Inserire l'email</h1") ;} 
 
-$query = "SELECT * FROM `utente` WHERE nickname='$nickname'" ;
+$query = "SELECT * FROM `email` WHERE email='$email''" ;
 $risultati = mysqli_multi_query($db,$query);
 $num = mysqli_stmt_num_rows($risultati);
 ?>
+<table border="1" cellspacing="2" cellpadding="2" align="center">
+<tr>
+<th><font face="Arial, Helvetica, sans-serif">Email</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Cognome</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Nickname</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Residenza</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Data di nascita</font></th>
+</tr>
+<?php
+$i = 0;
+if ($num==0){echo "<h1>Utente non trovato</h1>";}
+while ($i < $num) {
+$email= mysql_result($risultati, $i, "email");
+$nome= mysql_result($risultati, $i, "nome");
+$cognome= mysql_result($risultati, $i, "cognome");
+$nickname= mysql_result($risultati, $i, "nickname");
+$residenza= mysql_result($risultati, $i, "residenza");
+$data= mysql_result($risultati, $i, "Data_Nascita");
+?>
+<tr>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $email?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $nickname?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $residenza?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $data?></font></td>
+</tr>
+<?php
+$i++;
+}
+?> 
+</table>
 </body>
 </html>
