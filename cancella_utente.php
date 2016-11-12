@@ -20,12 +20,12 @@
 
 include('connect.php');
 
-$nickname= $_POST['nickname'];
+$email= $_POST['email'];
 
-if ($nickname=="")
-{echo "<br><h1>Inserire il nickname utente </h1>";}
+if ($email=="")
+{echo "<br><h1>Inserire l'email dell'utente </h1>";}
 else{
-$delete = "DELETE FROM `utente` WHERE nickname='$nickname'";
+$delete = "DELETE FROM `utente` WHERE email='$email'";
 } 
 $result = mysqli_multi_query($db,$delete);
 if($result){
