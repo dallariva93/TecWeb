@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Cancella redazione</title>
+	<title>Inserisci scrittore</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -15,17 +15,23 @@
 	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
-    <body>
-       <p align="center"><strong>Inserisci email della redazione da cancellare</strong> </p>
-        <form method="post" action="cancella_redazione.php">
-          <p align="center"><input type="email" name="email" size="20">
-</p>
-<p align="center">
-          <button><h1>
-Elimina
-</h1></button>
-</p>
-        </form>
+ <body>
+	<p>Inserisci i dati dell' utente</p>
+	<form method="post" action="inserisci_scittore.php">
+		<div>
+			<label for="codice">Codice</label>
+			<input name="codice" id="codice"/>
+			<label for="nome">Nome</label>
+			<input name="nome" id="nome"/>
+			<label for="cognome">Cognome</label>
+			<input name="cognome" id="cognome"/>
+			<label for="nazionalita">Nazionalit&agrave;</label>
+			<input name="nazionalita" id="nazionalita"/>
+			<label for="data">Data di nascita</label>
+			<input type="text" name="data" id="data"/>
+			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
+		</div>
+	</form>
 </body>
 
 </html>
