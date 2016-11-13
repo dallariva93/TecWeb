@@ -15,34 +15,28 @@
 	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
-    <body>
-       <p align="center"><strong>Inserisci i dati dell' utente</strong> </p>
-        <form method="post" action="inserisci_utente.php">
-         <p align = "center"><label for="nickname">Nickname</label>
-<input name="nickname" id="nickname" maxlength=“20”/>
-</p>
- <p align = "center"><label for="nome">Nome   </label>
-<input name="nome" id="nome" maxlength=“20”/>
-</p>
- <p align = "center"><label for="cognome">Cognome</label>
-<input name="cognome" id="cognome" maxlength=“20”/>
-</p>
- <p align = "center"><label for="email">Email</label>
-<input type="email" name="email" id="email" maxlength=“20”/>
-</p>
- <p align = "center"><label for="residenza">Residenza</label>
-<input name="residenza" id="residenza" maxlength=“20”/>
-</p>
-<p align="center">
-<label for="Data">Data di nascita</label> <input type="date" name="data" id="data" maxlength=“20” /></p>
-<p align="center">
-<label for="password">Password</label> <input type="password" name="password" id="password" maxlength=“20” /></p> 
-<p align="center">
-          <button><h1>
-Aggiungi
-</h1></button>
-</p>
-        </form>
+<body>
+	<p>Inserisci i dati dell' utente</p>
+	<form method="post" action="inserisci_utente.php">
+		<div>
+			<label for="nickname">Nickname</label>
+			<input name="nickname" id="nickname"/>
+			<label for="nome">Nome</label>
+			<input name="nome" id="nome"/>
+			<label for="cognome">Cognome</label>
+			<input name="cognome" id="cognome"/>
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email"/>
+			<label for="residenza">Residenza</label>
+			<input name="residenza" id="residenza"/>
+			<label for="data">Data di nascita</label> 
+			<input type="text" name="data" id="data"/>
+			<label for="password">Password</label> 
+			<input type="password" name="password" id="password"/>
+			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
+		</div>
+	</form>
+	
 </body>
 
 </html>
