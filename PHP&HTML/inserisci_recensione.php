@@ -20,15 +20,14 @@
 
 include('connect.php');
 
-$id= $_POST['id'];
+$codice= $_POST['codice'];
 $libro= $_POST['libro'];
 $autore= $_POST['autore'];
-$genere= $_POST['genere'];
+$testo= $_POST['testo'];
 $data= $_POST['data'];
-$casa= $_POST['casa'];
-$scrittore= $_POST['scrittore'];
+$valutazione= $_POST['valutazione'];
 
-if (($id=="") or ($libro=="") or ($autore=="") or ($data=="") or ($testo="") or ($valutazione="")) 
+if (($codice=="") or ($libro=="") or ($autore=="") or ($data=="") or ($testo="") or ($valutazione="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
