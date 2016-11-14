@@ -23,7 +23,7 @@
 include ('connect.php') ;
 
 
-$email= $_POST['email'];
+$codice= $_POST['codice'];
 
 if ($email=="")
 {echo ("<br><h1>Inserire l'email</h1") ;} 

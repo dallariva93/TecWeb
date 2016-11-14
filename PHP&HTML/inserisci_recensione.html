@@ -1,9 +1,8 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Cerca redazione</title>
+	<title>Inserisci libro</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -17,46 +16,45 @@
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
 <body>
+	<p>Inserisci i dati del libro</p>
+	<form method="post" action="inserisci_libro.php">
+		<div>
+			<p><label for="isbn">ISBN</label>
+			<input name="isbn" id="isbn"/>
+</p>
+			<p><label for="titolo">Titolo</label>
+			<input name="titolo" id="titolo"/>
+</p>
+			<p><label for="autore">Autore</label>
+			<input name="autore" id="autore"/>
+</p>
+			<p><label for="anno">Anno</label>
+			<input type="date" name="anno" id="anno"/>
+</p>
+			<p><label for="casa">Casa editrice</label>
+			<input name="casa" id="casa"/>
+</p>
+			<p><label for="scrittore">Scrittore</label> 
+			<input type="text" name="scrittore" id="scrittore"/>
+</p>
+<p>
+<label for="genere">Genere</label> 
+<select name="genere" id="genere">
+<option>Commedia</option>
+<option>Thriller</option>
+<option>Horror</option>
+<option>Fantasy</option>
+<option>Narrativa</option>
+<option>Saggistica</option>
+<option>Classico</option>
+<option>Fantascienza</option>
+</select>
+</p>
+			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
 
-<?php
-
-include ('connect.php') ;
-
-
-$email= $_POST['email'];
-
-if ($email=="")
-{echo ("<br><h1>Inserire l'email</h1") ;} 
-
-$query = "SELECT * FROM `redazione` WHERE email='$email'" ;
-$risultati = mysqli_multi_query($db,$query);
-$num = mysqli_stmt_num_rows($risultati);
-?>
-
-<table border="1" cellspacing="2" cellpadding="2" align="center">
-<tr>
-<th><font face="Arial, Helvetica, sans-serif">Email</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Cognome</font></th>
-</tr>
-<?php
-$i = 0;
-if ($num==0){echo "<h1>Redazione non trovata</h1>";}
-while ($i < $num) {
-$email= mysql_result($risultati, $i, "email");
-$nome= mysql_result($risultati, $i, "nome");
-$cognome= mysql_result($risultati, $i, "cognome");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $email?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
-</tr>
-<?php
-$i++;
-}
-?> 
-</table>
-
+		</div>
+	</form>
+	
 </body>
+
 </html>

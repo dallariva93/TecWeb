@@ -1,9 +1,8 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Cerca redazione</title>
+	<title>Cancella amicizia</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -17,46 +16,31 @@
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
 <body>
-
 <?php
 
-include ('connect.php') ;
+include('connect.php');
 
+$email_a= $_POST['email_a'];
+$email_b= $_POST['email_b'];
 
-$email= $_POST['email'];
-
-if ($email=="")
-{echo ("<br><h1>Inserire l'email</h1") ;} 
-
-$query = "SELECT * FROM `redazione` WHERE email='$email'" ;
-$risultati = mysqli_multi_query($db,$query);
-$num = mysqli_stmt_num_rows($risultati);
-?>
-
-<table border="1" cellspacing="2" cellpadding="2" align="center">
-<tr>
-<th><font face="Arial, Helvetica, sans-serif">Email</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Cognome</font></th>
-</tr>
-<?php
-$i = 0;
-if ($num==0){echo "<h1>Redazione non trovata</h1>";}
-while ($i < $num) {
-$email= mysql_result($risultati, $i, "email");
-$nome= mysql_result($risultati, $i, "nome");
-$cognome= mysql_result($risultati, $i, "cognome");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $email?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
-</tr>
-<?php
-$i++;
+if (($email_a=="") or ($email_b=="")) 
+{echo "<br><h1>Inserire le email </h1>";}
+else{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE email='$email_a'"))))
+{echo '<br><h1>Utente non presente';}
+else{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE email='$email_b'"))))
+{echo '<br><h1>Utente non presente';}
+else{
+$delete = "DELETE FROM `amicizia` WHERE persona1='$email_a' AND persona2='$email_b' ''";
+} 
+}} 
+$result = mysqli_multi_query($db,$delete);
+if($result){
+	echo("<br><h1>Cancellazione avvenuta correttamente</h1>");
+} else{
+	echo("<br><h1>Cancellazione non eseguita</h1>");
 }
-?> 
-</table>
-
+?>
 </body>
 </html>

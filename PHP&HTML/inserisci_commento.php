@@ -1,9 +1,8 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Cerca redazione</title>
+	<title>Inserisci libro</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -17,46 +16,41 @@
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
 <body>
-
 <?php
 
-include ('connect.php') ;
+include('connect.php');
 
+$isbn= $_POST['isbn'];
+$titolo= $_POST['titolo'];
+$autore= $_POST['autore'];
+$genere= $_POST['genere'];
+$data= $_POST['data'];
+$casa= $_POST['casa'];
+$scrittore= $_POST['scrittore'];
 
-$email= $_POST['email'];
+if (($isbn=="") or ($titolo=="") or ($genere=="") or ($data=="") or ($autore="") or ($casa="") or ($scrittore=="")) 
+{ 
+echo "<br><h1>Errore, dati mancanti</h1>";
+} 
+else
 
-if ($email=="")
-{echo ("<br><h1>Inserire l'email</h1") ;} 
+{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `scrittore` WHERE codice='$scrittore'"))))
+{echo '<br><h1>Codice scrittore non presente';}
+else{
+$insert="INSERT INTO `libro` VALUES ('$isbn','$titolo','$autore','$data','$casa','$genere', '$scrittore')";
 
-$query = "SELECT * FROM `redazione` WHERE email='$email'" ;
-$risultati = mysqli_multi_query($db,$query);
-$num = mysqli_stmt_num_rows($risultati);
+} 
+} 
+$result = mysqli_multi_query($db,$insert);
+
+if($result){
+	echo("<br> <H1>Inserimento avvenuto correttamente</H1>");
+} else{
+	echo("<br><H1>Inserimento non eseguito</h1>");
+} 
 ?>
-
-<table border="1" cellspacing="2" cellpadding="2" align="center">
-<tr>
-<th><font face="Arial, Helvetica, sans-serif">Email</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Cognome</font></th>
-</tr>
-<?php
-$i = 0;
-if ($num==0){echo "<h1>Redazione non trovata</h1>";}
-while ($i < $num) {
-$email= mysql_result($risultati, $i, "email");
-$nome= mysql_result($risultati, $i, "nome");
-$cognome= mysql_result($risultati, $i, "cognome");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $email?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
-</tr>
-<?php
-$i++;
-}
-?> 
-</table>
-
 </body>
 </html>
+
+

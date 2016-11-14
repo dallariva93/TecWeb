@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Cerca redazione</title>
+	<title>Cerca recensione</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -23,12 +23,12 @@
 include ('connect.php') ;
 
 
-$email= $_POST['email'];
+$codice= $_POST['codice'];
 
-if ($email=="")
-{echo ("<br><h1>Inserire l'email</h1") ;} 
+if ($codice=="")
+{echo ("<br><h1>Inserire il codice</h1") ;} 
 
-$query = "SELECT * FROM `redazione` WHERE email='$email'" ;
+$query = "SELECT * FROM `recensione` WHERE email='$email'" ;
 $risultati = mysqli_multi_query($db,$query);
 $num = mysqli_stmt_num_rows($risultati);
 ?>
