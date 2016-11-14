@@ -26,8 +26,15 @@ $email_b= $_POST['email_b'];
 if (($email_a=="") or ($email_b=="")) 
 {echo "<br><h1>Inserire le email </h1>";}
 else{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE email='$email_a'"))))
+{echo '<br><h1>Utente non presente';}
+else{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE email='$email_b'"))))
+{echo '<br><h1>Utente non presente';}
+else{
 $delete = "DELETE FROM `amicizia` WHERE persona1='$email_a' AND persona2='$email_b' ''";
 } 
+}} 
 $result = mysqli_multi_query($db,$delete);
 if($result){
 	echo("<br><h1>Cancellazione avvenuta correttamente</h1>");
