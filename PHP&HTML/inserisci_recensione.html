@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Inserisci libro</title>
+	<title>Inserisci recensione</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -19,35 +19,34 @@
 	<p>Inserisci i dati del libro</p>
 	<form method="post" action="inserisci_libro.php">
 		<div>
-			<p><label for="isbn">ISBN</label>
-			<input name="isbn" id="isbn"/>
+			<p><label for="id">Codice recensione</label>
+			<input name="id" id="id"/>
 </p>
-			<p><label for="titolo">Titolo</label>
-			<input name="titolo" id="titolo"/>
+			<p><label for="libro">Libro</label>
+			<input name="libro" id="libro"/>
 </p>
 			<p><label for="autore">Autore</label>
 			<input name="autore" id="autore"/>
 </p>
-			<p><label for="anno">Anno</label>
-			<input type="date" name="anno" id="anno"/>
+			<p><label for="data">Data pubblicazione</label>
+			<input type="date" name="data" id="data"/>
 </p>
-			<p><label for="casa">Casa editrice</label>
-			<input name="casa" id="casa"/>
-</p>
-			<p><label for="scrittore">Scrittore</label> 
-			<input type="text" name="scrittore" id="scrittore"/>
+			
+			<textarea name="testo" id="testo" type="text" size="2000"/>Inserisci qui la recensione
+</textarea>
 </p>
 <p>
-<label for="genere">Genere</label> 
-<select name="genere" id="genere">
-<option>Commedia</option>
-<option>Thriller</option>
-<option>Horror</option>
-<option>Fantasy</option>
-<option>Narrativa</option>
-<option>Saggistica</option>
-<option>Classico</option>
-<option>Fantascienza</option>
+<label for="valutazione">valutazione</label> 
+<select name="valutazione" id="valutazione">
+<option>1</option>
+<option>1.5</option>
+<option>2</option>
+<option>2.5</option>
+<option>3</option>
+<option>3.5</option>
+<option>4</option>
+<option>4.5</option>
+<option>5</option>
 </select>
 </p>
 			<input type="submit" value="Aggiungi" id="btnAggiungi"/>

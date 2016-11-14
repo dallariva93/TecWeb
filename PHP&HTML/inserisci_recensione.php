@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Inserisci libro</title>
+	<title>Inserisci recensione</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -20,25 +20,25 @@
 
 include('connect.php');
 
-$isbn= $_POST['isbn'];
-$titolo= $_POST['titolo'];
+$id= $_POST['id'];
+$libro= $_POST['libro'];
 $autore= $_POST['autore'];
 $genere= $_POST['genere'];
 $data= $_POST['data'];
 $casa= $_POST['casa'];
 $scrittore= $_POST['scrittore'];
 
-if (($isbn=="") or ($titolo=="") or ($genere=="") or ($data=="") or ($autore="") or ($casa="") or ($scrittore=="")) 
+if (($id=="") or ($libro=="") or ($autore=="") or ($data=="") or ($testo="") or ($valutazione="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
 else
 
 {
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `scrittore` WHERE codice='$scrittore'"))))
-{echo '<br><h1>Codice scrittore non presente';}
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `libro` WHERE isbn='$libro'"))))
+{echo '<br><h1>Libro non presente';}
 else{
-$insert="INSERT INTO `libro` VALUES ('$isbn','$titolo','$autore','$data','$casa','$genere', '$scrittore')";
+$insert="INSERT INTO `recensione` VALUES ('$id','$libro','$autore','$data','$testo', '$valutazione')";
 
 } 
 } 
