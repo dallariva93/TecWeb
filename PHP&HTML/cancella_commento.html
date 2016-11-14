@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Cancella amicizia</title>
+	<title>Cancella commento</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -16,14 +16,17 @@
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
 <body>
-	<p>Inserisci email degli utenti per cancellare la loro amicizia</p>
-	<form method="post" action="cancella_amicizia.php">
+	<p>Inserisci dati del commento da cancellare</p>
+	<form method="post" action="cancella_commento.php">
 		<div>
-<label for="email_a">Email utente 1</label>
-			<p><input type="text" name="email_a"/>
+	<p><label for="id">Codice recensione</label>
+			<input name="id" id="id"/>
 </p>
-<label for="email_a">Email utente 2</label>
-         <p><input type="text" name="email_b"/>
+			<p><label for="autore">Autore</label>
+			<input name="autore" id="autore"/>
+</p>
+			<p><label for="data">Data pubblicazione</label>
+			<input type="date" name="data" id="data"/>
 </p>
 			<input type="submit" value="Elimina" id="btnElimina"/>
 		</div>

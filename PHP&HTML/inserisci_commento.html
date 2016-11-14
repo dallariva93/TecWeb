@@ -16,38 +16,27 @@
 	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
 </head>
 <body>
-<?php
+	<p>Inserisci i dati del commento</p>
+	<form method="post" action="inserisci_commento.php">
+		<div>
+			<p><label for="id">Codice recensione</label>
+			<input name="id" id="id"/>
+</p>
+			<p><label for="autore">Autore</label>
+			<input name="autore" id="autore"/>
+</p>
+			<p><label for="data">Data pubblicazione</label>
+			<input type="date" name="data" id="data"/>
+</p>
+			
+			<textarea name="commento" id="commento" type="text" size="2000"/>Inserisci qui il commento
+</textarea>
+</p>
+			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
 
-include('connect.php');
-
-$codice= $_POST['id'];
-$commento= $_POST['commento'];
-$autore= $_POST['autore'];
-$data= $_POST['data'];
-
-if (($codice=="") or ($autore=="") or ($data=="") or ($commento=="")) 
-{ 
-echo "<br><h1>Errore, dati mancanti</h1>";
-} 
-else
-
-{
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `recensione` WHERE id='$codice'"))))
-{echo '<br><h1>Recensione non presente';}
-else{
-$insert="INSERT INTO `commento` VALUES ('$codice','$autore','$commento','$data',)";
-
-} 
-} 
-$result = mysqli_multi_query($db,$insert);
-
-if($result){
-	echo("<br> <H1>Inserimento avvenuto correttamente</H1>");
-} else{
-	echo("<br><H1>Inserimento non eseguito</h1>");
-} 
-?>
+		</div>
+	</form>
+	
 </body>
+
 </html>
-
-

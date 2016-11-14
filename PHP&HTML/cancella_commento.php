@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Cancella amicizia</title>
+	<title>Cancella commento</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -20,21 +20,23 @@
 
 include('connect.php');
 
-$email_a= $_POST['email_a'];
-$email_b= $_POST['email_b'];
 
-if (($email_a=="") or ($email_b=="")) 
-{echo "<br><h1>Inserire le email </h1>";}
-else{
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE email='$email_a'"))))
-{echo '<br><h1>Utente non presente';}
-else{
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE email='$email_b'"))))
-{echo '<br><h1>Utente non presente';}
-else{
-$delete = "DELETE FROM `amicizia` WHERE persona1='$email_a' AND persona2='$email_b' ''";
+$codice= $_POST['id'];
+$autore= $_POST['autore'];
+$data= $_POST['data'];
+
+if (($codice=="") or ($autore=="") or ($data=="") or ($commento=="")) 
+{ 
+echo "<br><h1>Errore, dati mancanti</h1>";
 } 
-}} 
+else
+{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `recensione` WHERE id='$codice'"))))
+{echo '<br><h1>Commento non presente';}
+else{
+$delete = "DELETE FROM `commento` WHERE recensione='$codice' AND autore='$autore' AND Data_Pubblicazione='$data' ''";
+} 
+}
 $result = mysqli_multi_query($db,$delete);
 if($result){
 	echo("<br><h1>Cancellazione avvenuta correttamente</h1>");
