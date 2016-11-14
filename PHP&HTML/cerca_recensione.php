@@ -28,29 +28,38 @@ $codice= $_POST['codice'];
 if ($codice=="")
 {echo ("<br><h1>Inserire il codice</h1") ;} 
 
-$query = "SELECT * FROM `recensione` WHERE email='$email'" ;
+$query = "SELECT * FROM `recensione` WHERE id='$codice'" ;
 $risultati = mysqli_multi_query($db,$query);
 $num = mysqli_stmt_num_rows($risultati);
 ?>
 
 <table border="1" cellspacing="2" cellpadding="2" align="center">
 <tr>
-<th><font face="Arial, Helvetica, sans-serif">Email</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Cognome</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Codice</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Libro</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Autore</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Data pubblicazione</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Testo</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Valutazione</font></th>
 </tr>
 <?php
 $i = 0;
-if ($num==0){echo "<h1>Redazione non trovata</h1>";}
+if ($num==0){echo "<h1>Recensione non trovata</h1>";}
 while ($i < $num) {
-$email= mysql_result($risultati, $i, "email");
-$nome= mysql_result($risultati, $i, "nome");
-$cognome= mysql_result($risultati, $i, "cognome");
+$codice= mysql_result($risultati, $i, "id");
+$libro= mysql_result($risultati, $i, "libro");
+$autore= mysql_result($risultati, $i, "autore");
+$data= mysql_result($risultati, $i, "Data_Pubblicazione");
+$testo= mysql_result($risultati, $i, "testo");
+$valutazione= mysql_result($risultati, $i, "valutazione");
 ?>
 <tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $email?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $codice?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $libro?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $autore?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $data?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $testo?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php echo $valutazione?></font></td>
 </tr>
 <?php
 $i++;
