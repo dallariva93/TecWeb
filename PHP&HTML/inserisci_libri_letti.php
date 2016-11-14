@@ -32,9 +32,12 @@ else
 if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE email='$email'"))))
 {echo '<br><h1>Utente non presente';}
 else{
-{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `utente` WHERE isbn='$isbn'"))))
+{echo '<br><h1>Libro non presente';}
+else{
 $insert="INSERT INTO `letti` VALUES ('$email','$isbn')";
 
+} 
 } 
 } 
 $result = mysqli_multi_query($db,$insert);
