@@ -36,7 +36,7 @@ else
 
 {
 if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `scrittore` WHERE codice='$scrittore'"))))
-{echo '<br><h1>Codice Cliente non presente';}
+{echo '<br><h1>Codice scrittore non presente';}
 else{
 $insert="INSERT INTO `libro` VALUES ('$isbn','$titolo','$autore','$data','$casa','$genere', '$scrittore')";
 
