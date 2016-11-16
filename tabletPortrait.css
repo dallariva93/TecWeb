@@ -1,0 +1,42 @@
+/**************************
+			MENU
+***************************/
+
+.menu ul li:not(.right){
+	display: none;
+}
+.menu ul li.icona {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: auto;
+	display: block;
+}
+.menu.mobile ul li a:not(.right) {	
+	padding:0.5em 0 0.5em 0;
+	display: inline-block;
+	width: 100%;
+}
+.menu.mobile ul li:not(.right ) {	
+	float: none;
+	text-align: center;
+	display: inline;
+	text-align: center;
+	}
+.menu.mobile li.right a{
+	margin:0;
+	text-align:center;
+	border:0px solid yellow;
+}
+
+/**************************
+		RECENSIONI E NEWS
+***************************/
+
+.doubletable {
+	width: 100%;
+	margin-top:1em;
+	margin-bottom: 0;	
+}
+

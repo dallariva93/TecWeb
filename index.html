@@ -9,35 +9,43 @@
 	<meta name="keywords" content="Libri,Social,Network"/>
 	<meta name="robots" content="index"/>
 	<meta name="viewport" content="width=device-width"/>
-	<link rel="stylesheet" media="screen" href="screen.css" type="text/css" />
 	<link rel="stylesheet" media="print" href="print.css" type="text/css" />
 	<link rel="stylesheet" media="aural" href="screenreader.css" type="text/css" />
-	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phone.css" type="text/css" />
-	<link rel="stylesheet" media="handheld, screen and (min-width:480px) and (max-width:1024px), only screen and (min-width:480px) and (max-device-width:1024px)" href="tablet.css" type="text/css" />
+	<link rel="stylesheet" media="screen" href="screen.css" type="text/css" />
+	<link rel="stylesheet" media="handheld, screen and (min-width:1200px) , only screen and (min-width:1200px)" href="bigScreen.css" type="text/css" />
+	<link rel="stylesheet" media="handheld, screen and (max-width:1024px), only screen and (max-device-width:1024px)" href="tabletLandscape.css" type="text/css" />
+	<link rel="stylesheet" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)" href="tabletPortrait.css" type="text/css" />
+	<link rel="stylesheet" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)" href="phoneLandscape.css" type="text/css" />
+	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phonePortrait.css" type="text/css" />
+	
+	
+	
+	
 </head>
 <body>
-	<div class="menu"> <!-- Barra di navigazione -->
+	<div class="menu" id="menu"> <!-- Barra di navigazione -->
 		<ul>
-			<li><a href="index.html" xml:lang="en">Home</a></li>
-			<li><a href="index.html" xml:lang="en">News</a></li>
-			<li><a href="index.html">Recensioni</a></li>
-			<li><a href="index.html">Classifica</a></li>
-			<li><a href="contacts.html">Contatti</a></li>		
-			<li id="Accesso" >Accedi
+		<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
+		<li id="Accesso" class="right"><a href="index.html">Accedi</a>
 				<div id="Dropdown">
 						<form action="submission.php" method="post">
-							<fieldset>
-								<input type="text" id="username_input" class="textBox"/>
+							<fieldset class="textBox">
 								<label for="username_input">E-mail</label>
-								<input type="password" id="username_psw" class="textBox"/>
+								<input type="text" id="username_input"/>
 								<label for="username_psw">Password</label>
-								<input type="submit" value="Accedi" id="btnAccedi"/>
+								<input type="password" id="username_psw" />
+								<input type="submit" value="Accedi" id="btnAccedi" />
 								<a href="" id="forgot"> <span>Password dimenticata?</span></a>
-								<a href="" id="register"><span>Registrati</span></a>
 							</fieldset>
 						</form>
 				</div>
 			</li>
+			<li class="right"><a href="index.html">Iscriviti</a><li>				
+			<li><a href="index.html" xml:lang="en">Home</a></li>
+			<li><a href="index.html" xml:lang="en">News</a></li>
+			<li><a href="index.html">Recensioni</a></li>
+			<li><a href="index.html">Classifica</a></li>
+			<li><a href="contacts.html">Contatti</a></li>	
 		</ul>
 	</div>
 	
@@ -53,58 +61,61 @@
 		</div> 
 	</div>
 	<div id="corpo">
-	 <div class="text">
-		<h2>
-			Entra a far parte della <span xml:lang="en">community</span> di <span xml:lang="en">FaceOnTheBook</span>.
-		</h2>
-			<cite>*Descrizione bellissima del sito che non ho voglia di fare perchè sono pigro*</cite>
-		<h3>	
-			Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
-		</h3>	
-	</div> 
-	 <div class="slideshow">  <!--http://www.w3schools.com/howto/howto_js_slideshow.asp -->
+		<div class="text">
+			<h2>
+				Entra a far parte della <span xml:lang="en">community</span> di <span xml:lang="en">FaceOnTheBook</span>.
+			</h2>
+				<cite>*Descrizione bellissima del sito che non ho voglia di fare perchè sono pigro*</cite>
+			<h3>	
+				Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
+			</h3>	
+		</div> 
+		 <div class="slideshow">  <!--http://www.w3schools.com/howto/howto_js_slideshow.asp -->
 	
-	<div class="slide">
-			<img src="copertine/IlSignoreDegliAnelli.jpg" id="libro1" alt="Libro bellissimo che proprio più bello non si può"></img>
-				<label for="libro1" class="slideTitle">Titolo: </label>				
-				<label for="libro1" class="slideAuthor">Autore: </label>
-				<label for="libro1" class="slideRate">Valutazione:</label>
-		</div>
-		 
 		<div class="slide">
-				<img src="copertine/IGiardiniDellaLuna.jpg" id="libro2" alt="Altro bellissimo chee. mamma mia se lo vedessii"></img>
-				<label for="libro2" class="slideTitle">Titolo: </label>				
-				<label for="libro2" class="slideAuthor">Autore: </label>
-				<label for="libro2" class="slideRate">Valutazione:</label>
+				<img src="copertine/IlSignoreDegliAnelli.jpg" id="libro1" alt=""></img>
+					<label for="libro1" class="slideTitle">Titolo: </label>				
+					<label for="libro1" class="slideAuthor">Autore: </label>
+					<label for="libro1" class="slideRate">Valutazione:</label>
+			</div>
+			 
+			<div class="slide">
+					<img src="copertine/IGiardiniDellaLuna.jpg" id="libro2" alt=""></img>
+					<label for="libro2" class="slideTitle">Titolo: </label>				
+					<label for="libro2" class="slideAuthor">Autore: </label>
+					<label for="libro2" class="slideRate">Valutazione:</label>
+			</div>
+			<div class="slide">
+					<img src="copertine/50sfumaturedicretini.jpg" id="libro3" alt=""></img>
+					<label for="libro3" class="slideTitle">Titolo: </label>				
+					<label for="libro3" class="slideAuthor">Autore: </label>
+					<label for="libro3" class="slideRate">Valutazione:</label>
+			</div>			
+			<div id="dotContain">
+			  <span class="dot" onclick="dotCambia(0)"></span>
+			  <span class="dot" onclick="dotCambia(1)"></span>
+			  <span class="dot" onclick="dotCambia(2)"></span>
+			</div>
 		</div>
-		<div class="slide">
-				<img src="copertine/50sfumaturedicretini.jpg" id="libro3" alt="Maronna che meraviglia!!"></img>
-				<label for="libro3" class="slideTitle">Titolo: </label>				
-				<label for="libro3" class="slideAuthor">Autore: </label>
-				<label for="libro3" class="slideRate">Valutazione:</label>
-		</div>
-		<a class="back" onclick="cambioSlide(-1)">&#10094;</a>
-		<a class="next" onclick="cambioSlide(1)">&#10095;</a>
-	</div>
 
-	<div id="newsrec">		
-			<dl class="doubletable">
-			<dt>Ultime Recensioni</dt>
-				<dd><a href="index.html">Recensione1</a></dd>
-				<dd><a href="index.html">Recensione2</a></dd>			
-				<dd><a href="index.html">Recensione3</a></dd>			
-				<dd><a href="index.html">Recensione4</a></dd>			
-				<dd><a href="index.html">Recensione5</a></dd>						
-			</dl>
-			<dl class="doubletable" id="news">
-			<dt>Ultime Novit&agrave;</dt>
-				<dd><a href="index.html">Novit&agrave;1</a></dd>			
-				<dd><a href="index.html">Novit&agrave;2</a></dd>			
-				<dd><a href="index.html">Novit&agrave;3</a></dd>			
-				<dd><a href="index.html">Novit&agrave;4</a></dd>			
-				<dd><a href="index.html">Novit&agrave;5</a></dd>
-			</dl>
-	</div>
+		<div id="newsrec">		
+				<dl class="doubletable">
+				<dt>Ultime Recensioni</dt>
+					<dd><a href="index.html">Recensione1</a></dd>
+					<dd><a href="index.html">Recensione2</a></dd>			
+					<dd><a href="index.html">Recensione3</a></dd>			
+					<dd><a href="index.html">Recensione4</a></dd>			
+					<dd><a href="index.html">Recensione5</a></dd>						
+				</dl>
+				<dl class="doubletable" id="news">
+				<dt>Ultime Novit&agrave;</dt>
+					<dd><a href="index.html">Novit&agrave;1</a></dd>			
+					<dd><a href="index.html">Novit&agrave;2</a></dd>			
+					<dd><a href="index.html">Novit&agrave;3</a></dd>			
+					<dd><a href="index.html">Novit&agrave;4</a></dd>			
+					<dd><a href="index.html">Novit&agrave;5</a></dd>
+				</dl>
+		</div>
 	</div>
 	
 	
