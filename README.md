@@ -13,8 +13,8 @@ Nome Gruppo: ---
 
 Si richiede la progettazione e lo sviluppo di un sito web con contenuto a scelta dello studente ma che rispetti le seguenti caratteristiche:
 
-    -il sito web deve essere realizzato con lo standard XHTML Strict, eventuali pagine in HTML5 sono permesse, ma queste devono degradare in modo 
-	 elegante;
+    -il sito web deve essere realizzato con lo standard XHTML Strict, eventuali pagine in HTML5 sono permesse, 
+     ma queste devono degradare in modo elegante;
     -il layout deve essere realizzato con CSS puri;
     -il sito web deve rispettare la completa separazione tra contenuto, presentazione e comportamento
     -il sito web deve essere accessibile a tutte le categorie di utenti;
@@ -32,6 +32,7 @@ Considerazioni riguardanti diversi dispositivi (laddove possibile) verranno valu
 positivamente.
 
 #Idea generale:
+
 	-i libri nel sito possono essere visti in 2 categorie: libri recensiti e libri non 
 	 ancora recensiti perchè sono appena usciti. Entrambe le categorie hanno una trama del libro
 	
@@ -59,16 +60,18 @@ positivamente.
 	-pagina autore [ HTML(X) CSS(X) PHP(X) JS(X)] []
 	-pagina amministrazione [ HTML(X) CSS(X) PHP(X) JS(X)] []
 
-A: Andrea
-E: Edoardo
-I: Isacco
-G: Giovanni
-L: Luca
+	A: Andrea
+	E: Edoardo
+	I: Isacco
+	G: Giovanni
+	L: Luca
 
 #Accessibilità:
 
 Principi:
+
 	-Trasformazione elegante:
+	
 		*separare struttura dalla presentazione
 
 		*Fornire sempre un’equivalente testuale per ogni media diverso dal testo: il testo può 
@@ -85,7 +88,9 @@ Principi:
 		 testo
 
 	-Contenuto comprensibile e navigabile
+	
 		*Dotare la pagina di strumenti di navigazione ed orientamento
+		
 		*Considerare strumenti ed informazioni di orientamento per utenti non vedenti
 
  ===> N.B.
@@ -95,18 +100,18 @@ Principi:
 
 Breakpoint:
 
-320 pixel   Piccoli schermi, telefoni usati in modalità portrait
+	*320 pixel   Piccoli schermi, telefoni usati in modalità portrait
 
-480 pixel   Piccoli schermi, telefoni usati in modalità 
-			landscape
-600 pixel   Piccoli tablet, (Amazon kindle) usati in modalità 
-			portrait
-768 pixel   Tablet da 10 pollici(iPad 1024x768) usati in 
-			modalità portrait
+	*480 pixel   Piccoli schermi, telefoni usati in modalità 
+				landscape
+	*600 pixel   Piccoli tablet, (Amazon kindle) usati in modalità 
+				portrait
+	*768 pixel   Tablet da 10 pollici(iPad 1024x768) usati in 
+				modalità portrait
 
-1024 pixel  Tablet (iPad) usati in modalità landscape, piccoli 
-			desktop o portatili, in generale una finestra che 
-			non occupa tutto lo schermo in un qualsiasi 
-			schermo
+	*1024 pixel  Tablet (iPad) usati in modalità landscape, piccoli 
+				desktop o portatili, in generale una finestra che 
+				non occupa tutto lo schermo in un qualsiasi 
+				schermo
 
-1200 pixel Schermi grandi,pensato per computer ad alta definizione e/o desktop
+	*1200 pixel Schermi grandi,pensato per computer ad alta definizione e/o desktop
