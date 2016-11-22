@@ -18,8 +18,10 @@ Si richiede la progettazione e lo sviluppo di un sito web con contenuto a scelta
     -il layout deve essere realizzato con CSS puri;
     -il sito web deve rispettare la completa separazione tra contenuto, presentazione e comportamento
     -il sito web deve essere accessibile a tutte le categorie di utenti;
-    -il sito web deve organizzare i propri contenuti in modo da poter essere facilmente reperiti da qualsiasi utente;
-    -il sito web deve contenere pagine che utilizzino gli script per collezionare e pubblicare dati inseriti dagli utenti;
+    -il sito web deve organizzare i propri contenuti in modo da poter essere facilmente reperiti 
+     da qualsiasi utente;
+    -il sito web deve contenere pagine che utilizzino gli script per collezionare e pubblicare dati 
+     inseriti dagli utenti;
     -i dati inseriti dagli utenti devono essere salvati in un database;
     -è preferibile che il database sia in forma normale.
 
