@@ -26,39 +26,28 @@
 	<div class="menu" id="menu"> <!-- Barra di navigazione -->
 		<ul>
 		<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
-		<li id="Accesso" class="right"><a href="index.html">Accedi</a>
-				<div id="Dropdown">
-						<form action="submission.php" method="post">
-							<fieldset class="textBox">
-								<label for="username_input">E-mail</label>
-								<input type="text" id="username_input"/>
-								<label for="username_psw">Password</label>
-								<input type="password" id="username_psw" />
-								<input type="submit" value="Accedi" id="btnAccedi" />
-								<a href="" id="forgot"> <span>Password dimenticata?</span></a>
-							</fieldset>
-						</form>
-				</div>
-			</li>
-			<li class="right"><a href="index.html">Iscriviti</a><li>				
-			<li><a href="index.html" xml:lang="en">Home</a></li>
-			<li><a href="index.html" xml:lang="en">News</a></li>
-			<li><a href="index.html">Recensioni</a></li>
-			<li><a href="index.html">Classifica</a></li>
-			<li><a href="contacts.html">Contatti</a></li>	
+		<li id="Accesso" class="right"><a href="index.html"tabindex="8">Accedi</a></li>
+			<li class="right"><a href="index.html" tabindex="7">Iscriviti</a><li>				
+			<li><a href="index.html" xml:lang="en" tabindex="2">Home</a></li>
+			<li><a href="index.html" xml:lang="en" tabindex="3">News</a></li>
+			<li><a href="index.html" tabindex="4">Catalogo</a></li>
+			<li><a href="index.html" tabindex="5">Classifica</a></li>
+			<li><a href="contacts.html" tabindex="6">Contatti</a></li>
 		</ul>
 	</div>
 	
+	
+	<div id="corpo">
 	<div class="breadcrumb">
 		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/Contatti</p>
 		<div class="searchform">
-			<form action="action_page.php">
+			<form action="action_page.php" >
 				<fieldset>
-					<input type="text" name="googlesearch"/>
+					<input type="text" name="googlesearch" id="search" tabindex="1"/>
 					<input type="submit" value="Cerca"/>
 				</fieldset>
 			</form>
-		</div>
+		</div> 
 	</div>
 	<div id="emailform">
 		<h2>Contatta la redazione</h2>
@@ -77,7 +66,10 @@
 			</fieldset>
 		</form>
 	</div>
-	
+	</div>
+	<div id="footer">
+	FOOTER...
+	</div>
 <script src="script.js" type="text/javascript"></script>	
 </body>
 </html>

@@ -26,96 +26,87 @@
 	<div class="menu" id="menu"> <!-- Barra di navigazione -->
 		<ul>
 		<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
-		<li id="Accesso" class="right"><a href="index.html">Accedi</a>
-				<div id="Dropdown">
-						<form action="submission.php" method="post">
-							<fieldset class="textBox">
-								<label for="username_input">E-mail</label>
-								<input type="text" id="username_input"/>
-								<label for="username_psw">Password</label>
-								<input type="password" id="username_psw" />
-								<input type="submit" value="Accedi" id="btnAccedi" />
-								<a href="" id="forgot"> <span>Password dimenticata?</span></a>
-							</fieldset>
-						</form>
-				</div>
-			</li>
-			<li class="right"><a href="index.html">Iscriviti</a><li>				
-			<li><a href="index.html" xml:lang="en">Home</a></li>
-			<li><a href="index.html" xml:lang="en">News</a></li>
-			<li><a href="index.html">Recensioni</a></li>
-			<li><a href="index.html">Classifica</a></li>
-			<li><a href="contacts.html">Contatti</a></li>	
+		<li id="Accesso" class="right"><a href="index.html"tabindex="8">Accedi</a></li>
+			<li class="right"><a href="index.html" tabindex="7">Iscriviti</a><li>				
+			<li><a href="index.html" xml:lang="en" tabindex="2">Home</a></li>
+			<li><a href="index.html" xml:lang="en" tabindex="3">News</a></li>
+			<li><a href="index.html" tabindex="4">Catalogo</a></li>
+			<li><a href="index.html" tabindex="5">Classifica</a></li>
+			<li><a href="contacts.html" tabindex="6">Contatti</a></li>
 		</ul>
 	</div>
 	
+	
+	<div id="corpo">
 	<div class="breadcrumb">
 		<p class="path">Ti trovi in: <span xml:lang="en">Home</span></p>
 		<div class="searchform">
-			<form action="action_page.php">
+			<form action="action_page.php" >
 				<fieldset>
-					<input type="text" name="googlesearch" id="search" />
+					<input type="text" name="googlesearch" id="search" tabindex="1"/>
 					<input type="submit" value="Cerca"/>
 				</fieldset>
 			</form>
 		</div> 
 	</div>
-	<div id="corpo">
 		<div class="text">
-			<h2>
+			<h1>
 				Entra a far parte della <span xml:lang="en">community</span> di <span xml:lang="en">FaceOnTheBook</span>.
-			</h2>
-				<cite>*Descrizione bellissima del sito che non ho voglia di fare perchè sono pigro*</cite>
-			<h3>	
+			</h1>
+			<h2>	
 				Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
-			</h3>	
+			</h2>	
 		</div> 
-		 <div class="slideshow">  <!--http://www.w3schools.com/howto/howto_js_slideshow.asp -->
-	
-		<div class="slide">
-				<img src="copertine/IlSignoreDegliAnelli.jpg" id="libro1" alt=""></img>
-					<label for="libro1" class="slideTitle">Titolo: </label>				
-					<label for="libro1" class="slideAuthor">Autore: </label>
-					<label for="libro1" class="slideRate">Valutazione:</label>
-			</div>
-			 
-			<div class="slide">
-					<img src="copertine/IGiardiniDellaLuna.jpg" id="libro2" alt=""></img>
-					<label for="libro2" class="slideTitle">Titolo: </label>				
-					<label for="libro2" class="slideAuthor">Autore: </label>
-					<label for="libro2" class="slideRate">Valutazione:</label>
-			</div>
-			<div class="slide">
-					<img src="copertine/50sfumaturedicretini.jpg" id="libro3" alt=""></img>
-					<label for="libro3" class="slideTitle">Titolo: </label>				
-					<label for="libro3" class="slideAuthor">Autore: </label>
-					<label for="libro3" class="slideRate">Valutazione:</label>
-			</div>			
-			<div id="dotContain">
-			  <span class="dot" onclick="dotCambia(0)"></span>
-			  <span class="dot" onclick="dotCambia(1)"></span>
-			  <span class="dot" onclick="dotCambia(2)"></span>
-			</div>
-		</div>
+		
 
-		<div id="newsrec">		
-				<dl class="doubletable">
+		<div class="doubletable">
+			<dl id="rec">
 				<dt>Ultime Recensioni</dt>
-					<dd><a href="index.html">Recensione1</a></dd>
-					<dd><a href="index.html">Recensione2</a></dd>			
+					<dd><a href="index.html">
+						<div>					
+							<h1>Titolo</h1>					
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+						</div>
+						<img src="copertine/50sfumaturedicretini.jpg" alt="" />
+					</a></dd>
+					<dd><a href="index.html">
+						<div>
+							<h1>Titolo</h1>					
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+						</div>
+						<img src="copertine/IlSignoreDegliAnelli.jpg" alt="" />
+					</a></dd>		
 					<dd><a href="index.html">Recensione3</a></dd>			
 					<dd><a href="index.html">Recensione4</a></dd>			
-					<dd><a href="index.html">Recensione5</a></dd>						
+					<dd><a href="index.html">Recensione5</a></dd>	
+					<dd><a href="index.html">Recensione6</a></dd>							
+			</dl>
+			<div >
+				<dl id="news">
+					<dt>Ultime Uscite</dt>
+						<dd><a href="index.html">
+						<div>					
+							<h1>Titolo</h1>					
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+												
+						</div>
+						<img src="copertine/IGiardiniDellaLuna.jpg" alt="" />						
+						</a>
+						</dd> 			
+						<dd><a href="index.html">Novit&agrave;2</a></dd>			
+						<dd><a href="index.html">Novit&agrave;3</a></dd>			
+						<dd><a href="index.html">Novit&agrave;4</a></dd>			
 				</dl>
-				<dl class="doubletable" id="news">
-				<dt>Ultime Novit&agrave;</dt>
-					<dd><a href="index.html">Novit&agrave;1</a></dd>			
-					<dd><a href="index.html">Novit&agrave;2</a></dd>			
-					<dd><a href="index.html">Novit&agrave;3</a></dd>			
-					<dd><a href="index.html">Novit&agrave;4</a></dd>			
-					<dd><a href="index.html">Novit&agrave;5</a></dd>
+				<dl id="news">
+					<dt xml:lang="en">News</dt>
+						<dd><a href="index.html">Novit&agrave;1</a></dd>			
+						<dd><a href="index.html">Novit&agrave;2</a></dd>			
 				</dl>
+			</div>
 		</div>
+	</div>
+	<div id="footer">
+	FOOTER...
 	</div>
 	
 	
