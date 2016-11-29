@@ -5,8 +5,11 @@
 html, body{
 	max-width: 1200px;
 	font-family: Verdana, Helvetica, sans-serif;
-	margin: auto;
 	background-color:#ddd;
+   height:100%;
+   margin:0;
+   padding:0;
+   text-align:center;
 }
 fieldset {
 	border:0;
@@ -18,7 +21,19 @@ a:visited {
 	color:#8b2323;
 	
 }
+/**************************
+			AMMINISTRAZIONE
+***************************/
+a.grey:link {
+color:white; 
+background-color:grey;
+border: 1px solid grey;
+text-decoration:none} 
 
+a.grey:visited{color: white;
+background-color:grey;
+border: 1px solid grey;
+text-decoration:none;} 
 /**************************
 			MENU
 ***************************/
@@ -124,9 +139,8 @@ a:visited {
 			INDEX
 ***************************/
 
-.corpo {
+.text {
 	padding:0.5em;
-   text-align:center;
 }
 
 
