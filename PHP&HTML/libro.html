@@ -17,12 +17,13 @@
 	<link rel="stylesheet" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)" href="tabletPortrait.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (max-width:600px), only screen and (max-device-width:600px)" href="phoneLandscape.css" type="text/css" />
 	<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="phonePortrait.css" type="text/css" />
-	
-	
-	
-	
+<style>
+           a.grey:link {color:white; background-color:grey;
+border: 1px solid grey;text-decoration:none} 
+      a.grey:visited {color: white;background-color:grey;border: 1px solid grey;text-decoration:none;} 
+</style>
 </head>
-<body>
+<body align="center">
 	<div class="menu" id="menu"> <!-- Barra di navigazione -->
 		<ul>
 		<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
@@ -62,16 +63,15 @@
 	</div>
 	<div id="corpo">
 		<div class="textadmin">
-			<h1>
+			<p><h1>
 				Libri
-			</h1>
-<ul>
-        <li><a href="inserisci_libro.html">Inserisci</a></li>
-			<li><a href="cancella_libro.html">Cancella</a></li>	
-        <li><a href="cerca_libro.html">Cerca</a></li>
-<li><a href="inserisci_libri_letti.html">Inserisci libro letto</a></li>
-<li><a href="inserisci_libro_da_leggere.html">Inserisci libro da leggere</a></li>
-</ul>
+			</h1></p><br/>
+<p>
+        <a class="grey" href="inserisci_libro.html">Inserisci</a></p><br/>
+			<o><a class="grey" href="cancella_libro.html">Cancella</a></p><br/>
+        <p><a class="grey" href="cerca_libro.html">Cerca</a></p><br/>
+<p><a class="grey" href="inserisci_libri_letti.html">Inserisci libro letto</a></p><br/>
+<p><a class="grey" href="inserisci_libro_da_leggere.html">Inserisci libro da leggere</a></p>
 		</div>
 	</div>
 </body>
