@@ -64,7 +64,7 @@ positivamente.
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
-3. Catalogo [ ]
+3. Recensioni [ ]
 	- [ ] HTML
 	- [ ] CSS
 	- [ ] PHP
@@ -79,12 +79,12 @@ positivamente.
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
-6. Accesso [ ]
+6. Accesso [G]
 	- [ ] HTML
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
-7. Iscrizione [ ]
+7. Iscrizione [G]
 	- [ ] HTML
 	- [ ] CSS
 	- [ ] PHP
