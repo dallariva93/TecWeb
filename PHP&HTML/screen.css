@@ -3,13 +3,10 @@
 	padding: 0em;
 }
 html, body{
-	max-width: 1200px;
+	
 	font-family: Verdana, Helvetica, sans-serif;
+	margin: auto;
 	background-color:#ddd;
-   height:100%;
-   margin:0;
-   padding:0;
-   text-align:center;
 }
 fieldset {
 	border:0;
@@ -19,20 +16,9 @@ a:link {
 }
 a:visited {
 	color:#8b2323;
+	
 }
-/**************************
-			AMMINISTRAZIONE
-***************************/
-a.grey:link {
-color:white; 
-background-color:grey;
-border: 1px solid grey;
-text-decoration:none} 
 
-a.grey:visited{color: white;
-background-color:grey;
-border: 1px solid grey;
-text-decoration:none;} 
 /**************************
 			MENU
 ***************************/
@@ -74,47 +60,12 @@ text-decoration:none;}
 .menu li.right {
 	float: right;
 }
-/**************************
-		MENU - ACCESSO
-***************************/
-#Accesso{
-	position: relative;
-}
-#Accesso:hover  #Dropdown{
-	background-color: #aaaaaa;
-	display: block;
-}
-#Dropdown {
-	display: none;
-	position: absolute;
-	right:0;
-	left:auto;
-	top: 2.1em;
-	border:1px solid black; 
-	max-width: 25em;
-	min-width: 15em;
-	padding:0.5em;
-	text-align: center;
-}
 
-.textBox input{
-	display:block;
-	margin: 0.3em auto 0.3em auto;
-	width:80%;
-}
-#btnAccedi {
-	margin-top: 1em;
-}
-#forgot{
-	font-size: 0.8em;
-	text-align: left;
-	padding: 1em;
-}
 /**************************
 	BREADCRUMB E RICERCA
 ***************************/
 .breadcrumb {
-	height: 2.5em;
+	min-height: 2.5em;
 	margin-top:2.1em;
 	border: 1px solid black;
 
@@ -137,84 +88,26 @@ text-decoration:none;}
 /**************************
 			INDEX
 ***************************/
-
+#corpo {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
 .text {
 	padding:0.5em;
-}
-
-
-/**************************
-			SLIDESHOW
-***************************/
-.slideshow{
-	border:1px solid black;
-	max-width: 100%;
-	position: relative;
-	z-index: 1;
-	background-color: #F2F2F2;
-
-}
-.back, .next  {
- 	cursor: pointer;
-	color: white;
-	background-color: grey;
-	padding: 1em;
-	top: 40%;
-	position: absolute;
-}
-.next {
-	right: 0;
-}
-.back:hover, .next:hover {
-	background-color: orange;
-}
-.slideshow img {
-	position: relative;
-	padding: 1em;
-	margin-left: 3em;
-	max-width: 45%;
-	height: 15em;
-}
-.slideTitle, .slideAuthor, .slideRate {
-	display:block;
-	top: 1em;
-	left: 50%;
-	position: absolute;
-	font-weight: bold;
-	font-size: 1em;
-}
-.slideAuthor {
-	top: 7em;
-}
-.slideRate {
-	top: 14em;
-}
-#dotContain{
 	text-align: center;
+	margin-bottom: 1em;
+	margin-top: 1em;
 }
-.dot {
-  cursor:pointer;
-  height: 1.5em;
-  width: 1.5em;
-  margin: 0 1em;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
 /**************************
 		RECENSIONI E NEWS
 ***************************/
-.doubletable{
-	margin-top:5em;
+.doubletable dl{
+	height: 100%;
 	background-color: #F2F2F2;
-	float: left;
 	width:49.5%;
-	margin-bottom: 10em;	
+	float: left;
+	margin-bottom: 1em;	
 }
 .doubletable dt{
 	border: 1px solid black;
@@ -226,21 +119,61 @@ text-decoration:none;}
 .doubletable dd a{
 	list-style-type:none;
 	display: block;
-	padding: 0.3em;
-	overflow: hidden; 
+	height: 10em;	
+	overflow: hidden;
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid black;
 }
 .doubletable dd:hover{
 	background-color: orange; 
 }
 #news {
 	float:right;
+	width: 27%;
 }
+#rec {
+	float: left;
+	width: 70%;
+}
+
+.doubletable dd a img{
+	top: 0;
+	width: 25%;
+	float: left;
+	min-height: 70%;
+}
+
+.doubletable dd a div{
+	width: 70%;
+	text-align: left;
+	margin-top: 0;
+	float: right;
+	color: black;
+	overflow: hidden;
+
+}
+.doubletable dd a div h1{
+	text-align: center;
+
+}
+
+/**************************------------------------------------------
+		FOOTER
+***************************/
+#footer{
+	padding-top: auto;
+	background-color: grey;
+	clear: both;
+	min-height: 3em;
+	bottom: 0;
+	}
 /**************************------------------------------------------
 		CONTATTI
 ***************************/
 #emailform {
 	margin-top: 5em;
 	width: 100%;
+	margin-bottom: 5em;
 }
 #emailform fieldset {
 	padding: 1em;
@@ -259,5 +192,78 @@ text-decoration:none;}
 	display: block;
 	vertical-align:top;
 }
+/**************************------------------------------------------
+		ACCEDI
+***************************/
 
+.login{
+	margin-top: 2em;
+	margin-bottom: 0.5em;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#boxAccedi, #creaAccount{
+	background-color: #fff;
+	border: 1px solid #d8dee2;
+	width: 300px;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+#subBox{
+	padding:1em;
+}
+.textBox > label{
+	font-size: 0.8em;
+}
+
+.username_input, .username_psw{
+	border-radius: 3px;
+	height: 1em;
+	width: 100%;	
+	display: block;
+	margin-top: 0.3em;
+	margin-bottom: 0.5em;
+	padding-top: 3px ;
+	padding-bottom: 3px;
+	border: 1px solid #ddd;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+	
+}
+
+.username_psw{
+	margin-bottom: 0.5em;
+}
+
+#btnAccedi{
+	padding: 0.4em;
+	margin-top:20px;
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#forgot{
+	font-size: 0.7em;
+	float:right;
+	padding-top: 0.2em;
+}
+
+#checkbox{
+	font-size: 0.5em;
+}
+
+#creaAccount{
+	display: block;
+	font-size: 0.8em;
+	width: 300px;
+	padding: 0.5em 0;
+	margin-top: 0.5em;
+	text-align: center;
+}
+.checkboxtext{
+	font-size: 0.8em;
+	margin-top: 0.5em;
+}
 

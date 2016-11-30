@@ -50,7 +50,7 @@
 	</div>
 	
 	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Inserisci commento</p>
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="recensione.html">Recensione</a>/Inserisci commento</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
@@ -60,27 +60,26 @@
 			</form>
 		</div> 
 	</div>
-	<p><h1>Inserisci i dati del commento</h1></p>
-	<form method="post" action="inserisci_commento.php">
-		<div>
-			<p><label for="id">Codice recensione</label>
-			<input name="id" id="id"/>
-</p>
-			<p><label for="autore">Autore</label>
-			<input name="autore" id="autore"/>
-</p>
-			<p><label for="data">Data pubblicazione</label>
-			<input type="date" name="data" id="data"/>
-</p>
-			
-			<textarea name="commento" id="commento" type="text" size="2000"/>Inserisci qui il commento
-</textarea>
-</p>
-			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
 
-		</div>
-	</form>
-	
+<h1 class="login">Inserisci commento</h1>
+<div id="box">
+<div id="subBox">
+<form action="inserisci_commento.php" method="post">
+	<fieldset class="textBox">
+		<label for="input">Codice recensione</label>
+			<input type="text" class="input" name="id">
+<label for="input">Autore</label>
+			<input type="text" class="input" name="autore">
+<label for="input">Data pubblicazione</label>
+			<input type="date" class="input" name="data"><textarea name="commento" id="commento" type="text" size="2000"/>Inserisci qui il commento
+</textarea>
+			<input type="submit" value="Inserisci" id="btn">
+</fieldset>
+
+</form>
+</div>
+</div>
+		
 </body>
 
 </html>

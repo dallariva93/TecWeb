@@ -50,7 +50,7 @@
 	</div>
 	
 	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Inserisci recensione</p>
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="recensione.html">Recensione</a>/Inserisci recensione</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
@@ -60,28 +60,24 @@
 			</form>
 		</div> 
 	</div>
-	<p>Inserisci i dati della recensione</p>
-	<form method="post" action="inserisci_recensione.php">
-		<div>
-			<p><label for="id">Codice recensione</label>
-			<input name="id" id="id"/>
-</p>
-			<p><label for="libro">Libro</label>
-			<input name="libro" id="libro"/>
-</p>
-			<p><label for="autore">Autore</label>
-			<input name="autore" id="autore"/>
-</p>
-			<p><label for="data">Data pubblicazione</label>
-			<input type="date" name="data" id="data"/>
-</p>
+	<h1 class="login">Inserisci recensione</h1>
+<div id="box">
+<div id="subBox">
+<form action="inserisci_recensione.php" method="post">
+	<fieldset class="textBox">
+			<label for="id">Codice recensione</label>
+			<input name="id" id="id" class="input"/>
+			<label for="libro">Libro</label>
+			<input name="libro" id="libro" class="input"/>
+			<label for="autore">Autore</label>
+			<input name="autore" id="autore" class="input"/>
+			<label for="data">Data pubblicazione</label>
+			<input type="date" name="data" id="data" class="input"/>
 			
-			<textarea name="testo" id="testo" type="text" size="2000"/>Inserisci qui la recensione
+			<textarea name="testo" id="testo" type="text" size="2000" class="input"/>Inserisci qui la recensione
 </textarea>
-</p>
-<p>
 <label for="valutazione">valutazione</label> 
-<select name="valutazione" id="valutazione">
+<select name="valutazione" id="valutazione" class="input">
 <option>1</option>
 <option>1.5</option>
 <option>2</option>
@@ -92,11 +88,12 @@
 <option>4.5</option>
 <option>5</option>
 </select>
-</p>
-			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
+	
+</fieldset>
 
-		</div>
-	</form>
+</form>
+</div>
+</div>
 	
 </body>
 

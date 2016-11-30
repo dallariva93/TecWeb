@@ -50,7 +50,8 @@
 	</div>
 	
 	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Utenti</p>
+		<div class="breadcrumb">
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="redazione.html">Redazione</a>/Cancella redazione</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>

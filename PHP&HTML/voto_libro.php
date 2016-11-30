@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>Inserisci libro</title>
+	<title>Inserisci voto libro</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -49,8 +49,8 @@
 		</ul>
 	</div>
 	
-		<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="libro.html">Libro</a>/Inserisci libro</p>
+	<div class="breadcrumb">
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="libro.html">Recensione</a>/Inserisci voto libro</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
@@ -60,45 +60,37 @@
 			</form>
 		</div> 
 	</div>
-	<h1 class="login">Inserisci libro </h1>
-<div id="box">
-<div id="subBox">
-<form action="inserisci_libro.php" method="post">
-	<fieldset class="textBox">
-			<label for="isbn">ISBN</label>
-			<input name="isbn" id="isbn" class="input"/>
-			<label for="titolo">Titolo</label>
-			<input name="titolo" id="titolo" class="input"/>
-			<label for="autore" >Autore</label>
-			<input name="autore" id="autore" class="input"/>
-			<label for="anno" >Anno</label>
-			<input type="date" name="anno" id="anno" class="input"/>
-         <label for="casa" >Casa editrice</label>
-			<input name="casa" id="casa" class="input"/>
-			<label for="scrittore" >Scrittore</label> 
-			<input type="text" name="scrittore" id="scrittore"
-class="input"/>
-<label for="genere">Genere</label> 
-<select name="genere" id="genere" class="input">
-<option>Commedia</option>
-<option>Thriller</option>
-<option>Horror</option>
-<option>Fantasy</option>
-<option>Narrativa</option>
-<option>Saggistica</option>
-<option>Classico</option>
-<option>Fantascienza</option>
-</select>
+<?php
 
-<input type="submit" value="Inserisci" id="btn">
-</fieldset>
+include('connect.php');
 
-</form>
-</div>
-</div>
-		
-		
-	
+$libro= $_POST['libro'];
+$autore= $_POST['autore'];
+$valutazione= $_POST['valutazione'];
+
+if (($libro=="") or ($autore=="") or ($valutazione="")) 
+{ 
+echo "<br><h1>Errore, dati mancanti</h1>";
+} 
+else
+
+{
+if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `libro` WHERE isbn='$libro'"))))
+{echo '<br><h1>Libro non presente';}
+else{
+$insert="INSERT INTO `VotoLibro` VALUES ('$libro','$autore',''$valutazione')";
+
+} 
+} 
+$result = mysqli_multi_query($db,$insert);
+
+if($result){
+	echo("<br> <H1>Inserimento avvenuto correttamente</H1>");
+} else{
+	echo("<br><H1>Inserimento non eseguito</h1>");
+} 
+?>
 </body>
-
 </html>
+
+

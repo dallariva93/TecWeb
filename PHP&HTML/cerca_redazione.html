@@ -49,8 +49,9 @@
 		</ul>
 	</div>
 	
-	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Cerca redazione</p>
+<div class="breadcrumb">
+		<div class="breadcrumb">
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="redazione.html">Redazione</a>/Cerca redazione</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
@@ -60,14 +61,18 @@
 			</form>
 		</div> 
 	</div>
-       <p><h1>Inserisci l'email della redazione da cercare</h1></p>
-        <form method="post" action="cerca_redazione.php">
-	        <div>
-	          <input type="text" name="email"/>
-<br/>
-	          <input type="submit" value="Cerca" id="btnCerca"/>
-	       </div>
-        </form>
+       <h1 class="login">Cerca redazione</h1>
+<div id="box">
+<div id="subBox">
+<form action="cerca_redazione.php" method="post">
+	<fieldset class="textBox">
+		<label for="input">Email</label>
+			<input type="email" class="input" name="email">
+			<input type="submit" value="Cerca" id="btn">
+	</fieldset>
+</form>
+</div>
+</div>
 </body>
 
 </html>

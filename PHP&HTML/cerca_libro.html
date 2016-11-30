@@ -50,7 +50,7 @@
 	</div>
 	
 	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Cerca libro</p>
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="libro.html">Libro</a>/Cerca libro</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
@@ -60,14 +60,18 @@
 			</form>
 		</div> 
 	</div>
-       <p><h1>Inserisci l'ISBN del libro da cercare</h1></p>
-        <form method="post" action="cerca_libro.php">
-	        <div>
-	          <input type="text" name="isbn"/>
-<br/>
-	          <input type="submit" value="Cerca" id="btnCerca"/>
-	       </div>
-        </form>
+       <h1 class="login">Cercalibro</h1>
+<div id="box">
+<div id="subBox">
+<form action="cerca_libro.php" method="post">
+	<fieldset class="textBox">
+		<label for="input">ISBN</label>
+			<input type="text" class="input" name="isbn">
+			<input type="submit" value="Cerca" id="btn">
+	</fieldset>
+</form>
+</div>
+</div>
 </body>
 
 </html>

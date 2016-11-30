@@ -49,8 +49,9 @@
 		</ul>
 	</div>
 	
-	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Utenti</p>
+<div class="breadcrumb">
+		<div class="breadcrumb">
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="scrittore.html">Scrittore</a>/Inserisci scrittore</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>

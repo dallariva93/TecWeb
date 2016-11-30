@@ -46,7 +46,7 @@
 	</div>
 	
 	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Inserisci utente</p>
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="utente.html">Utente</a>/Inserisci utente</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
@@ -56,34 +56,32 @@
 			</form>
 		</div> 
 	</div>
-	<p><h1>Inserisci i dati dell' utente</h1></p>
-	<form method="post" action="inserisci_utente.php">
-		<div>
+		<h1 class="login">Inserisci utente</h1>
+<div id="box">
+<div id="subBox">
+<form action="inserisci_utente.php" method="post">
+	<fieldset class="textBox">
 			<label for="nickname">Nickname</label>
-			<input name="nickname" id="nickname"/>
-<br/>
+			<input name="nickname" id="nickname" class="input"/>
 			<label for="nome">Nome</label>
-			<input name="nome" id="nome"/>
-<br/>
+			<input name="nome" id="nome" class="input"/>
 			<label for="cognome">Cognome</label>
-			<input name="cognome" id="cognome"/>
-<br/>
+			<input name="cognome" id="cognome" class="input"/>
 			<label for="email">Email</label>
-			<input type="text" name="email" id="email"/>
-<br/>
+			<input type="text" name="email" id="email" class="input"/>
 			<label for="residenza">Residenza</label>
-			<input name="residenza" id="residenza"/>
-<br/>
+			<input name="residenza" id="residenza" class="input"/>
 			<label for="data">Data di nascita</label> 
-			<input type="text" name="data" id="data"/>
-<br/>
+			<input type="date" name="data" id="data" class="input"/>
 			<label for="password">Password</label> 
-			<input type="password" name="password" id="password"/>
-<br/>
-			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
-		</div>
-	</form>
+			<input type="password" name="password" id="password" class="input" class="input"/>
 	
+<input type="submit" value="Inserisci" id="btn">
+</fieldset>
+
+</form>
+</div>
+</div>
 </body>
 
 </html>

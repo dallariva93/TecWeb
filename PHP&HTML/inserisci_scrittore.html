@@ -50,7 +50,8 @@
 	</div>
 	
 	<div class="breadcrumb">
-		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/Inserisci scrittore</p>
+		<div class="breadcrumb">
+		<p class="path">Ti trovi in: <span xml:lang="en"><a href="index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione </a>/<a href="scrittore.html">Scrittore</a>/Inserisci scrittore</p>
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
@@ -60,25 +61,26 @@
 			</form>
 		</div> 
 	</div>
-	<p><h1>Inserisci i dati dello scrittore</h1></p>
+	<h1 class="login">Inserisci scrittore</h1>
+<div id="box">
+<div id="subBox">
 	<form method="post" action="inserisci_scittore.php">
 		<div>
 			<label for="codice">Codice</label>
-			<input name="codice" id="codice"/><br/>
+			<input name="codice" id="codice" class="input"/>
 			<label for="nome">Nome</label>
-			<input name="nome" id="nome"/>
-<br/>
+			<input name="nome" id="nome" class="input"/>
 			<label for="cognome">Cognome</label>
-			<input name="cognome" id="cognome"/>
-<br/>
+			<input name="cognome" id="cognome" class="input"/>
 			<label for="nazionalita">Nazionalit&agrave;</label>
-			<input name="nazionalita" id="nazionalita"/><br/>
+			<input name="nazionalita" id="nazionalita" class="input"/>
 			<label for="data">Data di nascita</label>
-			<input type="text" name="data" id="data"/>
-<br/>
-			<input type="submit" value="Aggiungi" id="btnAggiungi"/>
-		</div>
-	</form>
+			<input type="date" name="data" id="data" class="input"/>
+<input type="submit" value="Inserisci" id="btn">
+</fieldset>
+</form>
+</div>
+</div
 </body>
 
 </html>
