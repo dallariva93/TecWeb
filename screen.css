@@ -120,7 +120,8 @@ a:visited {
 	list-style-type:none;
 	display: block;
 	height: 10em;	
-	overflow: hidden; 
+	overflow: hidden;
+	margin-bottom: 0.5em;
 	border-bottom: 1px solid black;
 }
 .doubletable dd:hover{
