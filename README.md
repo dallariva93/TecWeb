@@ -54,61 +54,61 @@ positivamente.
 ##Pagine necessarie:
 
 1. Index [ ]	
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [X] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
 	
 2. News [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [ ] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
 3. Recensioni [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [X] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
 4. Classifica [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [ ] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
 5. Contatti [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [ ] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
 6. Accesso [G]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [X] HTML
+- [X] CSS
+- [ ] PHP
+- [ ] JS
 7. Iscrizione [G]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [ ] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
 8. Pagina utente [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
-9. Pagina libro/recensione + commenti [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
-10. Pagina autore [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
-11. Pagina amministrazione [ ]
-	- [ ] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+- [ ] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
+9. Pagina libro/recensione + commenti [L ]
+- [ ] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
+10. Pagina autore [L ]
+- [ ] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
+11. Pagina amministrazione [A ]
+- [X] HTML
+- [ ] CSS
+- [ ] PHP
+- [ ] JS
 
 	A: Andrea
 	
