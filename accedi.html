@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 <head>
-	<title>SUCH WOW - Contatti</title>
+	<title>Accedi - SUCH WOW</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	<meta name="description" content="Social network per topi di bibblioteca"/>
 	<meta name="autor" content="Gruppo TW"/>
@@ -21,40 +21,39 @@
 <body>
 	<div class="menu" id="menu"> <!-- Barra di navigazione -->
 		<ul>
-		<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
-		<li id="Accesso" class="right"><a href="">Accedi</a></li>
-			<li class="right"><a href="index.html">Iscriviti</a><li>				
+			<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
 			<li><a href="index.html" xml:lang="en">Home</a></li>
 			<li><a href="index.html" xml:lang="en">News</a></li>
-			<li><a href="index.html">Recensioni</a></li>
+			<li><a href="index.html">Catalogo</a></li>
 			<li><a href="index.html">Classifica</a></li>
-			<li><a href="contacts.html">Contatti</a></li>	
+			<li><a href="contacts.html">Contatti</a></li>
+			<li id="Accesso" class="right"><a href="accedi.html">Accedi</a></li>
+			<li class="right"><a href="index.html" >Iscriviti</a></li>
 		</ul>
 	</div>
 	
-<h1 class="login">Accedi a Such Wow</h1>
-<div id="boxAccedi">
-<div id="subBox">
-<form action="submission.php" method="post">
-	<fieldset class="textBox">
-		<label for="username_input">E-mail</label>
-			<input type="text" class="username_input">
-			<label for="username_psw">Password</label>
-			<a href="" id="forgot"> <span>Password dimenticata?</span></a>
-			<input type="password" class="username_psw">
-   		<div class="checkbox">
-   	   <label><input type="checkbox"> 
-   	   <span class="checkboxtext">Ricordami
-   	   </span></label>
-   		</div>
-			<input type="submit" value="Accedi" id="btnAccedi">
-	</fieldset>
-</form>
-</div>
-</div>
-<p id="creaAccount">
-	Non hai un account?
-	<a href="" data-ga-click="Sign in, switch to sign up">Registrati!</a>.
-</p>
-
+	
+	<div class="box">
+		<h1>Accedi a Such Wow</h1>
+		<form action="submission.php" method="post">
+			<fieldset >
+				<label for="username_input">E-mail</label>
+				<input type="text" id="username_input" />
+				<label for="username_psw">Password</label>
+				<a href="" id="forgot"> <span>Password dimenticata?</span></a>
+				<input type="password" id="username_psw" />
+		   	    <label for="check">Ricordami
+   	    			<input type="checkbox" id="check" />
+   	    		</label> 
+				<input type="submit" value="Accedi" class="btnLong" />
+			</fieldset>
+		</form>
+	</div>
+	<div class="box">
+		<p>
+			Non hai un account?
+			<a href="" >Registrati!</a>
+		</p>
+	</div>
 </body>
+</html>

@@ -25,14 +25,14 @@
 <body>
 	<div class="menu" id="menu"> <!-- Barra di navigazione -->
 		<ul>
-		<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
-		<li><a href="index.html" xml:lang="en">Home</a></li>
-		<li><a href="index.html" xml:lang="en">News</a></li>
-		<li><a href="index.html">Catalogo</a></li>
-		<li><a href="index.html">Classifica</a></li>
-		<li><a href="contacts.html">Contatti</a></li>
-		<li id="Accesso" class="right"><a href="accedi.html">Accedi</a></li>
-		<li class="right"><a href="index.html" >Iscriviti</a><li>
+			<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
+			<li><a href="index.html" xml:lang="en">Home</a></li>
+			<li><a href="index.html" xml:lang="en">News</a></li>
+			<li><a href="index.html">Catalogo</a></li>
+			<li><a href="index.html">Classifica</a></li>
+			<li><a href="contacts.html">Contatti</a></li>
+			<li class="right"><a href="accedi.html">Accedi</a></li>
+			<li class="right"><a href="index.html" >Iscriviti</a></li>
 		</ul>
 	</div>
 	
@@ -41,63 +41,67 @@
 		<div class="searchform">
 			<form action="action_page.php">
 				<fieldset>
-					<input type="text" name="googlesearch" id="search" />
+					<input type="text" name="googlesearch"/>
 					<input type="submit" value="Cerca"/>
 				</fieldset>
 			</form>
 		</div> 
 	</div>
-	<div id="corpo">
-		<div class="text">
-			<h2>
+	<div class="corpo">
+		<!--	<div class="text">
+		<h2>
 				Entra a far parte della <span xml:lang="en">community</span> di <span xml:lang="en">FaceOnTheBook</span>.
 			</h2>
-				<cite>*Descrizione bellissima del sito che non ho voglia di fare perchè sono pigro*</cite>
 			<h3>	
 				Commenta un libro, conosci altri lettori o semplicemente sfoglia la nostra libreria in cerca del prossimo libro da leggere.		
 			</h3>	
-		</div> 
+		</div>  Rallenta la lettura per i non vedenti, così si lascia il contenuto in primo piano -->
 		
-		<div class="doubletable">
-			<dl id="rec">
+		<div class="elenco ">
+			<dl class="leftBig" id="leftTb">
 				<dt>Ultime Recensioni</dt>
 					<dd>
-					<a href="index.html">
-						<div>					
-							<h1>Titolo</h1>					
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
-						</div>
-						<img src="copertine/50sfumaturedicretini.jpg" alt="" />
-					</a>
+						<a href="index.html">
+
+								<img src="img/cover/50sfumaturedicretini.jpg" alt="" class="leftBig" />
+								<object>
+									<h1>Titolo</h1>					
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
+									</p>
+							</object>
+							
+						</a>
 					</dd>
 					
 					<dd>
-					<a href="index.html">
-						<div>
-							<h1>Titolo</h1>					
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
-						</div>
-						<img src="copertine/IlSignoreDegliAnelli.jpg" alt="" />
-					</a>
+						<a href="index.html">
+							
+							<img src="img/cover/IlSignoreDegliAnelli.jpg" alt="" />
+							<object>
+								<h1>Titolo</h1>					
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
+								</p>
+							</object>
+						</a>
 					</dd>
 							
 					<dd><a href="index.html">Recensione3</a></dd>			
 					<dd><a href="index.html">Recensione4</a></dd>			
 					<dd><a href="index.html">Recensione5</a></dd>	
-					<dd><a href="index.html">Recensione6</a></dd>							
+					<dd><a href="index.html">Recensione6</a></dd>					
 			</dl>
 			
 			<div >
-				<dl id="news">
+				<dl class="rightSmall">
 					<dt>Ultime Uscite</dt>
 						<dd>
-						<a href="index.html">
-						<div>					
+						<a href="index.html" >
+							<img src="img/cover/IGiardiniDellaLuna.jpg" alt="" />
+							<object>			
 							<h1>Titolo</h1>					
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
-												
-						</div>
-						<img src="copertine/IGiardiniDellaLuna.jpg" alt="" />						
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
+								</p>
+							</object>									
 						</a>
 						</dd> 
 									
@@ -106,7 +110,7 @@
 						<dd><a href="index.html">Novit&agrave;4</a></dd>			
 				</dl>
 				
-				<dl id="news">
+				<dl class="rightSmall">
 					<dt xml:lang="en">News</dt>
 						<dd><a href="index.html">Novit&agrave;1</a></dd>			
 						<dd><a href="index.html">Novit&agrave;2</a></dd>			
@@ -114,7 +118,13 @@
 			</div>
 		</div>
 	</div> 
-		
+	
+	<div id="footer" class="footer">
+		<a href="Amministrazione/amministrazione.html">Area Amministratori</a>
+
+
+
+	</div>	
 	
 
 <script src="script.js" type="text/javascript"></script>	

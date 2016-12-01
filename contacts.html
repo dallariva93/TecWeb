@@ -26,26 +26,13 @@
 	<div class="menu" id="menu"> <!-- Barra di navigazione -->
 		<ul>
 		<li class="icona"><a onclick="mobileMenu()">&#9776;</a></li>
-		<li id="Accesso" class="right"><a href="index.html">Accedi</a>
-				<div id="Dropdown">
-						<form action="submission.php" method="post">
-							<fieldset class="textBox">
-								<label for="username_input">E-mail</label>
-								<input type="text" id="username_input"/>
-								<label for="username_psw">Password</label>
-								<input type="password" id="username_psw" />
-								<input type="submit" value="Accedi" id="btnAccedi" />
-								<a href="" id="forgot"> <span>Password dimenticata?</span></a>
-							</fieldset>
-						</form>
-				</div>
-			</li>
-			<li class="right"><a href="index.html">Iscriviti</a><li>				
-			<li><a href="index.html" xml:lang="en">Home</a></li>
-			<li><a href="index.html" xml:lang="en">News</a></li>
-			<li><a href="index.html">Recensioni</a></li>
-			<li><a href="index.html">Classifica</a></li>
-			<li><a href="contacts.html">Contatti</a></li>	
+		<li><a href="index.html" xml:lang="en">Home</a></li>
+		<li><a href="index.html" xml:lang="en">News</a></li>
+		<li><a href="index.html">Catalogo</a></li>
+		<li><a href="index.html">Classifica</a></li>
+		<li><a href="contacts.html">Contatti</a></li>
+		<li id="Accesso" class="right"><a href="accedi.html">Accedi</a></li>
+		<li class="right"><a href="index.html" >Iscriviti</a></li>
 		</ul>
 	</div>
 	
@@ -55,16 +42,15 @@
 			<form action="action_page.php">
 				<fieldset>
 					<input type="text" name="googlesearch"/>
-					<input type="submit" value="Cerca"/>
+					<input type="submit" value="Cerca" />
 				</fieldset>
 			</form>
 		</div>
 	</div>
-	<div id="emailform">
-		<h2>Contatta la redazione</h2>
+	<div  class="box">
+		<h1>Contatta la redazione</h1>
 		<form action="send_email.php" method="post">
 			<fieldset id="invio_email">
-			<legend>Inviaci un E-Mail:</legend>
 				<label for="nome">Inserire nome: </label>
 				<input type="text" id="nome"/>
 				<label for="email">Indirizzo E-mail: </label>
@@ -73,7 +59,7 @@
 				<input type="text" id="oggetto"/>
 				<label for="testo">Messaggio: </label>
 				<textarea id="testo" rows="4" cols="50"></textarea>
-				<input type="submit" value="Invia!" id="emailbt" />
+				<input type="submit" value="Invia!" class="btnShort" />
 			</fieldset>
 		</form>
 	</div>
