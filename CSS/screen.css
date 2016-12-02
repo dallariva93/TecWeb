@@ -1,0 +1,308 @@
+* {	
+	margin: 0em;
+	padding: 0em;
+}
+html, body{
+	
+	font-family: Verdana, Helvetica, sans-serif;
+	margin: auto;
+	background-color:#ddd;
+}
+textarea{
+	width: calc(100% - 2em);
+}
+
+.rightSmall {
+	float:right;
+	width: 30%;
+}
+.leftBig {
+	float: left;
+	width: 68%;
+}
+.rightBig {
+	float:right;
+	width: 68%;
+}
+.leftSmall {
+	float: left;
+	width: 30%;
+}
+.VleftSmall {
+	float: left;
+	width: 20%;
+	
+}
+.VrightBig {
+	float:right;
+	width: 78%;
+}
+.leftBig ,.VleftSmall, .leftSmall{
+	margin-right: 2%;
+}
+.corpo {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.content{
+	margin-top:5em;
+	margin-bottom:5em;
+}
+/***************************************************************
+	BOX INSERIMENTO DATI
+***************************************************************/
+
+.box{
+	display: block;
+	padding: 1em;
+	width: 50%;
+	margin: auto;
+	margin-top: 0.5em;
+	background-color: #fff;
+	border: 1px solid #d8dee2;
+	border-radius: 5px;
+}
+
+.box h1{
+	text-align: center;
+	padding: 0.5em;
+
+}
+.box input:not(:last-child){ /*L'ultimo figlio sarà sempre il bottone */
+	border-radius: 3px; 
+	height: 1.5em;
+	width: 100%;	
+	display: block;
+	margin-top: 0.3em;
+	margin-bottom: 0.5em;
+	padding-top: 0.5em ;
+	padding-bottom: 0.5em;
+	border: 1px solid #ddd;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+}
+.box  ul{
+	list-style:none;	
+}
+.box li{
+	width:100%;      
+	text-align:center;
+	border-radius: 15px; 
+}
+.box li > a{
+	text-decoration:none;
+	border-radius: 15px; 
+	color:black;
+	display:block;
+	width:100%;
+	height:2em;
+	margin:0.2em;
+	background-color:#ddd;
+}
+/**************************************************************
+		BOTTONI
+***************************************************************/
+
+.btnLong , .btnShort{
+	padding: 0.4em;
+	margin: auto;
+	margin-top:1em;
+	display: block;
+	width: 100%;
+	
+}
+
+.btnShort{
+	clear: both;
+	width: 20%;
+}
+
+/**************************************************************
+			MENU
+***************************************************************/
+
+.menu { 
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9;
+	background-color: grey;
+}
+.menu ul {
+	max-width: 1200px;
+	margin:auto ;
+	list-style-type: none;
+}
+.menu li {
+	float: left;
+	width: 100px;
+}
+
+.menu ul li > a{
+	padding: 0.5em;
+	display: block;
+	text-decoration: none;
+	color: black;
+	text-align: center;
+	
+}
+.menu ul li > a:hover { 
+	color: white;
+	background-color: black;
+}
+.menu ul li.icona {
+	display:none;
+}
+.menu li.right {
+	float: right;
+}
+
+/**************************************************************
+	BREADCRUMB E RICERCA
+***************************************************************/
+.breadcrumb {
+	min-height: 2.5em;
+	margin-top:2.1em;
+	border: 1px solid black;
+
+}	
+
+.path {
+	padding-left: 0.5em;
+	padding-top: 0.8em;
+	float: left;
+	
+}
+
+.searchform {
+	padding-right:0.5em;
+	padding-top: 0.7em;
+	float: right;
+
+}
+/**************************************************************
+			INDEX
+***************************************************************/
+.text {
+	padding:0.5em;
+	text-align: left;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+/**************************************************************
+		RECENSIONI E NEWS
+***************************************************************/
+.elenco dl{
+	float: left;
+	margin-bottom: 1em;	
+	margin-top: 1em;
+}
+.elenco dt ,.filtri legend{ 
+	padding: 0.5em;
+	text-align: center;
+	font-size:1em;
+	font-weight:bold;
+	margin-bottom: 0.1em;
+	background-color:red;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px black;
+}
+.elenco dd{
+	display: block;
+	margin-top: 0.2em;
+	height: 10em;
+	overflow: hidden;
+	background-color:#fff;
+	border-radius: 5px;
+	box-shadow: 0 1px 5px black;
+}
+.elenco img{
+	top: 0;
+	width: 30%;
+	float: left;
+	padding-right: 0.5em;
+}
+.elenco a{
+	text-decoration: none;
+	color: black;
+	text-align: left;
+}
+.elenco dd:hover{
+	background-color: orange;
+}
+.elenco  h1{
+	margin-left: 50%;
+}
+/**************************************************************
+		FOOTER
+***************************************************************/
+#footer{ 
+	background-color: grey;
+	clear: both;
+	width: 100%;
+	min-height: 3em;
+	bottom: 0;
+	margin-top: auto;
+	}
+/**************************************************************
+		ACCEDI
+***************************************************************/
+#forgot{
+	font-size: 0.7em;
+	float:right;
+	padding-top: 0.2em;
+}
+
+/**************************************************************
+		FILTRI
+***************************************************************/
+.filtri {
+	margin-bottom: 1em;
+	margin-top: 1em;
+	height: 50em;
+	background-color: #fff;
+	border-radius: 5px;
+}
+.filtri legend{
+	margin-bottom: 1em;
+}
+.filtri > div{
+	padding: 1em 1em 1em 0;
+	width: 100%;
+}
+
+/**************************************************************
+		AMMINISTRAZIONE
+***************************************************************/
+.textadmin{
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid #d8dee2;
+	max-width: 50%;
+	min-width: 30%;
+	margin: auto;
+	border-radius: 5px;
+	display: block;
+	padding: 1em;
+	margin-top: 2em;
+}
+.textadmin a{
+	color:white;
+ 	text-decoration: none; 
+	border: 1px solid grey;
+	background-color:gray;
+}
+.textadmin a:visited{
+	color: white;
+	text-decoration: none;
+	border: 1px solid grey;
+	background-color:grey
+}
+.textadmin li{
+	list-style-type: none;
+	padding: 0.5em;
+	width: 100%;
+}
