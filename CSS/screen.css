@@ -152,9 +152,6 @@ textarea{
 	color: white;
 	background-color: black;
 }
-.menu ul li.icona {
-	display:none;
-}
 .menu li.right {
 	float: right;
 }
@@ -163,8 +160,8 @@ textarea{
 	BREADCRUMB E RICERCA
 ***************************************************************/
 .breadcrumb {
-	min-height: 2.5em;
-	margin-top:2.1em;
+	min-height: 2.5em; /* Bug:; Dovrebbe ridimensionarsi da solo a seconda degli elementi interni*/
+	margin-top:2.1em;/* Bug: dovrebbe essere staccato dal menu senza dovergli dare la  distanza; */
 	border: 1px solid black;
 
 }	
@@ -240,12 +237,14 @@ textarea{
 		FOOTER
 ***************************************************************/
 #footer{ 
+
 	background-color: grey;
 	clear: both;
 	width: 100%;
 	min-height: 3em;
-	bottom: 0;
-	margin-top: auto;
+	bottom: 0em;
+    position: relative;
+    margin-top: -3em;
 	}
 /**************************************************************
 		ACCEDI
@@ -275,34 +274,13 @@ textarea{
 }
 
 /**************************************************************
-		AMMINISTRAZIONE
+		PAGINA AUTORE
 ***************************************************************/
-.textadmin{
-	text-align: center;
-	background-color: #fff;
-	border: 1px solid #d8dee2;
-	max-width: 50%;
-	min-width: 30%;
-	margin: auto;
-	border-radius: 5px;
-	display: block;
-	padding: 1em;
-	margin-top: 2em;
+.presentazione img{
+	min-width: 10em;
+	min-height: 14em;
 }
-.textadmin a{
-	color:white;
- 	text-decoration: none; 
-	border: 1px solid grey;
-	background-color:gray;
-}
-.textadmin a:visited{
-	color: white;
-	text-decoration: none;
-	border: 1px solid grey;
-	background-color:grey
-}
-.textadmin li{
+.presentazione li {
 	list-style-type: none;
 	padding: 0.5em;
-	width: 100%;
 }
