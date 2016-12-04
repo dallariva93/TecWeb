@@ -1,15 +1,16 @@
 /**************************
 			MENU
 ***************************/
-.menu , .right{
+.menu {
 	position: static;
 }
-.menu li, .right{
+.menu li{
 	float: none;
 	width: 100%;
 }
-
-/**************************
-		RECENSIONI E NEWS
-***************************/
-
+.breadcrumb { /* Bug: dovrebbe essere staccato dal menu senza dovergli dare la  distanza; */
+	margin-top: 5em;
+}
+.right {/* Bug: Essendo parte del menù dovrebbe prendere lo stesso colore degli altri elementi ma non è così */
+	background-color: grey;
+}
