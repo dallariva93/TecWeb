@@ -11,9 +11,9 @@ Nome Gruppo: ---
 - rispettate i gusti della gaggi e le specifiche anche se pensate non abbiano senso
 
 ##Bug noti:
--Breadcrump: non responsive( non si allontana dal menu senza dargli la distanza e non si ridimensiona a seconda della grandezza degli elementi interni)
--Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu
--Mobile: manca tutta la gestione per gli schermi piccoli
+- Breadcrump: non responsive( non si allontana dal menu senza dargli la distanza e non si ridimensiona a seconda della grandezza degli elementi interni)
+- Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu
+- Mobile: manca tutta la gestione per gli schermi piccoli
 
 ##Specifiche:
 
@@ -100,12 +100,12 @@ positivamente.
 - [ ] PHP
 - [ ] JS
 9. Pagina libro/recensione + commenti [L ]
-- [ ] HTML
+- [X] HTML
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
 10. Pagina autore [L ]
-- [ ] HTML
+- [X] HTML
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
