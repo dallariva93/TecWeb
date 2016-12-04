@@ -10,6 +10,11 @@ Nome Gruppo: ---
 - avvertire tutti i membri del gruppo prima di ogni modifica
 - rispettate i gusti della gaggi e le specifiche anche se pensate non abbiano senso
 
+##Bug noti:
+-Breadcrump: non responsive( non si allontana dal menu senza dargli la distanza e non si ridimensiona a seconda della grandezza degli elementi interni)
+-Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu
+-Mobile: manca tutta la gestione per gli schermi piccoli
+
 ##Specifiche:
 
 Si richiede la progettazione e lo sviluppo di un sito web con contenuto a scelta dello studente ma che rispetti le seguenti caratteristiche:
