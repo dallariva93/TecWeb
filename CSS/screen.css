@@ -41,10 +41,11 @@ textarea{
 .leftBig ,.VleftSmall, .leftSmall{
 	margin-right: 2%;
 }
-.corpo {
+.centrato {
 	max-width: 1024px;
 	margin-left: auto;
 	margin-right: auto;
+	
 }
 .content{
 	margin-top:5em;
@@ -128,8 +129,8 @@ textarea{
 	right: 0;
 	left: 0;
 	width: 100%;
-	z-index: 9;
 	background-color: grey;
+	z-index: 1;
 }
 .menu ul {
 	max-width: 1024px;
@@ -139,6 +140,7 @@ textarea{
 .menu li {
 	float: left;
 	width: 100px;
+
 }
 
 .menu ul li > a{
@@ -147,6 +149,7 @@ textarea{
 	text-decoration: none;
 	color: black;
 	text-align: center;
+
 	
 }
 .menu ul li > a:hover { 
@@ -161,15 +164,16 @@ textarea{
 	BREADCRUMB E RICERCA
 ***************************************************************/
 .breadcrumb {
-	min-height: 2.5em; /* Bug:; Dovrebbe ridimensionarsi da solo a seconda degli elementi interni*/
-	margin-top:2.5em;/* Bug: dovrebbe essere staccato dal menu senza dovergli dare la  distanza; */
+	overflow: auto;
 	background-color: grey;
-	opacity:0.6;
+	opacity: 0.6;
 	color:white;
-
+	width: 100%;
+	margin-top: 2.3em;
 }	
 
 .path {
+
 	padding-left: 0.5em;
 	padding-top: 0.8em;
 	float: left;
@@ -180,8 +184,8 @@ textarea{
 	padding-right:0.5em;
 	padding-top: 0.7em;
 	float: right;
-
 }
+
 /**************************************************************
 			INDEX
 ***************************************************************/
@@ -232,7 +236,7 @@ textarea{
 	text-align: left;
 }
 .elenco dd:hover{
-	background-color: orange;
+	
 }
 .elenco  h1{
 	

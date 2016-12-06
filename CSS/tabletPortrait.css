@@ -8,10 +8,11 @@
 	float: none;
 	width: 100%;
 }
-.breadcrumb { /* Bug: dovrebbe essere staccato dal menu senza dovergli dare la  distanza; */
-	margin-top: 5em;
+.breadcrumb { 
+	margin-top: 4.65em;
+	
 }
-.right {/* Bug: Essendo parte del menù dovrebbe prendere lo stesso colore degli altri elementi ma non è così */
+.right1 {/* Bug: Essendo parte del menù dovrebbe prendere lo stesso colore degli altri elementi ma non è così */
 	background-color: grey;
 }
 
