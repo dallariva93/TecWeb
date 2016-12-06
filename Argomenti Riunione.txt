@@ -1,0 +1,33 @@
+		
+
+		HOME
+
+ - Aggiungere header tra menu e breadcrumb
+ - Box ultime recensioni: tagliare testo primi n caratteri, aggiungere barra in basso al box in cui verra' inserito voto redazione e voto utenti
+ - Box ultime uscite unico con lista uscite.
+ - Box news unico con lista news (ogni news ha un breve testo o no?)
+
+		QUESTIONE MOBILE (HOME)
+
+ - Incolonnare ultime recensioni, ultime uscite, ultime news
+ - Problemi accedi e iscriviti (vedi bug noti su css)
+ - Breadcrumb esplode
+
+		CATALOGO(nome provvisorio)
+
+ - creare classe filtri di cui faranno parte tutte le tipologie di filtri separate tra loro
+
+		QUESTIONE MOBILE (CATALOGO)
+
+ - Filtri in orizzontale sopra la lista di recensioni
+
+
+
+
+
+COSE DA CHIEDERE ALLA GAGGI
+
+ - Filtri da mobile (tanti)
+ - News statiche o dinamiche? (html o php?)
+
+
