@@ -14,3 +14,10 @@
 .right {/* Bug: Essendo parte del menù dovrebbe prendere lo stesso colore degli altri elementi ma non è così */
 	background-color: grey;
 }
+
+.leftBig,.rightSmall,.leftSmall,.rightBig {
+	width:100%;
+}
+.leftBig ,.VleftSmall, .leftSmall{
+	margin-right: 0%;
+}
