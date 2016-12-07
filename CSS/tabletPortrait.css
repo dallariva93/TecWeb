@@ -3,21 +3,21 @@
 ***************************/
 .menu {
 	position: static;
-}
+	}
 .menu li{
 	float: none;
 	width: 100%;
 }
-.breadcrumb { /* Bug: dovrebbe essere staccato dal menu senza dovergli dare la  distanza; */
-	margin-top: 5em;
+.header {
+	margin-top: 0;
 }
-.right {/* Bug: Essendo parte del menù dovrebbe prendere lo stesso colore degli altri elementi ma non è così */
-	background-color: grey;
+.menu li.right {
+	float: none;
 }
-
 .leftBig,.rightSmall,.leftSmall,.rightBig {
 	width:100%;
 }
 .leftBig ,.VleftSmall, .leftSmall{
-	margin-right: 0%;
+	margin-right: 0;
 }
+
