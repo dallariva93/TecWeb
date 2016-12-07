@@ -6,13 +6,19 @@ Nome Gruppo: ---
 
 ###!! Questo file può essere ampliato se qualcuno nota che manca qualcosa !!
 
+#N.B.
+ 
+Validare **SEMPRE** tutti i documenti (html, css, ecc), esistono siti apposta per farlo (es. w3c validator)
+
+(Per approfondimenti vedere slide!!)
+
 ##Regole:
 - avvertire tutti i membri del gruppo prima di ogni modifica
 - rispettate i gusti della gaggi e le specifiche anche se pensate non abbiano senso
 
 ##Bug noti:
 - ~~Breadcrump: non responsive( non si allontana dal menu senza dargli la distanza e non si ridimensiona a seconda della grandezza degli elementi interni)~~
-- Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu
+- ~~Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu~~
 - Mobile: manca tutta la gestione per gli schermi piccoli
 
 ##Specifiche:
@@ -80,7 +86,7 @@ positivamente.
 - [ ] PHP
 - [ ] JS
 5. Contatti [ ]
-- [ ] HTML
+- [X] HTML
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
@@ -90,7 +96,7 @@ positivamente.
 - [ ] PHP
 - [ ] JS
 7. Iscrizione [G]
-- [ ] HTML
+- [X] HTML
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
@@ -151,15 +157,6 @@ Principi:
 	* Dotare la pagina di strumenti di navigazione ed orientamento
 
 	* Considerare strumenti ed informazioni di orientamento per utenti non vedenti
-
-
-
- #N.B.
- 
-Validare **SEMPRE** tutti i documenti (html, css, ecc), esistono siti apposta per farlo (es. w3c validator)
-
-(Per approfondimenti vedere slide!!)
-
 
 ###Breakpoint:
 
