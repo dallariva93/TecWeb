@@ -3,7 +3,6 @@
 	padding: 0em;
 }
 html, body{
-	
 	font-family: Verdana, Helvetica, sans-serif;
 	margin: auto;
 	background-color:#ddd;
@@ -48,8 +47,12 @@ textarea{
 	
 }
 .content{
-	margin-top:5em;
-	margin-bottom:5em;
+
+}
+.spazia {
+	margin-top: 5em;
+	margin-bottom: 5em;
+
 }
 /***************************************************************
 	BOX INSERIMENTO DATI
@@ -140,7 +143,6 @@ textarea{
 .menu li {
 	float: left;
 	width: 100px;
-
 }
 
 .menu ul li > a{
@@ -149,8 +151,6 @@ textarea{
 	text-decoration: none;
 	color: black;
 	text-align: center;
-
-	
 }
 .menu ul li > a:hover { 
 	color: white;
