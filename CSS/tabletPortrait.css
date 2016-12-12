@@ -11,9 +11,17 @@
 .header {
 	margin-top: 0;
 }
+.breadcrumb {
+	margin-top: 0;
+}
 .menu li.right {
 	float: none;
 }
+
+/**************************
+		GENERALI
+***************************/
+
 .leftBig,.rightSmall,.leftSmall,.rightBig {
 	width:100%;
 }
@@ -21,3 +29,6 @@
 	margin-right: 0;
 }
 
+.box , .strict {
+	width: 90%;
+}
