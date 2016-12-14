@@ -102,7 +102,7 @@ positivamente.
 - [ ] PHP
 - [ ] JS
 8. Pagina utente [ ]
-- [ ] HTML
+- [X] HTML
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
