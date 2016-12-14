@@ -173,15 +173,30 @@ textarea{
 .path {
 
 	padding-left: 0.5em;
-	padding-top: 0.8em;
+	padding-top: 0.5em;
 	float: left;
 	
 }
 
 .searchform {
-	padding-right:0.5em;
-	padding-top: 0.7em;
+	height:22px;
+	padding:0.3em;
 	float: right;
+}
+
+#globalSearch{
+	width:25em;
+    	font-size: 12px;
+    	line-height: 1.5;
+    	border-radius: 3px;
+}
+
+.searchBtn{
+	padding: 3px 10px;
+    	border-radius: 3px;
+	font-size: 12px;
+	margin-top:0.1em;
+	border:0;
 }
 
 /**************************************************************
