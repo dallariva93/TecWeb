@@ -129,7 +129,7 @@ textarea{
 			MENU
 ***************************************************************/
 
-.menu { 
+.menu {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -260,15 +260,29 @@ textarea{
 		FOOTER
 ***************************************************************/
 #footer{ 
-
+	position: relative;
 	background-color: grey;
 	clear: both;
 	width: 100%;
-	min-height: 3em;
-	bottom: 0em;
-    position: relative;
-    margin-top: -3em;
+	bottom:0;
+	min-height: 3em; 
+	overflow: auto;  
 	}
+#admin {
+	float:left;
+	text-decoration:none;
+	display: block;
+	padding: 0.5em;
+	color: black;
+	border: 1px solid white;
+	width: 10em;
+	margin:0.5em;
+}	
+#W3Cimg {
+	display: block;
+	margin:0.5em;
+	float: right;
+}
 /**************************************************************
 		ACCEDI
 ***************************************************************/
