@@ -21,12 +21,24 @@
 /**************************
 		GENERALI
 ***************************/
+.rightBig , .rightSmall,.VrightBig{
+	margin-right: 1%;
+}
+.leftBig ,.VleftSmall, .leftSmall{
+	margin-right: 2%;
+	margin-left: 1%;
+}
 
-.leftBig,.rightSmall,.leftSmall,.rightBig {
+
+.leftBig ,.VleftSmall, .leftSmall, .rightBig , .rightSmall,.VrightBig {
 	width:100%;
+}
+.rightBig , .rightSmall,.VrightBig{
+	margin-right: 0;
 }
 .leftBig ,.VleftSmall, .leftSmall{
 	margin-right: 0;
+	margin-left: 0;
 }
 
 .box , .strict {

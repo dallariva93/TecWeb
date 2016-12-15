@@ -12,33 +12,47 @@ textarea{
 	max-width: 100%;
 }
 
+/*
+	margin(1%) + WidthLeft(71%) + (2%) + WidthRight(25%) + margin (1%) = 100%! 
+*/
 .rightSmall {
 	float: right;
 	width: 25%;
 }
 .leftBig {
 	float: left;
-	width: 73%;
+	width: 71%;
 }
+/*
+	margin(1%) + WidthLeft(29%) + (2%) + WidthRight(67%) + margin (1%) = 100%! 
+*/
 .rightBig {
 	float:right;
-	width: 68%;
+	width: 67%;
 }
 .leftSmall {
 	float: left;
-	width: 30%;
+	width: 29%;
 }
+/*
+	margin(1%) + WidthLeft(19%) + (2%) + WidthRight(77%) + margin (1%) = 100%! 
+*/
 .VleftSmall {
 	float: left;
-	width: 20%;
+	width: 19%;
 	
 }
 .VrightBig {
 	float:right;
-	width: 78%;
+	width: 77%;
+}
+
+.rightBig , .rightSmall,.VrightBig{
+	margin-right: 1%;
 }
 .leftBig ,.VleftSmall, .leftSmall{
 	margin-right: 2%;
+	margin-left: 1%;
 }
 
 
@@ -115,7 +129,7 @@ textarea{
 			MENU
 ***************************************************************/
 
-.menu { 
+.menu {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -261,15 +275,29 @@ textarea{
 		FOOTER
 ***************************************************************/
 #footer{ 
-
+	position: relative;
 	background-color: grey;
 	clear: both;
 	width: 100%;
-	min-height: 3em;
-	bottom: 0em;
-    position: relative;
-    margin-top: -3em;
+	bottom:0;
+	min-height: 3em; 
+	overflow: auto;  
 	}
+#admin {
+	float:left;
+	text-decoration:none;
+	display: block;
+	padding: 0.5em;
+	color: black;
+	border: 1px solid white;
+	width: 10em;
+	margin:0.5em;
+}	
+#W3Cimg {
+	display: block;
+	margin:0.5em;
+	float: right;
+}
 /**************************************************************
 		ACCEDI
 ***************************************************************/
@@ -340,6 +368,8 @@ textarea{
 }
 
 .content {
+	overflow: auto;
+	padding-bottom: 10em;
 	background-color: white;
 }
 

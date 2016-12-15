@@ -20,7 +20,7 @@ Validare **SEMPRE** tutti i documenti (html, css, ecc), esistono siti apposta pe
 - ~~Breadcrump: non responsive( non si allontana dal menu senza dargli la distanza e non si ridimensiona a seconda della grandezza degli elementi interni)~~
 - ~~Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu~~
 - Mobile: manca tutta la gestione per gli schermi piccoli
-- Classe content non colora lo sfondo
+- ~~Classe content non colora lo sfondo~~
 
 ##Specifiche:
 
@@ -102,7 +102,7 @@ positivamente.
 - [ ] PHP
 - [ ] JS
 8. Pagina utente [ ]
-- [ ] HTML
+- [X] HTML
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
