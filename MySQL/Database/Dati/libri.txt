@@ -1,0 +1,37 @@
+9788804639701	Dracula	Bram Stoker	2014	Mondadori	Horror/Classico
+9788804627807	I racconti del terrore	Edgar Allan Poe	2013	Mondadori	Horror
+9788864110325	L’esorcista	William	Peter Blatty	2009	Fazi Editore	Horror
+9780140620306	Frankestein	Mary Shelley	1994	Puffin Classics	Horror
+9788868360269	It	Stephen King	2013	Sperling & Kupfer 	Horror
+9788868361259	Pet Sematary	Stephen King	2013	Sperling & Kupfer	Horror
+9788845246005	L’ombra dello scorpione	Stephen King	1985	Bompiani	Horror
+9788807900587	Il ritratto di Dorian Gray	Oscar Wilde	2013	Feltrinelli	Horror
+9788809772878	Lo strano caso del dr. Jekyll e di Mr. Hyde	Robert Stevenson	2012	Giunti Editore	Horror
+9788848603683	Il Signore degli Anelli: La compagnia dell'anello	 John R.R. Tolkien	2007	Bompiani	Fantasy
+9788848603706	Il Signore degli Anelli: Le due torri	 John R.R. Tolkien	2007	Bompiani	Fantasy
+9788848603720	Il Signore degli Anelli: Il ritorno del re	 John R.R. Tolkien	2007	Bompiani	Fantasy
+9788845268342	Il Signore degli Anelli: Lo Hobbit	John R.R. Tolkien	2012	Bompiani	Fantasy
+9788845272400	Il Signore degli Anelli: Il Silmarillion	John R.R. Tolkien	2013	Bompiani	Fantasy
+9788877827029	Harry Potter e la Pietra Filosofale	J.K. Rowling	Salani	1997	Fantasy
+9788884516114	Harry Potter e la Camera dei Segreti	J.K. Rowling	Salani	1999	Fantasy
+9780828895965	Harry Potter e il Prigioniero di Azkaban	J.K. Rowling	Salani	2000	Fantasy
+9788867152681	Harry Potter e il Calice di Fuoco	J.K. Rowling	Salani	2001	Fantasy
+9788862561723	Harry Potter e l'Ordine della Fenice	J.K. Rowling	Salani	2003	Fantasy
+9788884516374	Harry Potter e il Principe Mezzosangue	J.K. Rowling	Salani	2005	Fantasy
+9788867158188	Harry Potter e i Doni della Morte	J.K. Rowling	Salani	2007	Fantasy
+9788804641728	Guida galattica per gli autostoppisti	 Douglas Adams	Mondadori	2014	Fantascienza
+9788804507949	Ristorante al termine dell'Universo	Douglas Adams	Mondadori	2002	Fantascienza
+9788804517580	La vita, l'Universo e tutto quanto	Douglas Adams	Mondadori	2003	Fantascienza
+9788804641759	Addio, e grazie per tutto il pesce	Douglas Adams	Mondadori	2014	Fantascienza
+9788804572114	Praticamente innocuo	Douglas Adams	Mondadori	2007	Fantascienza
+9788804401841	Preludio alla fondazione	Isaac Asimov	Mondadori	1994	Fantascienza
+9788804373308	Fondazione anno zero	Isaac Asimov	Mondadori	1993	Fantascienza
+9788804395942	Cronache della galassia	Isaac Asimov	Mondadori	1994	Fantascienza
+9788804119142	Il crollo della galassia centrale	Isaac Asimov	Mondadori	1994	Fantascienza
+9788804406822	L'altra faccia della spirale	Isaac Asimov	Mondadori	1994	Fantascienza
+9788804398165	L'orlo della fondazione	Isaac Asimov	Mondadori	1995	Fantascienza
+9788804403029	Fondazione e Terra	Isaac Asimov	Mondadori	1995	Fantascienza
+9788804314660	Amleto	William Shakespeare	Mondadori	1993	Classico
+9788806176938	Odissea	Omero	Einaudi	2005	Classico
+9788804534396	Grandi speranze	Charles Dickens	Mondadori	2004	Classico
+9788809766013 	Viaggio al centro della terra 	Jules Verne 	Giunti Editores 	2011 	Classico
