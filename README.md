@@ -76,7 +76,7 @@ positivamente.
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
-3. Recensioni [ ]
+3. Recensioni [E]
 - [X] HTML
 - [ ] CSS
 - [ ] PHP
@@ -86,7 +86,7 @@ positivamente.
 - [ ] CSS
 - [ ] PHP
 - [ ] JS
-5. Contatti [ ]
+5. Contatti [E]
 - [X] HTML
 - [ ] CSS
 - [ ] PHP
