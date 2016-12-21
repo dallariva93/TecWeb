@@ -114,7 +114,7 @@ positivamente.
 10. Pagina autore [L ]
 	- [X] HTML
 	- [ ] CSS
-	- [ ] PHP
+	- [X] PHP
 	- [ ] JS
 11. Pagina amministrazione [A ]
 	- [X] HTML

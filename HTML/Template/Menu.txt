@@ -1,0 +1,11 @@
+<div class="menu"> <!-- Barra di navigazione -->
+	<ul>
+		<li><a href="index.html" xml:lang="en">Home</a></li>
+		<li><a href="" xml:lang="en">News</a></li>
+		<li><a href="recensioni.html">Catalogo</a></li>
+		<li><a href="">Classifica</a></li>
+		<li><a href="contacts.html">Contatti</a></li>
+		<li class="right"><a href="accedi.html">Accedi</a></li>
+		<li class="right"><a href="registrazione.html" >Iscriviti</a></li>
+	</ul>
+</div>

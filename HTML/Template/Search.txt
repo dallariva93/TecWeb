@@ -1,0 +1,8 @@
+<div class="searchform">
+	<form action="action_page.php">
+		<div>
+			<input type="text" name="googlesearch" id="globalSearch"/>
+			<input type="submit" value="Cerca" class="searchBtn"/>
+		</div>
+	</form>
+</div> 
