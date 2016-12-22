@@ -1,20 +1,14 @@
 <?php
-     $username = "andrea";
-     $password = "andrea";
+     $username = "root";
+     $password = "";
      $host = "localhost";
-     $database= "libri";
-     if (!( $db = new mysqli($host, $username, $password,$database))) 
-         {echo 'Errore durante la connessione al database';} 
-
-if ($mysqli->connect_errno) {
-        echo "Il sito ha dei problemi di funzionamento.";
-  
-	    echo "Errore: Connessione fallita : \n";
-	        echo "Errno: " . $mysqli->connect_errno . "\n";
-		    echo "Error: " . $mysqli->connect_error . "\n";
-
-        exit;
-	}
+     $database= "TW";
+     $db = new mysqli($host, $username, $password,$database);
+      
+    if ($db->connect_errno) {
+        echo "Connessione fallita: ". $connessione->connect_error . ".";
+        exit();
+    }   
 
 #      if (!(mysqli::select_db($database, $db)))
 #      {echo'Errore durante la selezione del database';}

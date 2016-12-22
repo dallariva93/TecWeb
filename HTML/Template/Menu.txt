@@ -1,11 +1,9 @@
 <div class="menu"> <!-- Barra di navigazione -->
 	<ul>
-		<li><a href="index.html" xml:lang="en">Home</a></li>
+		<li><a href="index.php" xml:lang="en">Home</a></li>
 		<li><a href="" xml:lang="en">News</a></li>
-		<li><a href="recensioni.html">Catalogo</a></li>
+		<li><a href="recensioni.php">Catalogo</a></li>
 		<li><a href="">Classifica</a></li>
-		<li><a href="contacts.html">Contatti</a></li>
-		<li class="right"><a href="accedi.html">Accedi</a></li>
-		<li class="right"><a href="registrazione.html" >Iscriviti</a></li>
+		<li><a href="contacts.php">Contatti</a></li>
 	</ul>
 </div>

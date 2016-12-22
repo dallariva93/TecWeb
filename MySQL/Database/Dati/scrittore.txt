@@ -1,6 +1,6 @@
 00000001	Jules	Verne	1828-02-8	Francia
 00000002	Charles	Dickens	1812-02-07	Regno Unito
-00000003	Omero	0000-00-00	Grecia
+00000003		Omero	0000-00-00	Grecia
 00000004	William	Shakespeare	1564-04-23	Regno Unito
 00000005	Isaac	Asimov	1920-01-02	Russia
 00000006	Douglas	Adams	1952-03-11	Regno Unito

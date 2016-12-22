@@ -107,4 +107,11 @@ CREATE TABLE VotoLibro
 	ON UPDATE CASCADE
 );
 
+LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/libri.txt' INTO TABLE Libro;
+
+LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/scrittore.txt' INTO TABLE Scrittore;
+LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/utenti.txt' INTO TABLE Utente;
+LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/recensioni.txt' INTO TABLE Recensione;
+
+
 SET foreign_key_checks = 1;
