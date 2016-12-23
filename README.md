@@ -65,7 +65,7 @@ positivamente.
 
 ##Pagine necessarie:
 
-1. Index [ ]	
+1. Index [L ]	
 	- [X] HTML
 	- [ ] CSS
 	- [ ] PHP
