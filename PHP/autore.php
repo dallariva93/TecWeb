@@ -45,10 +45,10 @@
 		}
 		else
 			{
-				header("Location: ../HTML/page_not_found.html");}
+				header("Location: page_not_found.php");}
 			}
 	else {
-		header("Location: ../HTML/page_not_found.html");
+		header("Location: page_not_found.php");
 	}
 	exit;
 ?>
