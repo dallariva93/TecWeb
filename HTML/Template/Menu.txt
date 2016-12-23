@@ -1,3 +1,4 @@
+<body>
 <div class="menu"> <!-- Barra di navigazione -->
 	<ul>
 		<li><a href="index.php" xml:lang="en">Home</a></li>

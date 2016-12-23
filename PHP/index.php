@@ -3,24 +3,23 @@
 	Require_once('connect.php');
 			echo file_get_contents("../HTML/Template/Head.txt");
 			
-			print "<title>SUCH WOW</title>";
-			print "</head>";
+			echo "<title>SUCH WOW</title>","</head>";
 
 			
-			//echo file_get_contents("../HTML/Template/Menu.txt");
+			echo file_get_contents("../HTML/Template/Menu.txt");
 
-			print 	"<div class='header centrato'>
+			echo 	"<div class='header centrato'>
 						<h1>FACE ON THE BOOK</h1>
 						<p>Tieniti informato sui tuoi libri preferiti!</p>
 					</div>";
 
 
-			print 	"<div class='attacca breadcrumb centrato'>
+			echo 	"<div class='attacca breadcrumb centrato'>
 						<p class='path'>Ti trovi in: <span xml:lang='en'>Home</span>/Autore</p>";
 						echo file_get_contents("../HTML/Template/Search.txt");
-			print "</div>";
+			echo "</div>";
 
-			print "
+			echo "
 				<div class='centrato content'>
 					<div class='elenco'>
 						<dl class='leftBig' id='leftTb'>
@@ -28,7 +27,7 @@
 							if($UltimeRec = $db->query("SELECT Libro.ISBN, Libro.Titolo, Libro.Trama, Recensione.Data_Pubblicazione FROM Libro JOIN Recensione ON(Recensione.Id = Libro.ISBN) ORDER BY Recensione.Data_Pubblicazione LIMIT 5")){
 								if($UltimeRec->num_rows > 0){
 									while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
-										print
+										echo
 										"<dd>
 											<a href='libro.php?libro=". $row['ISBN']. "'>
 													<img src='../img/cover/". $row['ISBN']. ".jpg' alt=''/>
@@ -42,10 +41,10 @@
 										</dd>";
 									}
 								}
-
+							$UltimeRec->free();	
 							}
-						print "</dl>";
-					print "
+						echo "</dl>";
+					echo "
 						<div class='rightSmall'>
 
 								<h1>Ultime uscite</h1>						
@@ -53,28 +52,27 @@
 									if($UltimeExt = $db->query("SELECT ISBN, Titolo, Trama FROM Libro ORDER BY Anno_Pubblicazione LIMIT 11")){
 										if($UltimeExt->num_rows > 0){
 											while($rowE = $UltimeExt->fetch_array(MYSQLI_ASSOC)){
-											print
+											echo
 											"
 											<li><a href='libro.php?libro=". $rowE['ISBN']. "'>". $rowE['Titolo']. "</a></li>
 											";
 											}
 										}
-
+									$UltimeExt->free();	
 									}
-								print "</ul>";
-						print "</div>";
+								echo "</ul>";
+						echo "</div>";
 
 								
 
 							
 							
 								
-				print
+				echo
 					"</div>
 						</div>";
 
 
-//SELECT Libro.ISBN, Libro.Titolo, Libro.Trama, Recensione.Data_Pubblicazione FROM Libro JOIN Recensione ON(Recensione.Id = Libro.ISBN) ORDER BY Recensione.Data_Pubblicazione"
 
 			echo file_get_contents("../HTML/Template/Footer.txt");
 ?>

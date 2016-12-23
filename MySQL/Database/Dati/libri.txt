@@ -4,10 +4,10 @@
 9780140620306	Frankestein	00000012	1994	Puffin Classics	Horror
 9788868360269	It	00000011	2013	Sperling & Kupfer 	Horror
 9788868361259	Pet Sematary	00000011	2013	Sperling & Kupfer	Horror
-9788845246005	L’ombra dello scorpione	00000011	1985	Bompiani	Horror
+9788845246005	L&#39; ombra dello scorpione	00000011	1985	Bompiani	Horror
 9788807900587	Il ritratto di Dorian Gray	00000010	2013	Feltrinelli	Horror
 9788809772878	Lo strano caso del dr. Jekyll e di Mr. Hyde	00000009	2012	Giunti Editore	Horror
-9788848603683	Il Signore degli Anelli: La compagnia dell'anello	 00000008	2007	Bompiani	Fantasy
+9788848603683	Il Signore degli Anelli: La compagnia dell&#39; anello	 00000008	2007	Bompiani	Fantasy
 9788848603706	Il Signore degli Anelli: Le due torri	 00000008	2007	Bompiani	Fantasy
 9788848603720	Il Signore degli Anelli: Il ritorno del re	 00000008	2007	Bompiani	Fantasy
 9788845268342	Il Signore degli Anelli: Lo Hobbit	00000008	2012	Bompiani	Fantasy
@@ -16,20 +16,20 @@
 9788884516114	Harry Potter e la Camera dei Segreti	00000007	1999	Salani	Fantasy
 9780828895965	Harry Potter e il Prigioniero di Azkaban	00000007	2000	Salani	Fantasy
 9788867152681	Harry Potter e il Calice di Fuoco	00000007	2001	Salani	Fantasy
-9788862561723	Harry Potter e l'Ordine della Fenice	00000007	2003	Salani	Fantasy
+9788862561723	Harry Potter e l&#39; Ordine della Fenice	00000007	2003	Salani	Fantasy
 9788884516374	Harry Potter e il Principe Mezzosangue	00000007	2005	Salani	Fantasy
 9788867158188	Harry Potter e i Doni della Morte	00000007	2007	Salani	Fantasy
 9788804641728	Guida galattica per gli autostoppisti	 00000006	2014	Mondadori	Fantascienza
-9788804507949	Ristorante al termine dell'Universo	00000006	2002	Mondadori	Fantascienza
-9788804517580	La vita, l'Universo e tutto quanto	00000006	2003	Mondadori	Fantascienza
+9788804507949	Ristorante al termine dell&#39; Universo	00000006	2002	Mondadori	Fantascienza
+9788804517580	La vita, l&#39; Universo e tutto quanto	00000006	2003	Mondadori	Fantascienza
 9788804641759	Addio, e grazie per tutto il pesce	00000006	2014	Mondadori	Fantascienza
 9788804572114	Praticamente innocuo	00000006	2007	Mondadori	Fantascienza
 9788804401841	Preludio alla fondazione	00000005	1994	Mondadori	Fantascienza
 9788804373308	Fondazione anno zero	00000005	1993	Mondadori	Fantascienza
 9788804395942	Cronache della galassia	00000005	1994	Mondadori	Fantascienza
 9788804119142	Il crollo della galassia centrale	00000005	1994	Mondadori	Fantascienza
-9788804406822	L'altra faccia della spirale	00000005	1994	Mondadori	Fantascienza
-9788804398165	L'orlo della fondazione	00000005	1995	Mondadori	Fantascienza
+9788804406822	L&#39; altra faccia della spirale	00000005	1994	Mondadori	Fantascienza
+9788804398165	L&#39; orlo della fondazione	00000005	1995	Mondadori	Fantascienza
 9788804403029	Fondazione e Terra	00000005	1995	Mondadori	Fantascienza
 9788804314660	Amleto	00000004	1993	Mondadori	Classico
 9788806176938	Odissea	00000003	2005	Einaudi	Classico
