@@ -27,7 +27,7 @@
 						echo "<h2>Data di nascita: ". data($dati['Data_Nascita']). "</h2>";  
 						echo "<h2>Nazionalita: ". $dati['Nazionalita']. "</h2>"; 
 						$datiArray->free();
-						if($AltriLibri = $db->query("SELECT Titolo,ISBN FROM Libro WHERE Autore =". $codice)){
+						if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore = ".$codice)){
 							echo "<h2>Libri di ". $dati['Cognome']. " presenti nel sito: </h2>";
 							echo "<ul>";
 							while($row = $AltriLibri->fetch_array(MYSQLI_ASSOC)){
@@ -37,7 +37,6 @@
 						
 						$AltriLibri->free();
 						}
-					
 					$db->close();
 					echo "</div>";
 			echo "</div>";

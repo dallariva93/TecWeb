@@ -24,7 +24,7 @@
 					<div class='elenco'>
 						<dl class='leftBig' id='leftTb'>
 							<dt>Ultime Recensioni</dt>";
-							if($UltimeRec = $db->query("SELECT Libro.ISBN, Libro.Titolo, Libro.Trama, Recensione.Data_Pubblicazione FROM Libro JOIN Recensione ON(Recensione.Id = Libro.ISBN) ORDER BY Recensione.Data_Pubblicazione LIMIT 5")){
+							if($UltimeRec = $db->query("SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,Recensione.Testo, Recensione.Data_Pubblicazione FROM Libro JOIN Recensione ON(Recensione.Libro = Libro.ISBN) ORDER BY Recensione.Data_Pubblicazione LIMIT 5")){
 								if($UltimeRec->num_rows > 0){
 									while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
 										echo
@@ -32,10 +32,9 @@
 											<a href='libro.php?libro=". $row['ISBN']. "'>
 													<img src='../img/cover/". $row['ISBN']. ".jpg' alt=''/>
 													<object>
-														<h1>". $row['Titolo']. "</h1>					
-														<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-														</p>
-												</object>
+														<h1>". $row['Titolo']. "</h1>";					
+														echo $row['Testo'];	
+												echo "</object>
 												
 											</a>
 										</dd>";
@@ -47,30 +46,47 @@
 					echo "
 						<div class='rightSmall'>
 
-								<h1>Ultime uscite</h1>						
-								<ul>";
-									if($UltimeExt = $db->query("SELECT ISBN, Titolo, Trama FROM Libro ORDER BY Anno_Pubblicazione LIMIT 11")){
+								<h1>Ultime uscite</h1>";						
+								
+									if($UltimeExt = $db->query("SELECT ISBN, Titolo, Trama FROM Libro ORDER BY Anno_Pubblicazione DESC LIMIT 11")){
 										if($UltimeExt->num_rows > 0){
+											echo "<ul>";
 											while($rowE = $UltimeExt->fetch_array(MYSQLI_ASSOC)){
 											echo
 											"
 											<li><a href='libro.php?libro=". $rowE['ISBN']. "'>". $rowE['Titolo']. "</a></li>
 											";
 											}
+										echo "</ul>";
 										}
 									$UltimeExt->free();	
 									}
-								echo "</ul>";
+								
 						echo "</div>";
 
 								
+						echo "<div class='rightSmall'>
+							<h1>News</h1>";						
+								
+									if ($UltimeNews = $db->query("SELECT * FROM Notizie ORDER BY Data DESC LIMIT 4")) {
+										if($UltimeNews->num_rows>0) {
+											echo "<ul>";
+											while ($rowNews = $UltimeNews->fetch_array(MYSQLI_ASSOC)) {
+												echo "<li><a href='new.php?id=",$rowNews['Id'], "'>", $rowNews['Titolo'], "</a></li>";
 
+											}
+										echo "</ul>";
+										}
+									}
+									$UltimeNews->free();
+								
+							echo "</div>";
 							
 							
 								
 				echo
 					"</div>
-						</div>";
+			</div>";
 
 
 
