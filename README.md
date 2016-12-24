@@ -68,7 +68,7 @@ positivamente.
 1. Index [L ]	
 	- [X] HTML
 	- [ ] CSS
-	- [ ] PHP
+	- [X] PHP
 	- [ ] JS
 	
 2. News [ ]
