@@ -29,7 +29,7 @@ CREATE TABLE Scrittore
 	Nome	varchar(20) NOT NULL,
 	Cognome	varchar(20) NOT NULL,
 	Data_Nascita	date NOT NULL,
-	Nazionalita	varchar(20) NOT NULL
+	Nazionalita	varchar(30) NOT NULL
 );
 
 CREATE TABLE Libro
