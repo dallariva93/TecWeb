@@ -5,7 +5,7 @@
 html, body{
 	font-family: Verdana, Helvetica, sans-serif;
 	margin: auto;
-	background-color:#ddd;
+	background-color:#C5CAE9;
 }
 textarea{
 	width: 100%;
@@ -135,8 +135,9 @@ textarea{
 	right: 0;
 	left: 0;
 	width: 100%;
-	background-color: grey;
+	background-color: #303F9F;
 	z-index: 1;
+	box-shadow: 2px 2px  5px black;
 }
 .menu ul {
 	max-width: 1024px;
@@ -145,19 +146,21 @@ textarea{
 }
 .menu li {
 	float: left;
-	width: 100px;
+	min-width: 100px;
 }
 
 .menu ul li > a{
 	padding: 0.5em;
 	display: block;
 	text-decoration: none;
-	color: black;
+	color: white;
 	text-align: center;
 }
 .menu ul li > a:hover { 
-	color: white;
-	background-color: black;
+	color: #303F9F;
+	background-color: #C5CAE9;
+	box-shadow: 10px 2px  15px grey;
+
 }
 .menu li.right {
 	float: right;
@@ -168,8 +171,12 @@ textarea{
 .header{
 	margin-top:2.1em;
 	padding: 3em 0 3em 0;
-	background-color: green;
-	color: greenyellow;
+	color: white;
+	text-align: center;
+	background: url(../img/icon/header.jpg);
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+	opacity: 0.6;
 }
 
 /**************************************************************
@@ -177,7 +184,7 @@ textarea{
 ***************************************************************/
 .breadcrumb {
 	overflow: auto;
-	background-color: grey;
+	background-color:#3F51B5;
 	opacity: 0.6;
 	color:white;
 	width: 100%;
@@ -235,10 +242,10 @@ textarea{
 	font-size:1em;
 	font-weight:bold;
 	margin-bottom: 0.1em;
-	background-color:red;
+	background-color:#607D8B;
 	color: white;
 	border-radius: 5px;
-	box-shadow: 1px 1px 5px black;
+	box-shadow: 1px 2px 5px black;
 }
 .elenco dd, .elenco ul{
 	display: block;
@@ -276,7 +283,7 @@ textarea{
 ***************************************************************/
 #footer{ 
 	position: relative;
-	background-color: grey;
+	background-color: #303F9F;
 	clear: both;
 	width: 100%;
 	bottom:0;
@@ -288,7 +295,7 @@ textarea{
 	text-decoration:none;
 	display: block;
 	padding: 0.5em;
-	color: black;
+	color: white;
 	border: 1px solid white;
 	width: 10em;
 	margin:0.5em;
