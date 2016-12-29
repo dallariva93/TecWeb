@@ -34,7 +34,7 @@ CREATE TABLE Scrittore
 
 CREATE TABLE Libro
 (	ISBN varchar(13) PRIMARY KEY,
-	Titolo	varchar(20) NOT NULL,
+	Titolo	varchar(80) NOT NULL,
 	Autore	varchar(20) NOT NULL,
 	Anno_Pubblicazione	date NOT NULL,
 	Casa_Editrice	varchar (20) NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE VotoLibro
 
 CREATE TABLE Notizie
 (	Id varchar(20) PRIMARY KEY,
-	Titolo varchar(40),
+	Titolo varchar(90),
 	Autore varchar(20),
 	Data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	Testo text,
@@ -119,10 +119,9 @@ CREATE TABLE Notizie
 );
 
 LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/libri.txt' INTO TABLE Libro;
-
 LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/scrittore.txt' INTO TABLE Scrittore;
 LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/utenti.txt' INTO TABLE Utente;
 LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/recensioni.txt' INTO TABLE Recensione;
-
-
+LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/commenti.txt' INTO TABLE Commento;
+LOAD DATA INFILE '../../../lampp/htdocs/Test/TecWeb/MySQL/Database/Dati/notizie.txt' INTO TABLE Notizie;
 SET foreign_key_checks = 1;

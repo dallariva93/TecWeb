@@ -6,5 +6,4 @@
 		<li><a href="recensioni.php">Catalogo</a></li>
 		<li><a href="">Classifica</a></li>
 		<li><a href="contacts.php">Contatti</a></li>
-	</ul>
-</div>
+	

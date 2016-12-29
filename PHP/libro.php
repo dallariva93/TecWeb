@@ -8,14 +8,22 @@
 
 		$codice = $_REQUEST['libro'];
 		$datiLibro = $db->query("SELECT * FROM Libro WHERE ISBN = ". $codice);
-		$datiRecensione = $db->query("SELECT Testo,Valutazione FROM Recensione WHERE Libro = ". $codice);
 
 		if($datiLibro->num_rows > 0){
+
 			$datiL = $datiLibro->fetch_array(MYSQLI_ASSOC);
-			$datiRec = $datiRecensione->fetch_array(MYSQLI_ASSOC);
+
+			$datiRecensione = $db->query("SELECT Testo,Valutazione FROM Recensione WHERE Libro = ". $codice);
+			$votoRecArray = $db->query("SELECT AVG(Valutazione) AS Media FROM VotoRecensione GROUP BY (Recensione) HAVING Recensione =". $codice);
+			$votoLibArray = $db->query("SELECT AVG(Valutazione) AS Media FROM VotoLibro GROUP BY (Libro) HAVING Libro =".$codice);
 			$autoreArray = $db->query("SELECT Nome,Cognome,Id FROM Scrittore WHERE Id =". $datiL['Autore']);
-			$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
+
 			
+			$datiRec = $datiRecensione->fetch_array(MYSQLI_ASSOC);
+			$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
+			$votoRec = $votoRecArray->fetch_array(MYSQLI_ASSOC);
+			$votoLib = $votoLibArray->fetch_array(MYSQLI_ASSOC);
+
 			echo file_get_contents("../HTML/Template/Head.txt");
 			
 			echo "<title>", $datiL['Titolo'], "- SUCH WOW </title>","</head>";
@@ -36,7 +44,11 @@
 
 							";
 							if($datiRec)
-								echo "<p>Valutazione: <span>". $datiRec['Valutazione']. "/5 </span></p>";
+								echo "<p>Valutazione dalla redazione: <span>". $datiRec['Valutazione']. "/5 </span></p>";
+								if($votoRec)
+								echo "<p>Voto alla recensione: <span>". $votoRec['Media']. "/5 <span></p>";
+								if($votoLib)
+								echo "<p>Voto degli utenti: <span>". $votoLib['Media']. "/5 <span></p>"; 
 							echo "
 							<h2>Trama: </h2>";
 							
@@ -52,7 +64,6 @@
 					</div>
 
 					</div>"; // Fine Libro
-
 					$datiLibro->free();
 					$datiRecensione->free();
 					$autoreArray->free();

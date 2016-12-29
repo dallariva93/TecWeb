@@ -1,13 +1,12 @@
 <?php
-
 	Require_once('connect.php');
+	Require_once('functions.php');
 			echo file_get_contents("../HTML/Template/Head.txt");
 			
 			echo "<title>SUCH WOW</title>","</head>";
 
 			
-			echo file_get_contents("../HTML/Template/Menu.txt");
-
+			echo menu();
 			echo 	"<div class='header centrato'>
 						<h1>FACE ON THE BOOK</h1>
 						<p>Tieniti informato sui tuoi libri preferiti!</p>
@@ -18,7 +17,6 @@
 						<p class='path'>Ti trovi in: <span xml:lang='en'>Home</span>/Autore</p>";
 						echo file_get_contents("../HTML/Template/Search.txt");
 			echo "</div>";
-
 			echo "
 				<div class='centrato content'>
 					<div class='elenco'>

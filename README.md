@@ -69,7 +69,7 @@ positivamente.
 	- [X] HTML
 	- [ ] CSS
 	- [X] PHP
-	- [ ] JS
+	- [X] JS
 	
 2. News [ ]
 	- [ ] HTML
@@ -115,7 +115,7 @@ positivamente.
 	- [X] HTML
 	- [ ] CSS
 	- [X] PHP
-	- [ ] JS
+	- [X] JS
 11. Pagina amministrazione [A ]
 	- [X] HTML
 	- [ ] CSS
