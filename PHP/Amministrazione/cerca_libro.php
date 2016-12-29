@@ -28,17 +28,14 @@ $genere= mysql_result($risultati, $i, "genere");
 $scrittore= mysql_result($risultati, $i, "scrittore");
 $casa= mysql_result($risultati, $i, "casa");
 $data= mysql_result($risultati, $i, "data");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $isbn?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $titolo?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $autore?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $genere?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $casa?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $data?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $scrittore?></font></td>
-</tr>
-<?php
+
+ echo $isbn;
+ echo $titolo;
+ echo $autore;
+ echo $genere;
+ echo $casa;
+ echo $data;
+ echo $scrittore;
 $i++;
 }
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");

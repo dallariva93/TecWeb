@@ -27,16 +27,13 @@ $cognome= mysql_result($risultati, $i, "cognome");
 $nickname= mysql_result($risultati, $i, "nickname");
 $residenza= mysql_result($risultati, $i, "residenza");
 $data= mysql_result($risultati, $i, "Data_Nascita");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $email?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nickname?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $residenza?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $data?></font></td>
-</tr>
-<?php
+
+ echo $email;
+ echo $nome;
+ echo $cognome;
+ echo $nickname;
+ echo $residenza;
+ echo $data;
 $i++;
 }
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");

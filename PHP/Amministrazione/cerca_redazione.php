@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 include ('connect.php') ;
@@ -25,13 +22,10 @@ while ($i < $num) {
 $email= mysql_result($risultati, $i, "email");
 $nome= mysql_result($risultati, $i, "nome");
 $cognome= mysql_result($risultati, $i, "cognome");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $email?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
-</tr>
-<?php
+
+ echo $email;
+ echo $nome;
+ echo $cognome;
 $i++;
 }
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");

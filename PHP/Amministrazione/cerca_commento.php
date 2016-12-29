@@ -31,14 +31,12 @@ $codice= mysql_result($risultati, $i, "id");
 $autore= mysql_result($risultati, $i, "libro");
 $data= mysql_result($risultati, $i, "Data_Pubblicazione");
 $commento= mysql_result($risultati, $i, "commento");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $codice?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $commento?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $autore?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $data?></font></td>
-<?php
-$i++;
-}
+
+ echo $codice;
+ echo $commento;
+ echo $autore;
+ echo $data;
+ $i++;
+} 
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 ?> 

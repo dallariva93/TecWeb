@@ -26,16 +26,11 @@ $autore= mysql_result($risultati, $i, "autore");
 $data= mysql_result($risultati, $i, "Data_Pubblicazione");
 $testo= mysql_result($risultati, $i, "testo");
 $valutazione= mysql_result($risultati, $i, "valutazione");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $codice?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $libro?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $autore?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $data?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $testo?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $valutazione?></font></td>
-</tr>
-<?php
+ echo $codice;
+ echo $libro;
+ echo $autore;
+ echo $data;
+ echo $testo;
 $i++;
 }
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");

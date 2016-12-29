@@ -25,15 +25,12 @@ $nome= mysql_result($risultati, $i, "nome");
 $cognome= mysql_result($risultati, $i, "cognome");
 $nazionalita= mysql_result($risultati, $i, "nazionalita");
 $data= mysql_result($risultati, $i, "Data_Nascita");
-?>
-<tr>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $codice?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $cognome?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $nazionalita?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo $data?></font></td>
-</tr>
-<?php
+
+ echo $codice;
+ echo $nome;
+ echo $cognome;
+ echo $nazionalita;
+ echo $data;
 $i++;
 }
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
