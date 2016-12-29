@@ -3,6 +3,11 @@
 
 include ('connect.php') ;
 
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
 $isbn= $_POST['isbn'];
 
@@ -36,4 +41,5 @@ $data= mysql_result($risultati, $i, "data");
 <?php
 $i++;
 }
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 ?> 

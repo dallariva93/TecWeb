@@ -3,7 +3,12 @@
 
 include('connect.php');
 
-echo file_get_contents("cancella_utente_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
+
 $email= $_POST['email'];
 
 if ($email=="")
@@ -17,5 +22,5 @@ if($result){
 } else{
 	echo("<br><h1>Cancellazione non eseguita</h1>");
 }
-echo file_get_contents("cancella_utente_fine.txt");
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 ?>

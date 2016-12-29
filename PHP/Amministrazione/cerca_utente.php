@@ -3,7 +3,12 @@
 
 include ('connect.php') ;
 
-echo file_get_contents("cerca_utente_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
+
 
 $email= $_POST['email'];
 
@@ -34,5 +39,6 @@ $data= mysql_result($risultati, $i, "Data_Nascita");
 <?php
 $i++;
 }
-echo file_get_contents("cerca_utente_fine.txt");
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
+
 ?> 

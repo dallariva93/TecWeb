@@ -3,8 +3,11 @@
 
 include ('connect.php') ;
 
-echo file_get_contents("cerca_recensione_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
 
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
 $codice= $_POST['codice'];
 
@@ -35,5 +38,6 @@ $valutazione= mysql_result($risultati, $i, "valutazione");
 <?php
 $i++;
 }
-echo file_get_contents("cerca_recensione_fine.txt");
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
+
 ?> 

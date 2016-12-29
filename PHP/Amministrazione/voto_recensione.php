@@ -1,7 +1,11 @@
 
 <?php
 
-echo file_get_contents("voto_recensione_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
 include('connect.php');
 
@@ -30,7 +34,7 @@ if($result){
 } else{
 	echo("<br><H1>Inserimento non eseguito</h1>");
 } 
-echo file_get_contents("voto_recensione_fine.txt");
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 
 ?>
 

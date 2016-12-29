@@ -3,7 +3,11 @@
 
 include('connect.php');
 
-echo file_get_contents("voto_libro_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
 
 $libro= $_POST['libro'];
@@ -31,8 +35,7 @@ if($result){
 } else{
 	echo("<br><H1>Inserimento non eseguito</h1>");
 } 
-echo file_get_contents("voto_libro_fine.txt");
-
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 ?>
 
 

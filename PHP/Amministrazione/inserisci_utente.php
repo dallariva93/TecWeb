@@ -3,7 +3,12 @@
 
 include('connect.php');
 
-echo file_get_contents("inserisci_utente_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
+
 $nickname= $_POST['nickname'];
 $nome= $_POST['nome'];
 $cognome= $_POST['cognome'];
@@ -29,7 +34,7 @@ if($result){
 } else{
 	echo("<br><H1>Inserimento non eseguito</h1>");
 } 
-echo file_get_contents("inserisci_utente_fine.txt");
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 ?>
 
 

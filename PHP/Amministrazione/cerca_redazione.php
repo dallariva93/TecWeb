@@ -5,7 +5,11 @@
 
 include ('connect.php') ;
 
-echo file_get_contents("cerca_redazione_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
 $email= $_POST['email'];
 
@@ -30,5 +34,6 @@ $cognome= mysql_result($risultati, $i, "cognome");
 <?php
 $i++;
 }
-echo file_get_contents("cerca_redazione_fine.txt");
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
+
 ?> 

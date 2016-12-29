@@ -4,7 +4,11 @@
 include ('connect.php') ;
 
 
-echo file_get_contents("cerca_commento_inizio.txt");
+echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+
+echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
 $codice= $_POST['id'];
 $autore= $_POST['autore'];
@@ -36,5 +40,5 @@ $commento= mysql_result($risultati, $i, "commento");
 <?php
 $i++;
 }
-echo file_get_contents("cerca_commento_fine.txt");
+echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 ?> 
