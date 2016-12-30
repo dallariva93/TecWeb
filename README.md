@@ -71,7 +71,7 @@ positivamente.
 	- [X] PHP
 	- [X] JS
 	
-2. News [ ]
+2. News [I]
 	- [ ] HTML
 	- [ ] CSS
 	- [ ] PHP
@@ -81,7 +81,7 @@ positivamente.
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
-4. Classifica [ ]
+4. Classifica [I]
 	- [ ] HTML
 	- [ ] CSS
 	- [ ] PHP
