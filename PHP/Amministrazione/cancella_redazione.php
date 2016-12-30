@@ -13,7 +13,7 @@ $email= $_POST['email'];
 if ($email=="")
 {echo "<br><h1>Inserire l'email della redazione </h1>";}
 else{
-$delete = "DELETE FROM `redazione` WHERE email='$email''";
+$delete = "DELETE FROM `Redazione` WHERE email='$email'" ;
 } 
 $result = mysqli_multi_query($db,$delete);
 if($result){

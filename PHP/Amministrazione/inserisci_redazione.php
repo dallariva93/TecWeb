@@ -1,4 +1,3 @@
-
 <?php
 
 include('connect.php');
@@ -12,15 +11,16 @@ echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 $email= $_POST['email'];
 $nome= $_POST['nome'];
 $cognome= $_POST['cognome'];
+$password=$_POST['password'];
 
-if (($email=="") or ($nome=="") or ($cognome==")) 
+if (($email=="") or ($nome=="") or ($cognome=="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
 else
 
 {
-$insert="INSERT INTO `redazione` VALUES ('$email','$nome','$cognome')";
+$insert="INSERT INTO `Redazione` VALUES ('$email','$password', '$nome','$cognome')";
 
 } 
 $result = mysqli_multi_query($db,$insert);

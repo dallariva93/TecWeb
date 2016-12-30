@@ -13,7 +13,7 @@ $email= $_POST['email'];
 if ($email=="")
 {echo ("<br><h1>Inserire l'email</h1") ;} 
 
-$query = "SELECT * FROM `redazione` WHERE email='$email'" ;
+$query = "SELECT * FROM `Redazione` WHERE email='$email' " ;
 $risultati = mysqli_multi_query($db,$query);
 $num = mysqli_stmt_num_rows($risultati);
 $i = 0;
