@@ -67,7 +67,7 @@ positivamente.
 
 1. Index [L ]	
 	- [X] HTML
-	- [ ] CSS
+	- [X] CSS
 	- [X] PHP
 	- [X] JS
 	
@@ -108,12 +108,12 @@ positivamente.
 	- [ ] JS
 9. Pagina libro/recensione + commenti [L ]
 	- [X] HTML
-	- [ ] CSS
-	- [ ] PHP
+	- [X] CSS
+	- [X] PHP
 	- [ ] JS
 10. Pagina autore [L ]
 	- [X] HTML
-	- [ ] CSS
+	- [X] CSS
 	- [X] PHP
 	- [X] JS
 11. Pagina amministrazione [A ]
