@@ -12,7 +12,7 @@
 			
 			echo "<title>", $dati['Cognome'], "- SUCH WOW </title>","</head>";
 
-			echo file_get_contents("../HTML/Template/Menu.txt");
+			echo menu();
 
 			echo 	"<div class='breadcrumb centrato'>
 						<p class='path'>Ti trovi in: <span xml:lang='en'> <a href='../HTML/index.html'>Home</a></span>/Autore</p>";
@@ -20,9 +20,10 @@
 			echo "</div>";
 
 			echo "	<div class='centrato presentazione content'>
-					<img class='VleftSmall' src='../img/autori/". $dati['Id']. ".jpg' alt='Immagine di ". $dati['Cognome']. "'/>
+					
 
-					<div class='text'>";
+					<div class='text'>
+					<img class='VleftSmall' src='../img/autori/". $dati['Id']. ".jpg' alt='Immagine di ". $dati['Cognome']. "'/>";
 						echo "<h1>". $dati['Nome']. " ". $dati['Cognome']. "</h1>";
 						echo "<h2>Data di nascita: ". data($dati['Data_Nascita']). "</h2>";  
 						echo "<h2>Nazionalita: ". $dati['Nazionalita']. "</h2>"; 
@@ -30,6 +31,7 @@
 						if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore = ".$codice)){
 							echo "<h2>Libri di ". $dati['Cognome']. " presenti nel sito: </h2>";
 							echo "<ul>";
+
 							while($row = $AltriLibri->fetch_array(MYSQLI_ASSOC)){
 								echo "<li><a href='libro.php?libro=". $row['ISBN']. "'>".$row['Titolo'] . "</a></li>";
 							}
