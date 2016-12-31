@@ -3,6 +3,7 @@
 ***************************/
 .menu {
 	position: static;
+	
 	}
 .menu li{
 	float: none;
@@ -18,6 +19,9 @@
 	float: none;
 }
 
+.breadcrumb , .menu {
+	font-size: 1.2em;
+}
 /**************************
 		GENERALI
 ***************************/
@@ -43,4 +47,19 @@
 
 .box , .strict {
 	width: 90%;
+}
+
+.text img{
+	float: none;
+	margin-left: 25%;
+	width: 50%;
+}
+.text {
+	font-size: 1.3em;
+}
+.elenco {
+	font-size: 1.2em;
+}
+.elenco img {
+	width: 20%;
 }

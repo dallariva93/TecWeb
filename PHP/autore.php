@@ -24,11 +24,11 @@
 
 					<div class='text'>
 					<img class='VleftSmall' src='../img/autori/". $dati['Id']. ".jpg' alt='Immagine di ". $dati['Cognome']. "'/>";
-						echo "<h1>". $dati['Nome']. " ". $dati['Cognome']. "</h1>";
+						echo "<div class='info'><h1>". $dati['Nome']. " ". $dati['Cognome']. "</h1>";
 						echo "<h2>Data di nascita: ". data($dati['Data_Nascita']). "</h2>";  
 						echo "<h2>Nazionalita: ". $dati['Nazionalita']. "</h2>"; 
 						$datiArray->free();
-						if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore = ".$codice)){
+						if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore = $codice ORDER BY Anno_Pubblicazione")){
 							echo "<h2>Libri di ". $dati['Cognome']. " presenti nel sito: </h2>";
 							echo "<ul>";
 
@@ -40,7 +40,7 @@
 						$AltriLibri->free();
 						}
 					$db->close();
-					echo "</div>";
+					echo "</div></div>";
 			echo "</div>";
 			echo file_get_contents("../HTML/Template/Footer.txt");
 		}
