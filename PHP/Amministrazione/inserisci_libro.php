@@ -1,4 +1,3 @@
-
 <?php
 
 include('connect.php');
@@ -13,23 +12,21 @@ $isbn= $_POST['isbn'];
 $titolo= $_POST['titolo'];
 $autore= $_POST['autore'];
 $genere= $_POST['genere'];
-$data= $_POST['data'];
+$data= $_POST['anno'];
 $casa= $_POST['casa'];
-$scrittore= $_POST['scrittore'];
+$trama= $_POST['trama'];
 
-if (($isbn=="") or ($titolo=="") or ($genere=="") or ($data=="") or ($autore="") or ($casa="") or ($scrittore=="")) 
+if (($isbn=="") or ($titolo=="") or ($genere=="") or ($data=="") or ($autore=="") or ($casa=="") or ($trama=="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
 else
 
 {
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `scrittore` WHERE codice='$scrittore'"))))
-{echo '<br><h1>Codice scrittore non presente';}
-else{
-$insert="INSERT INTO `libro` VALUES ('$isbn','$titolo','$autore','$data','$casa','$genere', '$scrittore')";
 
-} 
+$insert="INSERT INTO `Libro` VALUES ('$isbn','$titolo','$autore','$data','$casa','$genere', '$trama')";
+
+
 } 
 $result = mysqli_multi_query($db,$insert);
 

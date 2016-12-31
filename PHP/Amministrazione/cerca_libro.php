@@ -1,7 +1,6 @@
-
 <?php
 
-include ('connect.php') ;
+include('connect.php');
 
 echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
 
@@ -12,31 +11,31 @@ echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 $isbn= $_POST['isbn'];
 
 if ($isbn=="")
-{echo ("<br><h1>Inserire ISBN</h1") ;} 
+{echo "<br><h1>Inserire ISBN </h1>";}
+else{
+$query= "SELECT * FROM `Libro` WHERE ISBN='$isbn' ";
 
-$query = "SELECT * FROM `libro` WHERE libro='$libro'" ;
 $risultati = mysqli_multi_query($db,$query);
 $num = mysqli_stmt_num_rows($risultati);
 
+
 $i = 0;
 if ($num==0){echo "<h1>Libro non trovato</h1>";}
-while ($i < $num) {
-$isbn= mysql_result($risultati, $i, "isbn");
-$titolo= mysql_result($risultati, $i, "titolo");
-$autore= mysql_result($risultati, $i, "autore");
-$genere= mysql_result($risultati, $i, "genere");
-$scrittore= mysql_result($risultati, $i, "scrittore");
-$casa= mysql_result($risultati, $i, "casa");
-$data= mysql_result($risultati, $i, "data");
+$isbn= mysql_result($risultati, $i, "ISBN");
+$titolo= mysql_result($risultati, $i, "Titolo");
+$autore= mysql_result($risultati, $i, "Autore");
+$genere= mysql_result($risultati, $i, "Genere");
+$trama= mysql_result($risultati, $i, "Trama");
+$casa= mysql_result($risultati, $i, "Casa_editrice");
+$data= mysql_result($risultati, $i, "Anno_pubblicazio e");
 
- echo $isbn;
- echo $titolo;
- echo $autore;
- echo $genere;
- echo $casa;
- echo $data;
- echo $scrittore;
-$i++;
-}
+echo $isbn;
+echo $titolo;
+echo $autore;
+echo $data; 
+echo $genere;
+echo $trama;
+eco $casa;
+} 
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
-?> 
+?>

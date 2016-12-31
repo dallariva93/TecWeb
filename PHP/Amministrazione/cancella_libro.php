@@ -1,4 +1,3 @@
-
 <?php
 
 include('connect.php');
@@ -14,7 +13,7 @@ $isbn= $_POST['isbn'];
 if ($isbn=="")
 {echo "<br><h1>Inserire ISBN </h1>";}
 else{
-$delete = "DELETE FROM `libro` WHERE isbn='$isbn''";
+$delete = "DELETE FROM `Libro` WHERE ISBN='$isbn' ";
 } 
 $result = mysqli_multi_query($db,$delete);
 if($result){
