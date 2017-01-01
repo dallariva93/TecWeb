@@ -12,7 +12,7 @@ $isbn= $_POST['isbn'];
 $titolo= $_POST['titolo'];
 $autore= $_POST['autore'];
 $genere= $_POST['genere'];
-$data= $_POST['anno'];
+$data= $_POST['data'];
 $casa= $_POST['casa'];
 $trama= $_POST['trama'];
 

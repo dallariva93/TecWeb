@@ -13,7 +13,7 @@ $codice= $_POST['codice'];
 if ($codice=="")
 {echo "<br><h1>Inserire il codice dello scrittore</h1>";}
 else{
-$delete = "DELETE FROM `scrittore` WHERE Id='$codice''";
+$delete = "DELETE FROM `Scrittore` WHERE Id='$codice' " ;
 } 
 $result = mysqli_multi_query($db,$delete);
 if($result){

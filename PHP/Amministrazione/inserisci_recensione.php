@@ -1,4 +1,3 @@
-
 <?php
 
 include('connect.php');
@@ -16,20 +15,16 @@ $testo= $_POST['testo'];
 $data= $_POST['data'];
 $valutazione= $_POST['valutazione'];
 
-if (($codice=="") or ($libro=="") or ($autore=="") or ($data=="") or ($testo="") or ($valutazione="")) 
+if (($codice=="") or ($libro=="") or ($autore=="") or ($data=="") or ($testo=="") or ($valutazione=="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
 else
 
 {
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `libro` WHERE isbn='$libro'"))))
-{echo '<br><h1>Libro non presente';}
-else{
-$insert="INSERT INTO `recensione` VALUES ('$id','$libro','$autore','$data','$testo', '$valutazione')";
+$insert="INSERT INTO `Recensione` VALUES ('$codice','$libro','$autore','$data','$valutazione', '$testo')";
+} 
 
-} 
-} 
 $result = mysqli_multi_query($db,$insert);
 
 if($result){

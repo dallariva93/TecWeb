@@ -8,28 +8,26 @@ echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
 
 echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
-$isbn= $_POST['isbn'];
+$codice= $_POST['codice'];
 
-if ($isbn=="")
-{echo "<br><h1>Inserire ISBN </h1>";}
+if ($codice=="")
+{echo "<br><h1>Inserire codice</h1>";}
 else{
-$query= "SELECT * FROM `Libro` WHERE ISBN='$isbn' ";
+$query= "SELECT * FROM `Notizie` WHERE id='$codice' ";
 
 $risultati = mysqli_multi_query($db,$query);
 $num = mysqli_stmt_num_rows($risultati);
 
 
 $i = 0;
-if ($num==0){echo "<h1>Libro non trovato</h1>";}
-$isbn= mysql_result($risultati, $i, "ISBN");
+if ($num==0){echo "<h1>Notizie non trovate</h1>";}
+$codice= mysql_result($risultati, $i, "Id");
 $titolo= mysql_result($risultati, $i, "Titolo");
 $autore= mysql_result($risultati, $i, "Autore");
-$genere= mysql_result($risultati, $i, "Genere");
-$trama= mysql_result($risultati, $i, "Trama");
-$casa= mysql_result($risultati, $i, "Casa_editrice");
-$data= mysql_result($risultati, $i, "Anno_pubblicazio e");
+$data= mysql_result($risultati, $i, "Data");
+$testo= mysql_result($risultati, $i, "Testo");
 
-echo "<h2>"$isbn;
+echo "<h2>"$codice;
 "</h2>"
 echo "<h2>"$titolo;
 "</h2>"
@@ -37,11 +35,7 @@ echo "<h2>"$autore;
 "</h2>"
 echo "<h2>"$data; 
 "</h2>"
-echo "<h2>"$genere;
-"</h2>"
-echo "<h2>"$trama;
-"</h2>"
-echo "<h2>"$casa;
+echo "<h2>"$testo;
 "</h2>"
 } 
 echo file_get_contents("../../HTML/Template/FooterAdmin.txt");

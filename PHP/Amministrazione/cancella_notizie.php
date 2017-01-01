@@ -1,4 +1,3 @@
-
 <?php
 
 include('connect.php');
@@ -9,14 +8,12 @@ echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
 
 echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
-
 $codice= $_POST['codice'];
 
 if ($codice=="")
-{echo "<br><h1>Inserire il codice</h1>";}
+{echo "<br><h1>Inserire codice</h1>";}
 else{
-
-$delete = "DELETE FROM `Recensione` WHERE id='$codice' " ;
+$delete = "DELETE FROM `Notizie` WHERE id='$codice' ";
 } 
 $result = mysqli_multi_query($db,$delete);
 if($result){

@@ -9,21 +9,17 @@ echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
 
 echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
-$codice= $_POST['id'];
+$codice= $_POST['codice'];
 $autore= $_POST['autore'];
 $data= $_POST['data'];
 
-if (($codice=="") or ($autore=="") or ($data=="") or ($commento=="")) 
+if (($codice=="") or ($autore=="") or ($data=="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
 else
 {
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `recensione` WHERE id='$codice'"))))
-{echo '<br><h1>Commento non presente';}
-else{
-$delete = "DELETE FROM `commento` WHERE recensione='$codice' AND autore='$autore' AND Data_Pubblicazione='$data' ''";
-} 
+$delete = "DELETE FROM `Commento` WHERE Recensione='$codice' AND Autore='$autore' AND Data_Pubblicazione='$data'  " ;
 }
 $result = mysqli_multi_query($db,$delete);
 if($result){

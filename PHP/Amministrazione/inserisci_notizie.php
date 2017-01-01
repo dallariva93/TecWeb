@@ -9,19 +9,21 @@ echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
 echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
 
 $codice= $_POST['codice'];
-$nome= $_POST['nome'];
-$cognome= $_POST['cognome'];
-$nazionalita= $_POST['nazionalita'];
+$titolo= $_POST['titolo'];
+$autore= $_POST['autore'];
+$testo= $_POST['testo'];
 $data= $_POST['data'];
 
-if (($codice=="") or ($nome=="") or ($cognome=="") or ($nazionalita=="") or ($data=="") ) 
+if (($codice=="") or ($titolo=="") or ($testo=="") or ($data=="") or ($autore=="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
 else
 
 {
-$insert="INSERT INTO `Scrittore` VALUES ('$codice','$nome','$cognome','$data', '$nazionalita')";
+
+$insert="INSERT INTO `Notizie` VALUES ('$codice','$titolo','$autore','$data','$testo')" ;
+
 
 } 
 $result = mysqli_multi_query($db,$insert);

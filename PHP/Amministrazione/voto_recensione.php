@@ -13,19 +13,15 @@ $codice= $_POST['codice'];
 $autore= $_POST['autore'];
 $valutazione= $_POST['valutazione'];
 
-if (($codice=="") or ($autore=="") or ($valutazione="")) 
+if (($codice=="") or ($autore=="") or ($valutazione=="")) 
 { 
 echo "<br><h1>Errore, dati mancanti</h1>";
 } 
 else
 
 {
-if (!(mysqli_stmt_num_rows(mysqli_multi_query($db,"SELECT * FROM `revensione` WHERE id='$codice'"))))
-{echo '<br><h1>Libro non presente';}
-else{
-$insert="INSERT INTO `VotoRecensione` VALUES ('$id','$autore',''$valutazione')";
+$insert="INSERT INTO `VotoRecensione` VALUES ('$codice','$autore',''$valutazione')";
 
-} 
 } 
 $result = mysqli_multi_query($db,$insert);
 

@@ -14,7 +14,7 @@ $email= $_POST['email'];
 if ($email=="")
 {echo "<br><h1>Inserire l'email dell'utente </h1>";}
 else{
-$delete = "DELETE FROM `utente` WHERE email='$email'";
+$delete = "DELETE FROM `Utente` WHERE Email='$email' " ;
 } 
 $result = mysqli_multi_query($db,$delete);
 if($result){
