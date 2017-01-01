@@ -49,10 +49,11 @@
 			<form action="voto_recensione.php" method="post">
 				<div>
 					<label for="codice">Codice recensione</label>
-					<input name="id" id="codice"/>
+					<input type="text" name="codice" id="codice"/>
 					<label for="autore">Autore</label>
-					<input name="autore" id="autore"/>
+					<input type="email"name="autore" id="autore"/>
 					<label for="valutazione">Valutazione
+</label>
 						<select name="valutazione" id="valutazione">
 							<option>1</option>
 							<option>1.5</option>
@@ -64,7 +65,7 @@
 							<option>4.5</option>
 							<option>5</option>
 						</select>
-					</label> 
+					
 					<input type="submit" value="Vota!" class="btnLong"/>
 				</div>
 

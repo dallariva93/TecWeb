@@ -50,12 +50,12 @@
 			<h1 >Cancella commento</h1>
 				<form action="cancella_commento.php" method="post">
 					<fieldset class="textBox">
-						<label for="id">Codice recensione</label>
-						<input type="text" id="id"/>
+						<label for="codice">Codice recensione</label>
+						<input type="text" name="codice" id="codice"/>
 						<label for="autore">Autore</label>
-						<input type="text" id="autore"/>
+						<input type="text" name="autore" id="autore"/>
 						<label for="data">Data pubblicazione</label>
-						<input type="text" id="data"/>
+						<input type="date" name="data" id="data"/>
 						<input type="submit" value="Cancella" id="btn"/>
 					</fieldset>
 				</form>

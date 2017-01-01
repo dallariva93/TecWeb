@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="it" lang="it">
 	<head>
-		<title>Cancella utente</title>
+		<title>Inserisci notizie</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 			<meta name="description" content="Social network per topi di bibblioteca"/>
 			<meta name="autor" content="Gruppo TW"/>
@@ -33,7 +33,7 @@
 			</div>
 		
 		<div class="breadcrumb centrato">
-			<p class="path">Ti trovi in: <span xml:lang="en"><a href="../index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione</a>/Cancella utente</p>
+			<p class="path">Ti trovi in: <span xml:lang="en"><a href="../index.html">Home</a></span>/<a href="amministrazione.html">Amministrazione</a>/Inserisci notizie</p>
 			<div class="searchform">
 				<form action="action_page.php">
 					<div>
@@ -43,17 +43,29 @@
 				</form>
 			</div> 
 		</div>
+		
 		<div class="box">
-			<h1>Cancella utente</h1>
-			<form action="cancella_utente.php" method="post">
+			<h1>Inserisci notizie </h1>
+			<form action="inserisci_notizie.php" method="post">
 				<div>
-					<label for="input">Email</label>
-					<input type="email" name="email" id="input"/>
-					<input type="submit" value="Cancella" class="btnLong"/>
+					<label for="codice">Codice</label>
+					<input type="text" name="codice" id="codice"/>
+					<label for="titolo">Titolo</label>
+					<input type="text" name="titolo" id="titolo"/>
+					<label for="autore" >Autore</label>
+					<input type="text" name="autore" id="autore"/>
+<label for="data" >Data</label>
+					<input type="date" name="data" id="data"/>
+
+<label for="testo">Inserisci qui il tuo testo : </label>
+					<textarea name="testo" id="testo" rows="4" cols="50"></textarea>
+					<input type="submit" value="Inserisci" class="btnLong"/>
 				</div>
 			</form>
 		</div>
-		<script src="../script.js" type="text/javascript"></script>
+		<script src="../script.js" type="text/javascript"></script>	
+			
+		
 	</body>
 
 </html>
