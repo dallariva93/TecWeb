@@ -18,7 +18,7 @@
 			<a href='utenti.php' class='boxAdmin'>Utenti</a>
 			<a href='scrittori.php' class='boxAdmin'>Scrittori</a>
 			<a href='recensioni.php' class='boxAdmin'>Recensioni</a>
-			<a href='redazioni.php' class='boxAdmin'>Redazioni</a>
+			<a href='redazione.php' class='boxAdmin'>Redazione</a>
 			<a href='libri.php' class='boxAdmin'>Libri</a>
 			<a href='notizie.php' class='boxAdmin'>Notizie</a>		
 		</div>";

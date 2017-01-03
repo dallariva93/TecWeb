@@ -1,7 +1,5 @@
 
 <?php
-setcookie('user', "giorgiovanni63@gmail.com", time() - (86400 * 30), "/");
-setcookie('user', "gilberto.file@gmail.com", time() + (86400 * 30), "/");
 	Require_once('connect.php');
 	if(isset($_REQUEST['libro'])){
 		Require_once('functions.php');
@@ -31,7 +29,7 @@ setcookie('user', "gilberto.file@gmail.com", time() + (86400 * 30), "/");
 			echo menu();
 
 			echo 	"<div class='breadcrumb centrato'>
-						<p class='path'>Ti trovi in: <span xml:lang='en'> <a href='../HTML/index.html'>Home</a></span>/". $datiL['Titolo']. "</p>";
+						<p class='path'>Ti trovi in: <span xml:lang='en'> <a href='index.php'>Home</a></span>/". $datiL['Titolo']. "</p>";
 						echo file_get_contents("../HTML/Template/Search.txt");
 			echo "</div>";
 
@@ -69,8 +67,11 @@ setcookie('user', "gilberto.file@gmail.com", time() + (86400 * 30), "/");
 										if($datiCommenti->num_rows>0) {
 											echo "<div class='comments'>";
 											while ($Commento = $datiCommenti->fetch_array(MYSQLI_ASSOC)) {
-												$Utentecm = $db->query("SELECT Nickname FROM Utente WHERE Email = '". $Commento['Autore']. "'");
-												$Utente = $Utentecm->fetch_array(MYSQLI_ASSOC);
+												if($Utentecm = $db->query("SELECT Nickname FROM Utente WHERE Email = '". $Commento['Autore']. "'")){
+													$Utente = $Utentecm->fetch_array(MYSQLI_ASSOC);
+													$username = $Utente['Nickname'];
+												}
+												else {$username = "Utente sconosciuto";}
 												echo "<div class = 'comment'>
 												<div class = 'commentTitle'>";
 												if((isset($_COOKIE['user']) && $Commento['Autore'] == $_COOKIE['user']) || isset($_COOKIE['admin'])) {

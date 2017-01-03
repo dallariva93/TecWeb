@@ -14,7 +14,7 @@
 
 
 			echo 	"<div class='attacca breadcrumb centrato'>
-						<p class='path'>Ti trovi in: <span xml:lang='en'>Home</span>/Autore</p>";
+						<p class='path'>Ti trovi in: <span xml:lang='en'>Home</p>";
 						echo file_get_contents("../HTML/Template/Search.txt");
 			echo "</div>";
 			echo "

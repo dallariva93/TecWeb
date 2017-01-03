@@ -39,7 +39,7 @@
 						<td>".Data($Utente['Data_Nascita']). "</td>
 						<td>".$Utente['Residenza']."</td>
 						<td>
-							<form action='Action/deleteUser.php' method='post'>
+							<form action='../Action/deleteUser.php' onclick='return confirm(\"Confermi di eliminare?\")' method='post'>
 								<div >
 									<input type = 'hidden' name = 'email' value = '". $Utente['Email']. "' />
 									<input type ='submit' value='&#x2718;' class='btnDelete' />
@@ -49,29 +49,29 @@
 					</tr>";
 
 				}
-
+				$Utenti->free();
 
 			}
 			echo "</tbody></table></div>";
-			$Utenti->free();
+			
 
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 				<h1>Inserisci utente</h1>
 				<form action='../Action/inserisci_utente.php' method='post'>
 					<div>
-						<label for='nickname'>Nickname</label>
-						<input type='text' name='nickname' id='nickname'/>
-						<label for='nome'>Nome</label>
-						<input type='text' name='nome' id='nome'/>
 						<label for='cognome'>Cognome</label>
 						<input type='text' name='cognome' id='cognome'/>
+						<label for='nome'>Nome</label>
+						<input type='text' name='nome' id='nome'/>
 						<label for='email'>Email</label>
 						<input type='text' name='email' id='email'/>
-						<label for='residenza'>Residenza</label>
-						<input type='text' name='residenza' id='residenza'/>
+						<label for='nickname'>Nickname</label>
+						<input type='text' name='nickname' id='nickname'/>
 						<label for='data'>Data di nascita</label> 
 						<input type='text' name='data' id='data'/>
+						<label for='residenza'>Residenza</label>
+						<input type='text' name='residenza' id='residenza'/>
 						<label for='password'>Password</label> 
 						<input type='password' name='password' id='password'/>
 						<input type='submit' value='Inserisci' class='btnLong'/>

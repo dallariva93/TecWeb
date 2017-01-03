@@ -23,6 +23,7 @@
 						<th scope='col'>Nome</th>
 						<th scope='col'>Data di nascita</th>
 						<th scope='col'>Nazionalit&agrave;</th>
+						<th scope='col'>Id</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,8 +35,9 @@
 						<td>".$Scrittore['Nome']. "</td>
 						<td>".Data($Scrittore['Data_Nascita']). "</td>
 						<td>".$Scrittore['Nazionalita']."</td>
+						<td>".$Scrittore['Id']."</td>
 						<td>
-							<form action='Action/deleteWriter.php' method='post'>
+							<form action='../Action/deleteWriter.php' onclick='return confirm(\"Confermi di eliminare?\")' method='post'>
 								<div >
 									<input type = 'hidden' name = 'id' value = '". $Scrittore['Id']. "' />
 									<input type ='submit' value='&#x2718;' class='btnDelete' />
@@ -46,15 +48,17 @@
 
 				}
 
-
+				$Scrittori->free();
 			}
 			echo "</tbody></table></div>";
-			$Scrittori->free();
+			
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 			<h1>Inserisci scrittore</h1>
 			<form method='post' action='inserisci_scittore.php'>
 				<div>
+					<label for='id'>Id</label>
+					<input type='text' name='Codice id' id='id'/>
 					<label for='nome'>Nome</label>
 					<input type='text' name='nome' id='nome'/>
 					<label for='cognome'>Cognome</label>

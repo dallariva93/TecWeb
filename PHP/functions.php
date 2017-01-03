@@ -13,7 +13,7 @@
 		Require('connect.php');
 		echo file_get_contents("../HTML/Template/Menu.txt");
 		if(isset($_COOKIE['admin']))
-			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
+			echo "<li class='right'><a href='Amministrazione/amministrazione.php'>Amministrazione</a></li>";
 		else if(isset($_COOKIE['user'])){
 			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_COOKIE['user']. "'" );
 			$utente = $user->fetch_array(MYSQL_ASSOC);
@@ -21,8 +21,8 @@
 			}
 		else{
 			echo "
-			<li class='right'><a href='accedi.html'>Accedi</a></li>
-			<li class='right'><a href='registrazione.html'>Iscriviti</a></li>";
+			<li class='right'><a href='accedi.php'>Accedi</a></li>
+			<li class='right'><a href='registrazione.php'>Iscriviti</a></li>";
 		}
 		
 		echo 
@@ -30,18 +30,18 @@
 		</div>";
 	}
 	function menuAdmin(){
-		echo file_get_contents("../../HTML/Template/Menu.txt");
+		echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
 		if(isset($_COOKIE['admin']))
 			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
 		else if(isset($_COOKIE['user'])){
 			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_COOKIE['user']. "'" );
 			$utente = $user->fetch_array(MYSQL_ASSOC);
-			echo "<li class='right'><a href='user.php'>". $utente['Nickname']."</a></li>";
+			echo "<li class='right'><a href='../user.php'>". $utente['Nickname']."</a></li>";
 			}
 		else{
 			echo "
-			<li class='right'><a href='accedi.html'>Accedi</a></li>
-			<li class='right'><a href='registrazione.html'>Iscriviti</a></li>";
+			<li class='right'><a href='../accedi.php'>Accedi</a></li>
+			<li class='right'><a href='../registrazione.php'>Iscriviti</a></li>";
 		}
 		
 		echo 

@@ -1,5 +1,5 @@
 <body>
-<a name='menu'></a></div>
+<div><a name='menu'></a></div>
 <div class="menu"> <!-- Barra di navigazione -->
 	<ul>
 		<li><a href="index.php" xml:lang="en">Home</a></li>

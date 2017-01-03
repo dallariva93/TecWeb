@@ -22,6 +22,7 @@
 						<th scope='col'>Data Pubblicazione</th>
 						<th scope='col'>Libro</th>
 						<th scope='col'>Autore</th>
+						<th scope='col'>Id</th>
 						<th scope='col'>Valutazione</th>
 					</tr>
 				</thead>
@@ -32,22 +33,33 @@
 					<tr>
 						<td scope='row'>".$Rec['Data_Pubblicazione']."</td>";
 						
-						$libro = $db->query("SELECT Titolo,ISBN FROM Libro WHERE ISBN =".$Rec['Libro']);
-						$lib = $libro->fetch_array(MYSQL_ASSOC);
-						echo "<td>
-						<a href="."'.."."/libro.php?libro=".$Rec['Libro']."'>".$lib['Titolo']."</a>
-
-						</td>";
+						if($libro = $db->query("SELECT Titolo,ISBN FROM Libro WHERE ISBN =".$Rec['Libro']))
+						{
+							$lib = $libro->fetch_array(MYSQL_ASSOC);
+							echo "<td>
+							<a href="."'.."."/libro.php?libro=".$Rec['Libro']."'>".$lib['Titolo']."</a>
+							</td>";
+							$libro->free();
+						}
+						else{
+							echo "<td>".$Rec['Libro']."</td>";
+						}
 						
-						$autoreArray = $db->query("SELECT Nome,Cognome FROM Scrittore WHERE Id =".$Rec['Autore']);
-						$autore = $autoreArray->fetch_array(MYSQL_ASSOC);
-						echo "<td>
-						<a href="."'.."."/autore.php?autore=".$Rec['Autore']."'>".$autore['Nome']. " ". $autore['Cognome']."</td>
-						
+						if($autoreArray = $db->query("SELECT Nome,Cognome FROM Redazione WHERE Email =".$Rec['Autore']))
+						{	
+							$autore = $autoreArray->fetch_array(MYSQL_ASSOC);
+							echo "<td>".$autore['Nome']. " ". $autore['Cognome']."</td>";
+							$autoreArray->free();
+						}
+						else{
+							echo "<td>".$Rec['Autore']."</td>";
+						}
+						echo "
+						<td>".$Rec['Id']."</td>
 						<td>".$Rec['Valutazione']."/5</td>
 						
 						<td>
-							<form action='Action/deleteRec.php' method='post'>
+							<form action='../Action/deleteRec.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")' >
 								<div >
 									<input type = 'hidden' name = 'id' value = '". $Rec['Id']. "' />
 									<input type ='submit' value='&#x2718;' class='btnDelete' />
@@ -58,11 +70,12 @@
 
 				}
 
-
+				$Recensioni->free();
 			}
 			echo "</tbody></table></div>";
-			$Recensioni->free();
-
+			
+			
+			
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 			<h1>Inserisci Recensione</h1>
@@ -70,10 +83,9 @@
 				<div>
 					<label for='id'>Codice recensione</label>
 					<input type='text' name='idRecensione' id='id'/>
-					<label for='libro'>Libro</label>
+					<label for='libro'>ISBN Libro</label>
 					<input type='text' name='libro' id='libro'/>
-					<label for='autore'>Autore</label>
-					<input type='text' name='autore' id='autore'/>
+					<input type='hidden' name='autore' value=''/>
 					<label for='testo'>Inserisci qui il tuo testo: </label>
 					<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
 					<label for='valutazione'>valutazione

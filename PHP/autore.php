@@ -15,7 +15,7 @@
 			echo menu();
 
 			echo 	"<div class='breadcrumb centrato'>
-						<p class='path'>Ti trovi in: <span xml:lang='en'> <a href='../HTML/index.html'>Home</a></span>/Autore</p>";
+						<p class='path'>Ti trovi in: <span xml:lang='en'> <a href='index.php'>Home</a></span>/Autore</p>";
 						echo file_get_contents("../HTML/Template/Search.txt");
 			echo "</div>";
 

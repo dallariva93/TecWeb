@@ -191,13 +191,14 @@ a:visited {
 ***************************************************************/
 .breadcrumb {
 	overflow: auto;
-	background-color:#9ea9e5;
-	
+	background-color:#5d73ea;
 	color:white;
 	width: 100%;
 	margin-top:2.3em;
 }	
-
+.path a{
+	color: white;
+}
 .path {
 
 	padding-left: 0.5em;
@@ -290,6 +291,9 @@ a:visited {
 	min-height: 3em; 
 	overflow: auto;  
 	}
+#footer a{
+	color:  white;
+}
 #admin {
 	float:left;
 	text-decoration:none;
