@@ -30,8 +30,7 @@
 		</div>";
 	}
 	function menuAdmin(){
-		Require('connect.php');
-		echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
+		echo file_get_contents("../../HTML/Template/Menu.txt");
 		if(isset($_COOKIE['admin']))
 			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
 		else if(isset($_COOKIE['user'])){
@@ -49,5 +48,66 @@
 		"</ul>
 		</div>";
 	}
+	
 
+function checkEmail($email)
+{	include('connect.php');	
+	$sql= "SELECT nickname FROM Utente WHERE Email = '$email' ";
+	$result = mysqli_query($db, $sql);
+	if (false == $result || mysqli_num_rows($result) == 0)
+	{
+		return false;
+	}
+	else
+	{	 
+		return true;
+	}
+}
+
+function checkUser($nickname)
+{	include('connect.php');	
+	$sql= "SELECT nickname FROM Utente WHERE Nickname = '$nickname' ";
+	$result = mysqli_query($db, $sql);
+	if (false == $result || mysqli_num_rows($result) == 0)
+	{
+		return false;
+	}
+	else
+	{	 
+		return true;
+	}
+}
+
+function checkUserSize($nickname) {
+	if((strlen($nickname)>4) && (strlen($nickname)<12)) 
+	{
+		return true;
+	}
+	else {return false;}
+}
+
+function checkEmailForm($email)
+{
+	if (!preg_match('/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/', $email))
+	{
+		return true;
+	}
+	else {return false;}
+}
+
+function multiexplode ($delimiters,$string) {
+
+    $ready = str_replace($delimiters, $delimiters[0], $string);
+    $launch = explode($delimiters[0], $ready);
+    return  $launch;
+}
+
+function checkData($data)
+{
+	$arrayData = multiexplode(array("-",".","/"),$data);
+	if(checkdate($arrayData[1], $arrayData[0], $arrayData[2])) {
+		return true;
+	}else 
+		{return false;}
+}
 ?>
