@@ -369,6 +369,10 @@ a:visited {
 .text ul{
 	float: left;
 }
+
+/**************************************************************
+			COMMENTO
+***************************************************************/
 .comment{
 	display: block;
 	min-height: 3em;
@@ -406,8 +410,62 @@ a:visited {
     font-size: 2em;
 
 }
+/**************************************************************
+			AMMINISTRAZIONE
+***************************************************************/
+.boxAdmin {
+	border: 1px solid blue;
+	width: 32%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+	margin-top: 1%;
+	float: left;
+	text-align: center;
+	padding-top: 5em;
+	padding-bottom: 5em;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-decoration: none;
+}
 
-
+.Table {
+	width: 100%;
+	margin-bottom: 8em;
+	margin-top: 1em;
+}
+.Table table {
+	width: 100%;
+}
+.Table > a:hover {
+	background-color: lightblue;
+}
+th {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border: 1px solid blue;
+}
+td {
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	
+	
+}
+td,th {
+	word-break: break-all;
+	border-bottom: 1px solid blue;
+	min-width: 20px;
+}
+#new {
+	text-decoration:none;
+	padding:0.5em;
+	margin:0.5em;
+	float: right;
+	background-color: #388E3C;
+	color: white;
+}
+#new:hover {
+	background-color: #4CAF50;
+}
 
 
 
@@ -445,4 +503,3 @@ a:visited {
 	padding:0.6em;
 	font-size:0.9em;
 }
-
