@@ -32,15 +32,17 @@
 	margin-right: 2%;
 	margin-left: 1%;
 }
+.leftHalf{
+	width: 98%;
+}
 
-
-.leftBig ,.VleftSmall, .leftSmall, .rightBig , .rightSmall,.VrightBig {
+.leftBig ,.VleftSmall, .leftSmall, .rightBig , .rightSmall,.VrightBig{
 	width:100%;
 }
 .rightBig , .rightSmall,.VrightBig{
 	margin-right: 0;
 }
-.leftBig ,.VleftSmall, .leftSmall{
+.leftBig ,.VleftSmall, .leftSmall, .lefthalf{
 	margin-right: 0;
 	margin-left: 0;
 }
@@ -66,4 +68,8 @@
 
 .boxAdmin {
 	width: 48%;
+}
+
+.button {
+	width:98%;
 }

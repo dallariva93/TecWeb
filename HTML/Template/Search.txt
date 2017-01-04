@@ -1,7 +1,7 @@
 <div class="searchform">
-	<form action="Action/action_page.php">
+	<form action="searchResult.php" method='get'>
 		<div>
-			<input type="text" name="googlesearch" id="globalSearch"/>
+			<input type="text" name="search" id="globalSearch"/>
 			<input type="submit" value="Cerca" class="searchBtn"/>
 		</div>
 	</form>
