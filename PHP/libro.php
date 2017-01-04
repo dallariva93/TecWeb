@@ -1,5 +1,6 @@
 
 <?php
+setcookie('user', 'giorgiovanni63@gmail.com', time() + (86400 * 30), "/");
 	Require_once('connect.php');
 	if(isset($_REQUEST['libro'])){
 		Require_once('functions.php');
@@ -13,15 +14,14 @@
 			$datiL = $datiLibro->fetch_array(MYSQLI_ASSOC);
 
 			$datiRecensione = $db->query("SELECT Id,Testo,Valutazione FROM Recensione WHERE Libro =". $codice);
-			$votoRecArray = $db->query("SELECT AVG(Valutazione) AS Media FROM VotoRecensione GROUP BY (Recensione) HAVING Recensione =". $codice);
-			$votoLibArray = $db->query("SELECT AVG(Valutazione) AS Media FROM VotoLibro GROUP BY (Libro) HAVING Libro =".$codice);
+			
 			$autoreArray = $db->query("SELECT Nome,Cognome,Id FROM Scrittore WHERE Id = '". $datiL['Autore']. "'");
 
 			$datiRec = $datiRecensione->fetch_array(MYSQLI_ASSOC);
 				
 			$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
-			$votoRec = $votoRecArray->fetch_array(MYSQLI_ASSOC);
-			$votoLib = $votoLibArray->fetch_array(MYSQLI_ASSOC);
+			
+			
 			echo file_get_contents("../HTML/Template/Head.txt");
 			
 			echo "<title>", $datiL['Titolo'], "- SUCH WOW </title>","</head>";
@@ -44,10 +44,23 @@
 							";
 							if($datiRec)
 								echo "<p>Valutazione dalla redazione: <span>". $datiRec['Valutazione']. "/5 </span></p>";
-								if($votoRec)
-								echo "<p>Voto alla recensione: <span>". $votoRec['Media']. "/5 <span></p>";
-								if($votoLib)
-								echo "<p>Voto degli utenti: <span>". $votoLib['Media']. "/5 <span></p>"; 
+								
+								if($votoLibArray = $db->query("SELECT ROUND(AVG(Valutazione),1) AS Media FROM VotoLibro GROUP BY (Libro) HAVING Libro ='$codice'")){
+									if($votoLibArray->num_rows>0){
+										$votoLib = $votoLibArray->fetch_array(MYSQLI_ASSOC);
+										echo "<p>Voto degli utenti: <span>". $votoLib['Media']. "/5 <span></p>";
+									}
+									$votoLibArray->free();
+								}
+								
+								if($votoRecArray = $db->query("SELECT ROUND(AVG(Valutazione),1) AS Media FROM VotoRecensione GROUP BY (Recensione) HAVING Recensione ='".$datiRec['Id']."'")){
+									if($votoRecArray->num_rows>0){
+										$votoRec = $votoRecArray->fetch_array(MYSQLI_ASSOC);
+										echo "<p>Voto alla recensione: <span>". $votoRec['Media']. "/5 <span></p>";
+									}	
+									$votoRecArray->free();
+								}
+								 
 							echo "
 							<h2>Trama: </h2>";
 							
@@ -95,6 +108,7 @@
 										echo "</div>";//comments
 										}
 									}
+						
 						if(isset($_COOKIE['user'])){
 						echo "
 						<h3>Inserisci un commento</h3>
@@ -106,6 +120,74 @@
 								<input type ='submit' value='Invia!' class='btnShort' />
 			   	    		</div>
 						</form>";
+
+
+						echo "<div class='box leftHalf'>
+						<h3>Vota il libro!</h3>";
+						if($votoBook = $db->query("SELECT Valutazione FROM VotoLibro WHERE Libro ='". $codice. "' AND Autore ='". $_COOKIE['user']. "'")){
+							if($votoBook->num_rows>0){
+								$votoBookU = $votoBook->fetch_array(MYSQLI_ASSOC);
+								echo "Voto dato: ". $votoBookU['Valutazione']. "/5";
+							}
+							$votoBook->free();
+						}
+							echo "<form action='Action/bookVote.php' method='post'>
+								<div>
+									<input type = 'hidden' name = 'pageB' value = '". $codice. "' />	
+									<label for='valutazioneB'>valutazione
+										<select name='valutazioneB' id='valutazioneB'>
+											<option>1</option>
+											<option>1.5</option>
+											<option>2</option>
+											<option>2.5</option>
+											<option>3</option>
+											<option>3.5</option>
+											<option>4</option>
+											<option>4.5</option>
+											<option>5</option>
+										</select>
+									</label> 	
+				            		<input type='submit' value='Aggiungi' class='btnShort'/>
+								</div>
+							</form>
+							</div>
+
+						";
+
+
+						echo "<div class='box leftHalf'>
+							<h3>Vota la recensione!</h3>";
+							if($votoRecA = $db->query("SELECT Valutazione FROM VotoRecensione WHERE Recensione ='". $datiRec['Id']. "' AND Autore ='". $_COOKIE['user']. "'")){
+								if($votoRecA->num_rows>0){
+									$votoRecU = $votoRecA->fetch_array(MYSQLI_ASSOC);
+									echo "Voto dato: ". $votoRecU['Valutazione']. "/5";
+								}
+								$votoRecA->free();
+							}
+
+							echo "<form action='Action/RecVote.php' method='post'>
+								<div>
+									<input type = 'hidden' name = 'pageRec' value = '". $codice. "' />	
+									<input type = 'hidden' name = 'rec' value = '". $datiRec['Id']. "' />	
+									<label for='valutazioneRec'>valutazione
+										<select name='valutazioneRec' id='valutazioneRec'>
+											<option>1</option>
+											<option>1.5</option>
+											<option>2</option>
+											<option>2.5</option>
+											<option>3</option>
+											<option>3.5</option>
+											<option>4</option>
+											<option>4.5</option>
+											<option>5</option>
+										</select>
+									</label> 	
+				            		<input type='submit' value='Aggiungi' class='btnShort'/>
+								</div>
+							</form>
+							</div>
+
+						";
 				}
 				echo "</div>";
 

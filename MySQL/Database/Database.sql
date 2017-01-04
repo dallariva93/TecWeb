@@ -50,7 +50,7 @@ CREATE TABLE Recensione
 	Libro varchar(13) NOT NULL,
 	Autore varchar(40) NOT NULL,
 	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-	Valutazione enum('1','1,5','2','2,5','3','3,5','4','4,5','5') NOT NULL,
+	Valutazione  DECIMAL(2,1) NOT NULL,
 	Testo	text NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Redazione(Email)
   	ON DELETE CASCADE
@@ -85,7 +85,7 @@ CREATE TABLE Commenti
 CREATE TABLE VotoRecensione
 (	Recensione varchar(20),
 	Autore varchar(40),
-	Valutazione enum('1','1,5','2','2,5','3','3,5','4','4,5','5') NOT NULL,
+	Valutazione DECIMAL(2,1) NOT NULL,
 	PRIMARY KEY (Recensione, Autore),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
 	ON DELETE CASCADE
@@ -97,7 +97,7 @@ CREATE TABLE VotoRecensione
 CREATE TABLE VotoLibro
 (	Libro varchar(13),
 	Autore varchar(40),
-	Valutazione enum('1','1,5','2','2,5','3','3,5','4','4,5','5') NOT NULL,
+	Valutazione DECIMAL(2,1) NOT NULL,
 	PRIMARY KEY (Libro, Autore),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
 	ON DELETE CASCADE

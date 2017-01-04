@@ -19,48 +19,6 @@ a:visited {
 	color: #FF5252;
 }
 
-/*
-	margin(1%) + WidthLeft(71%) + (2%) + WidthRight(25%) + margin (1%) = 100%! 
-*/
-.rightSmall {
-	float: right;
-	width: 25%;
-}
-.leftBig {
-	float: left;
-	width: 71%;
-}
-/*
-	margin(1%) + WidthLeft(29%) + (2%) + WidthRight(67%) + margin (1%) = 100%! 
-*/
-.rightBig {
-	float:right;
-	width: 67%;
-}
-.leftSmall {
-	float: left;
-	width: 29%;
-}
-/*
-	margin(1%) + WidthLeft(19%) + (2%) + WidthRight(77%) + margin (1%) = 100%! 
-*/
-.VleftSmall {
-	float: left;
-	width: 19%;
-	
-}
-.VrightBig {
-	float:right;
-	width: 77%;
-}
-
-.rightBig , .rightSmall,.VrightBig{
-	margin-right: 1%;
-}
-.leftBig ,.VleftSmall, .leftSmall{
-	margin-right: 2%;
-	margin-left: 1%;
-}
 
 
 
@@ -509,4 +467,54 @@ td,th {
 }
 .formError {
 	color: red;
+}
+
+/*
+	margin(1%) + WidthLeft(71%) + (2%) + WidthRight(25%) + margin (1%) = 100%! 
+*/
+.rightSmall {
+	float: right;
+	width: 25%;
+}
+.leftBig {
+	float: left;
+	width: 71%;
+}
+/*
+	margin(1%) + WidthLeft(29%) + (2%) + WidthRight(67%) + margin (1%) = 100%! 
+*/
+.rightBig {
+	float:right;
+	width: 67%;
+}
+.leftSmall {
+	float: left;
+	width: 29%;
+}
+/*
+	margin(1%) + WidthLeft(19%) + (2%) + WidthRight(77%) + margin (1%) = 100%! 
+*/
+.VleftSmall {
+	float: left;
+	width: 19%;
+	
+}
+.VrightBig {
+	float:right;
+	width: 77%;
+}
+.leftHalf{
+	float: left;
+	width: 44.6%;
+}
+
+.rightBig , .rightSmall,.VrightBig{
+	margin-right: 1%;
+}
+.leftBig ,.VleftSmall, .leftSmall{
+	margin-right: 2%;
+	margin-left: 1%;
+}
+.leftHalf{
+	margin: 1%;
 }
