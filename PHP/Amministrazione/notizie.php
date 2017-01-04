@@ -62,15 +62,21 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 				<h1>Inserisci Notizia</h1>
-				<form action='inserisci_notizia.php' method='post'>
+				<form action='inserisci_notizia.php' method='post' onsubmit='return check()'>
 					<div>
 						<label for='id'>Codice Notizia</label>
-						<input type='text' name='idnotizia' id='id'/>
+						<label for='id' id='codeErr' class='formError'></label>
+						<input type='text' name='idIns' id='id'/>
+						
 						<label for='title'>Titolo Notizia</label>
-						<input type='text' name='Titolo' id='title'/>
+						<label for='nome' id='titoloErr' class='formError'></label>
+						<input type='text' name='titoloIns' id='title'/>
+						
 						<input type='hidden' name='autore' value=''/>
+						
 						<label for='testo'>Inserisci qui il tuo testo: </label>
 						<textarea name='testo' id='testo' rows='4' cols='50'></textarea>	
+	            		
 	            		<input type='submit' value='Aggiungi' class='btnLong'/>
 					</div>
 				</form>

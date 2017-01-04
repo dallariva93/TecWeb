@@ -52,16 +52,24 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 				<h1>Inserisci nuovo amministratore</h1>
-				<form method='post' action='inserisci_redazione.php'>
+				<form method='post' action='inserisci_redazione.php' onsubmit='return check()'>
 					<div>
 						<label for='email'>Email</label>
-						<input type='text' name='email' id='email'/>
+						<label for='email' id='emailErr' class='formError'></label>
+						<input type='text' name='emailIns' id='email'/>
+						
 						<label for='password'>Password</label>
-						<input type='password' name='password' id='password'/>
+						<label for='password' id='passwordErr' class='formError'></label>
+						<input type='password' name='passwordIns' id='password'/>
+						
 						<label for='nome'>Nome</label>
-						<input type='text' name='nome' id='nome'/>
+						<label for='nome' id='nomeErr' class='formError'></label>
+						<input type='text' name='nomeIns' id='nome'/>
+						
 						<label for='cognome'>Cognome</label>
-						<input type='text' name='cognome' id='cognome'/>
+						<label for='cognome' id='cognomeErr' class='formError'></label>
+						<input type='text' name='cognomeIns' id='cognome'/>
+						
 						<input type='submit' value='Aggiungi' class='btnLong'/>
 					</div>
 				</form>

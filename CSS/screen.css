@@ -507,3 +507,6 @@ td,th {
 	padding:0.6em;
 	font-size:0.9em;
 }
+.formError {
+	color: red;
+}

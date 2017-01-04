@@ -55,18 +55,27 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 			<h1>Inserisci scrittore</h1>
-			<form method='post' action='inserisci_scittore.php'>
+			<form method='post' action='inserisci_scittore.php' onsubmit='return check()'>
 				<div>
 					<label for='id'>Id</label>
-					<input type='text' name='Codice id' id='id'/>
+					<label for='id' id='codeErr' class='formError'></label>
+					<input type='text' name='idIns' id='id'/>
+					
 					<label for='nome'>Nome</label>
-					<input type='text' name='nome' id='nome'/>
+					<label for='nome' id='nomeErr' class='formError'></label>
+					<input type='text' name='nomeIns' id='nome'/>
+					
 					<label for='cognome'>Cognome</label>
-					<input type='text' name='cognome' id='cognome'/>
+					<label for='cognome' id='cognomeErr' class='formError'></label>
+					<input type='text' name='cognomeIns' id='cognome'/>
+					
 					<label for='nazionalita'>Nazionalit&agrave;</label>
 					<input type='text' name='nazionalita' id='nazionalita'/>
+					
 					<label for='data'>Data di nascita</label>
-					<input type='text' name='data' id='data'/>
+					<label for='data' id='dataErr' class='formError'></label>
+					<input type='text' name='dataIns' id='data'/>
+					
 					<input type='submit' value='Inserisci' class='btnLong'/>
 				</div>
 			</form>

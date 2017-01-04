@@ -79,15 +79,21 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 			<h1>Inserisci Recensione</h1>
-			<form action='inserisci_recensione.php' method='post'>
+			<form action='inserisci_recensione.php' method='post' onsubmit='return check()'>
 				<div>
 					<label for='id'>Codice recensione</label>
-					<input type='text' name='idRecensione' id='id'/>
+					<label for='id' id='codeErr' class='formError'></label>
+					<input type='text' name='idIns' id='id'/>
+					
 					<label for='libro'>ISBN Libro</label>
-					<input type='text' name='libro' id='libro'/>
+					<label for='isbn' id='isbnErr' class='formError'></label>
+					<input type='text' name='isbnIns' id='libro'/>
+					
 					<input type='hidden' name='autore' value=''/>
+					
 					<label for='testo'>Inserisci qui il tuo testo: </label>
 					<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
+					
 					<label for='valutazione'>valutazione
 						<select name='valutazione' id='valutazione' class='input'>
 							<option>1</option>

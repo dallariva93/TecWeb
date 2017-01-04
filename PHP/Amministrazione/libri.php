@@ -65,20 +65,31 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 				<h1>Inserisci libro </h1>
-				<form action='inserisci_libro.php' method='post'>
+				<form action='inserisci_libro.php' method='post' onsubmit='return check()'>
 					<div>
 						<label for='isbn'>ISBN</label>
-						<input type='text' name='isbn' id='isbn'/>
+						<label for='isbn' id='isbnErr' class='formError'></label>
+						<input type='text' name='isbnIns' id='isbn'/>
+						
 						<label for='titolo'>Titolo</label>
-						<input type='text' name='titolo' id='titolo'/>
+						<label for='titolo' id='titoloErr' class='formError'></label>
+						<input type='text' name='titoloIns' id='titolo'/>
+						
 						<label for='autore' >Codice Autore</label>
-						<input type='text' name='autore' id='autore'/>
+						<label for='autore' id='autoErr' class='formError'></label>
+						<input type='text' name='autoreIns' id='autore'/>
+						
 						<label for='anno' >Data Pubblicazione</label>
-						<input type='text' name='anno' id='anno'/>
+						<label for='data' id='dataErr' class='formError'></label>
+						<input type='text' name='dataIns' id='anno'/>
+			        	
 			        	<label for='casa'>Casa editrice</label>
 						<input type='text' name='casa' id='casa'/>
+						
 						<label for='trama' >Trama</label> 
+						
 						<textarea name='trama' id='trama' rows='4' cols='50'/></textarea>
+						
 						<label for='genere'>Genere 
 							<select name='genere' id='genere'>
 								<option>Commedia</option>

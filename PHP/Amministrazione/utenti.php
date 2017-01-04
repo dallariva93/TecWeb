@@ -53,27 +53,39 @@
 
 			}
 			echo "</tbody></table></div>";
-			
-
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 				<h1>Inserisci utente</h1>
-				<form action='../Action/inserisci_utente.php' method='post'>
+				<form action='../Action/inserisci_utente.php' method='post' onsubmit='return check()'>
 					<div>
 						<label for='cognome'>Cognome</label>
-						<input type='text' name='cognome' id='cognome'/>
+						<label for='cognome' id='cognomeErr' class='formError'></label>
+						<input type='text' name='cognomeIns' id='cognome'/>
+						
 						<label for='nome'>Nome</label>
-						<input type='text' name='nome' id='nome'/>
+						<label for='nome' id='nomeErr' class='formError'></label>
+						<input type='text' name='nomeIns' id='nome'/>
+						
 						<label for='email'>Email</label>
-						<input type='text' name='email' id='email'/>
+						<label for='email' id='emailErr' class='formError'></label>
+						<input type='text' name='emailIns' id='email'/>
+						
 						<label for='nickname'>Nickname</label>
-						<input type='text' name='nickname' id='nickname'/>
+						<label for='nickname' id='nicknameErr' class='formError'></label>
+						<input type='text' name='nicknameIns' id='nickname'/>
+						
 						<label for='data'>Data di nascita</label> 
-						<input type='text' name='data' id='data'/>
+						<label for='data' id='dataErr' class='formError'></label>
+						<input type='text' name='dataIns' id='data'/>
+						
 						<label for='residenza'>Residenza</label>
-						<input type='text' name='residenza' id='residenza'/>
+						<label for='residenza' id='residenzaErr' class='formError'></label>
+						<input type='text' name='residenzaIns' id='residenza'/>
+						
 						<label for='password'>Password</label> 
-						<input type='password' name='password' id='password'/>
+						<label for='password' id='passwordErr' class='formError'></label>
+						<input type='password' name='passwordIns' id='password'/>
+						
 						<input type='submit' value='Inserisci' class='btnLong'/>
 					</div>
 				</form>
