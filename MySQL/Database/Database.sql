@@ -15,12 +15,12 @@ DROP TABLE IF EXISTS Notizie;
 /* TABELLE */
 
 CREATE TABLE Utente
-(	Email	varchar (40) PRIMARY KEY,
+(	Email	varchar (60) PRIMARY KEY,
 	Nome	varchar(30) NOT NULL,
 	Cognome	varchar(30) NOT NULL,
 	Nickname	varchar(20) UNIQUE NOT NULL,
 	Data_Nascita	date NOT NULL,	
-	Password varchar(20) NOT NULL,
+	Password varchar(255) NOT NULL,
 	Residenza	varchar(30) 
 );
 
