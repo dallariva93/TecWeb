@@ -110,7 +110,7 @@ positivamente.
 	- [X] HTML
 	- [X] CSS
 	- [X] PHP
-	- [ ] JS
+	- [X] JS
 10. Pagina autore [L ]
 	- [X] HTML
 	- [X] CSS
