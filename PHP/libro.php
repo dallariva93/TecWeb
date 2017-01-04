@@ -1,6 +1,5 @@
 
 <?php
-setcookie('user', 'giorgiovanni63@gmail.com', time() + (86400 * 30), "/");
 	Require_once('connect.php');
 	if(isset($_REQUEST['libro'])){
 		Require_once('functions.php');
