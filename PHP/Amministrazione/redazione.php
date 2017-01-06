@@ -52,7 +52,7 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 				<h1>Inserisci nuovo amministratore</h1>
-				<form method='post' action='inserisci_redazione.php' onsubmit='return check()'>
+				<form action='../Action/inserisci_redazione.php' method='post' onsubmit='return check()'>
 					<div>
 						<label for='email'>Email</label>
 						<label for='email' id='emailErr' class='formError'></label>

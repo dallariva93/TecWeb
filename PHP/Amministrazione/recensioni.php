@@ -79,7 +79,7 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 			<h1>Inserisci Recensione</h1>
-			<form action='inserisci_recensione.php' method='post' onsubmit='return check()'>
+			<form action='../Action/inserisci_recensione.php' method='post' onsubmit='return check()'>
 				<div>
 					<label for='id'>Codice recensione</label>
 					<label for='id' id='codeErr' class='formError'></label>

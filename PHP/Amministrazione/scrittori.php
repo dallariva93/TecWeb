@@ -55,7 +55,7 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 			<h1>Inserisci scrittore</h1>
-			<form method='post' action='inserisci_scittore.php' onsubmit='return check()'>
+			<form  action='../Action/inserisci_scittore.php' method='post' onsubmit='return check()'>
 				<div>
 					<label for='id'>Id</label>
 					<label for='id' id='codeErr' class='formError'></label>

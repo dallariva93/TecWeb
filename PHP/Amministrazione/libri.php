@@ -65,7 +65,7 @@
 			echo "<a name = 'insert'></a>
 			<div class='box'>
 				<h1>Inserisci libro </h1>
-				<form action='inserisci_libro.php' method='post' onsubmit='return check()'>
+				<form action='../Action/inserisci_libro.php' method='post' onsubmit='return check()'>
 					<div>
 						<label for='isbn'>ISBN</label>
 						<label for='isbn' id='isbnErr' class='formError'></label>

@@ -30,6 +30,7 @@
 		</div>";
 	}
 	function menuAdmin(){
+		Require('connect.php');
 		echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
 		if(isset($_COOKIE['admin']))
 			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
