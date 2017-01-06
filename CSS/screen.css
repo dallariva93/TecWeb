@@ -331,6 +331,8 @@ fieldset label {
 	padding: 0.2em;
 }
 .info {
+	margin: 0.5em;
+	padding: 0.5em;
 	float: left;
 }
 .text img{
@@ -358,7 +360,10 @@ fieldset label {
 	width: 100%;
 	height: 1.5em;
 }
+.comment p {
+	padding: 0.5em;
 
+}
 .autoreCommento {
 	font-weight: bold;
 	height: 1.5em;

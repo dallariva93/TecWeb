@@ -2,10 +2,9 @@
 <?php
 
 	Require_once('connect.php');
-	if(isset($_REQUEST['autore'])){
+	if(isset($_REQUEST['autore']) && ($datiArray = $db->query("SELECT * FROM Scrittore WHERE Id =". $_REQUEST['autore']))) {
+		
 		Require_once('functions.php');
-		$codice = $_REQUEST['autore'];
-		$datiArray = $db->query("SELECT * FROM Scrittore WHERE Id =". $codice);
 		if($datiArray->num_rows > 0){
 			$dati = $datiArray->fetch_array(MYSQLI_ASSOC);
 			echo file_get_contents("../HTML/Template/Head.txt");
@@ -19,35 +18,50 @@
 						echo file_get_contents("../HTML/Template/Search.txt");
 			echo "</div>";
 
+			//Stampo le informazioni dell' autore
+
 			echo "	<div class='centrato presentazione content'>
 					
 
-					<div class='text'>
-					<img class='VleftSmall' src='../img/autori/". $dati['Id']. ".jpg' alt='Immagine di ". $dati['Cognome']. "'/>";
-						echo "<div class='info'><h1>". $dati['Nome']. " ". $dati['Cognome']. "</h1>";
-						echo "<h2>Data di nascita: ". data($dati['Data_Nascita']). "</h2>";  
-						echo "<h2>Nazionalita: ". $dati['Nazionalita']. "</h2>"; 
-						$datiArray->free();
-						if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore = $codice ORDER BY Anno_Pubblicazione")){
-							echo "<h2>Libri di ". $dati['Cognome']. " presenti nel sito: </h2>";
-							echo "<ul>";
+			<div class='text'>
+			<img class='VleftSmall' src='../img/autori/". $dati['Id']. ".jpg' alt='Immagine di ". $dati['Cognome']. "'/>";
+			echo "<div class='info'>
+			<h1>". $dati['Nome']. " ". $dati['Cognome']. "</h1>
+			
+			<h2>Data di nascita: ". data($dati['Data_Nascita']). "</h2> 
+			
+			<h2>Nazionalita: ". $dati['Nazionalita']. "</h2>
 
-							while($row = $AltriLibri->fetch_array(MYSQLI_ASSOC)){
-								echo "<li><a href='libro.php?libro=". $row['ISBN']. "'>".$row['Titolo'] . "</a></li>";
-							}
-						echo "</ul>";
-						
-						$AltriLibri->free();
-						}
-					$db->close();
-					echo "</div></div>";
-			echo "</div>";
+			</div>"; //fine classe info
+			
+
+			//Ricerca di tutti i libri dell' autore nel sito
+			if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore ='". $_REQUEST['autore']. "' ORDER BY Anno_Pubblicazione")) {
+				echo "<div class='info'>
+				<h2>Libri di ". $dati['Cognome']. " presenti nel sito: </h2>";
+				echo "<ul>";
+
+				while($row = $AltriLibri->fetch_array(MYSQLI_ASSOC)){
+					echo "<li><a href='libro.php?libro=". $row['ISBN']. "'>".$row['Titolo'] . "</a></li>";
+				}
+			echo "</ul>
+			</div>";//fine classe info
+			
+			$AltriLibri->free();
+			}
+			
+
+			echo "</div>";//fine class text
+			
+
+			echo "</div>";//fine class content
+			
+
 			echo file_get_contents("../HTML/Template/Footer.txt");
 		}
-		else
-			{
-				header("Location: page_not_found.php");}
-			}
+	$datiArray->free();
+	$db->close();
+	}
 	else {
 		header("Location: page_not_found.php");
 	}

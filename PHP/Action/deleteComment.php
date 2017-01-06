@@ -1,8 +1,8 @@
 <?php
 Require_once('../connect.php');
-if(isset($_COOKIE['user'])){
+if(isset($_COOKIE['user']) || isset($_COOKIE['admin'])){
 	$lib = $_POST['page'];
-		$autore = $_COOKIE['user'];
+		$autore = $_POST['user'];
 		$ndata = $_POST['data'];
 		$nrec = $_POST['rec'];
 		$lib = $_POST['page'];
