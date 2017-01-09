@@ -195,7 +195,7 @@ fieldset label {
 
 
 /**************************************************************
-		RECENSIONI E NEWS
+		ELENCO
 ***************************************************************/
 .elenco dl {
 	margin-bottom: 1em;
@@ -239,11 +239,17 @@ fieldset label {
 	text-align: left;
 	height: auto;
 }
-.elenco dd:hover{
-	
+.elenco dd:hover, li:hover{
+	opacity: 0.7;
+	background-color: lightgrey;
 }
-.elenco  h1{
-	
+.elenco li >a{
+	text-align:center;
+	list-style-type: none; 
+	display: block;
+	border-bottom: 1px solid grey;
+	box-shadow: 0px 0px 4px grey;
+	padding: 0.4em;
 }
 /**************************************************************
 		FOOTER
@@ -303,7 +309,7 @@ fieldset label {
 }
 
 /**************************************************************
-		PAGINA AUTORE
+		PAGINA RECENSIONE
 ***************************************************************/
 .presentazione img{
 	min-width: 10em;

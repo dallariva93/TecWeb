@@ -1,8 +1,5 @@
 <?php
-
-	Require_once('../connect.php');
 	Require_once('../functions.php');
-
 	echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
 			
 			echo "<title>Amministrazione - SUCH WOW </title>","</head>";
@@ -22,6 +19,7 @@
 			<a href='libri.php' class='boxAdmin'>Libri</a>
 			<a href='notizie.php' class='boxAdmin'>Notizie</a>		
 		</div>";
+
 		echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
 
 ?>

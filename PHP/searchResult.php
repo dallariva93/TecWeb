@@ -65,7 +65,6 @@
 							<object>
 								<h1>". $persona['Nome']. " ". $persona['Cognome']. "</h1>";						
 						echo "</object>
-						
 					</a>
 				</dd>";
 			}

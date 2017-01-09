@@ -23,7 +23,7 @@
 
 	//ULTIME RECENSIONI	
 
-	echo "<dl class='leftBig' id='leftTb'>
+	echo "<dl class='leftBig'>
 	<dt>Ultime Recensioni</dt>
 	";
 	if($UltimeRec = $db->query("SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,Recensione.Testo, Recensione.Data_Pubblicazione FROM Libro JOIN Recensione ON(Recensione.Libro = Libro.ISBN) ORDER BY Recensione.Data_Pubblicazione LIMIT 5")){
@@ -76,7 +76,8 @@
 		if($UltimeNews->num_rows>0) {
 			echo "<ul>";
 			while ($rowNews = $UltimeNews->fetch_array(MYSQLI_ASSOC)) {
-				echo "<li><a href='new.php?id=",$rowNews['Id'], "'>", $rowNews['Titolo'], "</a></li>";
+				echo "<li><a href='new.php?id=",$rowNews['Id'], "'>", $rowNews['Titolo'], "</a></li>
+				";
 			}
 			echo "</ul>";
 		}

@@ -1,6 +1,5 @@
 
 <?php
-setcookie('admin', 'giorgiovanni63@gmail.com', time() + (86400 * 30), "/");
 	Require_once('connect.php');
 	if(isset($_REQUEST['libro']) && $datiLibro = $db->query("SELECT * FROM Libro WHERE ISBN = ". ($_REQUEST['libro']))) {
 		Require_once('functions.php');
