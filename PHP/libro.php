@@ -1,5 +1,6 @@
 
 <?php
+
 	Require_once('connect.php');
 	if(isset($_REQUEST['libro']) && $datiLibro = $db->query("SELECT * FROM Libro WHERE ISBN = ". ($_REQUEST['libro']))) {
 		Require_once('functions.php');
@@ -61,10 +62,10 @@
 			}
 
 			//Voti dell' utente loggato
-			if(isset($_COOKIE['user'])){
+			if(isset($_SESSION['type'])){
 
 				//Voto al libro
-				if($votoBook = $db->query("SELECT Valutazione FROM VotoLibro WHERE Libro ='". $codice. "' AND Autore ='". $_COOKIE['user']. "'")){
+				if($votoBook = $db->query("SELECT Valutazione FROM VotoLibro WHERE Libro ='". $codice. "' AND Autore ='". $_SESSION['id']. "'")){
 					if($votoBook->num_rows>0){
 						$votoBookU = $votoBook->fetch_array(MYSQLI_ASSOC);
 						echo "<p>Il tuo voto al libro: ". $votoBookU['Valutazione']. "/5</p>";
@@ -73,7 +74,7 @@
 				}
 
 				//Voto alla recensione
-				if($votoRecA = $db->query("SELECT Valutazione FROM VotoRecensione WHERE Recensione ='". $datiRec['Id']. "' AND Autore ='". $_COOKIE['user']. "'")){
+				if($votoRecA = $db->query("SELECT Valutazione FROM VotoRecensione WHERE Recensione ='". $datiRec['Id']. "' AND Autore ='". $_SESSION['id']. "'")){
 					if($votoRecA->num_rows>0){
 						$votoRecU = $votoRecA->fetch_array(MYSQLI_ASSOC);
 						echo "<p>Il tuo voto alla recensione: ". $votoRecU['Valutazione']. "/5</p>";
@@ -116,7 +117,7 @@
 
 					//Form eliminazione commento
 					//Gli unici che possono cancellare un commento solo l'autore del commento oppure un amministratore
-					if((isset($_COOKIE['user']) && $Commento['Autore'] == $_COOKIE['user']) || isset($_COOKIE['admin'])) {
+					if(isset($_SESSION['type']) && ($Commento['Autore'] == $_SESSION['id'] || $_SESSION['type'] == 'admin' )) {
 					echo "
 						<form action='Action/deleteComment.php' method='post'>
 							<div >
@@ -143,7 +144,7 @@
 	
 		//Form inserimento commenti (solo per un utente loggato)
 	
-		if(isset($_COOKIE['user'])){
+		if(isset($_SESSION['type']) &&  $_SESSION['type'] == 'user'){
 			echo "
 			<h3>Inserisci un commento</h3>
 			<form action='Action/newComment.php' method='post'>
@@ -160,7 +161,7 @@
 		
 		//Voti dell' utente loggato al libro o alla recensione
 
-		if(isset($_COOKIE['user'])){
+		if(isset($_SESSION['type']) &&  $_SESSION['type'] == 'user'){
 			//Voto al libro
 			echo "<div class='leftHalf'>";
 				echo "<form action='Action/bookVote.php' method='post'>
@@ -222,6 +223,7 @@
 	} // if(isset($_REQUEST['libro']) && !$datiLibro) 	
 	else {
 		header("Location: page_not_found.php");
+		exit();
 	}
 	exit;
 ?>

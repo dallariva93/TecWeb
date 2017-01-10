@@ -239,7 +239,7 @@ fieldset label {
 	text-align: left;
 	height: auto;
 }
-.elenco dd:hover, li:hover{
+.elenco dd:hover,.elenco li:hover{
 	opacity: 0.7;
 	background-color: lightgrey;
 }
