@@ -4,7 +4,7 @@
 	Require_once('../functions.php');
 
 	echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
-			
+
 	echo "<title>Recensioni - SUCH WOW </title>","</head>";
 
 	echo menuAdmin();
@@ -16,9 +16,9 @@
 
 	echo "<div class='centrato content'>";
 	echo "<a href='#insert' id = 'new'>&#43;&nbsp;Nuovo Amministratore</a>";
-	
+
 	if($Amministratori = $db->query("SELECT * FROM Redazione ORDER BY Cognome")){
-		echo "<div class='Table'><table summary = 'Elenco di tutti gli amministratori del sito'> 
+		echo "<div class='Table'><table summary = 'Elenco di tutti gli amministratori del sito'>
 		<thead>
 			<tr>
 				<th scope='col'>E-mail</th>
@@ -28,7 +28,7 @@
 		</thead>
 		<tbody>
 		";
-		while ($Admin = $Amministratori->fetch_array(MYSQL_ASSOC)){
+		while ($Admin = $Amministratori->fetch_array(MYSQLI_ASSOC)){
 			echo "
 			<tr>
 				<td scope='row'>".$Admin['Email']."</td>
@@ -48,7 +48,7 @@
 		echo "</tbody></table></div>";
 		$Amministratori->free();
 	}
-	
+
 	//Form inserimento in redazione
 
 	echo "<a name = 'insert'></a>
@@ -59,19 +59,19 @@
 				<label for='email'>Email</label>
 				<label for='email' id='emailErr' class='formError'></label>
 				<input type='text' name='emailIns' id='email'/>
-				
+
 				<label for='password'>Password</label>
 				<label for='password' id='passwordErr' class='formError'></label>
 				<input type='password' name='passwordIns' id='password'/>
-				
+
 				<label for='nome'>Nome</label>
 				<label for='nome' id='nomeErr' class='formError'></label>
 				<input type='text' name='nomeIns' id='nome'/>
-				
+
 				<label for='cognome'>Cognome</label>
 				<label for='cognome' id='cognomeErr' class='formError'></label>
 				<input type='text' name='cognomeIns' id='cognome'/>
-				
+
 				<input type='submit' value='Aggiungi' class='btnLong'/>
 			</div>
 		</form>

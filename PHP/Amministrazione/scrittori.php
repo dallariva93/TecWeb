@@ -4,7 +4,7 @@
 	Require_once('../functions.php');
 
 	echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
-			
+
 	echo "<title>Scrittori - SUCH WOW </title>","</head>";
 
 	echo menuAdmin();
@@ -17,7 +17,7 @@
 	echo "<div class='centrato content'>";
 	echo "<a href='#insert' id = 'new'>&#43;&nbsp;Nuovo Scrittore</a>";
 	if($Scrittori = $db->query("SELECT * FROM Scrittore ORDER BY Cognome")){
-		echo "<div class='Table'><table summary = 'Elenco di tutti gli scrittori presenti nel sito'> 
+		echo "<div class='Table'><table summary = 'Elenco di tutti gli scrittori presenti nel sito'>
 		<thead>
 			<tr>
 				<th scope='col'>Cognome</th>
@@ -29,7 +29,7 @@
 		</thead>
 		<tbody>
 		";
-		while ($Scrittore = $Scrittori->fetch_array(MYSQL_ASSOC)){
+		while ($Scrittore = $Scrittori->fetch_array(MYSQLI_ASSOC)){
 			echo "
 			<tr>
 				<td scope='row'>".$Scrittore['Cognome']."</td>
@@ -52,7 +52,7 @@
 		$Scrittori->free();
 		echo "</tbody></table></div>";
 	}
-	
+
 	//Form inserimento
 
 	echo "<a name = 'insert'></a>
@@ -63,22 +63,22 @@
 			<label for='id'>Id</label>
 			<label for='id' id='codeErr' class='formError'></label>
 			<input type='text' name='idIns' id='id'/>
-			
+
 			<label for='nome'>Nome</label>
 			<label for='nome' id='nomeErr' class='formError'></label>
 			<input type='text' name='nomeIns' id='nome'/>
-			
+
 			<label for='cognome'>Cognome</label>
 			<label for='cognome' id='cognomeErr' class='formError'></label>
 			<input type='text' name='cognomeIns' id='cognome'/>
-			
+
 			<label for='nazionalita'>Nazionalit&agrave;</label>
 			<input type='text' name='nazionalita' id='nazionalita'/>
-			
+
 			<label for='data'>Data di nascita</label>
 			<label for='data' id='dataErr' class='formError'></label>
 			<input type='text' name='dataIns' id='data'/>
-			
+
 			<input type='submit' value='Inserisci' class='btnLong'/>
 		</div>
 	</form>

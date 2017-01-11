@@ -18,7 +18,7 @@
 			echo "<li class='right'><a href='Amministrazione/amministrazione.php'>Amministrazione</a></li>";
 			else if($_SESSION['type'] == 'user'){
 			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
-			$utente = $user->fetch_array(MYSQL_ASSOC);
+			$utente = $user->fetch_array(MYSQLI_ASSOC);
 			echo "<li class='right'><a href='user.php'>". $utente['Nickname']."</a></li>";
 			}
 		}
@@ -27,8 +27,8 @@
 			<li class='right'><a href='accedi.php'>Accedi</a></li>
 			<li class='right'><a href='registrazione.php'>Iscriviti</a></li>";
 		}
-		
-		echo 
+
+		echo
 		"</ul>
 		</div>";
 	}
@@ -41,7 +41,7 @@
 			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
 			else if($_SESSION['type'] == 'user'){
 			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
-			$utente = $user->fetch_array(MYSQL_ASSOC);
+			$utente = $user->fetch_array(MYSQLI_ASSOC);
 			echo "<li class='right'><a href='../user.php'>". $utente['Nickname']."</a></li>";
 			}
 		}
@@ -50,15 +50,15 @@
 			<li class='right'><a href='../accedi.php'>Accedi</a></li>
 			<li class='right'><a href='../registrazione.php'>Iscriviti</a></li>";
 		}
-		
-		echo 
+
+		echo
 		"</ul>
 		</div>";
 	}
-	
+
 
 function checkEmail($email)
-{	include('connect.php');	
+{	include('connect.php');
 	$sql= "SELECT nickname FROM Utente WHERE Email = '$email' ";
 	$result = mysqli_query($db, $sql);
 	if (false == $result || mysqli_num_rows($result) == 0)
@@ -66,13 +66,13 @@ function checkEmail($email)
 		return false;
 	}
 	else
-	{	 
+	{
 		return true;
 	}
 }
 
 function checkUser($nickname)
-{	include('connect.php');	
+{	include('connect.php');
 	$sql= "SELECT nickname FROM Utente WHERE Nickname = '$nickname' ";
 	$result = mysqli_query($db, $sql);
 	if (false == $result || mysqli_num_rows($result) == 0)
@@ -80,13 +80,13 @@ function checkUser($nickname)
 		return false;
 	}
 	else
-	{	 
+	{
 		return true;
 	}
 }
 
 function checkUserSize($nickname) {
-	if((strlen($nickname)>4) && (strlen($nickname)<12)) 
+	if((strlen($nickname)>4) && (strlen($nickname)<12))
 	{
 		return true;
 	}
@@ -114,7 +114,7 @@ function checkData($data)
 	$arrayData = multiexplode(array("-",".","/"),$data);
 	if(checkdate($arrayData[1], $arrayData[0], $arrayData[2])) {
 		return true;
-	}else 
+	}else
 		{return false;}
 }
 ?>

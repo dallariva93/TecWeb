@@ -4,7 +4,7 @@
 	Require_once('../functions.php');
 
 	echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
-			
+
 	echo "<title>Amministrazione - SUCH WOW </title>","</head>";
 
 	echo menuAdmin();
@@ -18,7 +18,7 @@
 	echo "<a href='#insert' id = 'new'>&#43;&nbsp;Nuovo Utente</a>";
 
 	if($Utenti = $db->query("SELECT * FROM Utente ORDER BY Cognome")){
-		echo "<div class='Table'><table summary = 'Elenco di tutti gli utenti presenti nel sito'> 
+		echo "<div class='Table'><table summary = 'Elenco di tutti gli utenti presenti nel sito'>
 		<thead>
 			<tr>
 				<th scope='col'>Cognome</th>
@@ -31,7 +31,7 @@
 		</thead>
 		<tbody>
 		";
-		while ($Utente = $Utenti->fetch_array(MYSQL_ASSOC)){
+		while ($Utente = $Utenti->fetch_array(MYSQLI_ASSOC)){
 			echo "
 			<tr>
 				<td scope='row'>".$Utente['Cognome']."</td>
@@ -55,7 +55,7 @@
 		echo "</tbody></table></div>";
 
 	}
-	
+
 	//Form inserimento
 
 	echo "<a name = 'insert'></a>
@@ -66,31 +66,31 @@
 				<label for='cognome'>Cognome</label>
 				<label for='cognome' id='cognomeErr' class='formError'></label>
 				<input type='text' name='cognomeIns' id='cognome'/>
-				
+
 				<label for='nome'>Nome</label>
 				<label for='nome' id='nomeErr' class='formError'></label>
 				<input type='text' name='nomeIns' id='nome'/>
-				
+
 				<label for='email'>Email</label>
 				<label for='email' id='emailErr' class='formError'></label>
 				<input type='text' name='emailIns' id='email'/>
-				
+
 				<label for='nickname'>Nickname</label>
 				<label for='nickname' id='nicknameErr' class='formError'></label>
 				<input type='text' name='nicknameIns' id='nickname'/>
-				
-				<label for='data'>Data di nascita</label> 
+
+				<label for='data'>Data di nascita</label>
 				<label for='data' id='dataErr' class='formError'></label>
 				<input type='text' name='dataIns' id='data'/>
-				
+
 				<label for='residenza'>Residenza</label>
 				<label for='residenza' id='residenzaErr' class='formError'></label>
 				<input type='text' name='residenzaIns' id='residenza'/>
-				
-				<label for='password'>Password</label> 
+
+				<label for='password'>Password</label>
 				<label for='password' id='passwordErr' class='formError'></label>
 				<input type='password' name='passwordIns' id='password'/>
-				
+
 				<input type='submit' value='Inserisci' class='btnLong'/>
 			</div>
 		</form>
