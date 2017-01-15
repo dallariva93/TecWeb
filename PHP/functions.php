@@ -10,55 +10,49 @@
 	}
 
 	function menu(){
-		session_start();
 		Require('connect.php');
 		echo file_get_contents("../HTML/Template/Menu.txt");
-		if(isset($_SESSION['type'])) {
-			if($_SESSION['type'] == 'admin')
+		if(isset($_COOKIE['admin']))
 			echo "<li class='right'><a href='Amministrazione/amministrazione.php'>Amministrazione</a></li>";
-			else if($_SESSION['type'] == 'user'){
-			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
-			$utente = $user->fetch_array(MYSQLI_ASSOC);
+		else if(isset($_COOKIE['user'])){
+			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_COOKIE['user']. "'" );
+			$utente = $user->fetch_array(MYSQL_ASSOC);
 			echo "<li class='right'><a href='user.php'>". $utente['Nickname']."</a></li>";
 			}
-		}
 		else{
 			echo "
 			<li class='right'><a href='accedi.php'>Accedi</a></li>
 			<li class='right'><a href='registrazione.php'>Iscriviti</a></li>";
 		}
-
-		echo
+		
+		echo 
 		"</ul>
 		</div>";
 	}
 	function menuAdmin(){
-		session_start();
-		Require('../connect.php');
+		Require('connect.php');
 		echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
-		if(isset($_SESSION['type'])) {
-			if($_SESSION['type'] == 'admin')
+		if(isset($_COOKIE['admin']))
 			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
-			else if($_SESSION['type'] == 'user'){
-			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
-			$utente = $user->fetch_array(MYSQLI_ASSOC);
+		else if(isset($_COOKIE['user'])){
+			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_COOKIE['user']. "'" );
+			$utente = $user->fetch_array(MYSQL_ASSOC);
 			echo "<li class='right'><a href='../user.php'>". $utente['Nickname']."</a></li>";
 			}
-		}
 		else{
 			echo "
 			<li class='right'><a href='../accedi.php'>Accedi</a></li>
 			<li class='right'><a href='../registrazione.php'>Iscriviti</a></li>";
 		}
-
-		echo
+		
+		echo 
 		"</ul>
 		</div>";
 	}
-
+	
 
 function checkEmail($email)
-{	include('connect.php');
+{	include('connect.php');	
 	$sql= "SELECT nickname FROM Utente WHERE Email = '$email' ";
 	$result = mysqli_query($db, $sql);
 	if (false == $result || mysqli_num_rows($result) == 0)
@@ -66,13 +60,13 @@ function checkEmail($email)
 		return false;
 	}
 	else
-	{
+	{	 
 		return true;
 	}
 }
 
 function checkUser($nickname)
-{	include('connect.php');
+{	include('connect.php');	
 	$sql= "SELECT nickname FROM Utente WHERE Nickname = '$nickname' ";
 	$result = mysqli_query($db, $sql);
 	if (false == $result || mysqli_num_rows($result) == 0)
@@ -80,13 +74,13 @@ function checkUser($nickname)
 		return false;
 	}
 	else
-	{
+	{	 
 		return true;
 	}
 }
 
 function checkUserSize($nickname) {
-	if((strlen($nickname)>4) && (strlen($nickname)<12))
+	if((strlen($nickname)>4) && (strlen($nickname)<12)) 
 	{
 		return true;
 	}
@@ -114,7 +108,31 @@ function checkData($data)
 	$arrayData = multiexplode(array("-",".","/"),$data);
 	if(checkdate($arrayData[1], $arrayData[0], $arrayData[2])) {
 		return true;
-	}else
+	}else 
 		{return false;}
 }
+
+function testNick()
+{
+	if(isset($_POST['nickname']))
+	{
+		if(empty($_POST['nickname']))
+		{
+			$errore=true;
+			echo "<span id=''>Campo obbligatorio</span>";
+		}
+		elseif(checkUser(isset($_POST['nickname'])))
+		{
+			$errore=true;
+			echo "Nickname già in uso";
+		}
+		elseif(!checkUserSize(isset($_POST['nickname'])))
+		{
+			$errore=true;
+			 echo "Il nickname deve essere compreso tra i 4 e i 12 caratteri";
+		}
+		else
+			$errore=false;
+	}
+};
 ?>
