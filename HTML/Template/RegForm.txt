@@ -1,0 +1,23 @@
+<div class="box strict">
+	<h1>Registrazione</h1>
+	<form action="../PHP/registrazione.php" method="post">
+		<div>
+			<div id="trattieni"><label for="nickname">Nickname</label>{{nickError}}</div>
+			<input type="text" name="nickname" id="nickname"/>
+			<label for="nome">Nome</label>
+			<input type="text" name="nome" id="nome"/>
+			<label for="cognome">Cognome</label>
+			<input type="text" name="cognome" id="cognome"/>
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email"/>
+			<label for="residenza">Residenza</label>
+			<input type="text" name="residenza" id="residenza"/>
+			<label for="data">Data di nascita</label> 
+			<input type="text" name="data" id="data"/>
+			<label for="password">Password</label> 
+			<input type="password" name="password" id="password"/>
+			<input type="submit" value="Registrati" class="btnLong"/>
+		</div>
+	</form>
+</div>
+
