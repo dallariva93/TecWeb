@@ -19,7 +19,7 @@ CREATE TABLE Utente
 	Nome	varchar(30) NOT NULL,
 	Cognome	varchar(30) NOT NULL,
 	Nickname	varchar(20) UNIQUE NOT NULL,
-	Data_Nascita	date NOT NULL,	
+	Data_Nascita	date,	
 	Password varchar(255) NOT NULL,
 	Residenza	varchar(30) 
 );
