@@ -56,48 +56,34 @@ function checkEmail($email)
 	$sql= "SELECT nickname FROM Utente WHERE Email = '$email' ";
 	$result = mysqli_query($db, $sql);
 	if (false == $result || mysqli_num_rows($result) == 0)
-	{
-		return false;
-	}
+		{return false;}
 	else
-	{	 
-		return true;
-	}
+		{return true;}
 }
 
 function checkUser($nickname)
-{	include('connect.php');	
+{	
+	include('connect.php');	
 	$sql= "SELECT nickname FROM Utente WHERE Nickname = '$nickname' ";
 	$result = mysqli_query($db, $sql);
-	if (false == $result || mysqli_num_rows($result) == 0)
-	{
-		return false;
-	}
-	else
-	{	 
-		return true;
-	}
+	if (false == $result || mysqli_num_rows($result) == 0){return false;}
+	else {return true;}
 }
 
-function checkUserSize($nickname) {
-	if((strlen($nickname)>4) && (strlen($nickname)<12)) 
-	{
-		return true;
-	}
+function checkUserSize($nickname) 
+{
+	if((strlen($nickname)>4) && (strlen($nickname)<12)) {return true;}
 	else {return false;}
 }
 
 function checkEmailForm($email)
 {
-	if (!preg_match('/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/', $email))
-	{
-		return true;
-	}
+	if (preg_match('/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/', $email)){return true;}
 	else {return false;}
 }
 
-function multiexplode ($delimiters,$string) {
-
+function multiexplode ($delimiters,$string) 
+{
     $ready = str_replace($delimiters, $delimiters[0], $string);
     $launch = explode($delimiters[0], $ready);
     return  $launch;
@@ -106,33 +92,17 @@ function multiexplode ($delimiters,$string) {
 function checkData($data)
 {
 	$arrayData = multiexplode(array("-",".","/"),$data);
-	if(checkdate($arrayData[1], $arrayData[0], $arrayData[2])) {
-		return true;
-	}else 
+	if(checkdate($arrayData[1], $arrayData[0], $arrayData[2])) {return true;}
+	else {return false;}
+}
+
+function sessionLoginControl()
+{
+	if (array_key_exists('login', $_SESSION) && $_SESSION['login'] == true)
+		{return true;}
+	else
 		{return false;}
 }
 
-function testNick()
-{
-	if(isset($_POST['nickname']))
-	{
-		if(empty($_POST['nickname']))
-		{
-			$errore=true;
-			echo "<span id=''>Campo obbligatorio</span>";
-		}
-		elseif(checkUser(isset($_POST['nickname'])))
-		{
-			$errore=true;
-			echo "Nickname già in uso";
-		}
-		elseif(!checkUserSize(isset($_POST['nickname'])))
-		{
-			$errore=true;
-			 echo "Il nickname deve essere compreso tra i 4 e i 12 caratteri";
-		}
-		else
-			$errore=false;
-	}
-};
+
 ?>
