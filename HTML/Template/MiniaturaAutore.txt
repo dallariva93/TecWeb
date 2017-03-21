@@ -1,0 +1,8 @@
+<dd>
+	<a href='autore.php?autore={{Id}}'>
+		<img src='../img/autori/{{Id}}.jpg' alt=''/>
+		<object>
+			<h1>{{Nome}} {{Cognome}}</h1>
+		</object>
+	</a>
+</dd>

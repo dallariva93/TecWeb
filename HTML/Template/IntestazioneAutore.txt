@@ -1,0 +1,11 @@
+<div class='centrato presentazione content'>
+	<div class='text'>
+		<img class='VleftSmall' src='../img/autori/{{Id}}.jpg' alt='Immagine di {{Cognome}}'/>
+		<div class='info'>
+		<h1>{{Nome}} {{Cognome}}</h1>
+
+		<h2>Data di nascita: {{Data}}</h2>
+
+		<h2>Nazionalita: {{Nazionalita}}</h2>
+
+		</div>

@@ -1,0 +1,7 @@
+<h3>Inserisci un commento</h3>
+<form action='libro.php?libro={{codice}}' method='post'>
+	<div >
+		<textarea id ='testo' name= 'text' rows='4' cols='20'></textarea>
+		<input type ='submit' value='Invia!' class='btnShort' />
+	</div>
+</form>

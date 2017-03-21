@@ -1,0 +1,3 @@
+<a href='#book' class ='button'>Libri</a>
+<a href='#writer' class ='button'>Autori</a>
+<a href='#news' class ='button'>Notizie</a>

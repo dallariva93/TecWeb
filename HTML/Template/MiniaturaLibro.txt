@@ -1,0 +1,9 @@
+<dd>
+	<a href='libro.php?libro={{ISBN}}'>
+	<img src='../img/cover/{{ISBN}}.jpg' alt=''/>
+	<object>
+		<h1>{{Titolo}}</h1>
+		{{Testo}}
+	</object>
+	</a>
+</dd>

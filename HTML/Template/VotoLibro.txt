@@ -1,0 +1,21 @@
+<div class='leftHalf'>
+	<form action='libro.php?libro={{codice}}' method='post'>
+		<fieldset>
+		<legend>{{titolo}}</legend>
+			<label for={{id}}>valutazione
+				<select name={{id}} id={{id}}>
+					<option>1</option>
+					<option>1.5</option>
+					<option>2</option>
+					<option>2.5</option>
+					<option>3</option>
+					<option>3.5</option>
+					<option>4</option>
+					<option>4.5</option>
+					<option>5</option>
+				</select>
+			</label>
+			<input type='submit' value='Aggiungi' class='btnShort'/>
+		</fieldset>
+	</form>
+</div>
