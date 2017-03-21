@@ -8,33 +8,23 @@
 		if($datiArray->num_rows > 0){
 			$dati = $datiArray->fetch_array(MYSQLI_ASSOC);
 
-			$replaceHead=array("<title>". $dati['Cognome']. " - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 			$searchHead=array("{{title}}","{{description}}");
+			$replaceHead=array("<title>". $dati['Cognome']. " - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 			echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 
 
-			echo menu().
+			echo menu();
 
-			"<div class='breadcrumb centrato'>
-					<p class='path'>Ti trovi in: <span xml:lang='en'> <a href='index.php'>Home</a></span>/Autore</p>".
-					file_get_contents("../HTML/Template/Search.txt").
-			"</div>".
+			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
+			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/". $dati['Cognome']. " ". $dati['Nome']);
+			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			//Stampo le informazioni dell' autore
 
-			"<div class='centrato presentazione content'>
 
-			<div class='text'>
-			<img class='VleftSmall' src='../img/autori/". $dati['Id']. ".jpg' alt='Immagine di ". $dati['Cognome']. "'/>
-			<div class='info'>
-			<h1>". $dati['Nome']. " ". $dati['Cognome']. "</h1>
-
-			<h2>Data di nascita: ". data($dati['Data_Nascita']). "</h2>
-
-			<h2>Nazionalita: ". $dati['Nazionalita']. "</h2>
-
-			</div>"; //fine classe info
-
+			$searchHeader=array("{{Id}}","{{Cognome}}","{{Nome}}","{{Data}}","{{Nazionalita}}");
+			$replaceHeader=array($dati['Id'],$dati['Cognome'], $dati['Nome'],data($dati['Data_Nascita']),$dati['Nazionalita']);
+			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneAutore.txt"));
 
 			//Ricerca di tutti i libri dell' autore nel sito
 			if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore ='". $_REQUEST['autore']. "' ORDER BY Anno_Pubblicazione")) {

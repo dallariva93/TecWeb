@@ -62,25 +62,20 @@
 
 			$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
 
-			$replaceHead=array("<title>". $datiL['Titolo']. " - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 			$searchHead=array("{{title}}","{{description}}");
+			$replaceHead=array("<title>". $datiL['Titolo']. " - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 			echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 
-			echo menu().
+			echo menu();
 
-			"<div class='breadcrumb centrato'>
-			<p class='path'>Ti trovi in: <span xml:lang='en'> <a href='index.php'>Home</a></span>/". $datiL['Titolo']. "</p>".
-			file_get_contents("../HTML/Template/Search.txt").
-			"</div>".
+			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
+			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/". $datiL['Titolo']);
+			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
-			"<div class='centrato presentazione content'>".
-			$errore.
-			"
-			<div class='text'>
-			<img class='VleftSmall' src='../img/cover/". $datiL['ISBN'].  ".jpg' alt=''/>
-			<h1>". $datiL['Titolo']. "</h1>
-			<h2><a href='autore.php?autore=".$autore['Id']."'>". $autore['Nome']. " ". $autore['Cognome'].  "</a></h2>
-			";
+			$searchHeader=array("{{errore}}","{{ISBN}}","{{Titolo}}","{{Id}}","{{Nome}}","{{Cognome}}");
+			$replaceHeader=array($errore,$datiL['ISBN'],$datiL['Titolo'],$autore['Id'],$autore['Nome'],$autore['Cognome']);
+			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneLibro.txt"));
+
 		}
 		if($datiRec) { //Stampa della recensione e dei suoi dati
 
@@ -127,8 +122,6 @@
 				}
 			} //Fine voti utente loggato
 
-
-
 			echo "
 			<h2>Trama: </h2>".
 			$datiL['Trama']. "
@@ -162,14 +155,9 @@
 					//Form eliminazione commento
 					//Gli unici che possono cancellare un commento solo l'autore del commento oppure un amministratore
 					if(isset($_SESSION['type']) && ($Commento['Autore'] == $_SESSION['id'] || $_SESSION['type'] == 'admin' )) {
-					echo "
-						<form action='libro.php?libro=". $codice."' method='post'>
-							<div >
-								<input type = 'hidden' name = 'deleteUser' value = '". $Commento['Autore']. "' />
-								<input type ='hidden' name= 'deleteData' value= '". $Commento['Data_Pubblicazione']. "' />
-								<input type ='submit' value='&#x2718;' class='btnDelete' />
-			   	    		</div>
-						</form>";
+						$searchDeleteCommento=array("{{codice}}","{{Autore}}", "{{Data}}");
+						$replaceDeleteCommento=array($codice,$Commento['Autore'], $Commento['Data_Pubblicazione']);
+						echo str_replace($searchDeleteCommento ,$replaceDeleteCommento, file_get_contents("../HTML/Template/DeleteLibro.txt"));
 					}
 					echo "<div class='autoreCommento'>". $username."</div>".
 					"</div>".//Fine class commentTitle
@@ -185,14 +173,9 @@
 		//Form inserimento commenti (solo per un utente loggato)
 
 		if(isset($_SESSION['type']) &&  $_SESSION['type'] == 'user'){
-			echo "
-			<h3>Inserisci un commento</h3>
-			<form action='libro.php?libro=". $codice. "' method='post'>
-				<div >
-					<textarea id ='testo' name= 'text' rows='4' cols='20'></textarea>
-					<input type ='submit' value='Invia!' class='btnShort' />
-	    		</div>
-			</form>";
+			$searchNuovoCommento=array("{{codice}}");
+			$replaceNuovoCommento=array($codice);
+			echo str_replace($searchNuovoCommento ,$replaceNuovoCommento, file_get_contents("../HTML/Template/AddCommento.txt"));
 		}
 
 		echo "</div>"; // Fine class text
@@ -201,54 +184,16 @@
 
 		if(isset($_SESSION['type']) &&  $_SESSION['type'] == 'user'){
 			//Voto al libro
-			echo "<div class='leftHalf'>
-				<form action='libro.php?libro=".$codice."' method='post'>
-					<fieldset>
-					<legend>Vota il libro!</legend>
-						<label for='valutazioneB'>valutazione
-							<select name='valutazioneB' id='valutazioneB'>
-								<option>1</option>
-								<option>1.5</option>
-								<option>2</option>
-								<option>2.5</option>
-								<option>3</option>
-								<option>3.5</option>
-								<option>4</option>
-								<option>4.5</option>
-								<option>5</option>
-							</select>
-						</label>
-	            		<input type='submit' value='Aggiungi' class='btnShort'/>
-					</fieldset>
-				</form>
-				</div>
-			";
+			$searchVotaLibro=array("{{codice}}","{{titolo}}", "{{id}}");
+			$replaceVotaLibro=array($codice,"Vota il libro!", "valutazioneB");
+			echo str_replace($searchVotaLibro ,$replaceVotaLibro, file_get_contents("../HTML/Template/VotoLibro.txt"));
 
 			//Voto alla recensione
 
-			echo "<div class='leftHalf'>
-			<form action='libro.php?libro=".$codice."' method='post'>
-				<fieldset>
-				<legend>Vota la recensione!</legend>
-					<label for='valutazioneRec'>valutazione
-						<select name='valutazioneRec' id='valutazioneRec'>
-							<option>1</option>
-							<option>1.5</option>
-							<option>2</option>
-							<option>2.5</option>
-							<option>3</option>
-							<option>3.5</option>
-							<option>4</option>
-							<option>4.5</option>
-							<option>5</option>
-						</select>
-					</label>
-	        		<input type='submit' value='Aggiungi' class='btnShort'/>
-				</fieldset>
-			</form>
-			</div>
+			$searchVotaRec=array("{{codice}}","{{titolo}}", "{{id}}");
+			$replaceVotaRec=array($codice,"Vota la recensione!", "valutazioneRec");
+			echo str_replace($searchVotaRec ,$replaceVotaRec, file_get_contents("../HTML/Template/VotoLibro.txt"));
 
-			";
 		} //Fine voti libro/recensione
 		$db->close();
 		echo "</div>". //Fine classe content

@@ -2,23 +2,19 @@
 	Require_once('connect.php');
 	Require_once('functions.php');
 
-	$replaceHead=array("<title>FaceOnTheBook</title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 	$searchHead=array("{{title}}","{{description}}");
+	$replaceHead=array("<title>FaceOnTheBook</title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 	echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 
 	echo menu().
 
-	"<div class='header centrato'>
-		<h1>FACE ON THE BOOK</h1>
-		<p>Tieniti informato sui tuoi libri preferiti!</p>
-	</div>".
+	file_get_contents("../HTML/Template/IndexHeader.txt");
 
-	"<div class='attacca breadcrumb centrato'>
-			<p class='path'>Ti trovi in: <span xml:lang='en'>Home</span></p>".
-			file_get_contents("../HTML/Template/Search.txt").
-	"</div>".
+	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
+	$replaceBreadcrumb=array("attacca"," <span xml:lang='en'>Home</span>");
+	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
-	"<div class='centrato content'>
+	echo "<div class='centrato content'>
 	<div class='elenco'>".
 
 	//ULTIME RECENSIONI
@@ -29,17 +25,9 @@
 	if($UltimeRec = $db->query("SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,Recensione.Testo, Recensione.Data_Pubblicazione FROM Libro JOIN Recensione ON(Recensione.Libro = Libro.ISBN) ORDER BY Recensione.Data_Pubblicazione LIMIT 5")){
 		if($UltimeRec->num_rows > 0){
 			while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
-				echo
-					"<dd>
-						<a href='libro.php?libro=". $row['ISBN']. "'>
-						<img src='../img/cover/". $row['ISBN']. ".jpg' alt=''/>
-						<object>
-							<h1>". $row['Titolo']. "</h1>".
-							$row['Testo'].
-						"</object>
-						</a>
-					</dd>
-				";
+				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}");
+				$replaceLibro=array($row['ISBN'],$row['Titolo'],$row['Testo']);
+				echo str_replace($searchLibro ,$replaceLibro, file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
 			}
 		}
 		$UltimeRec->free();
