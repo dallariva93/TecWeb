@@ -1,0 +1,28 @@
+	<body>
+		<div class="spazia">
+			<div class="box strict">
+				<h1>Accedi a Such Wow</h1>
+				<form action="../PHP/login.php" method="post">
+					<div >
+						<label for="email">E-mail</label><div class="inputError">{{emailError}}</div>
+						<input type="text" id="email" />
+						<label for="password">Password</label><div class="inputError">{{passError}}</div>
+						<a href="" id="forgot"> <span>Password dimenticata?</span></a>
+						<input type="password" id="password" />
+					   	<div>
+							<label for="check">Ricordami</label> 
+				   	    		<input type="checkbox" id="check" />
+			   	    		</div>
+						<input type="submit" value="Accedi" class="btnLong" />
+					</div>
+				</form>
+			</div>
+			<div class="box strict">
+				<p>
+					Non hai un account?
+					<a href="" >Registrati!</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
