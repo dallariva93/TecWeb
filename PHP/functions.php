@@ -9,46 +9,52 @@
 		return $risultato;
 	}
 
-	function menu(){
+
+function menu(){
+		session_start();
 		Require('connect.php');
 		echo file_get_contents("../HTML/Template/Menu.txt");
-		if(isset($_COOKIE['admin']))
+		if(isset($_SESSION['type'])) {
+			if($_SESSION['type'] == 'admin')
 			echo "<li class='right'><a href='Amministrazione/amministrazione.php'>Amministrazione</a></li>";
-		else if(isset($_COOKIE['user'])){
-			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_COOKIE['user']. "'" );
-			$utente = $user->fetch_array(MYSQL_ASSOC);
+			else if($_SESSION['type'] == 'user'){
+			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
+			$utente = $user->fetch_array(MYSQLI_ASSOC);
 			echo "<li class='right'><a href='user.php'>". $utente['Nickname']."</a></li>";
 			}
+		}
 		else{
 			echo "
 			<li class='right'><a href='accedi.php'>Accedi</a></li>
 			<li class='right'><a href='registrazione.php'>Iscriviti</a></li>";
 		}
-		
-		echo 
+		echo
 		"</ul>
 		</div>";
 	}
 	function menuAdmin(){
-		Require('connect.php');
+		session_start();
+		Require('../connect.php');
 		echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
-		if(isset($_COOKIE['admin']))
+		if(isset($_SESSION['type'])) {
+			if($_SESSION['type'] == 'admin')
 			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
-		else if(isset($_COOKIE['user'])){
-			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_COOKIE['user']. "'" );
-			$utente = $user->fetch_array(MYSQL_ASSOC);
+			else if($_SESSION['type'] == 'user'){
+			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
+			$utente = $user->fetch_array(MYSQLI_ASSOC);
 			echo "<li class='right'><a href='../user.php'>". $utente['Nickname']."</a></li>";
 			}
+		}
 		else{
 			echo "
 			<li class='right'><a href='../accedi.php'>Accedi</a></li>
 			<li class='right'><a href='../registrazione.php'>Iscriviti</a></li>";
 		}
-		
-		echo 
+		echo
 		"</ul>
 		</div>";
 	}
+
 	
 
 function checkEmail($email)
