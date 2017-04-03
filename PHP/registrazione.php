@@ -145,7 +145,8 @@
 		$residenza=mysqli_escape_string($link, isset($_POST['residenza']));	
 		echo "email", "$email", "nome", "$nome", "cogn", "$cognome", "nick", "$nickname", "data", "$data";*/
 
-		$ENC_password=hash('sha256', $_POST['password']);
+		$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );
+		
 		
 		$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname, Data_Nascita, Password, Residenza) VALUES ('".$_POST['email']."','".$_POST['nome']."','".$_POST['cognome']."','".$_POST['nickname']."','$data','$ENC_password', '".$_POST['residenza']."')";
 	
