@@ -1,0 +1,13 @@
+<tr>
+	<td scope='row'>{{Email}}</td>
+	<td scope='row'>{{Nome}}</td>
+	<td scope='row'>{{Cognome}}</td>
+	<td>
+		<form action='amministrazioneRedazione.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")' >
+			<div >
+				<input type = 'hidden' name = 'id' value = '{{Email}}' />
+				<input type ='submit' value='&#x2718;' class='btnDelete' />
+    		</div>
+		</form>
+	</td>
+</tr>

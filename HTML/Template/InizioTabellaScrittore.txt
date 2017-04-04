@@ -1,0 +1,11 @@
+<div class='Table'><table summary = 'Elenco di tutti gli scrittori presenti nel sito'>
+	<thead>
+		<tr>
+			<th scope='col'>Cognome</th>
+			<th scope='col'>Nome</th>
+			<th scope='col'>Data di nascita</th>
+			<th scope='col'>Nazionalit&agrave;</th>
+			<th scope='col'>Id</th>
+		</tr>
+	</thead>
+	<tbody>

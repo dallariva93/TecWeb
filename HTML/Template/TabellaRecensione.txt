@@ -1,0 +1,15 @@
+<tr>
+	<td scope='row'>{{Data}}</td>
+	<td><a href="libro.php?libro='{{Libro}}">{{Titolo}}</a></td>
+	<td>{{Autore}}</td>
+	<td>{{Id}}</td>
+	<td>{{Voto}}/5</td>
+	<td>
+		<form action='amministrazioneRecensione.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")' >
+			<div >
+				<input type = 'hidden' name = 'id' value = '{{Id}}' />
+				<input type ='submit' value='&#x2718;' class='btnDelete' />
+    		</div>
+		</form>
+	</td>
+</tr>

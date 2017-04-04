@@ -1,0 +1,13 @@
+<div class='Table'>
+		<table summary = 'Elenco di tutti i libri nel sito'>
+		<thead>
+			<tr>
+				<th scope='col'>ISBN</th>
+				<th scope='col'>Titolo</th>
+				<th scope='col'>Autore</th>
+				<th scope='col'>Anno di Pubblicazione</th>
+				<th scope='col'>Casa Editrice</th>
+				<th scope='col'>Genere</th>
+			</tr>
+		</thead>
+		<tbody>

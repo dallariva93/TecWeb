@@ -1,0 +1,8 @@
+<div class='centrato content'>
+	<a href='amministrazioneUtenti.php' class='boxAdmin'>Utenti</a>
+	<a href='amministrazioneScrittori.php' class='boxAdmin'>Scrittori</a>
+	<a href='amministrazioneRecensioni.php' class='boxAdmin'>Recensioni</a>
+	<a href='amministrazioneRedazione.php' class='boxAdmin'>Redazione</a>
+	<a href='amministrazioneLibri.php' class='boxAdmin'>Libri</a>
+	<a href='amministrazioneNotizie.php' class='boxAdmin'>Notizie</a>		
+</div>

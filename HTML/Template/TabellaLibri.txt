@@ -1,0 +1,16 @@
+<tr>
+	<td scope='row'>{{ISBN}}</td>
+	<td>{{Titolo}}</td>
+	<td>{{Autore}}</td>
+	<td>{{Data}}</td>
+	<td>{{Casa}}</td>
+	<td>{{Genere}}</td>
+	<td>
+		<form action='amministrazioneLibri.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")'>
+			<div >
+				<input type = 'hidden' name = 'id' value = '{{ISBN}}' />
+				<input type ='submit' value='&#x2718;' class='btnDelete' />
+    		</div>
+		</form>
+	</td>
+</tr>

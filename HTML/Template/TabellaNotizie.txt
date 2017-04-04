@@ -1,0 +1,14 @@
+<tr>
+	<td  scope='row'>{{Id}}</td>
+	<td><a href="new.php?id='{{Id}}'>{{Titolo}}</a></td>
+	<td>{{Autore}}</td>
+	<td>{{Data}}</td>
+	<td>
+		<form action='amministrazioneNotizie.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")'>
+			<div >
+				<input type = 'hidden' name = 'id' value = '{{Id}}' />
+				<input type ='submit' value='&#x2718;' class='btnDelete' />
+			</div>
+		</form>
+	</td>
+</tr>

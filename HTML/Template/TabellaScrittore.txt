@@ -1,0 +1,15 @@
+<tr>
+	<td scope='row'>{{Cognome}}</td>
+	<td>{{Nome}}</td>
+	<td>{{Data}}</td>
+	<td>{{Nazionalita}}</td>
+	<td>{{Id}}</td>
+	<td>
+		<form action='amministrazioneScrittori.php' onclick='return confirm(\"Confermi di eliminare?\")' method='post'>
+			<div >
+				<input type = 'hidden' name = 'id' value = '{{Id}}' />
+				<input type ='submit' value='&#x2718;' class='btnDelete' />
+    		</div>
+		</form>
+	</td>
+</tr>

@@ -1,12 +1,12 @@
 <?php
-     $username = "root";
+     $username = "";
      $password = "";
      $host = "localhost";
-     $database= "TW";
+     $database= "";
      $db = new mysqli($host, $username, $password,$database);
       
     if ($db->connect_errno) {
-        echo "Connessione fallita: ". $connessione->connect_error . ".";
+        echo "Connessione fallita: ". $db->connect_error . ".";
         exit();
     }   
 

@@ -1,0 +1,9 @@
+<div class='Table'><table summary = 'Elenco di tutti gli amministratori del sito'>
+	<thead>
+		<tr>
+			<th scope='col'>E-mail</th>
+			<th scope='col'>Nome</th>
+			<th scope='col'>Cognome</th>
+		</tr>
+	</thead>
+	<tbody>

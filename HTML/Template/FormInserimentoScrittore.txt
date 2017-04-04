@@ -1,0 +1,28 @@
+<a name = 'insert'></a>
+	<div class='box'>
+	<h1>Inserisci scrittore</h1>
+	<form  action='../Action/inserisci_scittore.php' method='post' onsubmit='return check()'>
+		<div>
+			<label for='id'>Id</label>
+			<label for='id' id='codeErr' class='formError'></label>
+			<input type='text' name='idIns' id='id'/>
+
+			<label for='nome'>Nome</label>
+			<label for='nome' id='nomeErr' class='formError'></label>
+			<input type='text' name='nomeIns' id='nome'/>
+
+			<label for='cognome'>Cognome</label>
+			<label for='cognome' id='cognomeErr' class='formError'></label>
+			<input type='text' name='cognomeIns' id='cognome'/>
+
+			<label for='nazionalita'>Nazionalit&agrave;</label>
+			<input type='text' name='nazionalita' id='nazionalita'/>
+
+			<label for='data'>Data di nascita</label>
+			<label for='data' id='dataErr' class='formError'></label>
+			<input type='text' name='dataIns' id='data'/>
+
+			<input type='submit' value='Inserisci' class='btnLong'/>
+		</div>
+	</form>
+</div>
