@@ -67,7 +67,7 @@ positivamente.
 
 1. Index [L ]	
 	- [X] HTML
-	- [X] CSS
+	- [ ] CSS
 	- [X] PHP
 	- [X] JS
 	
@@ -86,11 +86,11 @@ positivamente.
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
-5. Contatti [E]
+5. Contatti [L]
 	- [X] HTML
 	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+	- [X] PHP
+	- [X] JS
 6. Accesso [G]
 	- [X] HTML
 	- [X] CSS
@@ -108,19 +108,19 @@ positivamente.
 	- [ ] JS
 9. Pagina libro/recensione + commenti [L ]
 	- [X] HTML
-	- [X] CSS
+	- [ n] CSS
 	- [X] PHP
 	- [X] JS
 10. Pagina autore [L ]
 	- [X] HTML
-	- [X] CSS
+	- [ ] CSS
 	- [X] PHP
 	- [X] JS
-11. Pagina amministrazione [A ]
+11. Pagina amministrazione [A + L]
 	- [X] HTML
 	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+	- [X] PHP
+	- [X] JS
 
 	A: Andrea
 	

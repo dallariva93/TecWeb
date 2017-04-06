@@ -1,9 +1,0 @@
-<body><div>
-<a name='menu'></a></div>
-<div class='menu'> <!-- Barra di navigazione -->
-	<ul>
-		<li><a href='../index.php' xml:lang='en'>Home</a></li>
-		<li><a href='' xml:lang='en'>News</a></li>
-		<li><a href='../recensioni.php'>Catalogo</a></li>
-		<li><a href=''>Classifica</a></li>
-		<li><a href='../contacts.php'>Contatti</a></li>

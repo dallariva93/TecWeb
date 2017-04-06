@@ -32,29 +32,6 @@ function menu(){
 		"</ul>
 		</div>";
 	}
-	function menuAdmin(){
-		session_start();
-		Require('../connect.php');
-		echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
-		if(isset($_SESSION['type'])) {
-			if($_SESSION['type'] == 'admin')
-			echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
-			else if($_SESSION['type'] == 'user'){
-			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
-			$utente = $user->fetch_array(MYSQLI_ASSOC);
-			echo "<li class='right'><a href='../user.php'>". $utente['Nickname']."</a></li>";
-			}
-		}
-		else{
-			echo "
-			<li class='right'><a href='../accedi.php'>Accedi</a></li>
-			<li class='right'><a href='../registrazione.php'>Iscriviti</a></li>";
-		}
-		echo
-		"</ul>
-		</div>";
-	}
-
 	
 
 function checkEmail($email)

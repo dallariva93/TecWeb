@@ -1,0 +1,16 @@
+<div  class="box">
+	<h1>Contatta la redazione</h1>
+	<form action="contacts.php" method="post">
+		<div id="invio_email">
+			<label for="nome">Inserire nome: </label>
+			<input type="text" id="nome" name="nome"/>
+			<label for="email">Indirizzo E-mail: </label>
+			<input type="text" id="email" name="email"/>
+			<label for="oggetto">Oggetto E-mail: </label>
+			<input type="text" id="oggetto" name="oggetto"/>
+			<label for="testo">Messaggio: </label>
+			<textarea id="testo" name="testo" rows="4" cols="50"></textarea>
+			<input type="submit" value="Invia!" class="btnShort" />
+		</div>
+	</form>
+</div>
