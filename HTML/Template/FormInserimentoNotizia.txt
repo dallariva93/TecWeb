@@ -1,0 +1,25 @@
+<a name = 'insert'></a>
+	<div class='box'>
+		<h1>Inserisci Notizia </h1>
+		<form action='../Action/inserisci_notizia.php' method='post' onsubmit='return check()'>
+			<div>
+				<label for='titolo'>Titolo</label>
+				<label for='titolo' id='titoloErr' class='formError'></label>
+				<input type='text' name='titoloIns' id='titolo'/>
+
+				<label for='autore' >Codice Autore</label>
+				<label for='autore' id='autoErr' class='formError'></label>
+				<input type='text' name='autoreIns' id='autore'/>
+
+				<label for='data' >Data</label>
+				<label for='data' id='dataErr' class='formError'></label>
+				<input type='text' name='dataIns' id='anno'/>
+
+				<label for='Testo' >Testo</label>
+
+				<textarea name='testoIns' id='testo' rows='4' cols='50'/></textarea>
+
+				<input type='submit' value='Inserisci' class='btnLong'/>
+			</div>
+		</form>
+	</div>

@@ -1,7 +1,7 @@
 <a name = 'insert'></a>
 	<div class='box'>
 	<h1>Inserisci scrittore</h1>
-	<form  action='../Action/inserisci_scittore.php' method='post' onsubmit='return check()'>
+	<form  action='../Action/inserisci_scrittore.php' method='post' onsubmit='return check()'>
 		<div>
 			<label for='id'>Id</label>
 			<label for='id' id='codeErr' class='formError'></label>
