@@ -2,6 +2,7 @@
 Require_once('../connect.php');
 if(isset($_COOKIE['admin'])){
 		
+	
 	function testEmail(&$errore)
 	{
 		$emailErr;
@@ -42,10 +43,9 @@ if(isset($_COOKIE['admin'])){
 	}
 	
 	
-	if(!$errore && isset($_POST['isbnIns']) && isset($_POST['titoloIns']) && isset($_POST['autoreIns']) && isset($_POST['casa']) && isset($_POST['dataIns']) && isset($_POST['genere']) && isset($_POST['trama'])) 
-	{
-		
-		$insert="INSERT INTO `Libro`(ISBN, Titolo, Autore, Anno_pubblicazione, Casa_editrice, Genere, Trama) VALUES ('".$_POST['isbnIns']."','".$_POST['autoreIns']."', '$data','".$_POST['casa']."','".$_POST['genere']."','".$_POST['trama']."')";
+	if(!$errore && isset($_POST['titoloIns']) && isset($_POST['autoreIns']) && isset($_POST['[testoIns']) && isset($_POST['dataIns'])) 
+	{	
+		$insert="INSERT INTO `Notizie`(Titolo, Autore, Data, Testo) VALUES ('".$_POST['titoloIns']."','".$_POST['autoreIns']."','$data', '".$_POST['testoIns']."')";
 	
 		$result=mysqli_multi_query($db, $insert);
 	}
@@ -55,5 +55,5 @@ if(isset($_COOKIE['admin'])){
 	}
 	
 }
-header("Location: ../Amministrazione/libri.php");
+header("Location: ../Amministrazione/notizie.php");
 ?>

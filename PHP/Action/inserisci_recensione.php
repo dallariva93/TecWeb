@@ -1,38 +1,59 @@
 <?php
+Require_once('../connect.php');
+if(isset($_COOKIE['admin'])){
+		
+	
+	function testEmail(&$errore)
+	{
+		$emailErr;
+		if(isset($_POST['autoreIns']))
+		{
+			if(empty($_POST['autoreIns']))
+			{
+				$errore=true;
+				return $emailErr="Campo obbligatorio";
+			}
+			elseif(!checkEmailForm($_POST['autoreIns']))
+			{
+				$errore=true;
+				return $emailErr="Mail non corretta";
+			}
+		}
+	}
 
-include('connect.php');
+	function testDate(&$errore)
+	{
+		$dateErr;
+		if(isset($_POST['dataIns']))
+		{
+			if(empty($_POST['dataIns'])){}
+			elseif(!checkData($_POST['dataIns']))
+			{
+				$errore=true;
+				return $dateErr="Data non corretta";
+			}
+			else 
+			{
+				$arrayData = multiexplode(array("-",".","/"),$_POST['data ins']);
+				$data = $arrayData[2]."/" .$arrayData[1]."/" .$arrayData[0];	//ricostruisco la data con il separatore "/"
+				echo $data;
+			}
+			
+		}
+	}
 
-echo file_get_contents("../../HTML/Template/HeadAdmin.txt");
+	
+	if(!$errore && isset($_POST['isbnIns']) && isset($_POST['autoreIns']) && isset($_POST['[testo']) && isset($_POST['dataIns'])&& isset($_POST['valutazione'])) 
+	{	
+		$insert="INSERT INTO `Recensione`(Libro, Autore, Data_Pubblicazione, Valutazione, Testo) VALUES ('".$_POST['isbnIns']."','".$_POST['autoreIns']."','$data','".$_POST['valutazione']."', '".$_POST['testo']."')";
+	
+		$result=mysqli_multi_query($db, $insert);
+	}
 
-echo file_get_contents("../../HTML/Template/MenuAdmin.txt");
-
-echo file_get_contents("../../HTML/Template/SearchAdmin.txt");
-
-$codice= $_POST['codice'];
-$libro= $_POST['libro'];
-$autore= $_POST['autore'];
-$testo= $_POST['testo'];
-$data= $_POST['data'];
-$valutazione= $_POST['valutazione'];
-
-if (($codice=="") or ($libro=="") or ($autore=="") or ($data=="") or ($testo=="") or ($valutazione=="")) 
-{ 
-echo "<br><h1>Errore, dati mancanti</h1>";
-} 
-else
-
-{
-$insert="INSERT INTO `Recensione` VALUES ('$codice','$libro','$autore','$data','$valutazione', '$testo')";
-} 
-
-$result = mysqli_multi_query($db,$insert);
-
-if($result){
-	echo("<br> <H1>Inserimento avvenuto correttamente</H1>");
-} else{
-	echo("<br><H1>Inserimento non eseguito</h1>");
-} 
-echo file_get_contents("../../HTML/Template/FooterAdmin.txt");
+		if(!$db->query($sql)){
+			header("Location: ../page_not_found.php");
+	}
+	
+}
+header("Location: ../Amministrazione/recensioni.php");
 ?>
-
-
