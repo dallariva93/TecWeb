@@ -4,25 +4,25 @@ Titolo: ----
 
 Nome Gruppo: ---
 
-###!! Questo file può essere ampliato se qualcuno nota che manca qualcosa !!
+### !! Questo file può essere ampliato se qualcuno nota che manca qualcosa !!
 
-#N.B.
+# N.B.
  
 Validare **SEMPRE** tutti i documenti (html, css, ecc), esistono siti apposta per farlo (es. w3c validator)
 
 (Per approfondimenti vedere slide!!)
 
-##Regole:
+## Regole:
 - avvertire tutti i membri del gruppo prima di ogni modifica
 - rispettate i gusti della gaggi e le specifiche anche se pensate non abbiano senso
 
-##Bug noti:
+## Bug noti:
 - ~~Breadcrump: non responsive( non si allontana dal menu senza dargli la distanza e non si ridimensiona a seconda della grandezza degli elementi interni)~~
 - ~~Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu~~
 - Mobile: manca tutta la gestione per gli schermi piccoli
 - ~~Classe content non colora lo sfondo~~
 
-##Specifiche:
+## Specifiche:
 
 Si richiede la progettazione e lo sviluppo di un sito web con contenuto a scelta dello studente ma che rispetti le seguenti caratteristiche:
 
@@ -46,7 +46,7 @@ indipendentemente dal browser e dalle dimensioni dello schermo del dispositivo d
 Considerazioni riguardanti diversi dispositivi (laddove possibile) verranno valutate 
 positivamente.
 
-##Idea generale:
+## Idea generale:
 
 - i libri nel sito possono essere visti in 2 categorie: libri recensiti e libri non 
  ancora recensiti perchè sono appena usciti. Entrambe le categorie hanno una trama del libro
@@ -59,15 +59,15 @@ positivamente.
 - sono presenti anche notizie (news) riguardo ai libri, queste non sono le uscite del mese(gestite a parte)
  ma sono più contenuti che possono interessare l'utente
 
-##Proposte:
+## Proposte:
 1. sondaggi
 
 
-##Pagine necessarie:
+## Pagine necessarie:
 
 1. Index [L ]	
 	- [X] HTML
-	- [ ] CSS
+	- [X] CSS
 	- [X] PHP
 	- [X] JS
 	
@@ -76,11 +76,11 @@ positivamente.
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
-3. Recensioni [E]
+3. Recensioni [L]
 	- [X] HTML
-	- [ ] CSS
-	- [ ] PHP
-	- [ ] JS
+	- [X] CSS
+	- [X] PHP
+	- [X] JS
 4. Classifica [I]
 	- [ ] HTML
 	- [ ] CSS
@@ -88,7 +88,7 @@ positivamente.
 	- [ ] JS
 5. Contatti [L]
 	- [X] HTML
-	- [ ] CSS
+	- [X] CSS
 	- [X] PHP
 	- [X] JS
 6. Accesso [G]
@@ -108,23 +108,21 @@ positivamente.
 	- [ ] JS
 9. Pagina libro/recensione + commenti [L ]
 	- [X] HTML
-	- [ n] CSS
+	- [X] CSS
 	- [X] PHP
 	- [X] JS
 10. Pagina autore [L ]
 	- [X] HTML
-	- [ ] CSS
+	- [X] CSS
 	- [X] PHP
 	- [X] JS
 11. Pagina amministrazione [A + L]
 	- [X] HTML
-	- [ ] CSS
+	- [X] CSS
 	- [X] PHP
 	- [X] JS
 
 	A: Andrea
-	
-	E: Edoardo
 	
 	I: Isacco
 	
@@ -132,7 +130,7 @@ positivamente.
 	
 	L: Luca
 
-##Accessibilità:
+## Accessibilità:
 
 Principi:
 
@@ -159,7 +157,7 @@ Principi:
 
 	* Considerare strumenti ed informazioni di orientamento per utenti non vedenti
 
-###Breakpoint:
+### Breakpoint:
 
 * 320 pixel   Piccoli schermi, telefoni usati in modalità portrait
 
