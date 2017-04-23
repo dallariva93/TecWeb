@@ -1,0 +1,4 @@
+<div>
+<label for="{{GENERE}}">{{GENERE}}</label>
+<input type="radio" name="genere" id="{{GENERE}}" value="{{VALUE}}" {{CHECK}}/>
+</div>

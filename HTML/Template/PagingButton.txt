@@ -1,0 +1,1 @@
+<button type='submit' value='{{VALUE}}' name='paging'>{{PAGE}}</button>

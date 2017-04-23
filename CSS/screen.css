@@ -300,14 +300,35 @@ fieldset label {
 	background-color: #fff;
 	border-radius: 5px;
 }
-.filtri legend{
-	margin-bottom: 1em;
-}
-.filtri > div{
-
+.filtri div{
 	width: 100%;
+	float: left;
 }
+/**************************************************************
+		PAGING
+***************************************************************/
 
+#paging{
+	width: 100%;
+	float: right;
+	text-align: center;
+}
+#paging form button{
+	padding: 1.5em;
+	border-radius: 5px;
+	margin: 0.4%;
+}
+#paging form button:hover:not(#PagingCurrentPage){
+	background-color: #C5CAE9;
+}
+#paging form button:not(#PagingCurrentPage){
+	background-color: white;
+	border: 1px solid grey;
+}
+#PagingCurrentPage{
+	border: 1px solid blue;
+	background-color: #C5CAE9;
+}
 /**************************************************************
 		PAGINA RECENSIONE
 ***************************************************************/
