@@ -2,7 +2,7 @@
 
 	Require_once('connect.php');
 	Require_once('functions.php');
-	
+
 	$searchHead=array("{{title}}","{{description}}");
 	$replaceHead=array("<title>Amministrazione Notizie - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 	echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
@@ -28,19 +28,18 @@
 			}
 			else
 				$autoreNotizia = $New['Autore'];
-			
 			$searchNotizie=array("{{Id}}","{{Titolo}}","{{Data}}","{{Autore}}");
 			$replaceNotizie=array($New['Id'],$New['Titolo'],$New['Data'],$autoreNotizia);
 			echo str_replace($searchNotizie ,$replaceNotizie, file_get_contents("../HTML/Template/TabellaNotizie.txt"));
-			
+
 		}
 		$Notizie->free();
 	}
 	echo "</tbody></table></div>";
-	
+
 	//Form inserimento notizia
 	echo file_get_contents("../HTML/Template/FormInserimentoNotizia.txt");
-	
+
 	$db->close();
 	echo "</div>";//Fine content
 

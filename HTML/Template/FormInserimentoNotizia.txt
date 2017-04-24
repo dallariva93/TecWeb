@@ -17,7 +17,7 @@
 
 				<label for='Testo' >Testo</label>
 
-				<textarea name='testoIns' id='testo' rows='4' cols='50'/></textarea>
+				<textarea name='testoIns' id='testo' rows='4' cols='50'></textarea>
 
 				<input type='submit' value='Inserisci' class='btnLong'/>
 			</div>

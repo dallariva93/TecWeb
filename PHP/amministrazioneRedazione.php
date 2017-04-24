@@ -20,7 +20,7 @@
 		echo file_get_contents("../HTML/Template/InizioTabellaRedazione.txt");
 		while ($Admin = $Amministratori->fetch_array(MYSQLI_ASSOC)){
 			$search=array("{{Email}}","{{Nome}}","{{Cognome}}");
-			$replace=array($Admin['Email'],$Admin['Nome'],$Admin['Cognome'];
+			$replace=array($Admin['Email'],$Admin['Nome'],$Admin['Cognome']);
 			echo str_replace($search,$replace, file_get_contents("../HTML/Template/Tabellaedazione.txt"));
 		}
 		$Amministratori->free();
@@ -34,6 +34,6 @@
 
 	echo "</div>";//Fine content
 
-	echo file_get_contents("../HTML/Template/FooterAdmin.txt");
+	echo file_get_contents("../HTML/Template/Footer.txt");
 
 ?>

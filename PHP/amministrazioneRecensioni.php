@@ -1,8 +1,8 @@
 <?php
 
 	Require_once('connect.php');
-	Require_once('functions.php');	
-	
+	Require_once('functions.php');
+
 	$searchHead=array("{{title}}","{{description}}");
 	$replaceHead=array("<title>Amministrazione Recensioni - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
 	echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
@@ -44,7 +44,7 @@
 			else{
 				$Autore = $Rec['Autore'];
 			}
-			
+
 			$search=array("{{Data}}","{{Libro}}","{{Titolo}}","{{Id}}","{{Voto}}","{{Autore}}");
 			$replace=array($Rec['Data_Pubblicazione'],$LibroRec,$LibroTitolo,$Rec['Id'],$Rec['Valutazione'],$Autore);
 			echo str_replace($search ,$replace, file_get_contents("../HTML/Template/TabellaRecensione.txt"));
@@ -55,12 +55,12 @@
 	echo "</tbody></table></div>";
 
 	//Form inserimento recensione
-	echo file_get_contents("../HTML/Template/FormInserimentoRencensione.txt");
+	echo file_get_contents("../HTML/Template/FormInserimentoRecensione.txt");
 
 	$db->close();
 
 	echo "</div>";//Fine content
 
-	echo file_get_contents("../HTML/Template/FooterAdmin.txt");
+	echo file_get_contents("../HTML/Template/Footer.txt");
 
 ?>
