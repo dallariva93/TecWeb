@@ -42,7 +42,7 @@
 	if($TuttiGeneri = $db->query("Select Genere From Libro GROUP BY Genere")){
 		if($TuttiGeneri->num_rows > 0){
 			while($Genere = $TuttiGeneri->fetch_array(MYSQLI_ASSOC)){
-				$check = ($Genere['Genere'] == $genere)? "checked" : "";
+				$check = ($Genere['Genere'] == $genere)? "checked = 'checked'" : "";
 				$searchGenere=array("{{GENERE}}","{{VALUE}}","{{CHECK}}");
 				$replaceGenere=array($Genere['Genere'],$Genere['Genere'], $check);
 				echo str_replace($searchGenere ,$replaceGenere,
@@ -70,7 +70,7 @@
 		if($UltimeRec->num_rows > 0){
 			while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
 				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}");
-				$replaceLibro=array($row['ISBN'],$row['Titolo'],$row['Testo']);
+				$replaceLibro=array($row['ISBN'],$row['Titolo'],ReadMore($row['Testo']));
 				echo str_replace($searchLibro ,$replaceLibro,
 					file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
 			}

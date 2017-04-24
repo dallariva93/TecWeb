@@ -66,6 +66,18 @@ function paging($currentPage, $totalNumber,$genere = ""){
 	echo "</div></form></div>";
 }
 
+function ReadMore($text){
+	$string = strip_tags($text);
+	$maxLemgth = 200;
+	if (strlen($string) > $maxLemgth) {
+	    $stringCut = substr($string, 0, $maxLemgth);
+		$string = $stringCut;
+		$string .= " ...  continua   ...";
+	}
+	return "<p>". $string. "</p>";
+}
+
+
 function checkEmail($email)
 {	include('connect.php');
 	$sql= "SELECT nickname FROM Utente WHERE Email = '$email' ";
