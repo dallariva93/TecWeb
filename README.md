@@ -96,22 +96,22 @@ positivamente.
 	- [X] CSS
 	- [ ] PHP
 	- [ ] JS
-7. Iscrizione [G]
+7. Iscrizione [G + L]
 	- [X] HTML
 	- [ ] CSS
-	- [ ] PHP
+	- [X] PHP
 	- [ ] JS
 8. Pagina utente [G]
 	- [X] HTML
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
-9. Pagina libro/recensione + commenti [L ]
+9. Pagina libro/recensione + commenti [L]
 	- [X] HTML
 	- [X] CSS
 	- [X] PHP
 	- [X] JS
-10. Pagina autore [L ]
+10. Pagina autore [L]
 	- [X] HTML
 	- [X] CSS
 	- [X] PHP

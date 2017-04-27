@@ -25,7 +25,7 @@ function menu(){
 		}
 		else{
 			echo "
-			<li class='right'><a href='accedi.php'>Accedi</a></li>
+			<li class='right'><a href='login.php'>Accedi</a></li>
 			<li class='right'><a href='registrazione.php'>Iscriviti</a></li>";
 		}
 		echo
@@ -119,8 +119,10 @@ function multiexplode ($delimiters,$string)
 function checkData($data)
 {
 	$arrayData = multiexplode(array("-",".","/"),$data);
-	if(checkdate($arrayData[1], $arrayData[0], $arrayData[2])) {return true;}
-	else {return false;}
+	if(count($arrayData) == 3 && checkdate((int)$arrayData[1], (int)$arrayData[0], (int)$arrayData[2])) 
+		return true;
+	else 
+		return false;
 }
 
 function sessionLoginControl()
@@ -130,6 +132,127 @@ function sessionLoginControl()
 	else
 		{return false;}
 }
+function testNick(&$errore)
+{	
+	$nickErr = "";
+	if(isset($_POST['nickname']))
+	{	
+		if(empty($_POST['nickname']))
+		{
+			$errore=true;
+			$nickErr="Campo obbligatorio";
+		}
+		elseif(checkUser(($_POST['nickname'])))
+		{
+			$errore=true;
+			$nickErr="Nickname già in uso";
+		}
+		elseif(!checkUserSize(($_POST['nickname'])))
+		{
+			$errore=true;
+			$nickErr="Il nickname deve essere compreso tra i 4 e i 12 caratteri";
+		}
+	}
+	return $nickErr;
+}
 
+function testEmail(&$errore)
+{
+	$emailErr = "";
+	if(isset($_POST['email']))
+	{
+		if(empty($_POST['email']))
+		{
+			$errore=true;
+			$emailErr="Campo obbligatorio";
+		}
+		else if(!checkEmailForm($_POST['email']))
+		{
+			$errore=true;
+			$emailErr="Mail non corretta";
+		}
+		else if(checkEmail($_POST['email']))
+		{
+			$errore=true;
+			$emailErr="Mail già presente nel sistema";				
+		}
+	}
+	return $emailErr;
+}
+
+function testDate(&$errore)
+{
+	$dateErr = "";
+	if(isset($_POST['data']))
+	{
+		if(!checkData($_POST['data']))
+		{
+			$errore=true;
+			$dateErr="Data non corretta";
+		}		
+	}
+	return $dateErr;
+}
+
+function GetData($data){
+	$correctData = "";
+	if ($data != ""){
+		$arrayData = multiexplode(array("-",".","/"),$data);
+		$correctData = $arrayData[2]."/" .$arrayData[1]."/" .$arrayData[0];	//ricostruisco la data con il separatore "/"
+	}
+	return $correctData;
+}
+
+function testPassword(&$errore)
+{
+	$passErr = "";
+	if(isset($_POST['password']))
+	{
+		if (empty($_POST ["password"]))
+		{
+			$errore=true;
+			$passErr = "Campo obbligatorio";
+		} 
+		else if(!preg_match("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$^", $_POST ["password"])) 
+		{
+			$errore=true;
+			$passErr = "La password deve essere luna almeno 8 caratteri e deve contenere almeno una lettera minuscola, una maiuscola e un numero";
+		}
+	}
+	return $passErr;
+}
+
+function testNome(&$errore)
+{
+	$nomeErr = "";
+	if(isset($_POST['nome']))
+	{		
+		if (strlen($_POST['nome']) < 3) 
+		{
+			$errore=true;
+			$nomeErr="Il nome deve contenere almeno 3 caratteri";
+		} 
+		else if (!preg_match("/^[a-zA-Z ]+$/", $_POST['nome'] )) 
+		{
+		   $errore=true;
+		   $nomeErr="Il nome puo avere solo lettere e spazi";
+		}
+	}
+	return $nomeErr;	
+}
+
+function testCognome(&$errore)
+{
+	$cognomeErr = "";
+	if(isset($_POST['cognome']))
+	{		
+		if (!preg_match("/^[a-zA-Z ]+$/", $_POST['cognome'] )) 
+		{
+		   $errore=true;
+		   $cognomeErr="Il cognome puo avere solo lettere e spazi";
+		}
+	}
+	return $cognomeErr;
+}
 
 ?>
