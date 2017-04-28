@@ -9,7 +9,8 @@
 		//Invio la stessa E-mail a tutti gli amministratori
 		if($Redazione = $db->query("SELECT Email FROM Redazione")) {
 			while($admin = $Redazione->fetch_array(MYSQLI_ASSOC)){
-				mail($admin['Email'],$_POST['oggetto'],$_POST['testo'],$header);
+			//Viene commentato per evitare l'invio di mail
+				//mail($admin['Email'],$_POST['oggetto'],$_POST['testo'],$header);
 			}
 		$Redazione->free();
 		}

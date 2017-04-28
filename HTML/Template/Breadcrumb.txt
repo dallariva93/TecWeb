@@ -1,11 +1,3 @@
 <div class='breadcrumb centrato {{AggiungiClassi}}'>
 	<p class='path'>Ti trovi in: {{Path}}</p>
-	<div class="searchform">
-		<form action="searchResult.php" method='get'>
-			<div>
-				<input type="text" name="search" id="globalSearch"/>
-				<input type="submit" value="Cerca" class="searchBtn"/>
-			</div>
-		</form>
-	</div>
 </div>

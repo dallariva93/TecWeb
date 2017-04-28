@@ -65,7 +65,7 @@ positivamente.
 
 ## Pagine necessarie:
 
-1. Index [L ]	
+1. Index [L]	
 	- [X] HTML
 	- [X] CSS
 	- [X] PHP
@@ -91,10 +91,10 @@ positivamente.
 	- [X] CSS
 	- [X] PHP
 	- [X] JS
-6. Accesso [G]
+6. Accesso [G + L]
 	- [X] HTML
 	- [X] CSS
-	- [ ] PHP
+	- [X] PHP
 	- [ ] JS
 7. Iscrizione [G + L]
 	- [X] HTML

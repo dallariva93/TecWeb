@@ -15,13 +15,15 @@ function menu(){
 		Require('connect.php');
 		echo file_get_contents("../HTML/Template/Menu.txt");
 		if(isset($_SESSION['type'])) {
+			echo "<li class='right'><a href='logout.php'>Esci</a></li>";
 			if($_SESSION['type'] == 'admin')
-			echo "<li class='right'><a href='Amministrazione/amministrazione.php'>Amministrazione</a></li>";
+				echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
 			else if($_SESSION['type'] == 'user'){
-			$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
-			$utente = $user->fetch_array(MYSQLI_ASSOC);
-			echo "<li class='right'><a href='user.php'>". $utente['Nickname']."</a></li>";
+				$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
+				$utente = $user->fetch_array(MYSQLI_ASSOC);
+				echo "<li class='right'><a href='user.php'>". $utente['Nickname']."</a></li>";
 			}
+
 		}
 		else{
 			echo "
@@ -119,9 +121,9 @@ function multiexplode ($delimiters,$string)
 function checkData($data)
 {
 	$arrayData = multiexplode(array("-",".","/"),$data);
-	if(count($arrayData) == 3 && checkdate((int)$arrayData[1], (int)$arrayData[0], (int)$arrayData[2])) 
+	if(count($arrayData) == 3 && checkdate((int)$arrayData[1], (int)$arrayData[0], (int)$arrayData[2]))
 		return true;
-	else 
+	else
 		return false;
 }
 
@@ -133,10 +135,10 @@ function sessionLoginControl()
 		{return false;}
 }
 function testNick(&$errore)
-{	
+{
 	$nickErr = "";
 	if(isset($_POST['nickname']))
-	{	
+	{
 		if(empty($_POST['nickname']))
 		{
 			$errore=true;
@@ -156,7 +158,7 @@ function testNick(&$errore)
 	return $nickErr;
 }
 
-function testEmail(&$errore)
+function testEmail(&$errore, $login = false)
 {
 	$emailErr = "";
 	if(isset($_POST['email']))
@@ -171,10 +173,15 @@ function testEmail(&$errore)
 			$errore=true;
 			$emailErr="Mail non corretta";
 		}
-		else if(checkEmail($_POST['email']))
+		else if( !$login && checkEmail($_POST['email']))
 		{
 			$errore=true;
-			$emailErr="Mail già presente nel sistema";				
+			$emailErr="Mail già presente nel sistema";
+		}
+		else if($login && !checkEmail($_POST['email']))
+		{
+			$errore=true;
+			return $emailErr="Email non presente nel sistema";
 		}
 	}
 	return $emailErr;
@@ -189,7 +196,7 @@ function testDate(&$errore)
 		{
 			$errore=true;
 			$dateErr="Data non corretta";
-		}		
+		}
 	}
 	return $dateErr;
 }
@@ -203,7 +210,7 @@ function GetData($data){
 	return $correctData;
 }
 
-function testPassword(&$errore)
+function testPassword(&$errore, $wrongPassword = false)
 {
 	$passErr = "";
 	if(isset($_POST['password']))
@@ -212,12 +219,19 @@ function testPassword(&$errore)
 		{
 			$errore=true;
 			$passErr = "Campo obbligatorio";
-		} 
-		else if(!preg_match("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$^", $_POST ["password"])) 
+		}
+		//controllo se la password dehashata coincide con quella data in input
+		else if($wrongPassword)
+		{
+			$errore=true;
+			return $passErr = "Password non corretta";
+		}
+		else if(!preg_match("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$^", $_POST ["password"]))
 		{
 			$errore=true;
 			$passErr = "La password deve essere luna almeno 8 caratteri e deve contenere almeno una lettera minuscola, una maiuscola e un numero";
 		}
+
 	}
 	return $passErr;
 }
@@ -226,27 +240,27 @@ function testNome(&$errore)
 {
 	$nomeErr = "";
 	if(isset($_POST['nome']))
-	{		
-		if (strlen($_POST['nome']) < 3) 
+	{
+		if (strlen($_POST['nome']) < 3)
 		{
 			$errore=true;
 			$nomeErr="Il nome deve contenere almeno 3 caratteri";
-		} 
-		else if (!preg_match("/^[a-zA-Z ]+$/", $_POST['nome'] )) 
+		}
+		else if (!preg_match("/^[a-zA-Z ]+$/", $_POST['nome'] ))
 		{
 		   $errore=true;
 		   $nomeErr="Il nome puo avere solo lettere e spazi";
 		}
 	}
-	return $nomeErr;	
+	return $nomeErr;
 }
 
 function testCognome(&$errore)
 {
 	$cognomeErr = "";
 	if(isset($_POST['cognome']))
-	{		
-		if (!preg_match("/^[a-zA-Z ]+$/", $_POST['cognome'] )) 
+	{
+		if (!preg_match("/^[a-zA-Z ]+$/", $_POST['cognome'] ))
 		{
 		   $errore=true;
 		   $cognomeErr="Il cognome puo avere solo lettere e spazi";
