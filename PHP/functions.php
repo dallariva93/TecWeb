@@ -11,7 +11,9 @@ function data ($value){
 
 
 function menu(){
-		session_start();
+		if(!isset($_SESSION)) 
+        	session_start();
+
 		Require('connect.php');
 		echo file_get_contents("../HTML/Template/Menu.txt");
 		if(isset($_SESSION['type'])) {

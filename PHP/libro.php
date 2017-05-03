@@ -12,20 +12,23 @@
 		$codiceRec = $datiRec['Id'];
 		$errore ="";
 
+		if(!isset($_SESSION)) 
+        	session_start(); 
+        	
 		//Azioni form
-		if(isset($_SESSION['type'])){
+		if(isset($_SESSION['id'])){
 			//Inserimento commento
 			if(isset($_POST['text']) && !$_POST['text']==""){
 				$autore = $_SESSION['id'];
 				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
 				$sql = "INSERT INTO Commenti (Recensione,Autore,Commento) 
-						VALUES ('$codiceRec','$autore','$ntesto');";
+						VALUES ('$codiceRec','$autore','$ntesto');";						
 				if(!$db->query($sql)){
 					$errore = "<p>Problema inserimento commento</p>";
 				}
 			}
 			//Eliminazione Commento
-			if(isset($_POST['deleteUser'])) {
+			else if(isset($_POST['deleteUser'])) {
 				$deleteautore = $_POST['deleteUser'];
 				$ndata = $_POST['deleteData'];
 				$sql = "DELETE FROM `Commenti` WHERE `Commenti`.`Recensione` = '$codiceRec' 
@@ -33,11 +36,11 @@
 						AND `Commenti`.`Data_Pubblicazione` = '$ndata'";
 				
 				if(!$db->query($sql)){
-					$errore = "<p>Problema cancellamento commento</p>";
+					$errore = "<p>Problema eliminazione commento</p>";
 				}
 			}
 			//Voto libro
-			if(isset($_POST['valutazioneB'])){
+			else if(isset($_POST['valutazioneB'])){
 				$val = $_POST['valutazioneB'];
 				$autoreB = $_SESSION['id'];
 				$clean ="DELETE FROM VotoLibro WHERE Autore = '$autoreB' 
@@ -50,7 +53,7 @@
 				}
 			}
 			//Voto recensione
-			if(isset($_POST['valutazioneRec'])){
+			else if(isset($_POST['valutazioneRec'])){
 				$autore = $_SESSION['id'];
 				$val = $_POST['valutazioneRec'];
 				$clean ="DELETE FROM VotoRecensione WHERE Autore = '$autore' 
@@ -61,6 +64,10 @@
 				if(!$db->query($sql)){
 					$errore = "<p>Problema inserimento voto</p>";
 				}
+			}
+			else {
+				$errore = "<p>Problema con il database</p>";
+				
 			}
 		}//Fine azioni form
 
@@ -152,7 +159,6 @@
 			<h2>Recensione:</h2>".
 			$datiRec['Testo'];
 
-
 		} // FINE recensione
 
 		$datiLibro->free();
@@ -231,7 +237,7 @@
 		echo "</div>". //Fine classe content
 		file_get_contents("../HTML/Template/Footer.txt");
 
-	} // if(isset($_REQUEST['libro']) && !$datiLibro)
+	} //end if(isset($_REQUEST['libro']) && !$datiLibro)
 	else {
 		header("Location: page_not_found.php");
 		exit();
