@@ -1,7 +1,6 @@
 <?php
-	include('connect.php');
-	include('functions.php');
-	$link=mysqli_connect("$host", "$username", "$password", "$database");
+	Require_once('connect.php');
+	Require_once('functions.php');
 	$errore=false;
 	
 	$searchHead=array("{{title}}","{{description}}");
@@ -23,16 +22,17 @@
 	echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/RegForm.txt"));	
 	
 	if(!$errore && isset($_POST['email']) && isset($_POST['nome']) && isset($_POST['cognome']) 
-		&& isset($_POST['nickname']) && isset($_POST['data']) && isset($_POST['password']) && isset($_POST['residenza'])) 
+		&& isset($_POST['nickname']) && isset($_POST['data']) && isset($_POST['password'])) 
 	{
-
+		$residenza = ($_POST['residenza'])? $_POST['residenza'] : "";
+		
 		$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );	
 		
 		$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname
 			, Data_Nascita, Password, Residenza) VALUES ('".$_POST['email']."','".$_POST['nome']."','".$_POST['cognome']."','"
-			.$_POST['nickname']."','". GetData($_POST['data']). "','$ENC_password', '".$_POST['residenza']."')";
+			.$_POST['nickname']."','". GetData($_POST['data']). "','$ENC_password', '".$residenza."')";
 	
-		if($result=mysqli_multi_query($db, $insert)){
+		if($db->query($insert)){
 			session_start();
 			$_SESSION["type"] = "user";
 			$_SESSION["id"] = $_POST['email'];
