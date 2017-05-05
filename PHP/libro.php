@@ -65,10 +65,6 @@
 					$errore = "<p>Problema inserimento voto</p>";
 				}
 			}
-			else {
-				$errore = "<p>Problema con il database</p>";
-				
-			}
 		}//Fine azioni form
 
 		if($datiLibro->num_rows > 0) {
