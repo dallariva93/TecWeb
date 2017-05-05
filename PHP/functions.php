@@ -271,4 +271,33 @@ function testCognome(&$errore)
 	return $cognomeErr;
 }
 
+function testISBN(&$errore)
+{
+	$IsbnErr = "";
+	if(isset($_POST['password']))
+	{
+		if (empty($_POST ["isbn"]))
+		{
+			$errore=true;
+			$IsbnErr = "Campo obbligatorio";
+		}
+		else if(!preg_match("[0-9]{13}", $_POST ["isbn"]))
+		{
+			$errore=true;
+			$IsbnErr = "Il campo deve contenere 13 caratteri numerici";
+		}
+	}
+	return $IsbnErr;
+}
+
+function campoNonVuoto(&$errore,$campo)
+{
+	$Err = "";
+	if($campo == "")
+	{
+	   $errore=true;
+	   $Err="Il campo non puó essere vuoto";
+	}
+	return $Err;
+}
 ?>

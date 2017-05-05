@@ -1,20 +1,20 @@
 <div class="box strict">
-	<h1>Registrazione</h1>
-	<form action="../PHP/registrazione.php" method="post">
+	<h1>{{Titolo}}</h1>
+	<form action="{{Pagina}}" method="post">
 		<div>
-			<div id="trattieni"><label for="nickname">Nickname </label>{{nickError}}</div>
+			<label for="nickname">Nickname </label><div class="inputError">{{nickError}}</div>
 			<input type="text" name="nickname" id="nickname"/>
-			<div id="trattieni"><label for="nome">Nome </label>{{nomeError}}</div>
+			<label for="nome">Nome </label><div class="inputError">{{nomeError}}</div>
 			<input type="text" name="nome" id="nome"/>
-			<div id="trattieni"><label for="nome">Cognome </label>{{cognomeError}}</div>
+			<label for="nome">Cognome </label><div class="inputError">{{cognomeError}}</div>
 			<input type="text" name="cognome" id="cognome"/>
-			<div id="trattieni"><label for="email">Email </label>{{emailError}}</div>
+			<label for="email">Email </label><div class="inputError">{{emailError}}</div>
 			<input type="text" name="email" id="email"/>	
 			<label for="residenza">Residenza </label>
 			<input type="text" name="residenza" id="residenza"/>		
-			<div id="trattieni"><label for="data">Data di nascita </label>{{dateError}}</div>
+			<label for="data">Data di nascita </label><div class="inputError">{{dateError}}</div>
 			<input type="text" name="data" id="data"/>		
-			<div id="trattieni"><label for="password">Password </label>{{passError}}</div>
+			<label for="password">Password </label><div class="inputError">{{passError}}</div>
 			<input type="password" name="password" id="password"/>
 			<input type="submit" value="Registrati" class="btnLong"/>
 		</div>

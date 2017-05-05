@@ -29,10 +29,29 @@
 	echo "</tbody></table></div>";
 
 	//Form inserimento
-
-	echo file_get_contents("../HTML/Template/FormInserimentoUtente.txt");
-
-
+	echo "<a name = 'insert'></a>";
+	$errore=false;
+	
+	$searchInForm=array("{{Titolo}}","{{Pagina}}","{{nickError}}","{{emailError}}", "{{nomeError}}", "{{cognomeError}}","{{dateError}}", "{{passError}}");
+	$replaceInForm=array("Inserisci utente","amministrazioneUtenti.php",testNick($errore), testEmail($errore), testNome($errore), testCognome($errore)
+					, testDate($errore), testPassword($errore));
+	echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/RegForm.txt"));
+					
+	if(!$errore && isset($_POST['email']) && isset($_POST['nome']) && isset($_POST['cognome']) 
+		&& isset($_POST['nickname']) && isset($_POST['data']) && isset($_POST['password'])) 
+	{
+		$residenza = ($_POST['residenza'])? $_POST['residenza'] : "";
+		
+		$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );	
+		
+		$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname
+			, Data_Nascita, Password, Residenza) VALUES ('".$_POST['email']."','".$_POST['nome']."','".$_POST['cognome']."','"
+			.$_POST['nickname']."','". GetData($_POST['data']). "','$ENC_password', '".$residenza."')";
+		
+	}
+	
+		
+	//echo file_get_contents("../HTML/Template/FormInserimentoUtente.txt");
 	$db->close();
 
 	echo "</div>";//Fine content

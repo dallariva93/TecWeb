@@ -41,7 +41,54 @@
 
 
 	//Form per inserire libro
-	echo file_get_contents("../HTML/Template/FormInserimentoLibro.txt");
+	$errore = false;
+	$titolo = (isset($_POST['titolo']))? campoNonVuoto($errore,$_POST['titolo']) : "" ;
+	$casa = (isset($_POST['casa']))? campoNonVuoto($errore,$_POST['casa']) : "";
+	$trama = (isset($_POST['trama']))? campoNonVuoto($errore,$_POST['trama']) : "";
+	$autore = "";
+	$autoreErr = "";
+	$generi= "";
+	if(isset($_POST['autore'])){
+		$query = "Select Id From Scrittore WHERE ".$_POST['autore']. " LIKE '%Cognome%' AND ".$_POST['autore']. " LIKE '%Nome%'";
+		if($Autore = $db->query($query)){
+			if($Autore->num_rows>0){
+				$fetch = $Autore->fetch_array(MYSQLI_ASSOC);
+				$autore = $fetch['Id'];
+			}
+			$Autore->free();
+		}
+		else{
+			$autoreErr = "Scrittore non presente";
+		}
+	}
+	
+	if($TuttiGeneri = $db->query("Select Genere From Libro GROUP BY Genere")){
+		if($TuttiGeneri->num_rows > 0){
+			while($Genere = $TuttiGeneri->fetch_array(MYSQLI_ASSOC)){
+				$generi .= "<option value=". $Genere['Genere']. ">". $Genere['Genere']. "</option>";
+			}
+		}
+		$TuttiGeneri->free();
+	}
+	
+
+	$searchInForm=array("{{ISBNError}}","{{TitoloError}}","{{AutoreError}}","{{DataError}}", "{{CasaError}}", "{{TramaError}}","{{Generi}}");
+	$replaceInForm=array(testISBN($errore),$titolo,$autoreErr,testDate($errore), $casa,
+					$trama,$generi);
+	echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/FormInserimentoLibro.txt"));
+					
+	
+	if(!$errore && $autore != "" && isset($_POST['isbn']) && isset($_POST['titolo'])
+		&& isset($_POST['data']) && isset($_POST['casa']) && isset($_POST['trama']) && isset($_POST['genere'])) 
+	{	
+		
+		$insert="INSERT INTO `Libro `(ISBN, Titolo, Autore,Casa_Editrice, Anno_Pubblicazione
+			, Genere, Trama) VALUES ('".$_POST['isbn']."','".$_POST['titolo']."','".$autore."','"
+			.$_POST['nickname']."','". GetData($_POST['data']). "','". $_POST['genere']. "', '".$_POST['trama']."')";
+		
+	}
+
+
 
 	$db->close();
 

@@ -25,7 +25,7 @@ CREATE TABLE Utente
 );
 
 CREATE TABLE Scrittore
-(	Id varchar(20) PRIMARY KEY,
+(	Id varchar(20) AUTO_INCREMENT PRIMARY KEY,
 	Nome	varchar(30) NOT NULL,
 	Cognome	varchar(30) NOT NULL,
 	Data_Nascita	date NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE Libro
 );
 
 CREATE TABLE Recensione
-(	Id	varchar(20)	PRIMARY KEY,
+(	Id	varchar(20) AUTO_INCREMENT PRIMARY KEY,
 	Libro varchar(13) NOT NULL,
 	Autore varchar(40) NOT NULL,
 	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE VotoLibro
 );
 
 CREATE TABLE Notizie
-(	Id varchar(20) PRIMARY KEY,
+(	Id varchar(20) AUTO_INCREMENT PRIMARY KEY,
 	Titolo varchar(90),
 	Autore varchar(40),
 	Data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
