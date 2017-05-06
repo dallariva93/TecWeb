@@ -4,7 +4,6 @@
 			<th scope='col'>Data Pubblicazione</th>
 			<th scope='col'>Libro</th>
 			<th scope='col'>Autore</th>
-			<th scope='col'>Id</th>
 			<th scope='col'>Valutazione</th>
 		</tr>
 	</thead>

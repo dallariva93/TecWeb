@@ -1,6 +1,5 @@
 <tr>
-	<td  scope='row'>{{Id}}</td>
-	<td><a href="new.php?id='{{Id}}'">{{Titolo}}</a></td>
+	<td	scope='row'><a href="new.php?id='{{Id}}'">{{Titolo}}</a></td>
 	<td>{{Autore}}</td>
 	<td>{{Data}}</td>
 	<td>

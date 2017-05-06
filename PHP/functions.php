@@ -11,7 +11,7 @@ function data ($value){
 
 
 function menu(){
-		if(!isset($_SESSION)) 
+		if(!isset($_SESSION))
         	session_start();
 
 		Require('connect.php');
@@ -274,14 +274,14 @@ function testCognome(&$errore)
 function testISBN(&$errore)
 {
 	$IsbnErr = "";
-	if(isset($_POST['password']))
+	if(isset($_POST['isbn']))
 	{
 		if (empty($_POST ["isbn"]))
 		{
 			$errore=true;
 			$IsbnErr = "Campo obbligatorio";
 		}
-		else if(!preg_match("[0-9]{13}", $_POST ["isbn"]))
+		else if(!preg_match("/[0-9]{13}/", $_POST ["isbn"]))
 		{
 			$errore=true;
 			$IsbnErr = "Il campo deve contenere 13 caratteri numerici";
@@ -293,7 +293,7 @@ function testISBN(&$errore)
 function campoNonVuoto(&$errore,$campo)
 {
 	$Err = "";
-	if($campo == "")
+	if(empty($campo))
 	{
 	   $errore=true;
 	   $Err="Il campo non puó essere vuoto";

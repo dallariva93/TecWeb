@@ -3,19 +3,13 @@
 	<h1>Inserisci Recensione</h1>
 	<form action='../Action/inserisci_recensione.php' method='post' onsubmit='return check()'>
 		<div>
-			<label for='id'>Codice recensione</label>
-			<label for='id' id='codeErr' class='formError'></label>
-			<input type='text' name='idIns' id='id'/>
-
-			<label for='libro'>ISBN Libro</label>
-			<label for='isbn' id='isbnErr' class='formError'></label>
-			<input type='text' name='isbnIns' id='libro'/>
-
-			<input type='hidden' name='autore' value=''/>
-
-			<label for='testo'>Inserisci qui il tuo testo: </label>
+			<label for='isbn' >Libro
+				<select name='isbn' id='isbn'>
+					{{Libri}}		
+				</select>
+			</label>
+			<label for='testo'>Inserisci qui il tuo testo: </label><div class="inputError">{{TestoError}}</div>
 			<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
-
 			<label for='valutazione'>valutazione
 				<select name='valutazione' id='valutazione' class='input'>
 					<option>1</option>

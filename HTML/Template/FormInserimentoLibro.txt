@@ -9,9 +9,11 @@
 				<label for='titolo'>Titolo</label><div class="inputError">{{TitoloError}}</div>
 				<input type='text' name='titolo' id='titolo'/>
 
-				<label for='autore' >Nome e cognome dell'autore</label><div class="inputError">{{AutoreError}}</div>
-				<input type='text' name='autore' id='autore'/>
-
+				<label for='autore' >Autore
+				<select name='autore' id='autore'>
+					{{Scrittori}}		
+				</select>
+				</label>
 				<label for='anno' >Data Pubblicazione</label><div class="inputError">{{DataError}}</div>
 				<input type='text' name='data' id='anno'/>
 
@@ -23,7 +25,15 @@
 
 				<label for='genere'>Genere
 					<select name='genere' id='genere'>
-						{{Generi}}
+						<option value='Commedia'>Commedia</option>
+						<option value='Horror'>Horror</option>
+						<option value='Fantasy'>Fantasy</option>
+						<option value='Narrativa'>Narrativa</option>
+						<option value='Saggistica'>Saggistica</option>
+						<option value='Commedia'>Commedia</option>
+						<option value='Classico'>Classico</option>
+						<option value='Thriller'>Thriller</option>
+						<option value='Fantascienza'>Fantascienza</option>		
 					</select>
 				</label>
 				<input type='submit' value='Inserisci' class='btnLong'/>

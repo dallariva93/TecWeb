@@ -1,7 +1,6 @@
 <div class='Table'><table summary = 'Elenco di tutte le notizie presenti nel sito'>
 	<thead>
 		<tr>
-			<th scope='col'>Id</th>
 			<th scope='col'>Titolo</th>
 			<th scope='col'>Autore</th>
 			<th scope='col'>Data</th>

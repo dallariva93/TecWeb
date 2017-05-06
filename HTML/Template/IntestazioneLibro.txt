@@ -4,3 +4,4 @@
 <img class='VleftSmall' src='../img/cover/{{ISBN}}.jpg' alt=''/>
 <h1>{{Titolo}}</h1>
 <h2><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></h2>
+<h3>Recensione scritta da {{CognomeAutore}} {{NomeAutore}}</h3>
