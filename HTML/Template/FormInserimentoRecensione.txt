@@ -1,7 +1,7 @@
 <a name = 'insert'></a>
 	<div class='box'>
 	<h1>Inserisci Recensione</h1>
-	<form action='../Action/inserisci_recensione.php' method='post' onsubmit='return check()'>
+	<form action='amministrazioneRecensioni.php' method='post' onsubmit='return check()'>
 		<div>
 			<label for='isbn' >Libro
 				<select name='isbn' id='isbn'>

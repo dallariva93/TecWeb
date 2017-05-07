@@ -1,7 +1,7 @@
 <a name = 'insert'></a>
 	<div class='box'>
 		<h1>Inserisci utente</h1>
-		<form action='../Action/inserisci_utente.php' method='post' onsubmit='return check()'>
+		<form action='amministrazioneUtenti.php' method='post' onsubmit='return check()'>
 			<div>
 				<label for='cognome'>Cognome</label>
 				<label for='cognome' id='cognomeErr' class='formError'></label>

@@ -1,7 +1,43 @@
 <?php
-	if(isset($_SESSION) && $_SESSION['type'] == "admin"){
+	if(true || isset($_SESSION) && $_SESSION['type'] == "admin"){ //true da togliere!!!!!!!!!!(messo per test)
 		Require_once('connect.php');
 		Require_once('functions.php');
+
+		if(isset($_POST['delete'])){
+			$delete = "DELETE FROM `Libro` WHERE `ISBN` = '". $_POST['delete']. "'";
+			$db->query($delete);
+		}
+
+		$errore = false;
+		$titolo = (isset($_POST['titolo']))? campoNonVuoto($errore,$_POST['titolo']) : "" ;
+		$casa = (isset($_POST['casa']))? campoNonVuoto($errore,$_POST['casa']) : "";
+		$trama = (isset($_POST['trama']))? campoNonVuoto($errore,$_POST['trama']) : "";
+
+		$scrittore= "";
+		if($TuttiScrittori = $db->query("Select Nome,Cognome,Id From Scrittore GROUP BY Id")){
+			if($TuttiScrittori->num_rows > 0){
+				while($Scrittore = $TuttiScrittori->fetch_array(MYSQLI_ASSOC)){
+					$scrittore .= "<option value=". $Scrittore['Id']. ">".
+						$Scrittore['Cognome']. " ". $Scrittore['Nome']. "</option>";
+				}
+			}
+			$TuttiScrittori->free();
+		}
+
+		$searchInForm=array("{{ISBNError}}","{{TitoloError}}","{{DataError}}",
+							"{{CasaError}}", "{{TramaError}}","{{Scrittori}}");
+		$replaceInForm=array(testISBN($errore),$titolo,testDate($errore), $casa,
+						$trama,$scrittore);
+
+		if(!$errore && isset($_POST['isbn']) && isset($_POST['titolo'])
+			&& isset($_POST['data']) && isset($_POST['casa']) && isset($_POST['trama'])
+			&& isset($_POST['genere']) && isset($_POST['autore']))
+		{
+			$insert="INSERT INTO `Libro` (ISBN, Titolo, Autore,Casa_Editrice, Anno_Pubblicazione
+				, Genere, Trama) VALUES ('".$_POST['isbn']."','".$_POST['titolo']."','".$_POST['autore']."','"
+				.$_POST['casa']."','". GetData($_POST['data']). "','". $_POST['genere']. "', '".$_POST['trama']."')";
+			$db->query($insert);
+		}
 
 		$searchHead=array("{{title}}","{{description}}");
 		$replaceHead=array("<title>Amministrazione Libri - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
@@ -41,39 +77,8 @@
 
 
 		//Form per inserire libro
-		$errore = false;
-		$titolo = (isset($_POST['titolo']))? campoNonVuoto($errore,$_POST['titolo']) : "" ;
-		$casa = (isset($_POST['casa']))? campoNonVuoto($errore,$_POST['casa']) : "";
-		$trama = (isset($_POST['trama']))? campoNonVuoto($errore,$_POST['trama']) : "";
 
-		$scrittore= "";
-		if($TuttiScrittori = $db->query("Select Nome,Cognome,Id From Scrittore GROUP BY Id")){
-			if($TuttiScrittori->num_rows > 0){
-				while($Scrittore = $TuttiScrittori->fetch_array(MYSQLI_ASSOC)){
-					$scrittore .= "<option value=". $Scrittore['Id']. ">".
-						$Scrittore['Cognome']. " ". $Scrittore['Nome']. "</option>";
-				}
-			}
-			$TuttiScrittori->free();
-		}
-
-		$searchInForm=array("{{ISBNError}}","{{TitoloError}}","{{DataError}}",
-							"{{CasaError}}", "{{TramaError}}","{{Scrittori}}");
-		$replaceInForm=array(testISBN($errore),$titolo,testDate($errore), $casa,
-						$trama,$scrittore);
 		echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/FormInserimentoLibro.txt"));
-
-
-		if(!$errore && isset($_POST['isbn']) && isset($_POST['titolo'])
-			&& isset($_POST['data']) && isset($_POST['casa']) && isset($_POST['trama'])
-			&& isset($_POST['genere']) && isset($_POST['autore']))
-		{
-			$insert="INSERT INTO `Libro` (ISBN, Titolo, Autore,Casa_Editrice, Anno_Pubblicazione
-				, Genere, Trama) VALUES ('".$_POST['isbn']."','".$_POST['titolo']."','".$_POST['autore']."','"
-				.$_POST['casa']."','". GetData($_POST['data']). "','". $_POST['genere']. "', '".$_POST['trama']."')";
-			$db->query($insert);
-		}
-
 
 
 		$db->close();

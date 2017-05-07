@@ -1,24 +1,16 @@
 <a name = 'insert'></a>
 	<div class='box'>
 		<h1>Inserisci nuovo amministratore</h1>
-		<form action='../Action/inserisci_redazione.php' method='post' onsubmit='return check()'>
+		<form action='amministrazioneRedazione.php' method='post' onsubmit='return check()'>
 			<div>
-				<label for='email'>Email</label>
-				<label for='email' id='emailErr' class='formError'></label>
-				<input type='text' name='emailIns' id='email'/>
-
-				<label for='password'>Password</label>
-				<label for='password' id='passwordErr' class='formError'></label>
-				<input type='password' name='passwordIns' id='password'/>
-
-				<label for='nome'>Nome</label>
-				<label for='nome' id='nomeErr' class='formError'></label>
-				<input type='text' name='nomeIns' id='nome'/>
-
-				<label for='cognome'>Cognome</label>
-				<label for='cognome' id='cognomeErr' class='formError'></label>
-				<input type='text' name='cognomeIns' id='cognome'/>
-
+				<label for='email'>Email</label><div class="inputError">{{EmailError}}</div>
+				<input type='text' name='email' id='email'/>
+				<label for='password'>Password</label><div class="inputError">{{PasswordError}}</div>
+				<input type='password' name='password' id='password'/>
+				<label for='nome'>Nome</label><div class="inputError">{{NomeError}}</div>
+				<input type='text' name='nome' id='nome'/>
+				<label for='cognome'>Cognome</label><div class="inputError">{{CognomeError}}</div>
+				<input type='text' name='cognome' id='cognome'/>
 				<input type='submit' value='Aggiungi' class='btnLong'/>
 			</div>
 		</form>

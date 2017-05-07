@@ -80,6 +80,10 @@ fieldset label {
 	margin:0.2em;
 	background-color:#ddd;
 }
+.box select{
+	width: 100%;
+	margin: 0.5em 0 0.5em 0;
+}
 /**************************************************************
 		BOTTONI
 ***************************************************************/
@@ -517,7 +521,7 @@ td,th {
 	padding:0.6em;
 	font-size:0.9em;
 }
-.formError {
+.inputError {
 	color: red;
 }
 

@@ -1,7 +1,28 @@
 <?php
-	if(isset($_SESSION) && $_SESSION['type'] == "admin"){
+	if(true || isset($_SESSION) && $_SESSION['type'] == "admin"){ //true da togliere!!!!!!!!!!(messo per test)
 		Require_once('connect.php');
 		Require_once('functions.php');
+
+		if(isset($_POST['delete'])){
+			$delete = "DELETE FROM `Notizie` WHERE `Id` = '". $_POST['delete']. "'";
+			$db->query($delete);
+		}
+
+		$errore = false;
+		$titolo = (isset($_POST['titolo']))? campoNonVuoto($errore,$_POST['titolo']) : "" ;
+		$testo = (isset($_POST['testo']))? campoNonVuoto($errore,$_POST['testo']) : "" ;
+
+		$searchInForm=array("{{TitoloError}}","{{TestoError}}");
+		$replaceInForm=array($titolo,$testo);
+
+		if(!$errore && isset($_POST['titolo']) && isset($_POST['testo'])
+			&& isset($_POST['autore']))
+		{
+			$insert="INSERT INTO `Notizie` (Titolo, Autore,Testo)
+			 	VALUES ('".$_POST['titolo']."','".$_SESSION['id']."','".
+					$_POST['testo']."')";
+			$db->query($insert);
+		}
 
 		$searchHead=array("{{title}}","{{description}}");
 		$replaceHead=array("<title>Amministrazione Notizie - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
@@ -39,24 +60,9 @@
 		echo "</tbody></table></div>";
 
 		//Form inserimento notizia
-		$errore = false;
-		$titolo = (isset($_POST['titolo']))? campoNonVuoto($errore,$_POST['titolo']) : "" ;
-		$testo = (isset($_POST['testo']))? campoNonVuoto($errore,$_POST['testo']) : "" ;
 
-		$searchInForm=array("{{TitoloError}}","{{TestoError}}");
-		$replaceInForm=array($titolo,$testo);
 		echo str_replace($searchInForm, $replaceInForm ,
 		 	file_get_contents("../HTML/Template/FormInserimentoNotizia.txt"));
-
-		if(!$errore && isset($_SESSION) && isset($_POST['titolo']) && isset($_POST['testo'])
-			&& isset($_POST['autore']))
-		{
-			$insert="INSERT INTO `Notizie` (Titolo, Autore,Testo)
-			 	VALUES ('".$_POST['titolo']."','".$_SESSION['id']."','".
-					$_POST['testo']."')";
-			 		echo $insert;
-			$db->query($insert);
-		}
 
 		$db->close();
 		echo "</div>";//Fine content

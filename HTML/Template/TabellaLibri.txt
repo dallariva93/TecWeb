@@ -8,7 +8,7 @@
 	<td>
 		<form action='amministrazioneLibri.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")'>
 			<div >
-				<input type = 'hidden' name = 'id' value = '{{ISBN}}' />
+				<input type = 'hidden' name = 'delete' value = '{{ISBN}}' />
 				<input type ='submit' value='&#x2718;' class='btnDelete' />
     		</div>
 		</form>

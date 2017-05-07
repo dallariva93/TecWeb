@@ -48,7 +48,7 @@ CREATE TABLE Libro
 CREATE TABLE Recensione
 (	Id	INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	Libro varchar(13) NOT NULL,
-	Autore varchar(40) NOT NULL,
+	Autore varchar(60) NOT NULL,
 	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	Valutazione  DECIMAL(2,1) NOT NULL,
 	Testo	text NOT NULL,
@@ -61,8 +61,8 @@ CREATE TABLE Recensione
 );
 
 CREATE TABLE Redazione
-(	Email	varchar (40) PRIMARY KEY,
-	Password varchar(20) NOT NULL,
+(	Email	varchar (60) PRIMARY KEY,
+	Password varchar(255) NOT NULL,
 	Nome	varchar(30) NOT NULL,
 	Cognome	varchar(30) NOT NULL
 	
@@ -70,7 +70,7 @@ CREATE TABLE Redazione
 
 CREATE TABLE Commenti
 (	Recensione INT UNSIGNED,
-	Autore varchar(40),
+	Autore varchar(60),
 	Commento text(3000) NOT NULL,
 	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (Recensione, Autore, Data_Pubblicazione),
@@ -84,7 +84,7 @@ CREATE TABLE Commenti
 
 CREATE TABLE VotoRecensione
 (	Recensione INT UNSIGNED,
-	Autore varchar(40),
+	Autore varchar(60),
 	Valutazione DECIMAL(2,1) NOT NULL,
 	PRIMARY KEY (Recensione, Autore),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
@@ -96,7 +96,7 @@ CREATE TABLE VotoRecensione
 );
 CREATE TABLE VotoLibro
 (	Libro varchar(13),
-	Autore varchar(40),
+	Autore varchar(60),
 	Valutazione DECIMAL(2,1) NOT NULL,
 	PRIMARY KEY (Libro, Autore),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
@@ -110,7 +110,7 @@ CREATE TABLE VotoLibro
 CREATE TABLE Notizie
 (	Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	Titolo varchar(90) NOT NULL,
-	Autore varchar(40) NOT NULL,
+	Autore varchar(60) NOT NULL,
 	Data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	Testo text,
 	FOREIGN KEY (Autore) REFERENCES Redazione(Email)

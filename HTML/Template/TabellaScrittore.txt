@@ -1,13 +1,12 @@
 <tr>
-	<td scope='row'>{{Cognome}}</td>
+	<td scope='row'><a href="autore.php?autore='{{Id}}'">{{Cognome}}</a></td>
 	<td>{{Nome}}</td>
 	<td>{{Data}}</td>
 	<td>{{Nazionalita}}</td>
-	<td>{{Id}}</td>
 	<td>
 		<form action='amministrazioneScrittori.php' onclick='return confirm(\"Confermi di eliminare?\")' method='post'>
 			<div >
-				<input type = 'hidden' name = 'id' value = '{{Id}}' />
+				<input type = 'hidden' name = 'delete' value = '{{Id}}' />
 				<input type ='submit' value='&#x2718;' class='btnDelete' />
     		</div>
 		</form>

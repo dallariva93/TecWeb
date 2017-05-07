@@ -8,7 +8,7 @@
 	<td>
 		<form action='amministrazioneUtenti.php' onclick='return confirm(\"Confermi di eliminare?\")' method='post'>
 			<div >
-				<input type = 'hidden' name = 'email' value = '{{Email}}' />
+				<input type = 'hidden' name = 'delete' value = '{{Email}}' />
 				<input type ='submit' value='&#x2718;' class='btnDelete' />
     		</div>
 		</form>

@@ -1,27 +1,16 @@
 <a name = 'insert'></a>
 	<div class='box'>
 	<h1>Inserisci scrittore</h1>
-	<form  action='../Action/inserisci_scrittore.php' method='post' onsubmit='return check()'>
+	<form  action='amministrazioneScrittori.php' method='post' onsubmit='return check()'>
 		<div>
-			<label for='id'>Id</label>
-			<label for='id' id='codeErr' class='formError'></label>
-			<input type='text' name='idIns' id='id'/>
-
-			<label for='nome'>Nome</label>
-			<label for='nome' id='nomeErr' class='formError'></label>
-			<input type='text' name='nomeIns' id='nome'/>
-
-			<label for='cognome'>Cognome</label>
-			<label for='cognome' id='cognomeErr' class='formError'></label>
-			<input type='text' name='cognomeIns' id='cognome'/>
-
-			<label for='nazionalita'>Nazionalit&agrave;</label>
+			<label for='nome'>Nome</label><div class="inputError">{{NomeError}}</div>
+			<input type='text' name='nome' id='nome'/>
+			<label for='cognome'>Cognome</label><div class="inputError">{{CognomeError}}</div>
+			<input type='text' name='cognome' id='cognome'/>
+			<label for='nazionalita'>Nazionalit&agrave;</label><div class="inputError">{{NazioneError}}</div>
 			<input type='text' name='nazionalita' id='nazionalita'/>
-
-			<label for='data'>Data di nascita</label>
-			<label for='data' id='dataErr' class='formError'></label>
-			<input type='text' name='dataIns' id='data'/>
-
+			<label for='data'>Data di nascita</label><div class="inputError">{{DataError}}</div>
+			<input type='text' name='data' id='data'/>
 			<input type='submit' value='Inserisci' class='btnLong'/>
 		</div>
 	</form>
