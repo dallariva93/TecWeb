@@ -80,10 +80,6 @@ fieldset label {
 	margin:0.2em;
 	background-color:#ddd;
 }
-.box select{
-	width: 100%;
-	margin: 0.5em 0 0.5em 0;
-}
 /**************************************************************
 		BOTTONI
 ***************************************************************/
@@ -548,6 +544,45 @@ td,th {
 
 
 .MiniaturaLibro a > img{
+<<<<<<< HEAD
+	height: 10em;
+	width: 6.5em;
+	text-align: center;
+	margin-top: 1em;
+	margin-left: 2.5em;
+	margin-right: 2.5em;
+	
+}
+.MiniaturaLibro{
+	max-width: 20%;
+	float: left;
+	list-style-type: none;
+	text-align: center;
+}
+
+.linkLib{
+	display: block;
+	font-size: 80%;
+	width: 10em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+
+}
+
+.centro{
+	overflow: hidden;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+.star{
+	height: 20px;
+	width: 20px;
+}
+=======
 	height: 13em;
 	text-align: center;
 	margin-top: 1em;
@@ -564,6 +599,7 @@ td,th {
 	text-align: center;
 }
 
+>>>>>>> d688fd12e785a08f43b84cd37a16d11fbde0e04c
 
 
 
@@ -598,7 +634,7 @@ td,th {
 	padding:0.6em;
 	font-size:0.9em;
 }
-.inputError {
+.formError {
 	color: red;
 }
 
