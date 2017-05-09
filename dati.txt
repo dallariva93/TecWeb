@@ -1,0 +1,5 @@
+Nome: {{nome}}
+Cognome: {{cognome}}
+Email: {{email}}
+Data di nascita: {{data}}
+Residenza: {{residenza}}
