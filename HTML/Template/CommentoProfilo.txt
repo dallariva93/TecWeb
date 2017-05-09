@@ -1,0 +1,5 @@
+<div class=' profCommento centrato'>
+	<div class='datalibro '><div class='libro'>{{libro}}</div><div class='dataCommento'>{{dataCommento}}</div></div>
+	<p class=>{{testoCommento}}</p>
+</div>
+
