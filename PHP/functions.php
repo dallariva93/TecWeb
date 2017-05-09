@@ -23,7 +23,7 @@ function menu(){
 			else if($_SESSION['type'] == 'user'){
 				$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
 				$utente = $user->fetch_array(MYSQLI_ASSOC);
-				echo "<li class='right'><a href='user.php'>". $utente['Nickname']."</a></li>";
+				echo "<li class='right'><a href='profilo.php'>". $utente['Nickname']."</a></li>";
 			}
 
 		}
