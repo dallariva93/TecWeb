@@ -1,0 +1,10 @@
+<li class='MiniaturaLibro'>	
+	<div class='provaa'>	
+		<a href='libro.php?libro={{ISBN}}'>
+			<img src='../img/cover/{{ISBN}}.jpg' alt=''/>
+			<p>{{titolo}}
+				{{voto}}<!--immagine di una stella-->/
+			</p>
+		</a>
+	</div>
+</li>
