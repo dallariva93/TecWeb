@@ -487,6 +487,83 @@ td,th {
 	margin: 1%;
 }
 
+/**************************************************************
+			PROFILO
+***************************************************************/
+.menuProfilo > form{
+	right: 50%;
+	left: 50%;
+	text-align: center;
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+.menuProfilo > form > button{
+	padding: 0.5em;
+	width: 15%;
+	
+}
+
+.profCommento
+{
+	border-bottom: 1px solid black;
+	
+	border-left:1px solid black;
+	border-right: 1px solid black;
+	margin-bottom: 1em;
+	display: block;
+}
+
+.profCommento > p{
+		
+	clear: both;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	background-color: white;
+	padding-bottom: 0.2em;
+	padding-top:0.2em;
+	word-wrap: break-word;
+}
+.datalibro {
+	overflow: hidden;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;	
+	padding: 0.5em;
+	background-color: blue;
+}
+
+.dataCommento{
+	float: right;
+	
+}
+
+.libro{
+	float: left;
+
+}
+
+.profDati{
+	text-align: center;
+}
+
+
+.MiniaturaLibro a > img{
+	height: 13em;
+	text-align: center;
+	margin-top: 1em;
+	
+}
+.MiniaturaLibro{
+	float: left;
+	list-style-type: none;
+	margin-right: 5em;
+}
+
+
+.provaa{
+	text-align: center;
+}
+
 
 
 
