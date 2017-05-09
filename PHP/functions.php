@@ -300,4 +300,20 @@ function campoNonVuoto(&$errore,$campo)
 	}
 	return $Err;
 }
+
+function printStar($num)
+{
+	$nStelle="";
+	while($num>0.5)
+	{
+		$nStelle=$nStelle."<img class='star' src='../img/icon/Full_Star.png' alt='Full_star'/>";
+		$num--;
+	}
+	if($num==0.5)
+	{
+		$nStelle=$nStelle."<img class='star' src='../img/icon/Half_Star.png' alt='Half_star'/>";
+	}
+	
+	return $nStelle;
+}
 ?>
