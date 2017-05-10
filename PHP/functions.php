@@ -303,17 +303,19 @@ function campoNonVuoto(&$errore,$campo)
 
 function printStar($num)
 {
-	$nStelle="";
+	$nStelle="<span class='VotoScritto'>". floor($num). " su 5</span>";
 	while($num>0.5)
 	{
-		$nStelle=$nStelle."<img class='star' src='../img/icon/Full_Star.png' alt='Full_star'/>";
+		$nStelle=$nStelle."<img class='star' src='../img/icon/Full_Star.png' alt=''/>";
 		$num--;
 	}
 	if($num==0.5)
 	{
-		$nStelle=$nStelle."<img class='star' src='../img/icon/Half_Star.png' alt='Half_star'/>";
+		$nStelle=$nStelle."<img class='star' src='../img/icon/Half_Star.png' alt=''/>";
 	}
 	
 	return $nStelle;
 }
+
+
 ?>

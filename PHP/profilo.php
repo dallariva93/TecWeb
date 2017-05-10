@@ -58,7 +58,8 @@
 		$arrayVoti=array();
 		$arrayISBN=array();
 		$arrayLibri=array();
-		$i=0;
+		$arrayStelle=array();
+		$i=$l=0;
 		while ($row = mysqli_fetch_array($lib)) 	//riempio l'array 
 		{
 			array_push($arrayISBN,$row);
@@ -69,8 +70,15 @@
 			array_push($arrayVoti,$row);
 		}
 		
+		while($l<count($arrayVoti))
+		{
+			$arrayStelle[$l]=printStar($arrayVoti[$l][0]);
+			$l++;
+		}
+		
+		
 		$searchVotiLibro=array("{{ISBN}}", "{{titolo}}", "{{voto}}");
-		echo "<ul class='centrato'>";
+		echo "<div class='content centrato'><ul class='centro'>";
 		while($i<count($arrayISBN))
 		{
 			
@@ -79,11 +87,11 @@
 			array_push($arrayLibri, $libro);
 			
 			
-			$replaceVotiLibro=array($arrayISBN[$i][0], $arrayLibri[$i][0], $arrayVoti[$i][0]);
+			$replaceVotiLibro=array($arrayISBN[$i][0], $arrayLibri[$i][0], $arrayStelle[$i]);
 			echo str_replace($searchVotiLibro, $replaceVotiLibro, file_get_contents("../HTML/Template/MiniaturaLibroProfilo.txt"));
 			$i++;
 		}
-		echo "</ul>";
+		echo "</ul></div>";
 		
 		
 		
