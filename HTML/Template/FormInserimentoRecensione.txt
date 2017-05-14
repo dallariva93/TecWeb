@@ -1,14 +1,14 @@
 <a name = 'insert'></a>
 	<div class='box'>
 	<h1>Inserisci Recensione</h1>
-	<form action='amministrazioneRecensioni.php' method='post' onsubmit='return check()'>
+	<form action='amministrazioneRecensioni.php' method='post' onsubmit='return controlloErrori()'>
 		<div>
 			<label for='isbn' >Libro
 				<select name='isbn' id='isbn'>
 					{{Libri}}		
 				</select>
 			</label>
-			<label for='testo'>Inserisci qui il tuo testo: </label><div class="inputError">{{TestoError}}</div>
+			<label for='testo'>Inserisci qui il tuo testo: </label><div class="inputError" id="TestoError">{{TestoError}}</div>
 			<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
 			<label for='valutazione'>valutazione
 				<select name='valutazione' id='valutazione' class='input'>

@@ -1,15 +1,15 @@
 <a name = 'insert'></a>
 	<div class='box'>
 	<h1>Inserisci scrittore</h1>
-	<form  action='amministrazioneScrittori.php' method='post' onsubmit='return check()'>
+	<form  action='amministrazioneScrittori.php' method='post' onsubmit='return controlloErrori()'>
 		<div>
-			<label for='nome'>Nome</label><div class="inputError">{{NomeError}}</div>
+			<label for='nome'>Nome</label><div class="inputError" id="NomeError">{{NomeError}}</div>
 			<input type='text' name='nome' id='nome'/>
-			<label for='cognome'>Cognome</label><div class="inputError">{{CognomeError}}</div>
+			<label for='cognome'>Cognome</label><div class="inputError" id="CognomeError">{{CognomeError}}</div>
 			<input type='text' name='cognome' id='cognome'/>
-			<label for='nazionalita'>Nazionalit&agrave;</label><div class="inputError">{{NazioneError}}</div>
+			<label for='nazionalita'>Nazionalit&agrave;</label><div class="inputError" id="NazioneError">{{NazioneError}}</div>
 			<input type='text' name='nazionalita' id='nazionalita'/>
-			<label for='data'>Data di nascita</label><div class="inputError">{{DataError}}</div>
+			<label for='data'>Data di nascita</label><div class="inputError" id="DataError">{{DataError}}</div>
 			<input type='text' name='data' id='data'/>
 			<input type='submit' value='Inserisci' class='btnLong'/>
 		</div>

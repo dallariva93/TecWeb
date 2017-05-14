@@ -1,23 +1,20 @@
-	<body>
-		<div class="spazia">
-			<div class="box strict">
-				<h1>Accedi a Such Wow</h1>
-				<form action="../PHP/login.php" method="post">
-					<div >
-						<label for="email">E-mail</label><div class="inputError">{{emailError}}</div>
-						<input type="text" name="email" id="email" />
-						<label for="password">Password</label><div class="inputError">{{passError}}</div>
-						<input type="password" name="password" id="password" />
-						<input type="submit" value="Accedi" class="btnLong" />
-					</div>
-				</form>
+<div class="spazia">
+	<div class="box strict">
+		<h1>Accedi a Such Wow</h1>
+		<form action="../PHP/login.php" method="post" onsubmit='return controlloErrori()'>
+			<div>
+				<label for="email">E-mail</label><div class="inputError" id="EmailError">{{emailError}}</div>
+				<input type="text" name="email" id="email" />
+				<label for="password">Password</label><div class="inputError" id="PasswordError">{{passError}}</div>
+				<input type="password" name="password" id="password" />
+				<input type="submit" value="Accedi" class="btnLong" />
 			</div>
-			<div class="box strict">
-				<p>
-					Non hai un account?
-					<a href="registrazione.php">Registrati!</a>
-				</p>
-			</div>
-		</div>
-	</body>
-</html>
+		</form>
+	</div>
+	<div class="box strict">
+		<p>
+			Non hai un account?
+			<a href="registrazione.php">Registrati!</a>
+		</p>
+	</div>
+</div>

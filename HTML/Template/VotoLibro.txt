@@ -2,11 +2,11 @@
 	<form action='libro.php?libro={{codice}}' method='post' >
 		<fieldset class='votazione'>
 		<legend>{{titolo}}</legend>
-			<button type='submit' class='oneStar' value='1' name='{{id}}'><span>1 su 5</span></button>
-			<button type='submit' class='twoStar' value='2' name='{{id}}'><span>2 su 5</span></button>
-			<button type='submit' class='threeStar' value='3' name='{{id}}'><span>3 su 5</span></button>
-			<button type='submit' class='fourStar' value='4' name='{{id}}'><span>4 su 5</span></button>
-			<button type='submit' class='fiveStar' value='5' name='{{id}}'><span>5 su 5</span></button>		
+			<button type='submit' class='oneStar' value='1' name='{{id}}'><span class='Nascondi'>1 su 5</span></button>
+			<button type='submit' class='twoStar' value='2' name='{{id}}'><span class='Nascondi'>2 su 5</span></button>
+			<button type='submit' class='threeStar' value='3' name='{{id}}'><span class='Nascondi'>3 su 5</span></button>
+			<button type='submit' class='fourStar' value='4' name='{{id}}'><span class='Nascondi'>4 su 5</span></button>
+			<button type='submit' class='fiveStar' value='5' name='{{id}}'><span class='Nascondi'>5 su 5</span></button>
 			<input type='submit' value='Aggiungi' class='btnShort'/>
 		</fieldset>
 	</form>

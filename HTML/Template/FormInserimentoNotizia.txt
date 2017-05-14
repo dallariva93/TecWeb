@@ -1,11 +1,11 @@
 <a name = 'insert'></a>
 	<div class='box'>
 		<h1>Inserisci Notizia </h1>
-		<form action='amministrazioneNotizie.php' method='post' onsubmit='return check()'>
+		<form action='amministrazioneNotizie.php' method='post' onsubmit='return controlloErrori()'>
 			<div>
-				<label for='titolo'>Titolo</label><div class="inputError">{{TitoloError}}</div>
+				<label for='titolo'>Titolo</label><div class="inputError" id="TitoloError">{{TitoloError}}</div>
 				<input type='text' name='titolo' id='titolo'/>
-				<label for='Testo' >Testo</label><div class="inputError">{{TestoError}}</div>
+				<label for='Testo' >Testo</label><div class="inputError" id="TestoError">{TestoError}}</div>
 				<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
 				<input type='submit' value='Inserisci' class='btnLong'/>
 			</div>

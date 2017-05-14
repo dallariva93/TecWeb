@@ -1,12 +1,12 @@
 <a name = 'insert'></a>
 	<div class='box'>
 		<h1>Inserisci libro </h1>
-		<form action='amministrazioneLibri.php' method='post' onsubmit='return check()'>
+		<form action='amministrazioneLibri.php' method='post' onsubmit='return controlloErrori()'>
 			<div>
-				<label for='isbn'>ISBN</label><div class="inputError">{{ISBNError}}</div>
+				<label for='isbn'>ISBN</label><div class="inputError" id="ISBNError">{{ISBNError}}</div>
 				<input type='text' name='isbn' id='isbn'/>
 
-				<label for='titolo'>Titolo</label><div class="inputError">{{TitoloError}}</div>
+				<label for='titolo'>Titolo</label><div class="inputError" id="TitoloError">{{TitoloError}}</div>
 				<input type='text' name='titolo' id='titolo'/>
 
 				<label for='autore' >Autore
@@ -14,14 +14,14 @@
 					{{Scrittori}}		
 				</select>
 				</label>
-				<label for='anno' >Data Pubblicazione</label><div class="inputError">{{DataError}}</div>
-				<input type='text' name='data' id='anno'/>
+				<label for='data' >Data Pubblicazione</label><div class="inputError" id="DataError">{{DataError}}</div>
+				<input type='text' name='data' id='data'/>
 
-	        	<label for='casa'>Casa editrice</label><div class="inputError">{{CasaError}}</div>
+	        	<label for='casa'>Casa editrice</label><div class="inputError" id="CasaError">{{CasaError}}</div>
 				<input type='text' name='casa' id='casa'/>
 
-				<label for='trama' >Trama</label><div class="inputError">{{TramaError}}</div>
-				<textarea name='trama' id='trama' rows='4' cols='50'/></textarea>
+				<label for='testo' >Trama</label><div class="inputError" id="TestoError">{{TramaError}}</div>
+				<textarea name='trama' id='testo' rows='4' cols='50'/></textarea>
 
 				<label for='genere'>Genere
 					<select name='genere' id='genere'>
