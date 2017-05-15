@@ -1,126 +1,164 @@
 "use strict";
 
-function check(){
-
-	var risultato = true;
-
-	if(document.getElementById("codeErr")){
-		document.getElementById("codeErr").innerHTML = "";
-		var id =document.getElementsByName("idIns")[0].value;
-		if(id == ""){
-			document.getElementById("codeErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+function controlloErrori(){
+	var risultato = false;
+	//Check Nickname
+	if(document.getElementById("nickname")){
+		var input =document.getElementById("nickname").value;
+		if(input == ""){
+			document.getElementById("NicknameError").innerHTML =
+														"Campo obbligatorio";
+			risultato = false;
 		}
-		else if(!(/^[a-zA-Z0-9_.-]+$/.test(id))){
-			document.getElementById("codeErr").innerHTML = " *Codice non valido";
-			if(risultato)risultato = false;
+		else if(input.length < 4 || input.length > 12){
+			document.getElementById("NicknameError").innerHTML =
+					"Il nickname deve essere compreso tra i 4 e i 12 caratteri";
+			risultato = false;
 		}
-	}
-	
-
-	if(document.getElementById("titoloErr")){
-		document.getElementById("titoloErr").innerHTML = "";
-		if(document.getElementsByName("titoloIns")[0].value == ""){
-			document.getElementById("titoloErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+		else {
+			document.getElementById("NicknameError").innerHTML = "";
+			risultato = true;
 		}
 	}
-
-	if(document.getElementById("autoErr")){
-		document.getElementById("autoErr").innerHTML = "";
-		if(document.getElementsByName("autoreIns")[0].value == ""){
-			document.getElementById("autoErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+	//Check Nome
+	if(document.getElementById("nome")){
+		var input =document.getElementById("nome").value;
+		if(input.length < 3){
+			document.getElementById("NomeError").innerHTML =
+				"Il nome deve contenere almeno 3 caratteri";
+			risultato = false;
+		}
+		else if (!(/^[a-zA-Z]+$/.test(input))){
+			document.getElementById("NomeError").innerHTML =
+				"Il nome puo avere solo lettere e spazi";
+			risultato = false;
+		}
+		else {
+			document.getElementById("NomeError").innerHTML = "";
+			risultato = true;
 		}
 	}
-
-	if(document.getElementById("isbnErr")){
-		document.getElementById("isbnErr").innerHTML = "";
-		var code = document.getElementsByName("isbnIns")[0].value;
-		if(code == "" ){
-			document.getElementById("isbnErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+	//Check Cognome
+	if(document.getElementById("cognome")){
+		var input =document.getElementById("cognome").value;
+		if(input == ""){
+			document.getElementById("CognomeError").innerHTML =
+														"Campo obbligatorio";
+			risultato = false;
 		}
-		else if (!(/^([0-9]{13})+$/.test(code))) {
-			document.getElementById("isbnErr").innerHTML = " *Il campo deve essere 13 caratteri numerici";
-			if(risultato)risultato = false;
+		else if (!(/^[a-zA-Z ]+$/.test(input))){
+			document.getElementById("CognomeError").innerHTML =
+									"Il cognome puo avere solo lettere e spazi";
+			risultato = false;
 		}
-	}
-
-	if(document.getElementById("cognomeErr")){
-		document.getElementById("cognomeErr").innerHTML = "";
-		if(document.getElementsByName("cognomeIns")[0].value == ""){
-			document.getElementById("cognomeErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+		else {
+			document.getElementById("CognomeError").innerHTML = "";
+			risultato = true;
 		}
 	}
-	if(document.getElementById("nomeErr")){
-		document.getElementById("nomeErr").innerHTML = "";
-		if(document.getElementsByName("nomeIns")[0].value == ""){
-			document.getElementById("nomeErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+	//Check Email
+	if(document.getElementById("email")){
+		var input =document.getElementById("email").value;
+		if(input == ""){
+			document.getElementById("EmailError").innerHTML =
+														"Campo obbligatorio";
+			risultato = false;
+		}
+		else if(!(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(input))){
+			document.getElementById("EmailError").innerHTML =
+															"Mail non corretta";
+			risultato = false;
+		}
+		else {
+			document.getElementById("EmailError").innerHTML = "";
+			risultato = true;
 		}
 	}
-	if(document.getElementById("emailErr")){
-		document.getElementById("emailErr").innerHTML = "";
-		var mail = document.getElementsByName("emailIns")[0].value;
-		if(mail == ""){
-			document.getElementById("emailErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+	//Check Data
+	if(document.getElementById("data")){
+		var input =document.getElementById("data").value;
+		if(input == ""){
+			document.getElementById("DataError").innerHTML =
+														"Campo obbligatorio";
+			risultato = false;
 		}
-		else if(!(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(mail))){
-			document.getElementById("emailErr").innerHTML = " *Email non corretta";
-			if(risultato)risultato = false;
+		else if(!(/[0-9]{2}[-,/,.]{1}[0-9]{2}[-,/,.]{1}[0-9]{2}([0-9]{2})?/.test(input))){
+			document.getElementById("DataError").innerHTML =
+														"Formato non corretto";
+			risultato = false;
+		}
+		else document.getElementById("DataError").innerHTML = "";
+	}
+	//Check Password
+	if(document.getElementById("password")){
+		var input =document.getElementById("password").value;
+		if(input == ""){
+			document.getElementById("PasswordError").innerHTML =
+														"Campo obbligatorio";
+			risultato = false;
+		}
+		else if (!(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(input))){
+			document.getElementById("PasswordError").innerHTML =
+							"La password deve essere luna almeno 8 caratteri "+
+							"e deve contenere almeno una lettera minuscola," +
+							" una maiuscola e un numero";
+			risultato = false;
+		}
+		else {
+			document.getElementById("PasswordError").innerHTML = "";
+			risultato = true;
 		}
 	}
-	if(document.getElementById("nicknameErr")){
-		document.getElementById("nicknameErr").innerHTML = "";
-		var nick = document.getElementsByName("nicknameIns")[0].value;
-		if(nick == ""){
-			document.getElementById("nicknameErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
+	//Check ISBN
+	if(document.getElementById("isbn")){
+		var input =document.getElementById("isbn").value;
+		if(input == ""){
+			document.getElementById("ISBNError").innerHTML =
+														"Campo obbligatorio";
+			risultato = false;
 		}
-		else if(nick.length < 4){
-			document.getElementById("nicknameErr").innerHTML = " *Il nickname troppo corto (minimo 4 caratteri)";
-			if(risultato)risultato = false;
+		else if (!(/[0-9]{13}/.test(input))){
+			document.getElementById("ISBNError").innerHTML =
+							"Il campo deve contenere 13 caratteri numerici";
+			risultato = false;
 		}
-		else if(nick.length > 12){
-			document.getElementById("nicknameErr").innerHTML = " *Il nickname troppo lungo (massimo 12 caratteri)";
-			if(risultato)risultato = false;
-		}
-		else if(!(/^[a-z0-9]+$/.test(nick))) {
-			document.getElementById("nicknameErr").innerHTML = " *Il nickname può contenere solo lettere o numeri";
-			if(risultato)risultato = false;
+		else {
+			document.getElementById("ISBNError").innerHTML = "";
+			risultato = true;
 		}
 	}
-	if(document.getElementById("dataErr")){
-		document.getElementById("dataErr").innerHTML = "";
-		var data = document.getElementsByName("dataIns")[0].value;
-		if(data == ""){
-		}
-		else if(!(/^([0-9]{2})[\/\-\.]([0-9]{2})[\/\-\.]([0-9]{4})+$/.test(data))){
-			document.getElementById("dataErr").innerHTML = " *Data non corretta";
-			if(risultato)risultato = false;
-		}
+	//Check Testo
+	if(document.getElementById("testo")){
+		var input =document.getElementById("testo").value;
+		document.getElementById("TestoError").innerHTML = campoNonVuoto(input);
+		risultato = (input != "");
 	}
-	if(document.getElementById("residenzaErr")){
-		document.getElementById("residenzaErr").innerHTML = "";
-		if(document.getElementsByName("residenzaIns")[0].value == ""){
-			document.getElementById("residenzaErr").innerHTML = " *Il campo è obbligatorio";
-		if(risultato)risultato = false;
-		}
+	//Check Casa editrice
+	if(document.getElementById("casa")){
+		var input =document.getElementById("casa").value;
+		document.getElementById("CasaError").innerHTML = campoNonVuoto(input);
+		risultato = (input != "");
 	}
-	if(document.getElementById("passwordErr")){
-		document.getElementById("passwordErr").innerHTML = "";
-		var pass = document.getElementsByName("passwordIns")[0].value;
-		if(pass == ""){
-			document.getElementById("passwordErr").innerHTML = " *Il campo è obbligatorio";
-			if(risultato)risultato = false;
-		}
-		else if(!(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$/.test(pass))){
-			document.getElementById("passwordErr").innerHTML = " *La password deve essere lunga almeno 8 caratteri e deve contenere almeno una lettera minuscola, una maiuscola e un numero";
-			if(risultato)risultato = false;
-		}
+	//Check Titolo
+	if(document.getElementById("titolo")){
+		var input =document.getElementById("titolo").value;
+		document.getElementById("TitoloError").innerHTML = campoNonVuoto(input);
+		risultato = (input != "");
+	}
+	//Check Nazionalità
+	if(document.getElementById("nazionalita")){
+		var input =document.getElementById("nazionalita").value;
+		document.getElementById("NazioneError").innerHTML = campoNonVuoto(input);
+		risultato = (input != "");
 	}
 	return risultato;
+}
+
+function campoNonVuoto(campo){
+	var ritorno;
+	if(campo == "")
+		ritorno = "Il campo non puó essere vuoto";
+	else
+		ritorno = "";
+	return ritorno;
 }

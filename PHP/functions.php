@@ -303,7 +303,7 @@ function campoNonVuoto(&$errore,$campo)
 
 function printStar($num)
 {
-	$nStelle="<span class='VotoScritto'>". floor($num). " su 5</span>";
+	$nStelle="<span class='Nascondi'>". floor($num). " su 5</span>";
 	while($num>0.5)
 	{
 		$nStelle=$nStelle."<img class='star' src='../img/icon/Full_Star.png' alt=''/>";
@@ -313,7 +313,7 @@ function printStar($num)
 	{
 		$nStelle=$nStelle."<img class='star' src='../img/icon/Half_Star.png' alt=''/>";
 	}
-	
+
 	return $nStelle;
 }
 

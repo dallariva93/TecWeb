@@ -7,6 +7,11 @@ html, body{
 	margin: auto;
 	background-color:#C5CAE9;
 }
+body{
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
 textarea{
 	width: 100%;
 	max-width: 100%;
@@ -80,6 +85,13 @@ fieldset label {
 	margin:0.2em;
 	background-color:#ddd;
 }
+.box select{
+	width: 100%;
+	margin: 0.5em 0 0.5em 0;
+}
+.inputError{
+	color: red;
+}
 /**************************************************************
 		BOTTONI
 ***************************************************************/
@@ -144,6 +156,7 @@ fieldset label {
 	margin-top:2.1em;
 	padding: 3em 0 3em 0;
 	color: white;
+	width: 100%;
 	text-align: center;
 	background: url(../img/icon/header.jpg);
 	background-size: 100% 100%;
@@ -260,9 +273,10 @@ fieldset label {
 	clear: both;
 	width: 100%;
 	bottom:0;
+	top: 100%;
 	min-height: 3em;
 	overflow: auto;
-	}
+}
 #footer a{
 	color:  white;
 }
@@ -332,16 +346,17 @@ fieldset label {
 /**************************************************************
 		PAGINA RECENSIONE
 ***************************************************************/
-.presentazione img{
-	min-width: 10em;
-	min-height: 14em;
-}
 .presentazione li {
 	list-style-type: circle;
 	padding: 0.5em;
 	margin-left: 2em;
 }
-
+.Errore{
+	width: 96%;
+	margin: 2%;
+	font-size: 1.5em;
+	color: red;
+}
 /**************************************************************
 			TESTO
 ***************************************************************/
@@ -429,6 +444,10 @@ fieldset label {
 	font-weight: bold;
 	text-decoration: none;
 }
+.boxAdmin:hover {
+	background-color: lightblue;
+	color:white;
+}
 
 .Table {
 	width: 100%;
@@ -497,13 +516,13 @@ td,th {
 .menuProfilo > form > button{
 	padding: 0.5em;
 	width: 15%;
-	
+
 }
 
 .profCommento
 {
 	border-bottom: 1px solid black;
-	
+
 	border-left:1px solid black;
 	border-right: 1px solid black;
 	margin-bottom: 1em;
@@ -511,7 +530,7 @@ td,th {
 }
 
 .profCommento > p{
-		
+
 	clear: both;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
@@ -523,14 +542,14 @@ td,th {
 .datalibro {
 	overflow: hidden;
 	border-bottom: 1px solid black;
-	border-top: 1px solid black;	
+	border-top: 1px solid black;
 	padding: 0.5em;
 	background-color: blue;
 }
 
 .dataCommento{
 	float: right;
-	
+
 }
 
 .libro{
@@ -550,7 +569,7 @@ td,th {
 	margin-top: 1em;
 	margin-left: 2.5em;
 	margin-right: 2.5em;
-	
+
 }
 .MiniaturaLibro{
 	max-width: 20%;
@@ -574,7 +593,7 @@ td,th {
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	
+
 }
 
 .star{
@@ -583,7 +602,7 @@ td,th {
 	height: 13em;
 	text-align: center;
 	margin-top: 1em;
-	
+
 }
 .MiniaturaLibro{
 	float: left;
@@ -599,32 +618,30 @@ td,th {
 /**************************************************************
 		VOTAZIONE
 ***************************************************************/
-.votazione{
+.stars{
+	float: left;
 	padding-left: 2em;
+	padding-bottom: 2em;
 	overflow:hidden;
+	direction: rtl;
 }
-.votazione>button{
+.stars>button{
 	width: 40px;
 	height: 40px;
 	border: 0;
 	background: url(../img/icon/Empty_Star.png);
 	background-size: 100% 100%;
     background-repeat: no-repeat;
-
 }
-.votazione>button>span{
-    position:relative;
-    right:100em;
-	
-}
-.oneStar:hover,.twoStar:hover,.threeStar:hover,.fourStar:hover,.fiveStar:hover{
+.stars > button:hover ~ button, .stars > button:hover {
 	background: url(../img/icon/Full_Star.png);
 	background-size: 100% 100%;
-    background-repeat: no-repeat;
+	background-repeat: no-repeat;
 }
-.VotoScritto{
+.Nascondi{
 	position:relative;
     right:100em;
+	color: #C5CAE9;
 }
 
 
@@ -645,6 +662,7 @@ td,th {
 	overflow: auto;
 	padding-bottom: 10em;
 	background-color: white;
+	width: 100%;
 }
 
 .spazia {

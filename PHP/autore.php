@@ -1,4 +1,3 @@
-
 <?php
 
 	Require_once('connect.php');
@@ -20,10 +19,16 @@
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			//Stampo le informazioni dell' autore
+			$immagine;
 
+			if($Foto = $db->query("SELECT Foto FROM FotoAutori WHERE Autore ='". $_REQUEST['autore']. "'")){
+				$foto = $Foto->fetch_array(MYSQLI_ASSOC);
+				$immagine = $foto['Foto'];
+			}else
+				$immagine = "";
 
-			$searchHeader=array("{{Id}}","{{Cognome}}","{{Nome}}","{{Data}}","{{Nazionalita}}");
-			$replaceHeader=array($dati['Id'],$dati['Cognome'], $dati['Nome'],data($dati['Data_Nascita']),$dati['Nazionalita']);
+			$searchHeader=array("{{Immagine}}","{{Cognome}}","{{Nome}}","{{Data}}","{{Nazionalita}}");
+			$replaceHeader=array($immagine,$dati['Cognome'], $dati['Nome'],data($dati['Data_Nascita']),$dati['Nazionalita']);
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneAutore.txt"));
 
 			//Ricerca di tutti i libri dell' autore nel sito

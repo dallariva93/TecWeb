@@ -22,7 +22,7 @@
 		//cerco tra gli utenti
 		$gruppo = $db->query($UserPassQuery);
 		if ( $gruppo->num_rows > 0){ //é un utente
-			$user = true;	
+			$user = true;
 		}
 		else{
 			$gruppo = $db->query($AdminPassQuery);
@@ -35,9 +35,9 @@
 			$pasword = $Getpassword['Password'];
 		}
 		if($password != "" )
-		//Controllo se la password é corretta		
+		//Controllo se la password é corretta
 			$wrongPassword =  !(password_verify($_POST['password'],$password));
-		
+
 		$gruppo->free();
 	}
 
@@ -54,25 +54,25 @@
 	$searchInForm=array("{{emailError}}","{{passError}}");
 	$replaceInForm=array(testEmail($errore,true), testPassword($errore,$wrongPassword));
 	echo str_replace($searchInForm, $replaceInForm ,
-		 file_get_contents("../HTML/Template/login.txt"));	
+		 file_get_contents("../HTML/Template/login.txt"));
 
 	if(!$errore && ($admin || $user ) && isset($_POST['password']) && isset($_POST['email']) )
 	//se non ci sono errori avvio la sessione
 	{
 		session_start();
-		
+
 		//se la password in input è utente
-		if( $user )	
+		if( $user )
 			$_SESSION['type'] = 'user';
 		//se la password in input è admin
 		else if( $admin )
 			$_SESSION['type'] = 'admin';
-				
+
 		$_SESSION['id'] = $_POST['email'];
 		header('Location: index.php');
 
 	}
 
-
+	echo file_get_contents("../HTML/Template/FileJs.txt");
 	echo file_get_contents("../HTML/Template/Footer.txt");
 ?>

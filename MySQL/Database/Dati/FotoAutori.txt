@@ -1,0 +1,15 @@
+1	../img/autori/00000001.jpg
+2	../img/autori/00000002.jpg
+3	../img/autori/00000003.jpg
+4	../img/autori/00000004.jpg
+5	../img/autori/00000005.jpg
+6	../img/autori/00000006.jpg
+7	../img/autori/00000007.jpg
+8	../img/autori/00000008.jpg
+9	../img/autori/00000009.jpg
+10	../img/autori/00000010.jpg
+11	../img/autori/00000011.jpg
+12	../img/autori/00000012.jpg
+13	../img/autori/00000013.jpg
+14	../img/autori/00000014.jpg
+15	../img/autori/00000015.jpg

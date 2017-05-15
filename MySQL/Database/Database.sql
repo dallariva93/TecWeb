@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS Commenti;
 DROP TABLE IF EXISTS VotoRecensione;
 DROP TABLE IF EXISTS VotoLibro;
 DROP TABLE IF EXISTS Notizie;
+DROP TABLE IF EXISTS FotoAutori;
 
 /* TABELLE */
 
@@ -38,7 +39,7 @@ CREATE TABLE Libro
 	Autore	INT UNSIGNED NOT NULL,
 	Anno_Pubblicazione	date NOT NULL,
 	Casa_Editrice	varchar (20) NOT NULL,
-	Genere enum('Commedia','Horror','Fantasy','Narrativa','Saggistica','Classico','Thriller','Fantascienza','Carta da fuoco') NOT NULL,
+	Genere enum('Commedia','Horror','Fantasy','Narrativa','Saggistica','Classico','Thriller','Fantascienza') NOT NULL,
 	Trama text NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)
    	ON DELETE CASCADE
@@ -112,8 +113,17 @@ CREATE TABLE Notizie
 	Titolo varchar(90) NOT NULL,
 	Autore varchar(60) NOT NULL,
 	Data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	Testo text,
+	Testo text NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Redazione(Email)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+CREATE TABLE FotoAutori
+(	Autore	INT UNSIGNED,
+	Foto varchar(60),
+	PRIMARY KEY (Foto, Autore),
+	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
@@ -124,4 +134,5 @@ LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/utenti.txt' INTO 
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/recensioni.txt' INTO TABLE Recensione;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/commenti.txt' INTO TABLE Commenti;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/notizie.txt' INTO TABLE Notizie;
+LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoAutori.txt' INTO TABLE FotoAutori;
 SET foreign_key_checks = 1;

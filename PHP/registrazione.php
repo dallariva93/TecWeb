@@ -40,9 +40,8 @@
 	$replaceBreadcrumb=array("","<span xml:lang='en'><a href='index.php'>Home</a></span>/Iscriviti");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
-
-
 	echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/RegForm.txt"));
 
+	echo file_get_contents("../HTML/Template/FileJs.txt");
 	echo file_get_contents("../HTML/Template/Footer.txt");
 ?>

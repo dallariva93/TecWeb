@@ -92,7 +92,7 @@
 		$db->close();
 
 		echo "</div>";//Fine content
-
+		echo file_get_contents("../HTML/Template/FileJs.txt");
 		echo file_get_contents("../HTML/Template/Footer.txt");
 	}
 	else{
