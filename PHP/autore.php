@@ -24,6 +24,7 @@
 			if($Foto = $db->query("SELECT Foto FROM FotoAutori WHERE Autore ='". $_REQUEST['autore']. "'")){
 				$foto = $Foto->fetch_array(MYSQLI_ASSOC);
 				$immagine = $foto['Foto'];
+				$Foto->free();
 			}else
 				$immagine = "";
 

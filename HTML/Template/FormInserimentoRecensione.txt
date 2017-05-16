@@ -10,19 +10,15 @@
 			</label>
 			<label for='testo'>Inserisci qui il tuo testo: </label><div class="inputError" id="TestoError">{{TestoError}}</div>
 			<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
-			<label for='valutazione'>valutazione
-				<select name='valutazione' id='valutazione' class='input'>
-					<option>1</option>
-					<option>1.5</option>
-					<option>2</option>
-					<option>2.5</option>
-					<option>3</option>
-					<option>3.5</option>
-					<option>4</option>
-					<option>4.5</option>
-					<option>5</option>
-				</select>
-			</label>
+			<label for='valutazione'>valutazione:</label>
+			<div class='stars' id='valutazione'>
+				<button type='submit' value='5' name='valutazione'><span class='Nascondi'>5 su 5</span></button>
+				<button type='submit' value='4' name='valutazione'><span class='Nascondi'>4 su 5</span></button>
+				<button type='submit' value='3' name='valutazione'><span class='Nascondi'>3 su 5</span></button>
+				<button type='submit' value='2' name='valutazione'><span class='Nascondi'>2 su 5</span></button>
+				<button type='submit' value='1' name='valutazione'><span class='Nascondi'>1 su 5</span></button>
+			</div>
+			
     		<input type='submit' value='Aggiungi' class='btnLong'/>
 
 			</div>

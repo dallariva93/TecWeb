@@ -163,7 +163,7 @@ function testNick(&$errore)
 function testEmail(&$errore, $login = false)
 {
 	$emailErr = "";
-	if(isset($_POST['email']))
+	if(isset($_POST['email']) && !($_POST['email'] == "admin" || $_POST['email'] == "user"))
 	{
 		if(empty($_POST['email']))
 		{
@@ -215,7 +215,7 @@ function GetData($data){
 function testPassword(&$errore, $wrongPassword = false)
 {
 	$passErr = "";
-	if(isset($_POST['password']))
+	if(isset($_POST['password']) && !($_POST['password'] == "admin" || $_POST['password'] == "user"))
 	{
 		if (empty($_POST ["password"]))
 		{

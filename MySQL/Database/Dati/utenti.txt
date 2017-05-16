@@ -1,14 +1,15 @@
-giorgiovanni63@gmail.com	Giorgio	Vanni	dragonball63	1963-08-19	v5d8frhh25de	Milano
+matteovanni63@gmail.com	Matteo	Vanni	superman63	1963-08-19	v5d8frhh25de	Milano
 karimmusa89@gmail.com	Karim	Musa	yotobifeic	1989-04-20	jf74hjfg56fhc	Torino
 marcogattuso91@gmail.com	Marco	Gattuso	ilGattoSulTubo	1991-05-01	fnhjx2l4za5	Padova
 ilcorvobianco91@gmail.com	Fabrizio	Corvo	il_corvo_bianco	1991-02-02	djdudcy489g	Verona
-gilberto.file@gmail.com	Gilberto	Fil&egrave; 	error_404	1956-04-14	nchjbjugye	Padova
+filippo.rossi@gmail.com	Filippo	Rossi	error_404	1956-04-14	nchjbjugye	Padova
 paolo.rossi94@gmail.com	Paolo	Rossi	rosso_malpelo	1994-03-22	kjdfi8vm	Vicenza
 mario.bianchi95@gmail.com	Mario	Bianchi	il_bianco95	1995-03-15	jhfc8u9frn	Vicenza
 giacomo.verdi96@gmail.com	Giacomo	Verdi	giardinoverde	1996-11-12	fckj3e85r	Torrebelvicino
 sara.viola123@gmail.com	Sara	Viola	XX_violetta_XX	2000-08-16	438cvdxhf	Trento
 roncon.michael777@gmail.com	Michael	Roncon	l&rsquo;uomo_dei_goti	1995-01-21	n348xsesw	Sarcedo
-cristina.davena64@gmail.com	Cristina	D&rsquo;avena	sailormoon64	1964-08-06	b28xv4vl	Bologna
+sara.sbalchiero64@gmail.com	Sara	Sbalchiero	sailormoon64	1964-08-06	b28xv4vl	Bologna
 sara.marvelin89@gmail.com	Sara	Marvelin	deadpoolpersforza	1989-12-09	mnbyut6er43a	Roma
 giorgia.tessuto65@gmail.com	Giorgia	Tessuto	shile865	1965-10-08	n38djhdvp3	Napoli
 maria.dallavalle19@gmail.com	Maria	Dalla Valle	valpensa1987	1987-09-19	c73n25cnb	Trieste
+user	Ombretta	Gaggi	Ombretta	1989-10-20	user	Padova

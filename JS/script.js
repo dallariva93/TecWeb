@@ -64,6 +64,10 @@ function controlloErrori(){
 														"Campo obbligatorio";
 			risultato = false;
 		}
+		else if(input == "admin" || input == "user"){
+			document.getElementById("EmailError").innerHTML = "";
+			risultato = true;
+		}
 		else if(!(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(input))){
 			document.getElementById("EmailError").innerHTML =
 															"Mail non corretta";
@@ -97,6 +101,10 @@ function controlloErrori(){
 														"Campo obbligatorio";
 			risultato = false;
 		}
+		else if(input == "admin" || input == "user"){
+			document.getElementById("EmailError").innerHTML = "";
+			risultato = true;
+		}
 		else if (!(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(input))){
 			document.getElementById("PasswordError").innerHTML =
 							"La password deve essere luna almeno 8 caratteri "+
@@ -129,6 +137,7 @@ function controlloErrori(){
 	}
 	//Check Testo
 	if(document.getElementById("testo")){
+
 		var input =document.getElementById("testo").value;
 		document.getElementById("TestoError").innerHTML = campoNonVuoto(input);
 		risultato = (input != "");

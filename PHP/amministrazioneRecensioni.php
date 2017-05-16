@@ -1,5 +1,7 @@
 <?php
-	if(true || isset($_SESSION) && $_SESSION['type'] == "admin"){ //true da togliere!!!!!!!!!!(messo per test)
+	if(!isset($_SESSION))
+		session_start();
+	if($_SESSION['type'] == "admin"){
 		Require_once('connect.php');
 		Require_once('functions.php');
 
@@ -13,7 +15,7 @@
 		if($TuttiLibri = $db->query("Select Titolo,ISBN From Libro GROUP BY ISBN")){
 			if($TuttiLibri->num_rows > 0){
 				while($Libro = $TuttiLibri->fetch_array(MYSQLI_ASSOC)){
-					$libri .= "<option value=". $Libro['ISBN']. ">".
+					$libri .= "<option value='". $Libro['ISBN']. "'>".
 						$Libro['Titolo']. "</option>";
 				}
 			}

@@ -1,5 +1,8 @@
 <?php
-	if(true || isset($_SESSION) && $_SESSION['type'] == "admin"){ //true da togliere!!!!!!!!!!(messo per test)
+	if(!isset($_SESSION))
+		session_start();
+	if($_SESSION['type'] == "admin"){
+		Require_once('connect.php');
 		Require_once('functions.php');
 		$searchHead=array("{{title}}","{{description}}");
 		$replaceHead=array("<title>Amministrazione - FaceOnTheBook</title>","<meta name='description' content='Social network per topi di bibblioteca'/>");

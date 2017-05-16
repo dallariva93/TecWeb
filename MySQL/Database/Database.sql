@@ -19,7 +19,7 @@ CREATE TABLE Utente
 (	Email	varchar (60) PRIMARY KEY,
 	Nome	varchar(30) NOT NULL,
 	Cognome	varchar(30) NOT NULL,
-	Nickname	varchar(20) UNIQUE NOT NULL,
+	Nickname	varchar(30) UNIQUE NOT NULL,
 	Data_Nascita	date,	
 	Password varchar(255) NOT NULL,
 	Residenza	varchar(30) 
@@ -66,7 +66,6 @@ CREATE TABLE Redazione
 	Password varchar(255) NOT NULL,
 	Nome	varchar(30) NOT NULL,
 	Cognome	varchar(30) NOT NULL
-	
 );
 
 CREATE TABLE Commenti
@@ -127,12 +126,4 @@ CREATE TABLE FotoAutori
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
-
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/libri.txt' INTO TABLE Libro;
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/scrittore.txt' INTO TABLE Scrittore;
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/utenti.txt' INTO TABLE Utente;
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/recensioni.txt' INTO TABLE Recensione;
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/commenti.txt' INTO TABLE Commenti;
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/notizie.txt' INTO TABLE Notizie;
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoAutori.txt' INTO TABLE FotoAutori;
 SET foreign_key_checks = 1;

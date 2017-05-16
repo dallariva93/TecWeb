@@ -12,6 +12,5 @@
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 	echo file_get_contents("../HTML/Template/DeadLink.txt").
-
 	file_get_contents("../HTML/Template/Footer.txt");
 ?>

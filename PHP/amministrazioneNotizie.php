@@ -1,5 +1,7 @@
 <?php
-	if(true || isset($_SESSION) && $_SESSION['type'] == "admin"){ //true da togliere!!!!!!!!!!(messo per test)
+	if(!isset($_SESSION))
+		session_start();
+	if($_SESSION['type'] == "admin"){
 		Require_once('connect.php');
 		Require_once('functions.php');
 
@@ -15,8 +17,7 @@
 		$searchInForm=array("{{TitoloError}}","{{TestoError}}");
 		$replaceInForm=array($titolo,$testo);
 
-		if(!$errore && isset($_POST['titolo']) && isset($_POST['testo'])
-			&& isset($_POST['autore']))
+		if(!$errore && isset($_POST['titolo']) && isset($_POST['testo']))
 		{
 			$insert="INSERT INTO `Notizie` (Titolo, Autore,Testo)
 			 	VALUES ('".$_POST['titolo']."','".$_SESSION['id']."','".
@@ -41,7 +42,7 @@
 			echo file_get_contents("../HTML/Template/InizioTabellaNotizie.txt");
 			while ($New = $Notizie->fetch_array(MYSQLI_ASSOC)){
 				$autoreNotizia;
-				if($autoreArray = $db->query("SELECT Nome,Cognome FROM Redazione WHERE Email =".$New['Autore']))
+				if($autoreArray = $db->query("SELECT Nome,Cognome FROM Redazione WHERE Email ='".$New['Autore']."'"))
 				{
 					$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
 					$autoreNotizia = $autore['Nome']. " ". $autore['Cognome'];
@@ -49,8 +50,8 @@
 				}
 				else
 					$autoreNotizia = $New['Autore'];
-				$searchNotizie=array("{{Titolo}}","{{Data}}","{{Autore}}");
-				$replaceNotizie=array($New['Titolo'],$New['Data'],$autoreNotizia);
+				$searchNotizie=array("{{Id}}","{{Titolo}}","{{Data}}","{{Autore}}");
+				$replaceNotizie=array($New['Id'],$New['Titolo'],$New['Data'],$autoreNotizia);
 				echo str_replace($searchNotizie ,$replaceNotizie,
 				 	file_get_contents("../HTML/Template/TabellaNotizie.txt"));
 
