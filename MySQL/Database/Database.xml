@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-- phpMyAdmin XML Dump
-- version 4.5.2
-- https://www.phpmyadmin.net
--
-- Host: localhost
-- Creato il: Mag 16, 2017 alle 11:34
-- Versione del server: 10.1.19-MariaDB
-- Versione PHP: 7.0.9
--->
-
 <pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
     <!--
     - Structure schemas
@@ -142,7 +131,7 @@
         <!-- Tabella Commenti -->
         <table name="Commenti">
             <column name="Recensione">1</column>
-            <column name="Autore">gilberto.file@gmail.com</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
             <column name="Commento">&lt;p&gt;Romanzo robusto:un archetipo della letteratura di genere.Forse un po&amp;rsquo; troppo lungo; nel senso che alcune pagine(superflue)potevano essere espunte. Storia e tecnica narrativa invece sono interessanti.&lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2001-03-01 10:40:39</column>
         </table>
@@ -166,12 +155,6 @@
         </table>
         <table name="Commenti">
             <column name="Recensione">5</column>
-            <column name="Autore">giorgiovanni63@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Libro da leggere per chi ama il Re e per chi vuole entrare in un mondo surreale e avvincente.l&amp;rsquo;unica nota stonata il finale,forse troppo immerso in situazioni poco convincenti .(mio parere senza voler denigrare il libro) &lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2011-09-10 09:10:09</column>
-        </table>
-        <table name="Commenti">
-            <column name="Recensione">5</column>
             <column name="Autore">marcogattuso91@gmail.com</column>
             <column name="Commento">&lt;p&gt;Complesso, stratificato, interminabile, fiume, un capolavoro indiscusso di cui attendiamo la versione cinematografica definitiva. Un viaggio nella notte nera, buissima, laddove i babau abbaiano latrantissimi in glaciale, spettrale incubo ad occhi aperti che durer&amp;agrave;  tutta una vita.&lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2008-10-09 22:28:09</column>
@@ -183,8 +166,14 @@
             <column name="Data_Pubblicazione">2002-10-09 20:27:09</column>
         </table>
         <table name="Commenti">
+            <column name="Recensione">5</column>
+            <column name="Autore">matteovanni63@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Libro da leggere per chi ama il Re e per chi vuole entrare in un mondo surreale e avvincente.l&amp;rsquo;unica nota stonata il finale,forse troppo immerso in situazioni poco convincenti .(mio parere senza voler denigrare il libro) &lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2011-09-10 09:10:09</column>
+        </table>
+        <table name="Commenti">
             <column name="Recensione">6</column>
-            <column name="Autore">gilberto.file@gmail.com</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
             <column name="Commento">&lt;p&gt;Uno dei libri pi&amp;ugrave;  brevi di King. L&amp;rsquo;esistenza di una famiglia qualsiasi, narrata nei recessi pi&amp;ugrave;  intimi e teneri, sconvolta da avvenimenti soprannaturali ma anche terribilmente plausibili Scene altamente drammatiche, un finale sospeso in un climax che lascia senza fiato Teso, angosciante, vorresti che finisse al pi&amp;ugrave;  presto, vorresti che non finisse mai, vorresti poter comunicare con il protagonista, ti sorprendi a pregare per lui A mio avviso, supera It come tensione narrativa ed &amp;egrave;  forse il miglior libro di King &lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2009-12-02 09:10:19</column>
         </table>
@@ -202,7 +191,7 @@
         </table>
         <table name="Commenti">
             <column name="Recensione">8</column>
-            <column name="Autore">giorgiovanni63@gmail.com</column>
+            <column name="Autore">matteovanni63@gmail.com</column>
             <column name="Commento">&lt;p&gt;E&amp;rsquo; un romanzo dal linguaggio estremamente elegante. Molto scorrevole, un classico del novecento che parrebbe scritto ai giorni nostri. Affascinante, lo consiglio anche come lettura &amp;quot;estiva&amp;quot; poich&amp;egrave;  &amp;egrave;  un&amp;rsquo;opera non troppo impegnativa. &lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2002-02-09 12:08:09</column>
         </table>
@@ -220,64 +209,64 @@
         </table>
         <!-- Tabella FotoAutori -->
         <table name="FotoAutori">
-            <column name="Autore">1</column>
-            <column name="Foto">../img/autori/00000001.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">2</column>
-            <column name="Foto">../img/autori/00000002.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">3</column>
-            <column name="Foto">../img/autori/00000003.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">4</column>
-            <column name="Foto">../img/autori/00000004.jpg</column>
+            <column name="Autore">6</column>
+            <column name="Foto">../img/autori/Adams.jpg</column>
         </table>
         <table name="FotoAutori">
             <column name="Autore">5</column>
-            <column name="Foto">../img/autori/00000005.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">6</column>
-            <column name="Foto">../img/autori/00000006.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">7</column>
-            <column name="Foto">../img/autori/00000007.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">8</column>
-            <column name="Foto">../img/autori/00000008.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">9</column>
-            <column name="Foto">../img/autori/00000009.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">10</column>
-            <column name="Foto">../img/autori/00000010.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">11</column>
-            <column name="Foto">../img/autori/00000011.jpg</column>
-        </table>
-        <table name="FotoAutori">
-            <column name="Autore">12</column>
-            <column name="Foto">../img/autori/00000012.jpg</column>
+            <column name="Foto">../img/autori/Asimov.jpg</column>
         </table>
         <table name="FotoAutori">
             <column name="Autore">13</column>
-            <column name="Foto">../img/autori/00000013.jpg</column>
+            <column name="Foto">../img/autori/Blatty.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">2</column>
+            <column name="Foto">../img/autori/Dickens.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">11</column>
+            <column name="Foto">../img/autori/King.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">3</column>
+            <column name="Foto">../img/autori/Omero.jpg</column>
         </table>
         <table name="FotoAutori">
             <column name="Autore">14</column>
-            <column name="Foto">../img/autori/00000014.jpg</column>
+            <column name="Foto">../img/autori/Poe.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">7</column>
+            <column name="Foto">../img/autori/Rowling.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">4</column>
+            <column name="Foto">../img/autori/Shakespeare.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">12</column>
+            <column name="Foto">../img/autori/Shelley.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">9</column>
+            <column name="Foto">../img/autori/Stevenson.jpg</column>
         </table>
         <table name="FotoAutori">
             <column name="Autore">15</column>
-            <column name="Foto">../img/autori/00000015.jpg</column>
+            <column name="Foto">../img/autori/Stoker.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">8</column>
+            <column name="Foto">../img/autori/Tolkien.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">1</column>
+            <column name="Foto">../img/autori/Verne.jpg</column>
+        </table>
+        <table name="FotoAutori">
+            <column name="Autore">10</column>
+            <column name="Foto">../img/autori/Wilde.jpg</column>
         </table>
         <!-- Tabella Libro -->
         <table name="Libro">
@@ -970,98 +959,112 @@
             <column name="Nome">Jules</column>
             <column name="Cognome">Verne</column>
             <column name="Data_Nascita">1828-02-08</column>
-            <column name="Nazionalita">Francia</column>
+            <column name="Nazionalita">Francia
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">2</column>
             <column name="Nome">Charles</column>
             <column name="Cognome">Dickens</column>
             <column name="Data_Nascita">1812-02-07</column>
-            <column name="Nazionalita">Regno Unito</column>
+            <column name="Nazionalita">Regno Unito
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">3</column>
             <column name="Nome"></column>
             <column name="Cognome">Omero</column>
             <column name="Data_Nascita">0000-00-00</column>
-            <column name="Nazionalita">Grecia</column>
+            <column name="Nazionalita">Grecia
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">4</column>
             <column name="Nome">William</column>
             <column name="Cognome">Shakespeare</column>
             <column name="Data_Nascita">1564-04-23</column>
-            <column name="Nazionalita">Regno Unito</column>
+            <column name="Nazionalita">Regno Unito
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">5</column>
             <column name="Nome">Isaac</column>
             <column name="Cognome">Asimov</column>
             <column name="Data_Nascita">1920-01-02</column>
-            <column name="Nazionalita">Russia</column>
+            <column name="Nazionalita">Russia
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">6</column>
             <column name="Nome">Douglas</column>
             <column name="Cognome">Adams</column>
             <column name="Data_Nascita">1952-03-11</column>
-            <column name="Nazionalita">Regno Unito</column>
+            <column name="Nazionalita">Regno Unito
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">7</column>
             <column name="Nome">J.K.</column>
             <column name="Cognome">Rowling</column>
             <column name="Data_Nascita">1965-07-31</column>
-            <column name="Nazionalita">Regno Unito</column>
+            <column name="Nazionalita">Regno Unito
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">8</column>
             <column name="Nome">John R.R.</column>
             <column name="Cognome">Tolkien</column>
             <column name="Data_Nascita">1892-01-03</column>
-            <column name="Nazionalita">Sudafrica</column>
+            <column name="Nazionalita">Sudafrica
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">9</column>
             <column name="Nome">Robert</column>
             <column name="Cognome">Stevenson</column>
             <column name="Data_Nascita">1850-11-13</column>
-            <column name="Nazionalita">Regno Unito</column>
+            <column name="Nazionalita">Regno Unito
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">10</column>
             <column name="Nome">Oscar</column>
             <column name="Cognome">Wilde</column>
             <column name="Data_Nascita">1854-11-16</column>
-            <column name="Nazionalita">Irlanda</column>
+            <column name="Nazionalita">Irlanda
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">11</column>
             <column name="Nome">Stephen</column>
             <column name="Cognome">King</column>
             <column name="Data_Nascita">1947-09-21</column>
-            <column name="Nazionalita">Stati Uniti d'America</column>
+            <column name="Nazionalita">Stati Uniti d'America
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">12</column>
             <column name="Nome">Mary</column>
             <column name="Cognome">Shelley</column>
             <column name="Data_Nascita">1797-08-30</column>
-            <column name="Nazionalita">Regno Unito</column>
+            <column name="Nazionalita">Regno Unito
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">13</column>
             <column name="Nome">William Peter</column>
             <column name="Cognome">Blatty</column>
             <column name="Data_Nascita">1928-01-07</column>
-            <column name="Nazionalita">Stati Uniti d'America</column>
+            <column name="Nazionalita">Stati Uniti d'America
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">14</column>
             <column name="Nome">Edgar Allan</column>
             <column name="Cognome">Poe</column>
             <column name="Data_Nascita">1809-01-19</column>
-            <column name="Nazionalita">Stati Uniti d'America</column>
+            <column name="Nazionalita">Stati Uniti d'America
+</column>
         </table>
         <table name="Scrittore">
             <column name="Id">15</column>
@@ -1078,7 +1081,8 @@
             <column name="Nickname">error_404</column>
             <column name="Data_Nascita">1956-04-14</column>
             <column name="Password">nchjbjugye</column>
-            <column name="Residenza">Padova</column>
+            <column name="Residenza">Padova
+</column>
         </table>
         <table name="Utente">
             <column name="Email">giacomo.verdi96@gmail.com</column>
@@ -1087,7 +1091,8 @@
             <column name="Nickname">giardinoverde</column>
             <column name="Data_Nascita">1996-11-12</column>
             <column name="Password">fckj3e85r</column>
-            <column name="Residenza">Torrebelvicino</column>
+            <column name="Residenza">Torrebelvicino
+</column>
         </table>
         <table name="Utente">
             <column name="Email">giorgia.tessuto65@gmail.com</column>
@@ -1096,7 +1101,8 @@
             <column name="Nickname">shile865</column>
             <column name="Data_Nascita">1965-10-08</column>
             <column name="Password">n38djhdvp3</column>
-            <column name="Residenza">Napoli</column>
+            <column name="Residenza">Napoli
+</column>
         </table>
         <table name="Utente">
             <column name="Email">ilcorvobianco91@gmail.com</column>
@@ -1105,7 +1111,8 @@
             <column name="Nickname">il_corvo_bianco</column>
             <column name="Data_Nascita">1991-02-02</column>
             <column name="Password">djdudcy489g</column>
-            <column name="Residenza">Verona</column>
+            <column name="Residenza">Verona
+</column>
         </table>
         <table name="Utente">
             <column name="Email">karimmusa89@gmail.com</column>
@@ -1114,7 +1121,8 @@
             <column name="Nickname">yotobifeic</column>
             <column name="Data_Nascita">1989-04-20</column>
             <column name="Password">jf74hjfg56fhc</column>
-            <column name="Residenza">Torino</column>
+            <column name="Residenza">Torino
+</column>
         </table>
         <table name="Utente">
             <column name="Email">marcogattuso91@gmail.com</column>
@@ -1123,7 +1131,8 @@
             <column name="Nickname">ilGattoSulTubo</column>
             <column name="Data_Nascita">1991-05-01</column>
             <column name="Password">fnhjx2l4za5</column>
-            <column name="Residenza">Padova</column>
+            <column name="Residenza">Padova
+</column>
         </table>
         <table name="Utente">
             <column name="Email">maria.dallavalle19@gmail.com</column>
@@ -1132,7 +1141,8 @@
             <column name="Nickname">valpensa1987</column>
             <column name="Data_Nascita">1987-09-19</column>
             <column name="Password">c73n25cnb</column>
-            <column name="Residenza">Trieste</column>
+            <column name="Residenza">Trieste
+</column>
         </table>
         <table name="Utente">
             <column name="Email">mario.bianchi95@gmail.com</column>
@@ -1141,7 +1151,8 @@
             <column name="Nickname">il_bianco95</column>
             <column name="Data_Nascita">1995-03-15</column>
             <column name="Password">jhfc8u9frn</column>
-            <column name="Residenza">Vicenza</column>
+            <column name="Residenza">Vicenza
+</column>
         </table>
         <table name="Utente">
             <column name="Email">matteovanni63@gmail.com</column>
@@ -1150,7 +1161,8 @@
             <column name="Nickname">superman63</column>
             <column name="Data_Nascita">1963-08-19</column>
             <column name="Password">v5d8frhh25de</column>
-            <column name="Residenza">Milano</column>
+            <column name="Residenza">Milano
+</column>
         </table>
         <table name="Utente">
             <column name="Email">paolo.rossi94@gmail.com</column>
@@ -1159,7 +1171,8 @@
             <column name="Nickname">rosso_malpelo</column>
             <column name="Data_Nascita">1994-03-22</column>
             <column name="Password">kjdfi8vm</column>
-            <column name="Residenza">Vicenza</column>
+            <column name="Residenza">Vicenza
+</column>
         </table>
         <table name="Utente">
             <column name="Email">roncon.michael777@gmail.com</column>
@@ -1168,7 +1181,8 @@
             <column name="Nickname">l&amp;rsquo;uomo_dei_goti</column>
             <column name="Data_Nascita">1995-01-21</column>
             <column name="Password">n348xsesw</column>
-            <column name="Residenza">Sarcedo</column>
+            <column name="Residenza">Sarcedo
+</column>
         </table>
         <table name="Utente">
             <column name="Email">sara.marvelin89@gmail.com</column>
@@ -1177,7 +1191,8 @@
             <column name="Nickname">deadpoolpersforza</column>
             <column name="Data_Nascita">1989-12-09</column>
             <column name="Password">mnbyut6er43a</column>
-            <column name="Residenza">Roma</column>
+            <column name="Residenza">Roma
+</column>
         </table>
         <table name="Utente">
             <column name="Email">sara.sbalchiero64@gmail.com</column>
@@ -1186,7 +1201,8 @@
             <column name="Nickname">sailormoon64</column>
             <column name="Data_Nascita">1964-08-06</column>
             <column name="Password">b28xv4vl</column>
-            <column name="Residenza">Bologna</column>
+            <column name="Residenza">Bologna
+</column>
         </table>
         <table name="Utente">
             <column name="Email">sara.viola123@gmail.com</column>
@@ -1195,7 +1211,8 @@
             <column name="Nickname">XX_violetta_XX</column>
             <column name="Data_Nascita">2000-08-16</column>
             <column name="Password">438cvdxhf</column>
-            <column name="Residenza">Trento</column>
+            <column name="Residenza">Trento
+</column>
         </table>
         <table name="Utente">
             <column name="Email">user</column>
@@ -1204,7 +1221,8 @@
             <column name="Nickname">Ombretta</column>
             <column name="Data_Nascita">1989-10-20</column>
             <column name="Password">user</column>
-            <column name="Residenza">Padova</column>
+            <column name="Residenza">Padova
+</column>
         </table>
         <!-- Tabella VotoLibro -->
         <!-- Tabella VotoRecensione -->
