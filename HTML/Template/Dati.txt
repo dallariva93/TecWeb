@@ -1,5 +1,12 @@
-Nome: {{nome}}
-Cognome: {{cognome}}
-Email: {{email}}
-Data di nascita: {{data}}
-Residenza: {{residenza}}
+<div class='content centrato'>
+	<ul>
+		<li>Nome: {{nome}}</li>
+		<li>Cognome: {{cognome}}</li>
+		<li>Email: {{email}}</li>
+		<li>Data di nascita: {{data}}</li>
+		<li>Residenza: {{residenza}}</li>
+	</ul>
+	<form method="post" action="profilo.php">
+		<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica Password</button>
+	</form>
+</div>

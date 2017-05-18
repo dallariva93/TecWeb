@@ -14,6 +14,7 @@
 		$residenza = ($_POST['residenza'])? $_POST['residenza'] : "";
 
 		$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );
+		
 
 		$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname
 			, Data_Nascita, Password, Residenza) VALUES ('".$_POST['email']."','".$_POST['nome']."','".$_POST['cognome']."','"

@@ -151,11 +151,11 @@ function testNick(&$errore)
 			$errore=true;
 			$nickErr="Nickname già in uso";
 		}
-		elseif(!checkUserSize(($_POST['nickname'])))
+		/*elseif(!checkUserSize(($_POST['nickname'])))
 		{
 			$errore=true;
 			$nickErr="Il nickname deve essere compreso tra i 4 e i 12 caratteri";
-		}
+		}*/
 	}
 	return $nickErr;
 }
@@ -231,7 +231,7 @@ function testPassword(&$errore, $wrongPassword = false)
 		else if(!preg_match("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$^", $_POST ["password"]))
 		{
 			$errore=true;
-			$passErr = "La password deve essere luna almeno 8 caratteri e deve contenere almeno una lettera minuscola, una maiuscola e un numero";
+			$passErr = "La password deve essere lunga almeno 8 caratteri e deve contenere almeno una lettera minuscola, una maiuscola e un numero";
 		}
 
 	}

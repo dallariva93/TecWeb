@@ -1,56 +1,40 @@
-* {	
+* {
 	margin: 0em;
 	padding: 0em;
 }
 html, body{
-	
 	font-family: Verdana, Helvetica, sans-serif;
 	margin: auto;
-	background-color:#ddd;
+	background-color:#C5CAE9;
+}
+body{
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 textarea{
 	width: 100%;
 	max-width: 100%;
+	min-width: 100%;
+}
+a:link {
+	color: #2196F3;
+}
+a:visited {
+	color: #FF5252;
 }
 
-.rightSmall {
-	float: right;
-	width: 25%;
-}
-.leftBig {
-	float: left;
-	width: 73%;
-}
-.rightBig {
-	float:right;
-	width: 68%;
-}
-.leftSmall {
-	float: left;
-	width: 30%;
-}
-.VleftSmall {
-	float: left;
-	width: 20%;
-	
-}
-.VrightBig {
-	float:right;
-	width: 78%;
-}
-.leftBig ,.VleftSmall, .leftSmall{
-	margin-right: 2%;
-}
-.corpo {
-	max-width: 1024px;
-	margin-left: auto;
-	margin-right: auto;
+fieldset legend {
+	font-weight: bold;
+	font-size: 1.5em;
+	padding: 0.7em;
 }
 
-.content{
-	margin-top:5em;
-	margin-bottom:5em;
+fieldset label {
+	padding: 1em;
 }
+
+
 /***************************************************************
 	BOX INSERIMENTO DATI
 ***************************************************************/
@@ -72,9 +56,9 @@ textarea{
 
 }
 .box input:not(:last-child){ /*L'ultimo figlio sarà sempre il bottone */
-	border-radius: 3px; 
+	border-radius: 3px;
 	height: 1.5em;
-	width: 100%;	
+	width: 100%;
 	display: block;
 	margin-top: 0.3em;
 	margin-bottom: 0.5em;
@@ -84,22 +68,33 @@ textarea{
 	box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
 }
 .box  ul{
-	list-style:none;	
+	list-style:none;
 }
 .box li{
-	width:100%;      
+	width:100%;
 	text-align:center;
-	border-radius: 15px; 
+	border-radius: 15px;
 }
 .box li > a{
 	text-decoration:none;
-	border-radius: 15px; 
+	border-radius: 15px;
 	color:black;
 	display:block;
 	width:100%;
 	height:2em;
 	margin:0.2em;
 	background-color:#ddd;
+}
+.box select{
+	width: 100%;
+	margin: 0.5em 0 0.5em 0;
+}
+.box label{
+	width: 100%;
+	float: left;
+}
+.inputError{
+	color: red;
 }
 /**************************************************************
 		BOTTONI
@@ -111,7 +106,6 @@ textarea{
 	margin-top:1em;
 	display: block;
 	width: 100%;
-	
 }
 
 .btnShort{
@@ -123,14 +117,15 @@ textarea{
 			MENU
 ***************************************************************/
 
-.menu { 
+.menu {
 	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
 	width: 100%;
-	z-index: 9;
-	background-color: grey;
+	background-color: #303F9F;
+	z-index: 1;
+	box-shadow: 2px 2px  5px black;
 }
 .menu ul {
 	max-width: 1024px;
@@ -139,20 +134,21 @@ textarea{
 }
 .menu li {
 	float: left;
-	width: 100px;
+	min-width: 100px;
 }
 
 .menu ul li > a{
 	padding: 0.5em;
 	display: block;
 	text-decoration: none;
-	color: black;
-	text-align: center;
-	
-}
-.menu ul li > a:hover { 
 	color: white;
-	background-color: black;
+	text-align: center;
+}
+.menu ul li > a:hover {
+	color: #303F9F;
+	background-color: #C5CAE9;
+	box-shadow: 10px 2px  15px grey;
+
 }
 .menu li.right {
 	float: right;
@@ -162,63 +158,76 @@ textarea{
 ***************************************************************/
 .header{
 	margin-top:2.1em;
-	padding: 5em 0 5em 0;
-	background-color: green;
-	color: greenyellow;
+	padding: 3em 0 3em 0;
+	color: white;
+	width: 100%;
+	text-align: center;
+	background: url(../img/icon/header.jpg);
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+	opacity: 0.6;
 }
 
 /**************************************************************
 	BREADCRUMB E RICERCA
 ***************************************************************/
 .breadcrumb {
-	min-height: 2.5em; /* Bug:; Dovrebbe ridimensionarsi da solo a seconda degli elementi interni*/
-/* Bug: dovrebbe essere staccato dal menu senza dovergli dare la  distanza; */
-	background-color: grey;
-	opacity:0.6;
+	overflow: auto;
+	background-color:#5d73ea;
 	color:white;
-
-}	
-
+	width: 100%;
+	margin-top:2.3em;
+}
+.path a{
+	color: white;
+}
 .path {
+
 	padding-left: 0.5em;
-	padding-top: 0.8em;
+	padding-top: 0.5em;
 	float: left;
-	
+
 }
 
 .searchform {
-	padding-right:0.5em;
-	padding-top: 0.7em;
+	height:22px;
+	padding:0.3em;
 	float: right;
+}
 
+#globalSearch{
+	width:25em;
+    	font-size: 12px;
+    	line-height: 1.5;
+    	border-radius: 3px;
 }
+
+.searchBtn{
+	padding: 3px 10px;
+    border-radius: 3px;
+	font-size: 12px;
+	margin-top:0.1em;
+	border:0;
+}
+
+
 /**************************************************************
-			INDEX
+		ELENCO
 ***************************************************************/
-.text {
-	padding:0.5em;
-	text-align: left;
+.elenco dl {
 	margin-bottom: 1em;
-	margin-top: 1em;
 }
-/**************************************************************
-		RECENSIONI E NEWS
-***************************************************************/
-.elenco dl, .rightSmall{
-	float: left;
-	margin-bottom: 1em;	
+.elenco dt , .elenco >div > h1, .filtri legend{
 	margin-top: 1em;
-}
-.elenco dt , .elenco >div > h1,.filtri legend{ 
 	padding: 0.5em;
 	text-align: center;
 	font-size:1em;
 	font-weight:bold;
 	margin-bottom: 0.1em;
-	background-color:red;
+	background-color:#607D8B;
 	color: white;
 	border-radius: 5px;
-	box-shadow: 1px 1px 5px black;
+	box-shadow: 1px 2px 5px black;
 }
 .elenco dd, .elenco ul{
 	display: block;
@@ -239,31 +248,57 @@ textarea{
 	height:9.5em;
 	float: left;
 	padding-right: 0.5em;
+	width: 15%;
 }
 .elenco a{
 	text-decoration: none;
 	color: black;
 	text-align: left;
+	height: auto;
 }
-.elenco dd:hover{
-	background-color: orange;
+.elenco dd:hover,.elenco li:hover{
+	opacity: 0.7;
+	background-color: lightgrey;
 }
-.elenco  h1{
-	
+.elenco li >a{
+	text-align:center;
+	list-style-type: none;
+	display: block;
+	border-bottom: 1px solid grey;
+	box-shadow: 0px 0px 4px grey;
+	padding: 0.4em;
 }
 /**************************************************************
 		FOOTER
 ***************************************************************/
-#footer{ 
-
-	background-color: grey;
+#footer{
+	position: relative;
+	background-color: #303F9F;
 	clear: both;
 	width: 100%;
+	bottom:0;
+	top: 100%;
 	min-height: 3em;
-	bottom: 0em;
-    position: relative;
-    margin-top: -3em;
-	}
+	overflow: auto;
+}
+#footer a{
+	color:  white;
+}
+#admin {
+	float:left;
+	text-decoration:none;
+	display: block;
+	padding: 0.5em;
+	color: white;
+	border: 1px solid white;
+	width: 10em;
+	margin:0.5em;
+}
+#W3Cimg {
+	display: block;
+	margin:0.5em;
+	float: right;
+}
 /**************************************************************
 		ACCEDI
 ***************************************************************/
@@ -279,26 +314,420 @@ textarea{
 .filtri {
 	margin-bottom: 1em;
 	margin-top: 1em;
-	
+
 	background-color: #fff;
 	border-radius: 5px;
 }
-.filtri legend{
-	margin-bottom: 1em;
-}
-.filtri > div{
-	
+.filtri div{
 	width: 100%;
+	float: left;
+}
+/**************************************************************
+		PAGING
+***************************************************************/
+
+#paging{
+	width: 100%;
+	float: right;
+	text-align: center;
+}
+#paging form button{
+	padding: 1.5em;
+	border-radius: 5px;
+	margin: 0.4%;
+}
+#paging form button:hover:not(#PagingCurrentPage){
+	background-color: #C5CAE9;
+}
+#paging form button:not(#PagingCurrentPage){
+	background-color: white;
+	border: 1px solid grey;
+}
+#PagingCurrentPage{
+	border: 1px solid blue;
+	background-color: #C5CAE9;
+}
+/**************************************************************
+		PAGINA RECENSIONE
+***************************************************************/
+.presentazione li {
+	list-style-type: circle;
+	padding: 0.5em;
+	margin-left: 2em;
+}
+.Errore{
+	width: 96%;
+	margin: 2%;
+	font-size: 1.5em;
+	color: red;
+}
+/**************************************************************
+			TESTO
+***************************************************************/
+.text {
+	padding:0.5em;
+	text-align: left;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+.text h1 {
+	padding: 0.5em;
+}
+.text h2 {
+	padding: 0.2em;
+}
+.info {
+	margin: 0.5em;
+	padding: 0.5em;
+	float: left;
+}
+.text img{
+	margin: 0.5em;
+}
+.text ul{
+	float: left;
 }
 
 /**************************************************************
-		PAGINA AUTORE
+			COMMENTO
 ***************************************************************/
-.presentazione img{
-	min-width: 10em;
-	min-height: 14em;
+.comment{
+	display: block;
+	min-height: 3em;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-radius: 3px;
+	margin-bottom: 0.5em;
+	box-shadow: 2px 2px  15px grey;
 }
-.presentazione li {
-	list-style-type: none;
+.commentTitle{
+	background: #FFC107;
+	width: 100%;
+	height: 1.5em;
+}
+.comment p {
 	padding: 0.5em;
+
+}
+.autoreCommento {
+	font-weight: bold;
+	height: 1.5em;
+	margin-left: 0.5em
+}
+.btnDelete{
+	height: 2em;
+	float: right;
+}
+
+
+.error404 {
+	height: 20em;
+	margin-bottom: 0;
+	background-color: black;
+	color: white;
+	background: url(../img/icon/error.jpg);
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-size: 2em;
+
+}
+/**************************************************************
+			AMMINISTRAZIONE
+***************************************************************/
+.boxAdmin {
+	border: 1px solid blue;
+	width: 32%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+	margin-top: 1%;
+	float: left;
+	text-align: center;
+	padding-top: 5em;
+	padding-bottom: 5em;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-decoration: none;
+}
+.boxAdmin:hover {
+	background-color: lightblue;
+	color:white;
+}
+
+.Table {
+	width: 100%;
+	margin-bottom: 8em;
+	margin-top: 1em;
+}
+.Table table {
+	width: 100%;
+}
+.Table > a:hover {
+	background-color: lightblue;
+}
+th {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border: 1px solid blue;
+}
+td {
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+
+
+}
+td,th {
+	word-break: break-all;
+	border-bottom: 1px solid blue;
+	min-width: 20px;
+}
+#new {
+	text-decoration:none;
+	padding:0.5em;
+	margin:0.5em;
+	float: right;
+	background-color: #388E3C;
+	color: white;
+}
+#new:hover {
+	background-color: #4CAF50;
+}
+/**************************************************************
+			SEARCH
+***************************************************************/
+.button {
+	float: left;
+	text-decoration:none;
+	text-align:center;
+	border:1px solid #FFA000;
+	background-color: #FFECB3;
+	color: red;
+	padding: 2%;
+	width: 27.1%;
+	margin: 1%;
+}
+
+/**************************************************************
+			PROFILO
+***************************************************************/
+.menuProfilo > form{
+	right: 50%;
+	left: 50%;
+	text-align: center;
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+.menuProfilo > form > button{
+	padding: 0.5em;
+	width: 15%;
+
+}
+
+.profCommento
+{
+	border-bottom: 1px solid black;
+
+	border-left:1px solid black;
+	border-right: 1px solid black;
+	margin-bottom: 1em;
+	display: block;
+}
+
+.profCommento > p{
+
+	clear: both;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	background-color: white;
+	padding-bottom: 0.2em;
+	padding-top:0.2em;
+	word-wrap: break-word;
+}
+.datalibro {
+	overflow: hidden;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	padding: 0.5em;
+	background-color: blue;
+}
+
+.dataCommento{
+	float: right;
+
+}
+
+.libro{
+	float: left;
+
+}
+
+.profDati{
+	text-align: center;
+}
+
+
+.MiniaturaLibro a > img{
+	height: 10em;
+	width: 6.5em;
+	text-align: center;
+	margin-top: 1em;
+	margin-left: 2.5em;
+	margin-right: 2.5em;
+
+}
+.MiniaturaLibro{
+	max-width: 20%;
+	float: left;
+	list-style-type: none;
+	text-align: center;
+}
+
+.linkLib{
+	display: block;
+	font-size: 80%;
+	width: 10em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+
+}
+
+.centro{
+	overflow: hidden;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.star{
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	margin-top: 1em;
+
+}
+.MiniaturaLibro{
+	float: left;
+	list-style-type: none;
+	margin-right: 5em;
+}
+
+
+.provaa{
+	text-align: center;
+}
+
+/**************************************************************
+		VOTAZIONE
+***************************************************************/
+.stars{
+	float: left;
+	padding-left: 2em;
+	padding-bottom: 2em;
+	overflow:hidden;
+	direction: rtl;
+}
+.stars>button{
+	width: 40px;
+	height: 40px;
+	border: 0;
+	background: url(../img/icon/Empty_Star.png);
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.stars > button:hover ~ button, .stars > button:hover {
+	background: url(../img/icon/Full_Star.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.Nascondi{
+	position:relative;
+    right:100em;
+	color: #C5CAE9;
+}
+
+
+/**************************************************************
+		GENERALI (TENERE SEMPRE IN FONDO AL DOCUMENTO)
+***************************************************************/
+.attacca {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.centrato {
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.content {
+	overflow: auto;
+	padding-bottom: 10em;
+	background-color: white;
+	width: 100%;
+}
+
+.spazia {
+	margin-top: 5em;
+	margin-bottom: 5em;
+}
+
+.strict{
+	width:35%;
+	padding:0.6em;
+	font-size:0.9em;
+}
+.formError {
+	color: red;
+}
+
+/*
+	margin(1%) + WidthLeft(71%) + (2%) + WidthRight(25%) + margin (1%) = 100%!
+*/
+.rightSmall {
+	float: right;
+	width: 25%;
+}
+.leftBig {
+	float: left;
+	width: 71%;
+}
+/*
+	margin(1%) + WidthLeft(29%) + (2%) + WidthRight(67%) + margin (1%) = 100%!
+*/
+.rightBig {
+	float:right;
+	width: 67%;
+}
+.leftSmall {
+	float: left;
+	width: 29%;
+}
+/*
+	margin(1%) + WidthLeft(19%) + (2%) + WidthRight(77%) + margin (1%) = 100%!
+*/
+.VleftSmall {
+	float: left;
+	width: 19%;
+
+}
+.VrightBig {
+	float:right;
+	width: 77%;
+}
+.leftHalf{
+	float: left;
+	width: 48%;
+}
+
+.rightBig , .rightSmall,.VrightBig{
+	margin-right: 1%;
+}
+.leftBig ,.VleftSmall, .leftSmall{
+	margin-right: 2%;
+	margin-left: 1%;
+}
+.leftHalf{
+	margin: 1%;
 }

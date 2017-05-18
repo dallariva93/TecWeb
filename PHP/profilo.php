@@ -11,19 +11,14 @@
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("", "<span xml:lang='en'> <a href='index.php'>Home</a></span>/Profilo ");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
-	echo str_replace("{{corpo}}" ,stampaDati($db), file_get_contents("../HTML/profile.html"));
+	echo str_replace("{{corpo}}" ,stampaDati($db), file_get_contents("../HTML/Template/profile.txt"));
 	
-	file_get_contents("../HTML/profile.html");
-	
+	$errore=false;
 	
 	//Le varie possibilità in base al pulsante che ho premuto 
 	if(isset($_POST['dati']) && ($_POST['dati']==1))
 	{
 		echo stampaDati($db);
-		if(isset($_POST['modifica']) && ($_POST['dati']==4))
-		{
-			
-		}
 	}
 	elseif(isset($_POST['libriVotati']) && $_POST['libriVotati']==2)
 		stampaLibri($db);
@@ -31,6 +26,10 @@
 	{
 		
 		stampaCommenti($db);
+	}
+	elseif(isset($_POST['ModificaPass']) || isset($_POST['ModificaDati']))
+	{
+		modificaPass($db);
 	}
 	else
 		echo stampaDati($db);
@@ -120,6 +119,84 @@
 		}	
 	}
 	
+	function modificaPass($db)
+	{
+		$UserPassQuery="SELECT Password FROM `Utente` WHERE Email='".$_SESSION['id']."'";
+		$AdminPassQuery="SELECT Password FROM `Redazione` WHERE Email='".$_SESSION['id']."'";
+		$password = $wrongPassword = "";
+		//cerco tra gli utenti
+		$gruppo = $db->query($UserPassQuery);
+		$admin=$user=false;
+		if ( $gruppo->num_rows > 0){ //é un utente
+			$user = true;
+		}
+		else{
+			$gruppo = $db->query($AdminPassQuery);
+			if ( $gruppo->num_rows > 0){ //é un admin
+				$admin = true;
+			}
+		}
+		if( $admin || $user ){
+			$Getpassword = $gruppo->fetch_array(MYSQLI_ASSOC);
+			$password = $Getpassword['Password'];
+		}
+		if($password != "" && isset($_POST['Vpassword']))
+		//Controllo se la password é corretta
+		$wrongPassword =  !(password_verify($_POST['Vpassword'],$password));
+		$gruppo->free();
+		
+		$searchInForm=array("{{VpassError}}","{{NpassError}}","{{CpassError}}");
+		$replaceInForm=array(testVPassword($errore, $wrongPassword), testPassword($errore), ConfirmPassword($errore));
+		echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/ModificaPass.txt"));
+		
+	}
+	
+	
+	function testVPassword(&$errore, $wrongPassword = false)
+{
+	$passErr = "";
+	if(isset($_POST['Vpassword']) && !($_POST['Vpassword'] == "admin" || $_POST['Vpassword'] == "user"))
+	{
+		
+		if (empty($_POST ["Vpassword"]))
+		{
+			$errore=true;
+			$passErr = "Campo obbligatorio";
+		}
+		//controllo se la password dehashata coincide con quella data in input
+		else if(!preg_match("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$^", $_POST ["Vpassword"]))
+		{
+			$errore=true;
+			$passErr = "La password deve essere lunga almeno 8 caratteri e deve contenere almeno una lettera minuscola, una maiuscola e un numero";
+		}
+		else if($wrongPassword)
+		{
+			$errore=true;
+			return $passErr = "Password non corretta";
+		}
+		
+
+	}
+	return $passErr;
+}
+
+	function ConfirmPassword(&$errore)
+	{
+		if(isset($_POST['password']) && isset($_POST['Cpassword']) && $_POST['password']!=$_POST['Cpassword'])
+		{
+			$errore=true;
+			return $passErr = "Le due password non coincidono";
+		}
+	}
+	
+	if(!$errore && isset($_POST['Vpassword']) && isset($_POST['password']) && isset($_POST['Cpassword']))
+	{
+		$hashedPass=password_hash($_POST['password'], PASSWORD_BCRYPT );
+		$updatePassQuery="UPDATE Utente SET Password = '$hashedPass' WHERE Email='".$_SESSION['id']."'";
+		$ok=mysqli_query($db, $updatePassQuery);
+		$_POST['dati']== 1;
+		
+	}
 	
 ?>
 

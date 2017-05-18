@@ -1,0 +1,13 @@
+<div class="box {{AggiungiClassi}}">
+	<form action="profilo.php" onsubmit="return controlloErrori()" method="post">
+		<div>
+			<label for="password">Vecchia Password </label><div class="inputError" id="VPasswordError">{{VpassError}}</div>
+			<input type="password" name="Vpassword" id="Vpassword"/>
+			<label for="password">Nuova Password </label><div class="inputError" id="NPasswordError">{{NpassError}}</div>
+			<input type="password" name="password" id="password"/>
+			<label for="password">Conferma Nuova Password </label><div class="inputError" id="CPasswordError">{{CpassError}}</div>
+			<input type="password" name="Cpassword" id="Cpassword"/>
+			<button type="submit" value="4" class="Pbutton" name="ModificaDati">Conferma</button>
+		</div>
+	</form>
+</div>

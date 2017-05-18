@@ -32,7 +32,7 @@
 		}
 		if( $admin || $user ){
 			$Getpassword = $gruppo->fetch_array(MYSQLI_ASSOC);
-			$pasword = $Getpassword['Password'];
+			$password = $Getpassword['Password'];
 		}
 		if($password != "" )
 		//Controllo se la password é corretta
