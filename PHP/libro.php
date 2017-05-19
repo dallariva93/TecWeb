@@ -81,15 +81,17 @@
 					$autoreNome = $autore['Nome'];
 					$autoreCognome = $autore['Cognome'];
 				}
+				$autoreArray->free();
 			}
 
 			if($redazioneArray = $db->query("SELECT Nome,Cognome FROM Redazione
-										WHERE Id = '". $datiRec['Autore']. "'")){
+										WHERE Email = '". $datiRec['Autore']. "'")){
 				if($redazioneArray->num_rows > 0) {
 					$redazione = $redazioneArray->fetch_array(MYSQLI_ASSOC);
 					$redazioneNome = $redazione['Nome'];
 					$redazioneCognome = $redazione['Cognome'];
 				}
+				$redazioneArray->free();
 			}
 			$searchHead=array("{{title}}","{{description}}");
 			$replaceHead=array("<title>". $datiL['Titolo']. " - FaceOnTheBook </title>"
@@ -174,7 +176,6 @@
 		} // FINE recensione
 
 		$datiLibro->free();
-		$autoreArray->free();
 		$datiRecensione->free();
 
 
@@ -191,9 +192,7 @@
 						$Utente = $Utentecm->fetch_array(MYSQLI_ASSOC);
 						$username = $Utente['Nickname'];
 						$Utentecm->free();
-					}
-					//Caso in cui l'utente che ha commentato non sia nel database
-					else {$username = "Utente sconosciuto";}
+					}					
 					echo "<div class = 'comment'>
 					<div class = 'commentTitle'>";
 

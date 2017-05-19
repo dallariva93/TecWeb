@@ -391,6 +391,9 @@ fieldset label {
 /**************************************************************
 			COMMENTO
 ***************************************************************/
+.inserisciCommento{
+	margin-top: 2em;
+}
 .comment{
 	display: block;
 	min-height: 3em;
