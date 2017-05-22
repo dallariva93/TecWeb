@@ -63,7 +63,7 @@ positivamente.
 ## Pagine necessarie:
 
 1. Index [L]	
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [X] CSS
 	- [X] PHP
 2. News [I]
@@ -71,7 +71,7 @@ positivamente.
 	- [ ] CSS
 	- [ ] PHP
 3. Recensioni [L]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [X] CSS
 	- [X] PHP
 4. Classifica [I]
@@ -79,17 +79,17 @@ positivamente.
 	- [ ] CSS
 	- [ ] PHP
 5. Contatti [L]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [X] CSS
 	- [X] PHP
-	- [ ] JS
+	- [X] JS
 6. Accesso [G + L]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [X] CSS
 	- [X] PHP
 	- [X] JS
 7. Iscrizione [G + L]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [ ] CSS
 	- [X] PHP
 	- [X] JS
@@ -99,15 +99,15 @@ positivamente.
 	- [ ] PHP
 	- [ ] JS
 9. Pagina libro/recensione + commenti [L]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [ ] CSS
 	- [X] PHP
 10. Pagina autore [L]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [ ] CSS
 	- [X] PHP
 11. Pagine amministrazione (7) [L]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [ ] CSS
 	- [X] PHP
 	- [X] JS

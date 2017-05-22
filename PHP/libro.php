@@ -142,31 +142,6 @@
 				$votoRecArray->free();
 			}
 
-			//Voti dell' utente loggato
-			if(isset($_SESSION['type'])){
-
-				//Voto al libro
-				if($votoBook = $db->query("SELECT Valutazione FROM VotoLibro WHERE Libro ='". $codice. "'
-											AND Autore ='". $_SESSION['id']. "'")){
-					if($votoBook->num_rows>0){
-						$votoBookU = $votoBook->fetch_array(MYSQLI_ASSOC);
-						echo "<p class='voto'>Il tuo voto al libro: ". printStar($votoBookU['Valutazione']). "</p>";
-					}
-					$votoBook->free();
-				}
-
-				//Voto alla recensione
-				if($votoRecA = $db->query("SELECT Valutazione FROM VotoRecensione
-											WHERE Recensione ='". $datiRec['Id']. "'
-											AND Autore ='". $_SESSION['id']. "'")){
-					if($votoRecA->num_rows>0){
-						$votoRecU = $votoRecA->fetch_array(MYSQLI_ASSOC);
-						echo "<p class='voto'>Il tuo voto alla recensione: ". printStar($votoRecU['Valutazione']). "</p>";
-					}
-					$votoRecA->free();
-				}
-			} //Fine voti utente loggato
-
 			echo "
 			<h2>Trama: </h2>".
 			$datiL['Trama']. "

@@ -1,6 +1,11 @@
 <?php
 	Require_once('connect.php');
 	Require_once('functions.php');
+	
+	$testo = (isset($_POST['testo']))? campoNonVuoto($errore,$_POST['testo']) : "" ;
+	
+	$searchInForm=array("{{nomeError}}","{{emailError}}","{{TestoError}}");
+	$replaceInForm=array(testNome($errore), testEmail($errore), $testo);						
 
 	if(isset($_POST['testo']) && !$_POST['testo']=="" &&
 	isset($_POST['oggetto']) && isset($_POST['email'])
@@ -25,8 +30,9 @@
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("","<span xml:lang='en'>Home</span>/Contatti");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt")).
+	
+	str_replace($searchInForm ,$replaceInForm, file_get_contents("../HTML/Template/ContattiForm.txt")).
 
-	file_get_contents("../HTML/Template/ContattiForm.txt").
-
+	file_get_contents("../HTML/Template/FileJs.txt").
 	file_get_contents("../HTML/Template/Footer.txt");
 ?>

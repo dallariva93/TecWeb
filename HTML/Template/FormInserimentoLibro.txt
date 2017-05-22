@@ -21,7 +21,7 @@
 				<input type='text' name='casa' id='casa'/>
 
 				<label for='testo' >Trama</label><div class="inputError" id="TestoError">{{TramaError}}</div>
-				<textarea name='trama' id='testo' rows='4' cols='50'/></textarea>
+				<textarea name='trama' id='testo' rows='4' cols='50'></textarea>
 
 				<label for='genere'>Genere
 					<select name='genere' id='genere'>

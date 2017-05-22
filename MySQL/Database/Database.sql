@@ -38,7 +38,7 @@ CREATE TABLE Libro
 	Titolo	varchar(80) NOT NULL,
 	Autore	INT UNSIGNED NOT NULL,
 	Anno_Pubblicazione	date NOT NULL,
-	Casa_Editrice	varchar (20) NOT NULL,
+	Casa_Editrice	varchar (40) NOT NULL,
 	Genere enum('Commedia','Horror','Fantasy','Narrativa','Saggistica','Classico','Thriller','Fantascienza') NOT NULL,
 	Trama text NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)

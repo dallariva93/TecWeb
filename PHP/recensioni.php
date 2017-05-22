@@ -32,7 +32,7 @@
 	echo file_get_contents("../HTML/Template/RecensioniInizioFiltri.txt");
 
 	//Creo opzione per selezionare tutte le recensioni
-	$check = ($genere == "")? "checked" : "";
+	$check = ($genere == "")? "checked = 'checked'" : "";
 	$searchGenere=array("{{GENERE}}","{{VALUE}}","{{CHECK}}");
 	$replaceGenere=array("Tutti","", $check);
 	echo str_replace($searchGenere ,$replaceGenere,

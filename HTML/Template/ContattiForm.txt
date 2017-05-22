@@ -1,15 +1,15 @@
 <div  class="box">
 	<h1>Contatta la redazione</h1>
 	<form action="contacts.php" method="post">
-		<div id="invio_email">
-			<label for="nome">Inserire nome: </label>
-			<input type="text" id="nome" name="nome"/>
-			<label for="email">Indirizzo E-mail: </label>
-			<input type="text" id="email" name="email"/>
+		<div>
+			<label for="nome">Nome </label><div class="inputError" id="NomeError">{{nomeError}}</div>
+			<input type="text" name="nome" id="nome"/>
+			<label for="email">Email </label><div class="inputError" id="EmailError">{{emailError}}</div>
+			<input type="text" name="email" id="email"/>
 			<label for="oggetto">Oggetto E-mail: </label>
 			<input type="text" id="oggetto" name="oggetto"/>
-			<label for="testo">Messaggio: </label>
-			<textarea id="testo" name="testo" rows="4" cols="50"></textarea>
+			<label for='testo'>Messaggio:</label><div class="inputError" id="TestoError">{{TestoError}}</div>
+			<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
 			<input type="submit" value="Invia!" class="btnShort" />
 		</div>
 	</form>

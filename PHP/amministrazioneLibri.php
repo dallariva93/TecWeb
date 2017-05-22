@@ -18,7 +18,7 @@
 		if($TuttiScrittori = $db->query("Select Nome,Cognome,Id From Scrittore GROUP BY Id")){
 			if($TuttiScrittori->num_rows > 0){
 				while($Scrittore = $TuttiScrittori->fetch_array(MYSQLI_ASSOC)){
-					$scrittore .= "<option value=". $Scrittore['Id']. ">".
+					$scrittore .= "<option value='". $Scrittore['Id']. "'>".
 						$Scrittore['Cognome']. " ". $Scrittore['Nome']. "</option>";
 				}
 			}
