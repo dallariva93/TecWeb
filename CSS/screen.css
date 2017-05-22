@@ -624,14 +624,14 @@ td,th {
 /**************************************************************
 		VOTAZIONE
 ***************************************************************/
-.stars{
+.RatingStars{
 	float: left;
 	padding-left: 2em;
 	padding-bottom: 2em;
 	overflow:hidden;
 	direction: rtl;
 }
-.stars>button{
+.RatingStars>button{
 	width: 40px;
 	height: 40px;
 	border: 0;
@@ -639,7 +639,7 @@ td,th {
 	background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-.stars > button:hover ~ button, .stars > button:hover {
+.RatingStars > button:hover ~ button, .RatingStars > button:hover {
 	background: url(../img/icon/Full_Star.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;

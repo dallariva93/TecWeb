@@ -2,7 +2,7 @@
 	<form action='libro.php?libro={{codice}}' method='post'>
 		<fieldset>
 		<legend>{{titolo}}</legend>
-		<div class='stars'>
+		<div class='RatingStars'>
 			<button type='submit' value='5' name='{{id}}'><span class='Nascondi'>5 su 5</span></button>
 			<button type='submit' value='4' name='{{id}}'><span class='Nascondi'>4 su 5</span></button>
 			<button type='submit' value='3' name='{{id}}'><span class='Nascondi'>3 su 5</span></button>
