@@ -17,10 +17,7 @@ Validare **SEMPRE** tutti i documenti (html, css, ecc), esistono siti apposta pe
 - rispettate i gusti della gaggi e le specifiche anche se pensate non abbiano senso
 
 ## Bug noti:
-- ~~Breadcrump: non responsive( non si allontana dal menu senza dargli la distanza e non si ridimensiona a seconda della grandezza degli elementi interni)~~
-- ~~Menu: in vista mobile, accedi e iscriviti non prendono il colore di sfondo del menu~~
 - Mobile: manca tutta la gestione per gli schermi piccoli
-- ~~Classe content non colora lo sfondo~~
 
 ## Specifiche:
 
@@ -66,63 +63,54 @@ positivamente.
 ## Pagine necessarie:
 
 1. Index [L]	
-	- [X] HTML
+	- [ ] HTML validato
 	- [X] CSS
 	- [X] PHP
-	- [X] JS
-	
 2. News [I]
-	- [ ] HTML
+	- [ ] HTML validato
 	- [ ] CSS
 	- [ ] PHP
-	- [ ] JS
 3. Recensioni [L]
-	- [X] HTML
+	- [ ] HTML validato
 	- [X] CSS
 	- [X] PHP
-	- [X] JS
 4. Classifica [I]
-	- [ ] HTML
+	- [ ] HTML validato
 	- [ ] CSS
 	- [ ] PHP
-	- [ ] JS
 5. Contatti [L]
-	- [X] HTML
+	- [ ] HTML validato
+	- [X] CSS
+	- [X] PHP
+	- [ ] JS
+6. Accesso [G + L]
+	- [ ] HTML validato
 	- [X] CSS
 	- [X] PHP
 	- [X] JS
-6. Accesso [G + L]
-	- [X] HTML
-	- [X] CSS
-	- [X] PHP
-	- [ ] JS
 7. Iscrizione [G + L]
-	- [X] HTML
+	- [ ] HTML validato
 	- [ ] CSS
 	- [X] PHP
-	- [ ] JS
+	- [X] JS
 8. Pagina utente [G]
-	- [X] HTML
+	- [ ] HTML validato
 	- [ ] CSS
 	- [ ] PHP
 	- [ ] JS
 9. Pagina libro/recensione + commenti [L]
-	- [X] HTML
-	- [X] CSS
+	- [ ] HTML validato
+	- [ ] CSS
 	- [X] PHP
-	- [X] JS
 10. Pagina autore [L]
-	- [X] HTML
-	- [X] CSS
+	- [ ] HTML validato
+	- [ ] CSS
+	- [X] PHP
+11. Pagine amministrazione (7) [L]
+	- [ ] HTML validato
+	- [ ] CSS
 	- [X] PHP
 	- [X] JS
-11. Pagina amministrazione [A + L]
-	- [X] HTML
-	- [X] CSS
-	- [X] PHP
-	- [X] JS
-
-	A: Andrea
 	
 	I: Isacco
 	
