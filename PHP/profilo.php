@@ -22,15 +22,25 @@
 	}
 	elseif(isset($_POST['libriVotati']) && $_POST['libriVotati']==2)
 		stampaLibri($db);
-	elseif(isset($_POST['commenti']) && $_POST['commenti']==3)
+	elseif(isset($_POST['commenti']) )
 	{
-		
+		echo $_POST['commenti'];
 		stampaCommenti($db);
 	}
 	elseif(isset($_POST['ModificaPass']) || isset($_POST['ModificaDati']))
 	{
 		modificaPass($db);
 	}
+	elseif(isset($_GET['page']))
+	{
+		stampaCommenti($db, $_GET['page']);
+		
+	}
+	/*elseif(isset($_GET['page']))
+	{
+		stampaCommenti($db, $_GET['page']);
+	}*/
+		
 	else
 		echo stampaDati($db);
 		
@@ -97,11 +107,16 @@
 		
 	}
 	
-	function stampaCommenti($db)
+	function stampaCommenti($db, $page=0)
 	{
-		$com = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC" );	
-		$arrayCommenti= array();
+		//$page do valore da get
 		
+		$com = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti 
+							WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC LIMIT 5 OFFSET " .($page*5) );	
+		$totCom = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");	
+		
+		$arrayCommenti= array();
+		$arrayTotCommenti = array();
 		while ($row = mysqli_fetch_array($com)) 	//riempio l'array con array di date, commenti e libro della recensione 
 		{
 			array_push($arrayCommenti,$row);
@@ -109,6 +124,7 @@
 		
 		$i=0;
 		$searchCommento=array("{{libro}}","{{dataCommento}}","{{testoCommento}}");
+		$numComm=count($arrayCommenti);
 		while($i<count($arrayCommenti))
 		{
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN=(SELECT Libro FROM `Recensione` WHERE Id='".$arrayCommenti[$i][1]."')");
@@ -117,7 +133,43 @@
 			echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoProfilo.txt"));
 			$i++;
 		}	
-	}
+		
+		while ($row = mysqli_fetch_array($totCom)) 	//riempio l'array con array di date, commenti e libro della recensione 
+		{
+			array_push($arrayTotCommenti,$row);
+		}
+		//stampo i tasti in base ai risultati della query
+		//echo count($arrayCommenti);
+		echo $page;
+		echo count($arrayTotCommenti);
+		
+		
+		if(!isset($_GET['page']) || $_GET['page']==0)				//pagina iniziale, non stampo il bottone indietro
+		{
+			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
+			$arrayButtonReplace=array($page+1, $page-1, "hidden", "");
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/Button.txt"));
+		}
+		elseif(($_GET['page'])+1>=count($arrayTotCommenti)/5)				//pagina finale, non stampo il bottone avanti
+		{
+			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
+			$arrayButtonReplace=array($page+1, $page-1,"", "hidden");
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/Button.txt"));
+		}
+		else 					//pagine intermedie, li stampo entrambi
+		{
+			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
+			$arrayButtonReplace=array($page+1, $page-1,"", "");
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/Button.txt"));
+		}
+		
+		
+		
+		
+		
+	
+	
+}
 	
 	function modificaPass($db)
 	{
@@ -152,6 +204,7 @@
 	}
 	
 	
+	
 	function testVPassword(&$errore, $wrongPassword = false)
 {
 	$passErr = "";
@@ -175,7 +228,6 @@
 			return $passErr = "Password non corretta";
 		}
 		
-
 	}
 	return $passErr;
 }
@@ -195,7 +247,7 @@
 		$updatePassQuery="UPDATE Utente SET Password = '$hashedPass' WHERE Email='".$_SESSION['id']."'";
 		$ok=mysqli_query($db, $updatePassQuery);
 		$_POST['dati']== 1;
-		
+		header('Location: profilo.php');	
 	}
 	
 ?>
