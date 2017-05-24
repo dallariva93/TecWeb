@@ -11,7 +11,7 @@
 			<label for='testo'>Inserisci qui il tuo testo: </label><div class="inputError" id="TestoError">{{TestoError}}</div>
 			<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
 			<label for='valutazione'>valutazione:</label>
-			<div class='stars' id='valutazione'>
+			<div class='RatingStars' id='valutazione'>
 				<button type='submit' value='5' name='valutazione'><span class='Nascondi'>5 su 5</span></button>
 				<button type='submit' value='4' name='valutazione'><span class='Nascondi'>4 su 5</span></button>
 				<button type='submit' value='3' name='valutazione'><span class='Nascondi'>3 su 5</span></button>

@@ -51,9 +51,15 @@
 		}
 		$TuttiGeneri->free();
 	}
+	
 	//Stampa finale filtri
 	echo file_get_contents("../HTML/Template/RecensioniFineFiltri.txt");
+	
+	echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
+	"</div>";
 
+	
+	
 	//Elenco di tutte le recensioni
 	echo "<div class='elenco' ><dl class='VrightBig'><dt>Ultime Recensioni</dt>";
 
@@ -79,7 +85,7 @@
 	}
 	//Fine stampa recensioni
 	echo "</dl></div>";
-
+	echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 	//Stampa funzione per il paging
 	$count = "SELECT COUNT(*) AS Totale FROM ($sqlQuery) AS Count";
 	if($totNumber = ($db->query($count)->fetch_array(MYSQLI_ASSOC))){

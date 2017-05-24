@@ -13,7 +13,6 @@
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("attacca"," <span xml:lang='en'>Home</span>");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
-
 	echo "<div class='centrato content'>
 	<div class='elenco'>".
 
@@ -34,6 +33,7 @@
 	}
 	echo "</dl>". //Fine ultime recensioni
 
+	
 	//ULTIMI LIBRI USCITI
 
 	"<div class='rightSmall'>
@@ -52,8 +52,10 @@
 		$UltimeExt->free();
 	}
 
-	echo "</div>".// Fine ultime uscite
-
+	echo file_get_contents("../HTML/Template/LinkAlMenu.txt"). "</div>".// Fine ultime uscite
+	
+	
+	
 	//ULTIME NOTIZIE
 
 	"<div class='rightSmall'>
@@ -74,8 +76,9 @@
 
 	$db->close();
 
-	echo "</div>". //Fine Ultime news
+	echo file_get_contents("../HTML/Template/LinkAlMenu.txt"). "</div>". //Fine Ultime news
 			"</div> ". //Fine classe elenco
+	
 			"</div>". //Fine classe content
 	file_get_contents("../HTML/Template/Footer.txt");
 ?>

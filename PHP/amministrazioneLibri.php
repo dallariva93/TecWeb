@@ -76,7 +76,8 @@
 		//Fine tabella
 		echo "</tbody></table></div>";
 
-
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
+		
 		//Form per inserire libro
 
 		echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/FormInserimentoLibro.txt"));

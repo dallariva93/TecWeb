@@ -32,6 +32,8 @@
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt")).
 	
 	str_replace($searchInForm ,$replaceInForm, file_get_contents("../HTML/Template/ContattiForm.txt")).
+	
+	file_get_contents("../HTML/Template/LinkAlMenu.txt").
 
 	file_get_contents("../HTML/Template/FileJs.txt").
 	file_get_contents("../HTML/Template/Footer.txt");

@@ -86,6 +86,8 @@
 			$Recensioni->free();
 		}
 		echo "</tbody></table></div>";
+		
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
 		//Form inserimento recensione
 		echo str_replace($searchInForm, $replaceInForm ,

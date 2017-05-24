@@ -48,6 +48,8 @@
 			$Scrittori->free();
 		}
 		echo "</tbody></table></div>";
+		
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
 		//Form inserimento
 		echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/FormInserimentoScrittore.txt"));
