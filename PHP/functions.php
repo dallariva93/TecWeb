@@ -17,20 +17,20 @@ function menu(){
 		Require('connect.php');
 		echo file_get_contents("../HTML/Template/Menu.txt");
 		if(isset($_SESSION['type'])) {
-			echo "<li class='right'><a href='logout.php'>Esci</a></li>";
+			echo "<li class='right'><a href='logout.php' tabindex='3'>Esci</a></li>";
 			if($_SESSION['type'] == 'admin')
-				echo "<li class='right'><a href='amministrazione.php'>Amministrazione</a></li>";
+				echo "<li class='right'><a href='amministrazione.php' tabindex='2'>Amministrazione</a></li>";
 			else if($_SESSION['type'] == 'user'){
 				$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
 				$utente = $user->fetch_array(MYSQLI_ASSOC);
-				echo "<li class='right'><a href='profilo.php'>". $utente['Nickname']."</a></li>";
+				echo "<li class='right'><a href='profilo.php' tabindex='2'>". $utente['Nickname']."</a></li>";
 			}
 
 		}
 		else{
 			echo "
-			<li class='right'><a href='login.php'>Accedi</a></li>
-			<li class='right'><a href='registrazione.php'>Iscriviti</a></li>";
+			<li class='right'><a href='login.php' tabindex='3'>Accedi</a></li>
+			<li class='right'><a href='registrazione.php' tabindex='2'>Iscriviti</a></li>";
 		}
 		echo
 		"</ul>

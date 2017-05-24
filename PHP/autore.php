@@ -30,6 +30,8 @@
 			$searchHeader=array("{{Immagine}}","{{Cognome}}","{{Nome}}","{{Data}}","{{Nazionalita}}");
 			$replaceHeader=array($immagine,$dati['Cognome'], $dati['Nome'],data($dati['Data_Nascita']),$dati['Nazionalita']);
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneAutore.txt"));
+			
+			echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
 			//Ricerca di tutti i libri dell' autore nel sito
 			if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione FROM Libro WHERE Autore ='". $_REQUEST['autore']. "' ORDER BY Anno_Pubblicazione")) {
@@ -48,6 +50,7 @@
 
 
 			echo "</div>".//fine class text
+				file_get_contents("../HTML/Template/LinkAlMenu.txt").
 					"</div>".//fine class content
 
 			file_get_contents("../HTML/Template/Footer.txt");

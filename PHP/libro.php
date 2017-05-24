@@ -142,10 +142,11 @@
 				$votoRecArray->free();
 			}
 
-			echo "
-			<h2>Trama: </h2>".
-			$datiL['Trama']. "
-			<h2>Recensione:</h2>".
+			echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
+			"<h2>Trama: </h2>".
+			$datiL['Trama'].
+			file_get_contents("../HTML/Template/LinkAlMenu.txt").
+			"<h2>Recensione:</h2>".
 			$datiRec['Testo'];
 
 		} // FINE recensione
@@ -153,7 +154,7 @@
 		$datiLibro->free();
 		$datiRecensione->free();
 
-
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		// SEZIONE COMMENTI
 
 		if ($datiCommenti = $db->query("SELECT * FROM Commenti WHERE Recensione = '". $codiceRec. "'
@@ -187,6 +188,8 @@
 				} //Fine ciclo
 
 			echo "</div>";// Fine class comments
+			
+			echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 			}
 		$datiCommenti->free();
 		}
@@ -199,8 +202,10 @@
 			echo str_replace($searchNuovoCommento ,$replaceNuovoCommento
 						, file_get_contents("../HTML/Template/AddCommento.txt"));
 		}
-
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		echo "</div>"; // Fine class text
+		
+		
 
 		//Voti dell' utente loggato al libro o alla recensione
 
@@ -219,6 +224,7 @@
 							, file_get_contents("../HTML/Template/VotoLibro.txt"));
 
 		} //Fine voti libro/recensione
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		$db->close();
 		echo "</div>". //Fine classe content
 		file_get_contents("../HTML/Template/Footer.txt");

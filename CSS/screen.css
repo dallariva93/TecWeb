@@ -665,7 +665,7 @@ td,th {
 
 }
 .content {
-	overflow: auto;
+	overflow: hidden;
 	padding-bottom: 10em;
 	background-color: white;
 	width: 100%;
