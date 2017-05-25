@@ -24,7 +24,6 @@
 		stampaLibri($db);
 	elseif(isset($_POST['commenti']) )
 	{
-		echo $_POST['commenti'];
 		stampaCommenti($db);
 	}
 	elseif(isset($_POST['ModificaPass']) || isset($_POST['ModificaDati']))
@@ -36,10 +35,10 @@
 		stampaCommenti($db, $_GET['page']);
 		
 	}
-	/*elseif(isset($_GET['page']))
+	elseif(isset($_GET['books']))
 	{
-		stampaCommenti($db, $_GET['page']);
-	}*/
+		stampaLibri($db, $_GET['books']);
+	}
 		
 	else
 		echo stampaDati($db);
@@ -60,7 +59,7 @@
 		
 	}
 	
-	function stampaLibri($db)
+	function stampaLibri($db, $page=0)
 	{
 		$lib=$db->query("SELECT Libro FROM VotoLibro WHERE Autore = '".$_SESSION['id']. "'");
 		$vot=$db->query("SELECT Valutazione FROM VotoLibro WHERE Autore = '".$_SESSION['id']. "'");		
@@ -69,6 +68,7 @@
 		$arrayLibri=array();
 		$arrayStelle=array();
 		$i=$l=0;
+		$bookPerPage=15;
 		while ($row = mysqli_fetch_array($lib)) 	//riempio l'array 
 		{
 			array_push($arrayISBN,$row);
@@ -88,21 +88,46 @@
 		
 		$searchVotiLibro=array("{{ISBN}}", "{{titolo}}", "{{voto}}");
 		echo "<div class='content centrato'><ul class='centro'>";
-		while($i<count($arrayISBN))
+		while($i<count($arrayISBN) )  		//riempio l'array
 		{
 			
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN='".$arrayISBN[$i][0]."' ORDER BY Titolo");
 			$libro=mysqli_fetch_array($lib);
 			array_push($arrayLibri, $libro);
+			$i++;
+		}
 			
-			
-			$replaceVotiLibro=array($arrayISBN[$i][0], $arrayLibri[$i][0], $arrayStelle[$i]);
+		//stampo le miniature dei libri
+		$i=0;
+		while($i<$bookPerPage && $i+($page*$bookPerPage)<count($arrayISBN) )
+		{
+			$replaceVotiLibro=array($arrayISBN[$i+($page*$bookPerPage)][0], $arrayLibri[$i+($page*$bookPerPage)][0], $arrayStelle[$i+($page*$bookPerPage)]);
 			echo str_replace($searchVotiLibro, $replaceVotiLibro, file_get_contents("../HTML/Template/MiniaturaLibroProfilo.txt"));
 			$i++;
 		}
+		
 		echo "</ul></div>";
 		
-		
+		if(count($arrayISBN)<=$bookPerPage)			//ho meno elementi di bookPerPage, non stampo i bottoni
+		{}		
+		elseif(!isset($_GET['books']) || $_GET['books']==0)				//pagina iniziale, non stampo il bottone indietro
+		{
+			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
+			$arrayButtonReplace=array($page+1, $page-1, "hidden", "");
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/BooksButtons.txt"));
+		}
+		elseif(($_GET['books'])+1>=count($arrayISBN)/$bookPerPage)				//pagina finale, non stampo il bottone avanti
+		{
+			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
+			$arrayButtonReplace=array($page+1, $page-1,"", "hidden");
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/BooksButtons.txt"));
+		}
+		else 					//pagine intermedie, li stampo entrambi
+		{
+			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
+			$arrayButtonReplace=array($page+1, $page-1,"", "");
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/BooksButtons.txt"));
+		}
 		
 		
 	}
@@ -111,8 +136,9 @@
 	{
 		//$page do valore da get
 		
+		$commentsPerPage=10;
 		$com = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti 
-							WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC LIMIT 5 OFFSET " .($page*5) );	
+							WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );	
 		$totCom = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");	
 		
 		$arrayCommenti= array();
@@ -138,29 +164,25 @@
 		{
 			array_push($arrayTotCommenti,$row);
 		}
-		//stampo i tasti in base ai risultati della query
-		//echo count($arrayCommenti);
-		echo $page;
-		echo count($arrayTotCommenti);
 		
 		
 		if(!isset($_GET['page']) || $_GET['page']==0)				//pagina iniziale, non stampo il bottone indietro
 		{
 			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
 			$arrayButtonReplace=array($page+1, $page-1, "hidden", "");
-			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/Button.txt"));
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/CommentsButtons.txt"));
 		}
-		elseif(($_GET['page'])+1>=count($arrayTotCommenti)/5)				//pagina finale, non stampo il bottone avanti
+		elseif(($_GET['page'])+1>=count($arrayTotCommenti)/$commentsPerPage)				//pagina finale, non stampo il bottone avanti
 		{
 			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
 			$arrayButtonReplace=array($page+1, $page-1,"", "hidden");
-			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/Button.txt"));
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/CommentsButtons.txt"));
 		}
 		else 					//pagine intermedie, li stampo entrambi
 		{
 			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
 			$arrayButtonReplace=array($page+1, $page-1,"", "");
-			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/Button.txt"));
+			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/CommentsButtons.txt"));
 		}
 		
 		
