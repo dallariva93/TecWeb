@@ -176,7 +176,7 @@ fieldset label {
 	background-color:#5d73ea;
 	color:white;
 	width: 100%;
-	margin-top:2.3em;
+	margin-top:2.2em;
 }
 .path a{
 	color: white;
@@ -203,7 +203,7 @@ fieldset label {
 	margin-bottom: 0.1em;
 	background-color:#607D8B;
 	color: white;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	box-shadow: 1px 2px 5px black;
 }
 .elenco dd, .elenco ul{
@@ -212,7 +212,7 @@ fieldset label {
 	height: 10em;
 	overflow: hidden;
 	background-color:#fff;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	box-shadow: 0 1px 5px black;
 }
 
@@ -293,7 +293,7 @@ fieldset label {
 	margin-top: 1em;
 
 	background-color: #fff;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 }
 .filtri div{
 	width: 100%;
@@ -310,7 +310,7 @@ fieldset label {
 }
 #paging form button{
 	padding: 1.5em;
-	border-radius: 5px;
+/*border-radius: 5px;*/
 	margin: 0.4%;
 }
 #paging form button:hover:not(#PagingCurrentPage){
@@ -495,7 +495,7 @@ td,th {
 /**************************************************************
 			PROFILO
 ***************************************************************/
-.menuProfilo > form{
+.formProfilo{
 	right: 50%;
 	left: 50%;
 	text-align: center;
@@ -511,11 +511,13 @@ td,th {
 
 .profCommento
 {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid;
+	width: 96%;
 	border-left:1px solid black;
 	border-right: 1px solid black;
-	margin-bottom: 1em;
 	display: block;
+	text-align: center;
+	margin: 2em auto 2em auto;
 }
 
 .profCommento > p{
@@ -560,11 +562,15 @@ td,th {
 	margin-right: 2.5em;
 
 }
+
 .MiniaturaLibro{
-	max-width: 20%;
+	min-width: 20%;
+	max-width: 33%;
 	float: left;
 	list-style-type: none;
 	text-align: center;
+
+	min-height: 18em;
 }
 
 .linkLib{
@@ -593,14 +599,9 @@ td,th {
 
 }
 
-
-
-.provaa{
-	text-align: center;
+.MiniaturaLibro a:first-child:link{
+	display: block;
 }
-
-/**************************************************************
-		VOTAZIONE
 ***************************************************************/
 .RatingStars{
 	float: left;
@@ -650,7 +651,7 @@ td,th {
 }
 .content {
 	overflow: auto;
-	padding-bottom: 10em;
+	padding-bottom: 1em;
 	background-color: white;
 	width: 100%;
 }
@@ -722,3 +723,4 @@ td,th {
 .hidden{
 display: none;
 }
+
