@@ -592,11 +592,7 @@ td,th {
 	margin-top: 1em;
 
 }
-.MiniaturaLibro{
-	float: left;
-	list-style-type: none;
-	margin-right: 5em;
-}
+
 
 
 .provaa{
@@ -627,9 +623,15 @@ td,th {
 	background-repeat: no-repeat;
 }
 .Nascondi{
-	position:relative;
+	/*position:relative;
     right:100em;
-	color: #C5CAE9;
+	color: #C5CAE9;*/
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
 }
 
 
