@@ -26,11 +26,10 @@
 		GENERALI
 ***************************/
 .rightBig , .rightSmall,.VrightBig{
-	margin-right: 1%;
+	margin: 0;
 }
 .leftBig ,.VleftSmall, .leftSmall{
-	margin-right: 2%;
-	margin-left: 1%;
+	margin:0;
 }
 .leftHalf{
 	width: 98%;
@@ -40,11 +39,10 @@
 	width:100%;
 }
 .rightBig , .rightSmall,.VrightBig{
-	margin-right: 0;
+	margin: 0;
 }
 .leftBig ,.VleftSmall, .leftSmall, .lefthalf{
-	margin-right: 0;
-	margin-left: 0;
+	margin: 0;
 }
 
 /**************************
@@ -58,16 +56,15 @@
 /**************************
 		TESTO
 ***************************/
-
 .text img{
 	float: none;
-	margin-left: 25%;
-	width: 50%;
 }
 .text {
 	font-size: 1.3em;
 }
-
+.immagineRecensione{
+	height: 400px;
+}
 /**************************
 		ELENCO
 ***************************/
