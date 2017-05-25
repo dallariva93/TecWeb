@@ -6,7 +6,7 @@
 		<li>Data di nascita: {{data}}</li>
 		<li>Residenza: {{residenza}}</li>
 	</ul>
-	<form method="post" action="profilo.php">
+	<form method="post" class="formProfilo" action="profilo.php">
 		<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica Password</button>
 	</form>
 </div>
