@@ -7,11 +7,6 @@ html, body{
 	margin: auto;
 	background-color:#e0e0e4;
 }
-body{
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-}
 textarea{
 	width: 100%;
 	max-width: 100%;
@@ -47,7 +42,6 @@ fieldset label {
 	margin-top: 0.5em;
 	background-color: #fff;
 	border: 1px solid #d8dee2;
-	/*border-radius: 5px;*/
 }
 
 .box h1{
@@ -55,7 +49,7 @@ fieldset label {
 	padding: 0.5em;
 
 }
-.box input:not(:last-child){ /*L'ultimo figlio sarà sempre il bottone */
+.box input:not(:last-child){
 	border-radius: 3px;
 	height: 1.5em;
 	width: 100%;
@@ -73,11 +67,9 @@ fieldset label {
 .box li{
 	width:100%;
 	text-align:center;
-	/*border-radius: 15px;*/
 }
 .box li > a{
 	text-decoration:none;
-	/*border-radius: 15px;*/
 	color:black;
 	display:block;
 	width:100%;
@@ -202,7 +194,6 @@ fieldset label {
 	margin-bottom: 0.1em;
 	background-color:#1e4b61;
 	color: white;
-	/*border-radius: 5px;*/
 	box-shadow: 1px 2px 5px black;
 }
 .elenco dd, .elenco ul{
@@ -211,7 +202,6 @@ fieldset label {
 	height: 10em;
 	overflow: hidden;
 	background-color:#fff;
-	/*border-radius: 5px;*/
 	box-shadow: 0 1px 5px black;
 }
 
@@ -292,12 +282,10 @@ fieldset label {
 	margin-top: 1em;
 	margin: 1px solid #e8e8e8;
 	background-color: #fff;
-	/*border-radius: 5px;*/
 }
 .filtri div{
 	width: 100%;
 	float: left;
-	
 	margin-bottom: 5px;
 }
 .filtri>h1{
@@ -309,8 +297,8 @@ fieldset label {
 	float: right;
 }
 .filtri>form>div>div{
-border-bottom:1px solid #e8e8e8;
-padding-bottom: 5px;
+	border-bottom:1px solid #e8e8e8;
+	padding-bottom: 5px;
 }
 /**************************************************************
 		PAGING
@@ -323,7 +311,6 @@ padding-bottom: 5px;
 }
 #paging form button{
 	padding: 1.5em;
-/*border-radius: 5px;*/
 	margin: 0.4%;
 }
 #paging form button:hover:not(#PagingCurrentPage){
@@ -353,16 +340,42 @@ padding-bottom: 5px;
 	font-weight: bold;
 	color: red;
 }
-.valutazioniRecensione{
+.Intestazione {
 	margin-top: 1em;
-	border-bottom: 0px solid red;
-	border-right: 0px solid red;
+}
+.Intestazione img:first-child{
+	height: 20%;
+	margin-top: 0.5em;
+}
+.Intestazione>div:not(:last-child){
+	width: 77%;
+	float: left;
+}
+.Intestazione>div>div{
+	float: left;
+	width: 48%;
+	margin: 1%;
+}
+.Intestazione h2{
+	font-weight: normal;
+	opacity: 0.7;
+}
+.Intestazione h3{
+	width: 98%;
+	margin: 2%;
+	float: left;
+	opacity: 0.9;
+}
+.Intestazione>div>div>p{
+	font-weight: bold;
+	margin: 1%;
+}
+.valutazioniRecensione{
+	float: left;
+	width: 98%;
+	margin: 1%;
 	box-shadow: 0px 2px 5px grey;
 	font-size: 1.2em;
-}
-.valutazioniRecensione .star {
-	vertical-align: middle;
-	text-align:left;
 }
 .valutazioniRecensione p {
 	margin-left: 5%;
@@ -375,6 +388,7 @@ padding-bottom: 5px;
 			TESTO
 ***************************************************************/
 .text {
+	float: left;
 	padding:0.5em;
 	text-align: left;
 	margin-bottom: 1em;
@@ -387,7 +401,6 @@ padding-bottom: 5px;
 	padding: 0.2em;
 }
 .info {
-	margin: 0.5em;
 	padding: 0.5em;
 	float: left;
 }
@@ -628,8 +641,10 @@ td,th {
 	border-bottom: 1px solid #e8e8e8;
 	padding: 0.5em 0.5em 0.5em 0.5em;
 	overflow: hidden;
-	
+
 }
+/**************************************************************
+			VOTAZIONE
 ***************************************************************/
 .RatingStars{
 	float: left;
@@ -652,9 +667,6 @@ td,th {
 	background-repeat: no-repeat;
 }
 .Nascondi{
-	/*position:relative;
-    right:100em;
-	color: #C5CAE9;*/
 	position:absolute;
 	left:-10000px;
 	top:auto;
@@ -751,4 +763,3 @@ td,th {
 .hidden{
 display: none;
 }
-

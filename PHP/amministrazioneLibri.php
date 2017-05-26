@@ -47,7 +47,7 @@
 		echo menu();
 
 		$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-		$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/<span> <a href='amministrazione.php'>Amministrazione</a></span>/Libri");
+		$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span> > <span> <a href='amministrazione.php'>Amministrazione</a></span> > Libri");
 		echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 		echo "<div class='centrato content'>".
@@ -77,7 +77,7 @@
 		echo "</tbody></table></div>";
 
 		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
-		
+
 		//Form per inserire libro
 
 		echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/FormInserimentoLibro.txt"));

@@ -1,11 +1,8 @@
 <div class='centrato presentazione content'>
-	<div class='text'>
+	<div class='Intestazione'>
 		<img class='VleftSmall' src='{{Immagine}}' alt=''/>
-		<div class='info'>
 		<h1>{{Nome}} {{Cognome}}</h1>
-
-		<h2>Data di nascita: {{Data}}</h2>
-
-		<h2>Nazionalita: {{Nazionalita}}</h2>
-
-		</div>
+		<div>
+		<div><h2>Data di nascita</h2><p>{{Data}}</p></div>
+		<div><h2>Nazionalita</h2><p>{{Nazionalita}}</p></div>
+	</div>

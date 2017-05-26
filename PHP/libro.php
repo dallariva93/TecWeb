@@ -66,7 +66,7 @@
 				}
 			}
 		}//Fine azioni form
-		
+
 		if($datiLibro->num_rows > 0) {
 
 			$datiL = $datiLibro->fetch_array(MYSQLI_ASSOC);
@@ -103,14 +103,16 @@
 
 			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 			$replaceBreadcrumb=array(""
-						,"<span xml:lang='en'> <a href='index.php'>Home</a></span>/". $datiL['Titolo']);
+						,"<span xml:lang='en'> <a href='index.php'>Home</a></span> > ". $datiL['Titolo']);
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb
 						, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			$searchHeader=array("{{errore}}","{{ISBN}}","{{Titolo}}","{{Id}}","{{Nome}}","{{Cognome}}"
-								,"{{NomeAutore}}","{{CognomeAutore}}");
+								,"{{NomeAutore}}","{{CognomeAutore}}","{{Casa}}","{{Genere}}","{{Data}}");
 			$replaceHeader=array($errore,$datiL['ISBN'],$datiL['Titolo'],$datiL['Autore']
-								,$autoreNome,$autoreCognome,$redazioneNome,$redazioneCognome);
+								,$autoreNome,$autoreCognome,$redazioneNome,$redazioneCognome
+								,$datiL['Casa_Editrice'],$datiL['Genere']
+								,data($datiL['Anno_Pubblicazione']));
 			echo str_replace($searchHeader ,$replaceHeader
 							, file_get_contents("../HTML/Template/IntestazioneLibro.txt"));
 
@@ -118,7 +120,7 @@
 		if($datiRec) { //Stampa della recensione e dei suoi dati
 
 			//Voto al libro dato dalla redazione
-			echo "<div class='valutazioniRecensione VrightBig'><p>Valutazione dalla redazione: ". printStar($datiRec['Valutazione']). "</p>";
+			echo "<div class='valutazioniRecensione'><p>Valutazione dalla redazione: ". printStar($datiRec['Valutazione']). "</p>";
 
 			//Voto al libro dato dalla media dei voti al libro degli utenti
 			if($votoLibArray = $db->query("SELECT ROUND(AVG(Valutazione),1) AS Media
@@ -142,8 +144,8 @@
 				$votoRecArray->free();
 			}
 
-			echo "</div>". file_get_contents("../HTML/Template/LinkAlMenu.txt").
-			"<h2>Trama: </h2>".
+			echo "</div></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt").
+			"<div class='text'><h2>Trama: </h2>".
 			$datiL['Trama'].
 			file_get_contents("../HTML/Template/LinkAlMenu.txt").
 			"<h2>Recensione:</h2>".
@@ -168,7 +170,7 @@
 						$Utente = $Utentecm->fetch_array(MYSQLI_ASSOC);
 						$username = $Utente['Nickname'];
 						$Utentecm->free();
-					}					
+					}
 					echo "<div class = 'comment'>
 					<div class = 'commentTitle'>";
 
@@ -188,7 +190,7 @@
 				} //Fine ciclo
 
 			echo "</div>";// Fine class comments
-			
+
 			echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 			}
 		$datiCommenti->free();
@@ -204,8 +206,8 @@
 		}
 		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		echo "</div>"; // Fine class text
-		
-		
+
+
 
 		//Voti dell' utente loggato al libro o alla recensione
 
