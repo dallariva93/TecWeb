@@ -1,5 +1,5 @@
 <div class='content centrato'>
-	<ul>
+	<ul class="dati">
 		<li>Nome: {{nome}}</li>
 		<li>Cognome: {{cognome}}</li>
 		<li>Email: {{email}}</li>

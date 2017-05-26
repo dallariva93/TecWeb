@@ -1,5 +1,5 @@
 <div class="centrato content">
 <div  class="filtri VleftSmall">
-<h1>Filtri</h1>	
+<h1>Genere</h1>	
 <form action="recensioni.php" method="post">
 	<div>
