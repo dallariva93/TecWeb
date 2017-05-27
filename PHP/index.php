@@ -14,7 +14,7 @@
 	$replaceBreadcrumb=array("attacca"," <span xml:lang='en'>Home</span>");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 	echo "<div class='centrato content'>
-	<div class='elenco'>".
+	<div class='elenco marginMobile'>".
 
 	//ULTIME RECENSIONI
 

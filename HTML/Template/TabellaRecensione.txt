@@ -1,3 +1,4 @@
+<!--TabellaRecensione.txt-->
 <tr>
 	<td scope='row'>{{Data}}</td>
 	<td><a href="libro.php?libro='{{Libro}}'">{{Titolo}}</a></td>

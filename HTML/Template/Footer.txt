@@ -1,3 +1,4 @@
+<!--Footer.txt-->
 <div id="footer" class="footer">
 	 <div id="W3Cimg">
 		<a href="http://validator.w3.org/check?uri=referer" >

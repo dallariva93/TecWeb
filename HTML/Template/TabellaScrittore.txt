@@ -1,3 +1,4 @@
+<!--TabellaScrittore.txt-->
 <tr>
 	<td scope='row'><a href="autore.php?autore={{Id}}">{{Cognome}}</a></td>
 	<td>{{Nome}}</td>

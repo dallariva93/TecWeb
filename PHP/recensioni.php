@@ -61,7 +61,7 @@
 	
 	
 	//Elenco di tutte le recensioni
-	echo "<div class='elenco' ><dl class='VrightBig'><dt>Ultime Recensioni</dt>";
+	echo "<div class='elenco marginMobile' ><dl class='VrightBig'><dt>Ultime Recensioni</dt>";
 
 	//Stampa recensioni
 	$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,Recensione.Testo,

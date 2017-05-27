@@ -1,3 +1,4 @@
+<!--Dati.txt-->
 <div class='content centrato'>
 	<ul class="dati">
 		<li>Nome: {{nome}}</li>

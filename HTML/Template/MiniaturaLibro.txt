@@ -1,3 +1,4 @@
+<!--MiniaturaLibro.txt-->
 <dd>
 	<a href='libro.php?libro={{ISBN}}'>
 	<img src='../img/cover/{{ISBN}}.jpg' alt=''/>

@@ -1,3 +1,4 @@
+<!--DeleteLibro.txt-->
 <form action='libro.php?libro={{codice}}' method='post'>
 	<div >
 		<input type = 'hidden' name = 'deleteUser' value ='{{Autore}}' />

@@ -1,3 +1,4 @@
+<!--InizioTabellaRedazione.txt-->
 <div class='Table'><table summary = 'Elenco di tutti gli amministratori del sito'>
 	<thead>
 		<tr>

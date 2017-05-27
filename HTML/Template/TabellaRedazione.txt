@@ -1,3 +1,4 @@
+<!--TabellaRedazione.txt-->
 <tr>
 	<td scope='row'>{{Email}}</td>
 	<td scope='row'>{{Nome}}</td>

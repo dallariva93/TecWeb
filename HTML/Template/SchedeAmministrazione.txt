@@ -1,3 +1,4 @@
+<!--SchedaAmministrazione.txt-->
 <div class='centrato content'>
 	<a href='amministrazioneUtenti.php' class='boxAdmin'>Utenti</a>
 	<a href='amministrazioneScrittori.php' class='boxAdmin'>Scrittori</a>

@@ -1,3 +1,4 @@
+<!--VotoLibro.txt-->
 <div class='leftHalf'>
 	<form action='libro.php?libro={{codice}}' method='post'>
 		<fieldset>

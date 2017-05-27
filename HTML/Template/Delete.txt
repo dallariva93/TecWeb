@@ -1,3 +1,4 @@
+<!--Delete.txt-->
 <form action='{{Action}}' method='post' onclick='return confirm(\"Confermi di eliminare?\")'>
 	<div >
 		<input type = 'hidden' name = 'id' value = '{{Id}}' />

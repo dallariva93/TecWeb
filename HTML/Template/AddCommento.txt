@@ -1,3 +1,4 @@
+<!--AddCommento.txt-->
 <div class='inserisciCommento'>
 	<h3>Inserisci un commento</h3>
 	<form action='libro.php?libro={{codice}}' method='post'>

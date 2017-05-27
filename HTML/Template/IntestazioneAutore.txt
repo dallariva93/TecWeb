@@ -1,3 +1,4 @@
+<!--IntestazioneAutore.txt-->
 <div class='centrato presentazione content'>
 	<div class='text'>
 		<img class='VleftSmall' src='{{Immagine}}' alt=''/>

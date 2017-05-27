@@ -1,3 +1,4 @@
+<!--InizioTabaellaNotizie.txt-->
 <div class='Table'><table summary = 'Elenco di tutte le notizie presenti nel sito'>
 	<thead>
 		<tr>

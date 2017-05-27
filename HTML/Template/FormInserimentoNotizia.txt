@@ -1,3 +1,4 @@
+<!--FormInserimentoNotizia.txt-->
 <a name = 'insert'></a>
 	<div class='box'>
 		<h1>Inserisci Notizia </h1>

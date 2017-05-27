@@ -1,3 +1,4 @@
+<!--InizioTabellaRecensioni.txt-->
 <div class='Table'><table summary = 'Elenco di tutte le recensioni presenti nel sito'>
 	<thead>
 		<tr>

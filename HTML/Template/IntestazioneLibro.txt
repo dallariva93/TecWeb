@@ -1,3 +1,4 @@
+<!--IntestazioneLibro.txt-->
 <div class='centrato presentazione content'>
 <div class='Errore'>{{errore}}</div>
 <div class='text'>
