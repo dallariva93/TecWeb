@@ -1,8 +1,14 @@
 <!--IntestazioneLibro.txt-->
 <div class='centrato presentazione content'>
 <div class='Errore'>{{errore}}</div>
-<div class='text'>
-<img class='VleftSmall immagineRecensione' src='../img/cover/{{ISBN}}.jpg' alt=''/>
+<div class='Intestazione'>
+<img class='VleftSmall' src='../img/cover/{{ISBN}}.jpg' alt=''/>
 <h1>{{Titolo}}</h1>
-<h2><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></h2>
+<div>
+<div><h2>Autore</h2><p><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></p></div>
+<div><h2>Casa Editrice</h2><p>{{Casa}}</p></div>
+<div><h2>Genere</h2><p>{{Genere}}</p></div>
+<div><h2>Anno di Pubblicazione</h2><p>{{Data}}</p></div>
+<div><h2>ISBN</h2><p>{{ISBN}}</p></div>
+</div>
 <h3>Recensione scritta da {{CognomeAutore}} {{NomeAutore}}</h3>

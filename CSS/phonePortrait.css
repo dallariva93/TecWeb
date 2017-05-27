@@ -1,6 +1,3 @@
-.content{
-
-}
 .marginMobile{
 	margin-right: 0.5em;
 	margin-left: 0.5em;
@@ -14,3 +11,9 @@
 .radioMobile{
 	margin-right: 0.5em;
 }
+
+.Intestazione>div>div{
+	width: 98%;
+    text-align: center;
+}
+

@@ -11,11 +11,11 @@
 		echo menu();
 
 		$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-		$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/Amministrazione");
+		$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span> > Amministrazione");
 		echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 		echo file_get_contents("../HTML/Template/SchedeAmministrazione.txt").
-		
+
 		file_get_contents("../HTML/Template/LinkAlMenu.txt").
 
 		file_get_contents("../HTML/Template/Footer.txt");

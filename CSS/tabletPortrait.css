@@ -56,14 +56,16 @@
 /**************************
 		TESTO
 ***************************/
-.text img{
-	float: none;
-}
 .text {
 	font-size: 1.3em;
 }
-.immagineRecensione{
+.Intestazione img:first-child{
 	height: 400px;
+	width: 98%;
+	margin: 1%;
+}
+.Intestazione>div:not(:last-child){
+	width: 100%;
 }
 /**************************
 		ELENCO

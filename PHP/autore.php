@@ -15,7 +15,7 @@
 			echo menu();
 
 			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/". $dati['Cognome']. " ". $dati['Nome']);
+			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span> > ". $dati['Cognome']. " ". $dati['Nome']);
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			//Stampo le informazioni dell' autore
@@ -30,7 +30,7 @@
 			$searchHeader=array("{{Immagine}}","{{Cognome}}","{{Nome}}","{{Data}}","{{Nazionalita}}");
 			$replaceHeader=array($immagine,$dati['Cognome'], $dati['Nome'],data($dati['Data_Nascita']),$dati['Nazionalita']);
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneAutore.txt"));
-			
+
 			echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
 			//Ricerca di tutti i libri dell' autore nel sito
