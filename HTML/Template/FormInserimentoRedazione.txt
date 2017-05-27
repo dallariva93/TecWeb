@@ -1,5 +1,6 @@
 <!--FormInserimentoRedazione.txt-->
 <a name = 'insert'></a>
+<a href='#top' class = 'adminButton'>Torna all' elenco</a>
 	<div class='box'>
 		<h1>Inserisci nuovo amministratore</h1>
 		<form action='amministrazioneRedazione.php' method='post' onsubmit='return controlloErrori()'>

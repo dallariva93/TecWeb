@@ -1,5 +1,6 @@
 <!--FormInserimentoRecensione.txt-->
 <a name = 'insert'></a>
+<a href='#top' class = 'adminButton'>Torna all' elenco</a>
 	<div class='box'>
 	<h1>Inserisci Recensione</h1>
 	<form action='amministrazioneRecensioni.php' method='post' onsubmit='return controlloErrori()'>

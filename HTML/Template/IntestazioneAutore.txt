@@ -5,5 +5,5 @@
 		<h1>{{Nome}} {{Cognome}}</h1>
 		<div>
 		<div><h2>Data di nascita</h2><p>{{Data}}</p></div>
-		<div><h2>Nazionalita</h2><p>{{Nazionalita}}</p></div>
+		<div><h2>Nazionalit&agrave</h2><p>{{Nazionalita}}</p></div>
 	</div>

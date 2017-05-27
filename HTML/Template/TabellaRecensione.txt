@@ -3,7 +3,7 @@
 	<td scope='row'>{{Data}}</td>
 	<td><a href="libro.php?libro='{{Libro}}'">{{Titolo}}</a></td>
 	<td>{{Autore}}</td>
-	<td>{{Voto}}/5</td>
+	<td>{{Voto}} / 5</td>
 	<td>
 		<form action='amministrazioneRecensioni.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")' >
 			<div >
