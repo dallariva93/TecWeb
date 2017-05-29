@@ -74,7 +74,9 @@
 .elenco {
 	font-size: 1.2em;
 }
-
+.elenco img {
+	width: 20%;
+}
 
 /**************************
 		AMMINISTRAZIONE
@@ -92,9 +94,9 @@
 	width:98%;
 }
 
-.btnDelete{
-	width: 5em;
-	height: 2.7em;
+.btnDelete {
+    width: 3.5%;
+    height: 2.35em;
 }
 
 /**************************

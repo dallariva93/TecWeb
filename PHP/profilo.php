@@ -143,7 +143,7 @@
 		
 		$arrayCommenti= array();
 		$arrayTotCommenti = array();
-		while ($row = mysqli_fetch_array($com)) 	//riempio l'array con array di date, commenti e libro della recensione 
+		while ($row = mysqli_fetch_array($com)) 	//riempio l'array con array date, commenti e libro della recensione 
 		{
 			array_push($arrayCommenti,$row);
 		}
@@ -155,12 +155,14 @@
 		{
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN=(SELECT Libro FROM `Recensione` WHERE Id='".$arrayCommenti[$i][1]."')");
 			$libro=mysqli_fetch_array($lib);
-			$replaceCommento=array($libro[0], $arrayCommenti[$i][0], $arrayCommenti[$i][2]);
+			
+			$data=formattaData($arrayCommenti[$i][0]);
+			$replaceCommento=array($libro[0], $data, $arrayCommenti[$i][2]);
 			echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoProfilo.txt"));
 			$i++;
 		}	
 		
-		while ($row = mysqli_fetch_array($totCom)) 	//riempio l'array con array di date, commenti e libro della recensione 
+		while ($row = mysqli_fetch_array($totCom)) 	 
 		{
 			array_push($arrayTotCommenti,$row);
 		}
@@ -271,6 +273,9 @@
 		$_POST['dati']== 1;
 		header('Location: profilo.php');	
 	}
+	
+	echo file_get_contents("../HTML/Template/Footer.txt");
+
 	
 ?>
 

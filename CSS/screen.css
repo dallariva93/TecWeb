@@ -384,6 +384,10 @@ fieldset label {
 	font-size: 1.3em;
 	font-weight: bold;
 }
+.comment{
+	max-width: 62.8em;
+	word-wrap: break-word;
+}
 /**************************************************************
 			TESTO
 ***************************************************************/
@@ -420,16 +424,16 @@ fieldset label {
 .comment{
 	display: block;
 	min-height: 3em;
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	border-radius: 3px;
+	border: 1px solid black;
 	margin-bottom: 0.5em;
 	box-shadow: 2px 2px  15px grey;
 }
 .commentTitle{
-	background: #E6EE9C;
+	background: #2e7597;
 	width: 100%;
 	height: 1.5em;
+	border-bottom: 1px solid black;
+	padding-top: 0.5em;
 }
 .comment p {
 	padding: 0.5em;
@@ -440,9 +444,15 @@ fieldset label {
 	height: 1.5em;
 	margin-left: 0.5em
 }
-.btnDelete{
-	height: 2em;
-	float: right;
+
+
+.btnDelete {
+    height: 2.5em;
+    width: 3%;
+    float: right;
+    bottom: 0.65em;
+    left: 0.039em;
+    position: relative;
 }
 
 
@@ -544,16 +554,14 @@ td,th {
 	display: block;
 	text-align: center;
 	margin: 2em auto 2em auto;
+	box-shadow: 2px 2px 15px grey;
 }
 
 .profCommento > p{
 
 	clear: both;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
 	background-color: white;
-	padding-bottom: 0.2em;
-	padding-top:0.2em;
+	padding: 0.5em 0.2em 0.5em 0.2em;
 	word-wrap: break-word;
 }
 .datalibro {
@@ -561,7 +569,7 @@ td,th {
 	border-bottom: 1px solid black;
 	border-top: 1px solid black;
 	padding: 0.5em;
-	background-color: blue;
+	background-color: #1e4b61;
 }
 
 .dataCommento{
@@ -620,7 +628,7 @@ td,th {
 	width: 20px;
 	text-align: center;
 	margin-top: 0.3em;
-
+	pointer-events: none;
 }
 
 .MiniaturaLibro a:first-child:link{

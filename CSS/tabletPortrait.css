@@ -93,11 +93,12 @@
 .button {
 	width:98%;
 }
-
 .btnDelete{
-	width: 5em;
-	height: 2.7em;
-}
+    width: 5%;
+    height: 3.1em;
+    position: relative;
+    bottom: 0.78em;
+ }
 
 /**************************
 		PROFILO

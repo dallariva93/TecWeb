@@ -5,8 +5,9 @@
 }
 .btnLongMobile{
 	width: 97%;
-	margin-right: 0.5em;
-	margin-left: 0.5em;
+	    margin-right: 0.5em;
+    /* margin-left: 0.5em; */
+    position: relative;
 }
 .radioMobile{
 	margin-right: 0.5em;
@@ -14,9 +15,8 @@
 
 .Intestazione>div>div{
 	width: 98%;
-    text-align: center;
-}
-
+    text-align: 
+ }
 .MiniaturaLibro{
 	width: 33%;
 }
@@ -38,5 +38,18 @@
 }
 .leftBig p{
 	margin-right: 0.2em;
-	font-size: 0.9em;
+	font-size: 1em;
+}
+
+.btnDelete {
+    width: 5.5%;
+    height: 2.5em;
+    position: relative;
+    bottom: 0.63em;
+}
+
+.filtri>form>div>div{
+	position: relative;
+   width: 96%;
+   left: 2%;
 }
