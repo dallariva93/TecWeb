@@ -74,9 +74,7 @@
 .elenco {
 	font-size: 1.2em;
 }
-.elenco img {
-	width: 20%;
-}
+
 
 /**************************
 		AMMINISTRAZIONE
