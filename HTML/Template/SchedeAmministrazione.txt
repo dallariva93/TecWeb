@@ -1,9 +1,9 @@
 <!--SchedaAmministrazione.txt-->
-<div class='centrato content'>
-	<a href='amministrazioneUtenti.php' class='boxAdmin'>Utenti</a>
-	<a href='amministrazioneScrittori.php' class='boxAdmin'>Scrittori</a>
-	<a href='amministrazioneRecensioni.php' class='boxAdmin'>Recensioni</a>
-	<a href='amministrazioneRedazione.php' class='boxAdmin'>Redazione</a>
-	<a href='amministrazioneLibri.php' class='boxAdmin'>Libri</a>
-	<a href='amministrazioneNotizie.php' class='boxAdmin'>Notizie</a>		
+<div class='centrato content boxAdmin'>
+	<a href='amministrazioneUtenti.php'>Utenti</a>
+	<a href='amministrazioneScrittori.php'>Scrittori</a>
+	<a href='amministrazioneRecensioni.php'>Recensioni</a>
+	<a href='amministrazioneRedazione.php'>Redazione</a>
+	<a href='amministrazioneLibri.php'>Libri</a>
+	<a href='amministrazioneNotizie.php'>Notizie</a>		
 </div>
