@@ -26,7 +26,7 @@
 	if($UltimeRec = $db->query("SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,
 		Recensione.Testo, Recensione.Data_Pubblicazione FROM Libro JOIN
 		Recensione ON(Recensione.Libro = Libro.ISBN)
-		ORDER BY Recensione.Data_Pubblicazione LIMIT 5")){
+		ORDER BY Recensione.Data_Pubblicazione DESC LIMIT 5")){
 		if($UltimeRec->num_rows > 0){
 			while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
 				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}");
