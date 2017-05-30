@@ -3,7 +3,7 @@
 <div class="menu"> <!-- Barra di navigazione -->
 	<ul>
 		<li><a href="index.php" xml:lang="en" tabindex="1" name='home'>Home</a></li>
-		<li><a href="" xml:lang="en" tabindex="4">News</a></li>
+		<li><a href="news.php" xml:lang="en" tabindex="4">News</a></li>
 		<li><a href="recensioni.php" tabindex="5">Recensioni</a></li>
 		<li><a href="" tabindex="6">Classifica</a></li>
 		<li><a href="contacts.php" tabindex="7">Contatti</a></li>
