@@ -1,7 +1,6 @@
 .marginMobile{
 	margin-right: 0.5em;
 	margin-left: 0.5em;
-
 }
 .btnLongMobile{
 	width: 97%;
@@ -15,7 +14,7 @@
 
 .Intestazione>div>div{
 	width: 98%;
-    text-align: 
+    text-align:
  }
 .MiniaturaLibro{
 	width: 33%;
@@ -51,6 +50,9 @@
     position: relative;
     bottom: 0.63em;
 }
+td,th {
+	border-right: 1px solid blue;
+}
 
 .filtri>form>div>div{
 	position: relative;
@@ -64,4 +66,8 @@
 }
 .VrightBig p{
 	font-size: 0.9em;
+}
+
+td,th {
+ 	border-right: 1px solid blue;
 }

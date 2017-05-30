@@ -36,25 +36,35 @@
 		}
 
 		$searchHead=array("{{title}}","{{description}}");
-		$replaceHead=array("<title>Amministrazione Recensioni - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
-		echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
+		$replaceHead=array("Amministrazione Recensioni - ",
+			"Pagina per la gestione delle recensioni su FaceOnTheBook");
+		echo str_replace($searchHead ,$replaceHead,
+			file_get_contents("../HTML/Template/Head.txt"));
 
 		echo menu();
 
 		$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-		$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/<span><a href='amministrazione.php'>Amministrazione</a></span>/Recensioni");
-		echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
+		$replaceBreadcrumb=array("","<span xml:lang='en'>
+			<a href='index.php'>Home</a></span> > <span>
+			<a href='amministrazione.php'>Amministrazione</a>
+			</span> > Recensioni");
+		echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,
+			file_get_contents("../HTML/Template/Breadcrumb.txt")).
 
-		echo "<div class='centrato content'>";
-		echo "<a href='#insert' id = 'new'>&#43;&nbsp;Nuova Recensione</a>";
+		"<div class='centrato content'>
+		<a name = 'top'></a>
+		<a href = '#insert' class = 'adminButton'>&#43;&nbsp;Nuova Recensione</a>";
 
-		if($Recensioni = $db->query("SELECT * FROM Recensione ORDER BY Data_Pubblicazione DESC")){
+		if($Recensioni = $db->query("SELECT * FROM Recensione
+			ORDER BY Data_Pubblicazione DESC")){
+
 			echo file_get_contents("../HTML/Template/InizioTabellaRecensioni.txt");
 			while ($Rec = $Recensioni->fetch_array(MYSQLI_ASSOC)){
 				//Controllo il libro sia nel database
 				$LibroRec = "";
 				$LibroTitolo;
-				if($libro = $db->query("SELECT Titolo,ISBN FROM Libro WHERE ISBN =".$Rec['Libro']))
+				if($libro = $db->query("SELECT Titolo,ISBN FROM Libro
+					WHERE ISBN =".$Rec['Libro']))
 				{
 					$lib = $libro->fetch_array(MYSQLI_ASSOC);
 
@@ -67,7 +77,8 @@
 				}
 				//Controllo l'autore della recensione sia nel database
 				$Autore;
-				if($autoreArray = $db->query("SELECT Nome,Cognome FROM Redazione WHERE Email =".$Rec['Autore']))
+				if($autoreArray = $db->query("SELECT Nome,Cognome FROM Redazione
+					WHERE Email =".$Rec['Autore']))
 				{
 					$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
 					$Autore = $autore['Nome']. " ". $autore['Cognome'];
@@ -77,27 +88,30 @@
 					$Autore = $Rec['Autore'];
 				}
 
-				$search=array("{{Data}}","{{Libro}}","{{Titolo}}","{{Voto}}","{{Autore}}","{{Id}}");
-				$replace=array($Rec['Data_Pubblicazione'],$LibroRec,$LibroTitolo,
-				$Rec['Valutazione'],$Autore,$Rec['Id']);
-				echo str_replace($search ,$replace, file_get_contents("../HTML/Template/TabellaRecensione.txt"));
+				$search=array("{{Data}}","{{Libro}}","{{Titolo}}","{{Voto}}",
+					"{{Autore}}","{{Id}}");
+				$replace=array(longData($Rec['Data_Pubblicazione']),$LibroRec,
+					$LibroTitolo,$Rec['Valutazione'],$Autore,$Rec['Id']);
+				echo str_replace($search ,$replace,
+					file_get_contents("../HTML/Template/TabellaRecensione.txt"));
 			}
 
 			$Recensioni->free();
 		}
-		echo "</tbody></table></div>";
-		
-		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
+		echo "</tbody></table></div>".
+
+		file_get_contents("../HTML/Template/LinkAlMenu.txt").
 
 		//Form inserimento recensione
-		echo str_replace($searchInForm, $replaceInForm ,
-			file_get_contents("../HTML/Template/FormInserimentoRecensione.txt"));
+		str_replace($searchInForm, $replaceInForm ,
+			file_get_contents("../HTML/Template/FormInserimentoRecensione.txt")).
 
+
+
+		"</div>".//Fine content
+		file_get_contents("../HTML/Template/FileJs.txt").
+		file_get_contents("../HTML/Template/Footer.txt");
 		$db->close();
-
-		echo "</div>";//Fine content
-		echo file_get_contents("../HTML/Template/FileJs.txt");
-		echo file_get_contents("../HTML/Template/Footer.txt");
 	}
 	else{
 		header("Location: page_not_found.php");

@@ -8,15 +8,21 @@ function data ($value){
 	$risultato = $giorno. "/". $mese. "/". $anno;
 	return $risultato;
 }
+function longData ($value){
+	$risultato = "";
+	$ora   = substr($value, 11, 2);
+	$minuti   = substr($value, 14, 2);
+	$risultato = data($value). " ". $ora. ":". $minuti;
+	return $risultato;
+}
 
 function formattaData($data)
 {
 	$ris=multiexplode(array(":", " ", "-"), $data);
 	$dataFormattata=$ris[2]. "/". $ris[1]. "/". $ris[0]. " ". $ris[3].":".$ris[4];
 	return $dataFormattata;
-	
-}
 
+}
 
 function menu(){
 		if(!isset($_SESSION))
