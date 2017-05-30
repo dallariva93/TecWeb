@@ -431,20 +431,29 @@ fieldset label {
 	box-shadow: 2px 2px  15px grey;
 }
 .commentTitle{
+	float: left;
 	background: #2e7597;
 	width: 100%;
-	height: 1.5em;
+	min-height: 1.5em;
 	border-bottom: 1px solid black;
 	padding-top: 0.5em;
+	overflow: auto;
 }
 .comment p {
 	padding: 0.5em;
 
 }
 .autoreCommento {
+	float:left;
 	font-weight: bold;
 	height: 1.5em;
-	margin-left: 0.5em
+	margin-left: 0.5em;
+
+}
+.dataCommento {
+	float: right;
+	height: 1.5em;
+	margin-right: 0.5em;
 }
 
 

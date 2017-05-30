@@ -191,9 +191,12 @@
 							$replaceDeleteCommento,
 							file_get_contents("../HTML/Template/DeleteLibro.txt"));
 					}
-					echo "<div class='autoreCommento'>". $username."</div>".
-					"</div>".//Fine class commentTitle
-					$Commento['Commento']."</div>";//Fine class comment
+					
+					$searchCommento=array("{{Username}}","{{Data}}", "{{Testo}}");
+					$replaceCommento=array($username,longData($Commento['Data_Pubblicazione']),
+						$Commento['Commento']);
+					echo str_replace($searchCommento ,$replaceCommento,
+						file_get_contents("../HTML/Template/CommentoLibro.txt"));
 
 				} //Fine ciclo
 
