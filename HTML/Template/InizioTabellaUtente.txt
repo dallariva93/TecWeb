@@ -6,8 +6,8 @@
 				<th scope='col'>Nome</th>
 				<th scope='col'>E-Mail</th>
 				<th scope='col'>Username</th>
-				<th scope='col'>Data di nascita</th>
-				<th scope='col'>Residenza</th>
+				<th class="NascondiMobile" scope='col'>Data di nascita</th>
+				<th class="NascondiMobile" scope='col'>Residenza</th>
 			</tr>
 		</thead>
 		<tbody>

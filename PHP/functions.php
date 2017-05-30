@@ -130,7 +130,7 @@ function checkEmailForm($email)
 function multiexplode($separatori,$stringa)
 {
     $a = str_replace($separatori, $separatori[0], $stringa);
-    $b = explode($b[0], $a);
+    $b = explode($separatori[0], $a);
     return  $b;
 }
 

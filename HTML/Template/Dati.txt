@@ -8,7 +8,9 @@
 		<li>Residenza: {{residenza}}</li>
 	</ul>
 	<form method="post" class="formProfilo" action="profilo.php">
-		<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica Password</button>
+		<fieldset>
+			<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica Password</button>
+		</fieldset>
 	</form>
 </div>
-</div>
+

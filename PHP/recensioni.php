@@ -81,8 +81,7 @@
 			while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
 				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}");
 				$replaceLibro=array($row['ISBN'],$row['Titolo'],ReadMore($row['Testo']));
-				echo str_replace($searchLibro ,$replaceLibro,
-					file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
+				echo str_replace($searchLibro ,$replaceLibro, file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
 			}
 		}
 		$UltimeRec->free();

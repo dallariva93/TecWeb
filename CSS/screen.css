@@ -246,6 +246,8 @@ fieldset label {
 	top: 100%;
 	min-height: 3em;
 	overflow: auto;
+	
+	
 }
 #footer a{
 	color:  white;
@@ -440,6 +442,7 @@ fieldset label {
 	overflow: auto;
 }
 .comment p {
+	clear: both;
 	padding: 0.5em;
 
 }
@@ -457,7 +460,7 @@ fieldset label {
 }
 
 
-.btnDelete {
+.btnDeleteComment {
     height: 2.5em;
     width: 3%;
     float: right;
@@ -466,6 +469,19 @@ fieldset label {
     position: relative;
 }
 
+.btnDelete {
+    height: 2.5em;
+    width: 100%;
+    float: right;
+    /* bottom: 0.65em; */
+    /* left: 0.039em; */
+    position: relative;
+ }
+ thead{
+	background-color:green;
+	padding-bottom: 0.2em;
+	padding-top: 0.2em;
+ }
 
 .error404 {
 	height: 20em;
@@ -500,27 +516,25 @@ fieldset label {
 	color:white;
 }
 
-.Table {
-	width: 100%;
-	margin-bottom: 8em;
-	margin-top: 1em;
-}
+
 .Table table {
 	width: 100%;
+	border-collapse: collapse;
 }
-th {
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    padding: 0.2em;
+    text-align: left;
+    
+}
+thead th{
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
-	border: 1px solid blue;
 }
-td {
-	padding-top: 0.2em;
-	padding-bottom: 0.2em;
-}
-td,th {
-	word-break: break-all;
-	border-bottom: 1px solid blue;
-	min-width: 20px;
+tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 .adminButton:link{
 	text-decoration:none;
@@ -546,6 +560,9 @@ td,th {
 	margin-top: 2em;
 }
 
+.formProfilo fieldset{
+	border:none;
+}
 .Pbutton{
 	padding: 0.5em;
 	width: 15%;
@@ -570,6 +587,7 @@ td,th {
 	background-color: white;
 	padding: 0.5em 0.2em 0.5em 0.2em;
 	word-wrap: break-word;
+	text-align: left;
 }
 .datalibro {
 	overflow: hidden;
@@ -707,6 +725,7 @@ td,th {
 	padding-bottom: 1em;
 	background-color: white;
 	width: 100%;
+
 }
 
 .spazia {

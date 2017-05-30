@@ -3,6 +3,6 @@
 	<div >
 		<input type = 'hidden' name = 'deleteUser' value ='{{Autore}}' />
 		<input type ='hidden' name= 'deleteData' value= '{{Data}}' />
-		<input type ='submit' value='&#x2718;' class='btnDelete' />
+		<input type ='submit' value='&#x2718;' class='btnDeleteComment' />
 	</div>
 </form>

@@ -4,8 +4,8 @@
 	<td>{{Nome}}</td>
 	<td>{{Email}}</td>
 	<td>{{Nickname}}</td>
-	<td>{{Data}}</td>
-	<td>{{Residenza}}</td>
+	<td class="NascondiMobile">{{Data}}</td>
+	<td class="NascondiMobile">{{Residenza}}</td>
 	<td>
 		<form action='amministrazioneUtenti.php' onclick='return confirm(\"Confermi di eliminare?\")' method='post'>
 			<div >

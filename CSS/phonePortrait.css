@@ -50,9 +50,9 @@
     position: relative;
     bottom: 0.63em;
 }
-td,th {
+/*td,th {
 	border-right: 1px solid blue;
-}
+}*/
 
 .filtri>form>div>div{
 	position: relative;
@@ -68,6 +68,19 @@ td,th {
 	font-size: 0.9em;
 }
 
-td,th {
- 	border-right: 1px solid blue;
+tr {
+ 	border: 1px solid blue;
+}
+
+.NascondiMobile{
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+.Table{
+	font-size: 0.8em;
 }

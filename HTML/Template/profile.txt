@@ -1,9 +1,11 @@
 <!--profile.txt-->	
 	<div class=" corpo menuProfilo">
-			<form method='post'class="formProfilo" action='profilo.php'>
-				<button type="submit" value="1" class="Pbutton" name="dati">Dati</button>
-				<button type="submit" value="2" class="Pbutton" name="libriVotati">Libri Votati</button>
-				<button type="submit" value="3" class="Pbutton" name="commenti">Tuoi Commenti</button>					
+			<form method='post' class="formProfilo" action='profilo.php'>
+				<fieldset>
+					<button type="submit" value="1" class="Pbutton" name="dati">Dati</button>
+					<button type="submit" value="2" class="Pbutton" name="libriVotati">Libri Votati</button>
+					<button type="submit" value="3" class="Pbutton" name="commenti">Tuoi Commenti</button>					
+				</fieldset>
 			</form>				
 	</div>
-<div class='content centrato'>
+

@@ -3,7 +3,7 @@
 	Require_once('functions.php');
 
 	$searchHead=array("{{title}}","{{description}}");
-	$replaceHead=array("<title>Profilo - FaceOnTheBook </title>", "<meta name='description' content='Social network per topi di bibblioteca'/>");
+	$replaceHead=array("Profilo personale ", "Dati utente, cambia password, libri votati, messaggi utente");
 	echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 	
 	echo menu();
@@ -87,7 +87,9 @@
 		
 		
 		$searchVotiLibro=array("{{ISBN}}", "{{titolo}}", "{{voto}}");
-		echo "<div class='content centrato'><ul class='centro'>";
+		echo "<div class='content centrato'>";
+		if(count($arrayISBN)>0)
+			echo "<ul>";
 		while($i<count($arrayISBN) )  		//riempio l'array
 		{
 			
@@ -99,14 +101,19 @@
 			
 		//stampo le miniature dei libri
 		$i=0;
-		while($i<$bookPerPage && $i+($page*$bookPerPage)<count($arrayISBN) )
-		{
-			$replaceVotiLibro=array($arrayISBN[$i+($page*$bookPerPage)][0], $arrayLibri[$i+($page*$bookPerPage)][0], $arrayStelle[$i+($page*$bookPerPage)]);
-			echo str_replace($searchVotiLibro, $replaceVotiLibro, file_get_contents("../HTML/Template/MiniaturaLibroProfilo.txt"));
-			$i++;
+		if(count($arrayISBN)==0)	
+				echo "<h2>Non hai votato nessun libro!</h2>";
+		if(count($arrayISBN)>0)
+		{	while($i<$bookPerPage && $i+($page*$bookPerPage)<count($arrayISBN) )
+			{
+				$replaceVotiLibro=array($arrayISBN[$i+($page*$bookPerPage)][0], $arrayLibri[$i+($page*$bookPerPage)][0], $arrayStelle[$i+($page*$bookPerPage)]);
+				echo str_replace($searchVotiLibro, $replaceVotiLibro, file_get_contents("../HTML/Template/MiniaturaLibroProfilo.txt"));
+				$i++;
+			}
+			echo "</ul>";
 		}
 		
-		echo "</ul></div>";
+		echo "</div>";
 		
 		if(count($arrayISBN)<=$bookPerPage)			//ho meno elementi di bookPerPage, non stampo i bottoni
 		{}		
@@ -151,6 +158,14 @@
 		$i=0;
 		$searchCommento=array("{{libro}}","{{dataCommento}}","{{testoCommento}}");
 		$numComm=count($arrayCommenti);
+		while ($row = mysqli_fetch_array($totCom)) 	 
+		{
+			array_push($arrayTotCommenti,$row);
+		}
+		
+		echo "<div class='content centrato'>";
+		if(count($arrayTotCommenti)==0)
+			echo "<h2>Non hai nessun commento.</h2>";
 		while($i<count($arrayCommenti))
 		{
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN=(SELECT Libro FROM `Recensione` WHERE Id='".$arrayCommenti[$i][1]."')");
@@ -160,15 +175,15 @@
 			$replaceCommento=array($libro[0], $data, $arrayCommenti[$i][2]);
 			echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoProfilo.txt"));
 			$i++;
+			
 		}	
-		
-		while ($row = mysqli_fetch_array($totCom)) 	 
-		{
-			array_push($arrayTotCommenti,$row);
-		}
+		echo"</div>";
 		
 		
-		if(!isset($_GET['page']) || $_GET['page']==0)				//pagina iniziale, non stampo il bottone indietro
+		
+		if(count($arrayTotCommenti)<=$commentsPerPage || count($arrayTotCommenti)==0)											//ho meno di $commentsPerPage elementi non stampo ne avanti ne indietro
+		{}
+		elseif(!isset($_GET['page']) || $_GET['page']==0)				//pagina iniziale, non stampo il bottone indietro
 		{
 			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
 			$arrayButtonReplace=array($page+1, $page-1, "hidden", "");
@@ -186,10 +201,7 @@
 			$arrayButtonReplace=array($page+1, $page-1,"", "");
 			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/CommentsButtons.txt"));
 		}
-		
-		
-		
-		
+	
 		
 	
 	

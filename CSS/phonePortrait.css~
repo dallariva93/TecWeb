@@ -50,16 +50,15 @@
     position: relative;
     bottom: 0.63em;
 }
-td,th {
+/*td,th {
 	border-right: 1px solid blue;
-}
+}*/
 
 .filtri>form>div>div{
 	position: relative;
    width: 96%;
    left: 2%;
 }
-<<<<<<< HEAD
 .VrightBig h1{
 	font-size: 1.3em;
 	margin-top: 0.1em;
@@ -68,5 +67,16 @@ td,th {
 .VrightBig p{
 	font-size: 0.9em;
 }
-=======
->>>>>>> 0388e4a32bfab1ada99750ef89eab87392736d9e
+
+tr {
+ 	border: 1px solid blue;
+}
+
+.NascondiMobile{
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
