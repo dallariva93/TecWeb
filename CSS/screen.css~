@@ -299,7 +299,7 @@ fieldset label {
 .filtri>form>div>div{
 	border-bottom:1px solid #e8e8e8;
 	padding-bottom: 5px;
-
+}
 /**************************************************************
 		PAGING
 ***************************************************************/
@@ -749,6 +749,9 @@ td,th {
 .VrightBig {
 	float:right;
 	width: 77%;
+}
+.VrightBig h1{
+	font-size: 1em;
 }
 .leftHalf{
 	float: left;

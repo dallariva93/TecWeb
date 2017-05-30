@@ -214,7 +214,7 @@ fieldset label {
 	height:9.5em;
 	float: left;
 	padding-right: 0.5em;
-	width: 15%;
+	width: 6.5em;
 }
 .elenco a{
 	text-decoration: none;
@@ -750,6 +750,7 @@ td,th {
 	float:right;
 	width: 77%;
 }
+
 .leftHalf{
 	float: left;
 	width: 48%;
