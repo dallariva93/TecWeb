@@ -6,3 +6,4 @@
 				<button type="submit" value="3" class="Pbutton" name="commenti">Tuoi Commenti</button>					
 			</form>				
 	</div>
+<div class='content centrato'>

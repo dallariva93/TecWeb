@@ -3,3 +3,4 @@
 	<button type="submit" value="{{valp}}" class="Pbutton {{classeIndietro}}" name="books">Indietro</button>	
 	<button type="submit" value="{{vals}}" class="Pbutton" {{classeAvanti}} name="books">Avanti</button>
 </form>
+</div>

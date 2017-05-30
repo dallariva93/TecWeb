@@ -16,6 +16,14 @@ function longData ($value){
 	return $risultato;
 }
 
+function formattaData($data)
+{
+	$ris=multiexplode(array(":", " ", "-"), $data);
+	$dataFormattata=$ris[2]. "/". $ris[1]. "/". $ris[0]. " ". $ris[3].":".$ris[4];
+	return $dataFormattata;
+
+}
+
 function menu(){
 		if(!isset($_SESSION))
         	session_start();
@@ -82,7 +90,7 @@ function ReadMore($text){
 	if (strlen($string) > $maxLemgth) {
 	    $stringCut = substr($string, 0, $maxLemgth);
 		$string = $stringCut;
-		$string .= " ...  continua   ...";
+		$string .= "...  continua...";
 	}
 	return "<p>". $string. "</p>";
 }
@@ -119,11 +127,11 @@ function checkEmailForm($email)
 	else {return false;}
 }
 
-function multiexplode ($delimiters,$string)
+function multiexplode($separatori,$stringa)
 {
-    $ready = str_replace($delimiters, $delimiters[0], $string);
-    $launch = explode($delimiters[0], $ready);
-    return  $launch;
+    $a = str_replace($separatori, $separatori[0], $stringa);
+    $b = explode($b[0], $a);
+    return  $b;
 }
 
 function checkData($data)
@@ -319,6 +327,8 @@ function printStar($num)
 	{
 		$nStelle=$nStelle."<img class='star' src='../img/icon/Half_Star.png' alt=''/>";
 	}
+	for($i=0; $i<(substr_count( $nStelle, "<img ")%5); ++$i)
+		$nStelle=$nStelle."<img class='star' src='../img/icon/Empty_Star.png' alt=''/>";
 
 	return $nStelle;
 }

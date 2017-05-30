@@ -299,7 +299,7 @@ fieldset label {
 .filtri>form>div>div{
 	border-bottom:1px solid #e8e8e8;
 	padding-bottom: 5px;
-}
+
 /**************************************************************
 		PAGING
 ***************************************************************/
@@ -470,7 +470,7 @@ fieldset label {
 /**************************************************************
 			AMMINISTRAZIONE
 ***************************************************************/
-.boxAdmin a{
+.boxAdmin {
 	border: 1px solid blue;
 	width: 32%;
 	margin-left: 0.5%;
@@ -484,7 +484,7 @@ fieldset label {
 	font-weight: bold;
 	text-decoration: none;
 }
-.boxAdmin a:hover {
+.boxAdmin:hover {
 	background-color: lightblue;
 	color:white;
 }
@@ -497,6 +497,9 @@ fieldset label {
 .Table table {
 	width: 100%;
 }
+.Table > a:hover {
+	background-color: lightblue;
+}
 th {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
@@ -505,22 +508,23 @@ th {
 td {
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
+
+
 }
 td,th {
 	word-break: break-all;
 	border-bottom: 1px solid blue;
 	min-width: 20px;
 }
-.adminButton:link{
+#new {
 	text-decoration:none;
 	padding:0.5em;
 	margin:0.5em;
 	float: right;
-	color: white;
 	background-color: #388E3C;
-
+	color: white;
 }
-.adminButton:link:hover {
+#new:hover {
 	background-color: #4CAF50;
 }
 

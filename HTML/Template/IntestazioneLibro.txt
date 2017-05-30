@@ -4,11 +4,11 @@
 <div class='Intestazione'>
 <img class='VleftSmall' src='../img/cover/{{ISBN}}.jpg' alt=''/>
 <h1>{{Titolo}}</h1>
-<div>
-<div><h2>Autore</h2><p><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></p></div>
-<div><h2>Casa Editrice</h2><p>{{Casa}}</p></div>
-<div><h2>Genere</h2><p>{{Genere}}</p></div>
-<div><h2>Anno di Pubblicazione</h2><p>{{Data}}</p></div>
-<div><h2>ISBN</h2><p>{{ISBN}}</p></div>
-</div>
+<dl>
+<dt><h2>Autore</h2></dt><dd><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></dd>
+<dt><h2>Casa Editrice</h2></dt><dd>{{Casa}}</dd>
+<dt><h2>Genere</h2></dt><dd>{{Genere}}</dd>
+<dt><h2>Anno di Pubblicazione</h2></dt><dd>{{Data}}</dd>
+<dt><h2>ISBN</h2></dt><dd>{{ISBN}}</dd>
+</dl>
 <h3>Recensione scritta da {{CognomeAutore}} {{NomeAutore}}</h3>
