@@ -3,8 +3,8 @@
 	Require_once('functions.php');
 
 	$searchHead=array("{{title}}","{{description}}");
-	$replaceHead=array("<title>Recensioni - FaceOnTheBook </title>",
-	"<meta name='description' content='Social network per topi di bibblioteca'/>");
+	$replaceHead=array("Recensioni - ",
+		"Catalogo delle recensioni presenti su FaceOnTheBook");
 	echo str_replace($searchHead ,$replaceHead,
 		file_get_contents("../HTML/Template/Head.txt"));
 

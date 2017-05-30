@@ -5,8 +5,8 @@
 		Require_once('connect.php');
 		Require_once('functions.php');
 		$searchHead=array("{{title}}","{{description}}");
-		$replaceHead=array("<title>Amministrazione - FaceOnTheBook</title>",
-			"<meta name='description' content='Social network per topi di bibblioteca'/>");
+		$replaceHead=array("Amministrazione - ",
+			"Men&ugrave; per l'amministrazione di FaceOnTheBook");
 		echo str_replace($searchHead ,$replaceHead,
 		 	file_get_contents("../HTML/Template/Head.txt"));
 

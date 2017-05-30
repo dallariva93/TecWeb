@@ -94,8 +94,8 @@
 				$redazioneArray->free();
 			}
 			$searchHead=array("{{title}}","{{description}}");
-			$replaceHead=array("<title>". $datiL['Titolo']. " - FaceOnTheBook </title>"
-				,"<meta name='description' content='Social network per topi di bibblioteca'/>");
+			$replaceHead=array($datiL['Titolo']. " - "
+				,"Recensione di '". $datiL['Titolo']. "' su FaceOnTheBook");
 			echo str_replace($searchHead ,$replaceHead,
 							 file_get_contents("../HTML/Template/Head.txt"));
 
@@ -103,7 +103,7 @@
 
 			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 			$replaceBreadcrumb=array(""
-						,"<a href='index.php'>Home</a></span> > <span>
+						,"<span xml:lang='en'><a href='index.php'>Home</a></span> > <span>
 						<a href='recensioni.php'>Recensioni</a>
 						</span> > ". $datiL['Titolo']);
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb
@@ -123,9 +123,9 @@
 		if($datiRec) { //Stampa della recensione e dei suoi dati
 
 			//Voto al libro dato dalla redazione
-			echo "<div class='valutazioniRecensione'>
-				<p>Valutazione dalla redazione: ".
-				printStar($datiRec['Valutazione']). "</p>";
+			echo "<div class='valutazioniRecensione'><ul>
+				<li>Valutazione dalla redazione: ".
+				printStar($datiRec['Valutazione']). "</li>";
 
 			//Voto al libro dato dalla media dei voti al libro degli utenti
 			if($votoLibArray = $db->query("SELECT ROUND(AVG(Valutazione),1) AS Media
@@ -133,7 +133,7 @@
 											HAVING Libro ='$codice'")){
 				if($votoLibArray->num_rows>0){
 					$votoLib = $votoLibArray->fetch_array(MYSQLI_ASSOC);
-					echo "<p>Voto degli utenti: ". printStar($votoLib['Media']). "</p>";
+					echo "<li>Voto degli utenti: ". printStar($votoLib['Media']). "</li>";
 				}
 				$votoLibArray->free();
 			}
@@ -144,12 +144,12 @@
 											HAVING Recensione ='".$datiRec['Id']."'")){
 				if($votoRecArray->num_rows>0){
 					$votoRec = $votoRecArray->fetch_array(MYSQLI_ASSOC);
-					echo "<p>Voto alla recensione: ". printStar($votoRec['Media']). "</p>";
+					echo "<li>Voto alla recensione: ". printStar($votoRec['Media']). "</li>";
 				}
 				$votoRecArray->free();
 			}
 
-			echo "</div></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt").
+			echo "</ul></div></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt").
 			"<div class='text'><h2>Trama: </h2>".
 			$datiL['Trama'].
 			file_get_contents("../HTML/Template/LinkAlMenu.txt").

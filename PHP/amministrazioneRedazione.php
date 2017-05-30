@@ -28,8 +28,8 @@
 		}
 
 		$searchHead=array("{{title}}","{{description}}");
-		$replaceHead=array("<title>Amministrazione Redazione - FaceOnTheBook </title>",
-			"<meta name='description' content='Social network per topi di bibblioteca'/>");
+		$replaceHead=array("Amministrazione Redazione - ",
+			"Pagina per la gestione della redazione su FaceOnTheBook");
 		echo str_replace($searchHead ,$replaceHead,
 			file_get_contents("../HTML/Template/Head.txt"));
 

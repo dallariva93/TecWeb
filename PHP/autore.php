@@ -11,8 +11,9 @@
 			$dati = $datiArray->fetch_array(MYSQLI_ASSOC);
 
 			$searchHead=array("{{title}}","{{description}}");
-			$replaceHead=array("<title>". $dati['Cognome']. " - FaceOnTheBook </title>",
-				"<meta name='description' content='Social network per topi di bibblioteca'/>");
+			$replaceHead=array($dati['Cognome']. " - ",
+				"Pagina di ". $dati['Nome']. " ". $dati['Cognome'].
+				" su FaceOnTheBook");
 			echo str_replace($searchHead ,$replaceHead,
 				file_get_contents("../HTML/Template/Head.txt"));
 
