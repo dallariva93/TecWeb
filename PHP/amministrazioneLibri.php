@@ -37,7 +37,37 @@
 			$insert="INSERT INTO `Libro` (ISBN, Titolo, Autore,Casa_Editrice,Anno_Pubblicazione
 				, Genere, Trama) VALUES ('".$_POST['isbn']."','".$_POST['titolo']."','".$_POST['autore']."','"
 				.$_POST['casa']."','". GetData($_POST['data']). "','". $_POST['genere']. "', '".$_POST['trama']."')";
-			$db->query($insert);
+			if($db->query($insert)){//Inserimento copertina
+				if(isset($_POST['img']))
+					echo $_POST['img'];
+
+				if (file_exists($_FILES['img']['tmp_name']) &&
+					is_uploaded_file($_FILES['img']['tmp_name'])){
+
+
+							$erroreFile = false;
+							$target_dir = "../img/cover/";
+							$target_file = $target_dir . $_POST['isbn']. ".jpg" ;
+
+							$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+							if($_FILES["img"]["size"] > 500000 && $imageFileType != "jpg"
+								&& $imageFileType != "png" && $imageFileType != "jpeg"
+								&& $imageFileType != "gif" ) {
+								$erroreFile = true;
+							}
+
+			    			if(!$erroreFile){
+								move_uploaded_file($_FILES["img"]["tmp_name"],
+									$target_file);
+							}
+
+					}//fine if (file_exists($_FILES...
+
+
+			}
+
+
 		}
 
 		$searchHead=array("{{title}}","{{description}}");

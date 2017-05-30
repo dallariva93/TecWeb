@@ -25,8 +25,46 @@
 			$insert="INSERT INTO `Scrittore`(Nome, Cognome,Data_Nascita
 				,Nazionalita) VALUES ('".$_POST['nome']."','".$_POST['cognome'].
 					"','".GetData($_POST['data'])."','".$_POST['nazionalita']."')";
-			$db->query($insert);
-		}
+
+			if($db->query($insert)){
+
+				$queryCercaAutore = "SELECT Id FROM Scrittore WHERE Nome =
+					'". $_POST['nome']. "' AND Cognome = '". $_POST['cognome'].
+					"' AND Data_Nascita = '". GetData($_POST['data']). "' AND
+					Nazionalita = '".$_POST['nazionalita']. "'";
+
+				//Inserimento immagine
+				if (file_exists($_FILES['img']['tmp_name']) &&
+					is_uploaded_file($_FILES['img']['tmp_name'])){
+
+					if ($Scrittori = $db->query($queryCercaAutore))
+						if($Scrittore = $Scrittori->fetch_array(MYSQLI_ASSOC)){
+
+							$autore = $Scrittore['Id'];
+							$erroreFile = false;
+							$target_dir = "../img/autori/";
+							$target_file = $target_dir . basename($_FILES["img"]["name"]);
+
+							$query = "INSERT INTO `FotoAutori`(Autore,Foto)
+								VALUES ('". $autore.  "','".$target_file."')";
+
+							$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+							if($_FILES["img"]["size"] > 500000 && $imageFileType != "jpg"
+								&& $imageFileType != "png" && $imageFileType != "jpeg"
+								&& $imageFileType != "gif" ) {
+								$erroreFile = true;
+							}
+
+			    			if (!$erroreFile &&
+								move_uploaded_file($_FILES["img"]["tmp_name"],
+								$target_file)) {
+								$db->query($query);
+							}
+						}
+					}//fine if (file_exists($_FILES...
+				}//fine if($db->query($insert)){
+		}// fine if(!$errore...
 
 		$searchHead=array("{{title}}","{{description}}");
 		$replaceHead=array("Amministrazione Scrittori - ",

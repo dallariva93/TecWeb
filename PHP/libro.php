@@ -110,11 +110,10 @@
 						, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			$searchHeader=array("{{errore}}","{{ISBN}}","{{Titolo}}","{{Id}}",
-				"{{Nome}}","{{Cognome}}","{{NomeAutore}}","{{CognomeAutore}}",
-				"{{Casa}}","{{Genere}}","{{Data}}");
+				"{{Nome}}","{{Cognome}}","{{Casa}}","{{Genere}}","{{Data}}");
 			$replaceHeader=array($errore,$datiL['ISBN'],$datiL['Titolo'],
-				$datiL['Autore'],$autoreNome,$autoreCognome,$redazioneNome,
-				$redazioneCognome,$datiL['Casa_Editrice'],$datiL['Genere']
+				$datiL['Autore'],$autoreNome,$autoreCognome
+				,$datiL['Casa_Editrice'],$datiL['Genere']
 				,data($datiL['Anno_Pubblicazione']));
 			echo str_replace($searchHeader ,$replaceHeader,
 				file_get_contents("../HTML/Template/IntestazioneLibro.txt"));
@@ -123,7 +122,9 @@
 		if($datiRec) { //Stampa della recensione e dei suoi dati
 
 			//Voto al libro dato dalla redazione
-			echo "<div class='valutazioniRecensione'><ul>
+			echo "<h3>Recensione scritta da ".$redazioneNome. " ".
+			 	$redazioneCognome. "</h3>
+				<div class='valutazioniRecensione'><ul>
 				<li>Valutazione dalla redazione: ".
 				printStar($datiRec['Valutazione']). "</li>";
 
@@ -149,15 +150,16 @@
 				$votoRecArray->free();
 			}
 
-			echo "</ul></div></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt").
-			"<div class='text'><h2>Trama: </h2>".
-			$datiL['Trama'].
-			file_get_contents("../HTML/Template/LinkAlMenu.txt").
-			"<h2>Recensione:</h2>".
+			echo "</ul></div></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt");
+
+		} // FINE  voti recensione
+		echo "<div class='text'><h2>Trama: </h2>".
+		$datiL['Trama'].
+		file_get_contents("../HTML/Template/LinkAlMenu.txt");
+		if($datiRec){
+			echo "<h2>Recensione:</h2>".
 			$datiRec['Testo'];
-
-		} // FINE recensione
-
+		}
 		$datiLibro->free();
 		$datiRecensione->free();
 
@@ -191,7 +193,7 @@
 							$replaceDeleteCommento,
 							file_get_contents("../HTML/Template/DeleteLibro.txt"));
 					}
-					
+
 					$searchCommento=array("{{Username}}","{{Data}}", "{{Testo}}");
 					$replaceCommento=array($username,longData($Commento['Data_Pubblicazione']),
 						$Commento['Commento']);

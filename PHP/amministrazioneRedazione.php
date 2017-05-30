@@ -50,8 +50,9 @@
 		if($Amministratori = $db->query("SELECT * FROM Redazione ORDER BY Cognome")){
 			echo file_get_contents("../HTML/Template/InizioTabellaRedazione.txt");
 			while ($Admin = $Amministratori->fetch_array(MYSQLI_ASSOC)){
-				$search=array("{{Email}}","{{Nome}}","{{Cognome}}");
-				$replace=array($Admin['Email'],$Admin['Nome'],$Admin['Cognome']);
+				$search=array("{{Email}}","{{Nome}}","{{Cognome}}","{{Id}}");
+				$replace=array($Admin['Email'],$Admin['Nome'],$Admin['Cognome'],
+					str_replace("@","",$Admin['Email']));
 				echo str_replace($search,$replace,
 					file_get_contents("../HTML/Template/TabellaRedazione.txt"));
 			}

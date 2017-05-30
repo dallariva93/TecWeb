@@ -3,7 +3,7 @@
 <a href='#top' class = 'adminButton'>Torna all' elenco</a>
 	<div class='box'>
 		<h1>Inserisci libro </h1>
-		<form action='amministrazioneLibri.php' method='post' onsubmit='return controlloErrori()'>
+		<form action='amministrazioneLibri.php' method='post' onsubmit='return controlloErrori()' enctype="multipart/form-data">
 			<div>
 				<label for='isbn'>ISBN</label><div class="inputError" id="ISBNError">{{ISBNError}}</div>
 				<input type='text' name='isbn' id='isbn'/>
@@ -38,6 +38,8 @@
 						<option value='Fantascienza'>Fantascienza</option>		
 					</select>
 				</label>
+				<label for='file'>Scegli una copertina: 
+				<input type='file' name='img' id='file'/></label>
 				<input type='submit' value='Inserisci' class='btnLong'/>
 			</div>
 		</form>

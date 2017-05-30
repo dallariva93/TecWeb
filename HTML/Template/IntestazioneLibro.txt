@@ -5,10 +5,10 @@
 <img class='VleftSmall' src='../img/cover/{{ISBN}}.jpg' alt=''/>
 <h1>{{Titolo}}</h1>
 <dl>
-<dt><h2>Autore</h2></dt><dd><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></dd>
-<dt><h2>Casa Editrice</h2></dt><dd>{{Casa}}</dd>
-<dt><h2>Genere</h2></dt><dd>{{Genere}}</dd>
-<dt><h2>Anno di Pubblicazione</h2></dt><dd>{{Data}}</dd>
-<dt><h2>ISBN</h2></dt><dd>{{ISBN}}</dd>
+<dt>Autore</dt><dd><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></dd>
+<dt>Casa Editrice</dt><dd>{{Casa}}</dd>
+<dt>Genere</dt><dd>{{Genere}}</dd>
+<dt>Anno di Pubblicazione</dt><dd>{{Data}}</dd>
+<dt>ISBN</dt><dd>{{ISBN}}</dd>
 </dl>
-<h3>Recensione scritta da {{CognomeAutore}} {{NomeAutore}}</h3>
+

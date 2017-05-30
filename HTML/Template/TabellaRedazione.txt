@@ -4,10 +4,11 @@
 	<td scope='row'>{{Nome}}</td>
 	<td scope='row'>{{Cognome}}</td>
 	<td>
-		<form action='amministrazioneRedazione.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")' >
+		<form action='amministrazioneRedazione.php' method='post'>
 			<div >
+				<label for='cancella{{Id}}' class='Nascondi'>Elimina</label>
 				<input type = 'hidden' name = 'delete' value = '{{Email}}' />
-				<input type ='submit' value='&#x2718;' class='btnDelete' />
+				<input type ='submit' value='&#x2718;' id='cancella{{Id}}' class='btnDelete' />
     		</div>
 		</form>
 	</td>

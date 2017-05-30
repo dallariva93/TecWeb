@@ -3,8 +3,9 @@
 <a href='#top' class = 'adminButton'>Torna all' elenco</a>
 	<div class='box'>
 	<h1>Inserisci scrittore</h1>
-	<form  action='amministrazioneScrittori.php' method='post' onsubmit='return controlloErrori()'>
+	<form  action='amministrazioneScrittori.php' method='post' onsubmit='return controlloErrori()' enctype="multipart/form-data">
 		<div>
+			
 			<label for='nome'>Nome</label><div class="inputError" id="NomeError">{{NomeError}}</div>
 			<input type='text' name='nome' id='nome'/>
 			<label for='cognome'>Cognome</label><div class="inputError" id="CognomeError">{{CognomeError}}</div>
@@ -13,6 +14,8 @@
 			<input type='text' name='nazionalita' id='nazionalita'/>
 			<label for='data'>Data di nascita</label><div class="inputError" id="DataError">{{DataError}}</div>
 			<input type='text' name='data' id='data'/>
+			<label for='file'>Scegli un' immagine: 
+			<input type='file' name='img' id='file'/></label>
 			<input type='submit' value='Inserisci' class='btnLong'/>
 		</div>
 	</form>

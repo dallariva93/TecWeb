@@ -7,10 +7,11 @@
 	<td class="NascondiMobile">{{Data}}</td>
 	<td class="NascondiMobile">{{Residenza}}</td>
 	<td>
-		<form action='amministrazioneUtenti.php' onclick='return confirm(\"Confermi di eliminare?\")' method='post'>
+		<form action='amministrazioneUtenti.php' method='post'>
 			<div >
+				<label for='cancella{{Nickname}}' class='Nascondi'>Elimina</label>
 				<input type = 'hidden' name = 'delete' value = '{{Email}}' />
-				<input type ='submit' value='&#x2718;' class='btnDelete' />
+				<input type ='submit' value='&#x2718;' id='cancella{{Nickname}}' class='btnDelete' />
     		</div>
 		</form>
 	</td>

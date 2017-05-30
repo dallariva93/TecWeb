@@ -5,10 +5,11 @@
 	<td>{{Autore}}</td>
 	<td>{{Voto}} / 5</td>
 	<td>
-		<form action='amministrazioneRecensioni.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")' >
+		<form action='amministrazioneRecensioni.php' method='post'>
 			<div >
+				<label for='cancella{{Id}}' class='Nascondi'>Elimina</label>
 				<input type = 'hidden' name = 'delete' value = '{{Id}}' />
-				<input type ='submit' value='&#x2718;' class='btnDelete' />
+				<input type ='submit' value='&#x2718;' id='cancella{{Id}}' class='btnDelete' />
     		</div>
 		</form>
 	</td>

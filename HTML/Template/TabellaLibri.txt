@@ -7,10 +7,11 @@
 	<td>{{Casa}}</td>
 	<td>{{Genere}}</td>
 	<td>
-		<form action='amministrazioneLibri.php' method='post' onclick='return confirm(\"Confermi di eliminare?\")'>
+		<form action='amministrazioneLibri.php' method='post'>
 			<div >
+				<label for='cancella{{ISBN}}' class='Nascondi'>Elimina</label>
 				<input type = 'hidden' name = 'delete' value = '{{ISBN}}' />
-				<input type ='submit' value='&#x2718;' class='btnDelete' />
+				<input type ='submit' value='&#x2718;' id='cancella{{ISBN}}' class='btnDelete' />
     		</div>
 		</form>
 	</td>
