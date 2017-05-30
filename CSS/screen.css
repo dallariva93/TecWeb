@@ -460,7 +460,7 @@ fieldset label {
 /**************************************************************
 			AMMINISTRAZIONE
 ***************************************************************/
-.boxAdmin {
+.boxAdmin a{
 	border: 1px solid blue;
 	width: 32%;
 	margin-left: 0.5%;
@@ -474,7 +474,7 @@ fieldset label {
 	font-weight: bold;
 	text-decoration: none;
 }
-.boxAdmin:hover {
+.boxAdmin a:hover {
 	background-color: lightblue;
 	color:white;
 }
@@ -487,9 +487,6 @@ fieldset label {
 .Table table {
 	width: 100%;
 }
-.Table > a:hover {
-	background-color: lightblue;
-}
 th {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
@@ -498,23 +495,22 @@ th {
 td {
 	padding-top: 0.2em;
 	padding-bottom: 0.2em;
-
-
 }
 td,th {
 	word-break: break-all;
 	border-bottom: 1px solid blue;
 	min-width: 20px;
 }
-#new {
+.adminButton:link{
 	text-decoration:none;
 	padding:0.5em;
 	margin:0.5em;
 	float: right;
-	background-color: #388E3C;
 	color: white;
+	background-color: #388E3C;
+
 }
-#new:hover {
+.adminButton:link:hover {
 	background-color: #4CAF50;
 }
 

@@ -1,7 +1,6 @@
 .marginMobile{
 	margin-right: 0.5em;
 	margin-left: 0.5em;
-
 }
 .btnLongMobile{
 	width: 97%;
@@ -16,4 +15,6 @@
 	width: 98%;
     text-align: center;
 }
-
+td,th {
+	border-right: 1px solid blue;
+}

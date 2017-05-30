@@ -5,7 +5,8 @@
 	$searchHead=array("{{title}}","{{description}}");
 	$replaceHead=array("<title>Recensioni - FaceOnTheBook </title>",
 	"<meta name='description' content='Social network per topi di bibblioteca'/>");
-	echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
+	echo str_replace($searchHead ,$replaceHead,
+		file_get_contents("../HTML/Template/Head.txt"));
 
 	$genere = "";
 
@@ -24,7 +25,8 @@
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("",
-		"<span xml:lang='en'> <a href='index.php'>Home</a></span>/Recensioni ". $genere);
+		"<span xml:lang='en'> <a href='index.php'>Home</a>
+		</span> > Recensioni ". $genere);
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,
 		file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
@@ -51,21 +53,23 @@
 		}
 		$TuttiGeneri->free();
 	}
-	
+
 	//Stampa finale filtri
-	echo file_get_contents("../HTML/Template/RecensioniFineFiltri.txt");
-	
-	echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
+	echo file_get_contents("../HTML/Template/RecensioniFineFiltri.txt").
+
+	file_get_contents("../HTML/Template/LinkAlMenu.txt").
 	"</div>";
 
-	
-	
+
+
 	//Elenco di tutte le recensioni
-	echo "<div class='elenco marginMobile' ><dl class='VrightBig'><dt>Ultime Recensioni</dt>";
+	echo "<div class='elenco marginMobile' ><dl class='VrightBig'>
+	<dt>Ultime Recensioni</dt>";
 
 	//Stampa recensioni
 	$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,Recensione.Testo,
-	 Recensione.Data_Pubblicazione FROM Libro JOIN Recensione ON(Recensione.Libro = Libro.ISBN)";
+	 Recensione.Data_Pubblicazione FROM Libro JOIN
+	 Recensione ON(Recensione.Libro = Libro.ISBN)";
 
 	 //Se è presente un genere rendo più specifica la query
 	 if( $genere != "")
@@ -84,8 +88,8 @@
 		$UltimeRec->free();
 	}
 	//Fine stampa recensioni
-	echo "</dl></div>";
-	echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
+	echo "</dl></div>".
+	file_get_contents("../HTML/Template/LinkAlMenu.txt");
 	//Stampa funzione per il paging
 	$count = "SELECT COUNT(*) AS Totale FROM ($sqlQuery) AS Count";
 	if($totNumber = ($db->query($count)->fetch_array(MYSQLI_ASSOC))){
@@ -93,8 +97,6 @@
 	}
 
 	//Fine content
-	echo "</div>";
-
-
-	echo file_get_contents("../HTML/Template/Footer.txt");
+	echo "</div>".
+	file_get_contents("../HTML/Template/Footer.txt");
 ?>

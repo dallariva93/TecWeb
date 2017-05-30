@@ -1,8 +1,8 @@
-
 <?php
 	Require_once('connect.php');
 	if(isset($_REQUEST['libro']) &&
-		$datiLibro = $db->query("SELECT * FROM Libro WHERE ISBN = ". ($_REQUEST['libro']))) {
+		$datiLibro = $db->query("SELECT * FROM Libro WHERE ISBN = ".
+			($_REQUEST['libro']))) {
 		Require_once('functions.php');
 
 		$codice = $_REQUEST['libro'];
@@ -103,24 +103,29 @@
 
 			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 			$replaceBreadcrumb=array(""
-						,"<span xml:lang='en'> <a href='index.php'>Home</a></span> > ". $datiL['Titolo']);
+						,"<a href='index.php'>Home</a></span> > <span>
+						<a href='recensioni.php'>Recensioni</a>
+						</span> > ". $datiL['Titolo']);
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb
 						, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
-			$searchHeader=array("{{errore}}","{{ISBN}}","{{Titolo}}","{{Id}}","{{Nome}}","{{Cognome}}"
-								,"{{NomeAutore}}","{{CognomeAutore}}","{{Casa}}","{{Genere}}","{{Data}}");
-			$replaceHeader=array($errore,$datiL['ISBN'],$datiL['Titolo'],$datiL['Autore']
-								,$autoreNome,$autoreCognome,$redazioneNome,$redazioneCognome
-								,$datiL['Casa_Editrice'],$datiL['Genere']
-								,data($datiL['Anno_Pubblicazione']));
-			echo str_replace($searchHeader ,$replaceHeader
-							, file_get_contents("../HTML/Template/IntestazioneLibro.txt"));
+			$searchHeader=array("{{errore}}","{{ISBN}}","{{Titolo}}","{{Id}}",
+				"{{Nome}}","{{Cognome}}","{{NomeAutore}}","{{CognomeAutore}}",
+				"{{Casa}}","{{Genere}}","{{Data}}");
+			$replaceHeader=array($errore,$datiL['ISBN'],$datiL['Titolo'],
+				$datiL['Autore'],$autoreNome,$autoreCognome,$redazioneNome,
+				$redazioneCognome,$datiL['Casa_Editrice'],$datiL['Genere']
+				,data($datiL['Anno_Pubblicazione']));
+			echo str_replace($searchHeader ,$replaceHeader,
+				file_get_contents("../HTML/Template/IntestazioneLibro.txt"));
 
 		}
 		if($datiRec) { //Stampa della recensione e dei suoi dati
 
 			//Voto al libro dato dalla redazione
-			echo "<div class='valutazioniRecensione'><p>Valutazione dalla redazione: ". printStar($datiRec['Valutazione']). "</p>";
+			echo "<div class='valutazioniRecensione'>
+				<p>Valutazione dalla redazione: ".
+				printStar($datiRec['Valutazione']). "</p>";
 
 			//Voto al libro dato dalla media dei voti al libro degli utenti
 			if($votoLibArray = $db->query("SELECT ROUND(AVG(Valutazione),1) AS Media
@@ -163,7 +168,7 @@
 										ORDER BY Data_Pubblicazione DESC")) {
 			if($datiCommenti->num_rows>0) {
 				echo "<h2>Commenti</h2>
-							<div class='comments'>";
+					<div class='comments'>";
 				while ($Commento = $datiCommenti->fetch_array(MYSQLI_ASSOC)) {
 					if($Utentecm = $db->query("SELECT Nickname FROM Utente
 												WHERE Email = '". $Commento['Autore']. "'")){
@@ -175,13 +180,16 @@
 					<div class = 'commentTitle'>";
 
 					//Form eliminazione commento
-					//Gli unici che possono cancellare un commento solo l'autore del commento oppure un amministratore
+					//Gli unici che possono cancellare un commento solo
+					//l'autore del commento oppure un amministratore
 					if(isset($_SESSION['type']) && ($Commento['Autore'] == $_SESSION['id']
 						|| $_SESSION['type'] == 'admin' )) {
 						$searchDeleteCommento=array("{{codice}}","{{Autore}}", "{{Data}}");
-						$replaceDeleteCommento=array($codice,$Commento['Autore'], $Commento['Data_Pubblicazione']);
-						echo str_replace($searchDeleteCommento ,$replaceDeleteCommento
-										, file_get_contents("../HTML/Template/DeleteLibro.txt"));
+						$replaceDeleteCommento=array($codice,$Commento['Autore'],
+						 	$Commento['Data_Pubblicazione']);
+						echo str_replace($searchDeleteCommento ,
+							$replaceDeleteCommento,
+							file_get_contents("../HTML/Template/DeleteLibro.txt"));
 					}
 					echo "<div class='autoreCommento'>". $username."</div>".
 					"</div>".//Fine class commentTitle
@@ -189,9 +197,9 @@
 
 				} //Fine ciclo
 
-			echo "</div>";// Fine class comments
+			echo "</div>".// Fine class comments
 
-			echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
+			file_get_contents("../HTML/Template/LinkAlMenu.txt");
 			}
 		$datiCommenti->free();
 		}
@@ -204,8 +212,8 @@
 			echo str_replace($searchNuovoCommento ,$replaceNuovoCommento
 						, file_get_contents("../HTML/Template/AddCommento.txt"));
 		}
-		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
-		echo "</div>"; // Fine class text
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
+		"</div>"; // Fine class text
 
 
 
@@ -226,15 +234,14 @@
 							, file_get_contents("../HTML/Template/VotoLibro.txt"));
 
 		} //Fine voti libro/recensione
-		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
-		$db->close();
-		echo "</div>". //Fine classe content
+		echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
+		"</div>". //Fine classe content
 		file_get_contents("../HTML/Template/Footer.txt");
+		$db->close();
 
 	} //end if(isset($_REQUEST['libro']) && !$datiLibro)
 	else {
 		header("Location: page_not_found.php");
 		exit();
 	}
-	exit;
 ?>

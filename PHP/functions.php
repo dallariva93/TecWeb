@@ -8,7 +8,13 @@ function data ($value){
 	$risultato = $giorno. "/". $mese. "/". $anno;
 	return $risultato;
 }
-
+function longData ($value){
+	$risultato = "";
+	$ora   = substr($value, 11, 2);
+	$minuti   = substr($value, 14, 2);
+	$risultato = data($value). " ". $ora. ":". $minuti;
+	return $risultato;
+}
 
 function menu(){
 		if(!isset($_SESSION))
