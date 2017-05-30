@@ -1,8 +1,8 @@
 <dd>
 	<a href='notizia.php?news={{Id}}'>
-	<img src='../img/cover/{{Id}}.jpg' alt='Immagine rappresentativa della news: {{Titolo}}'/>
+	<img src='../img/news/{{Id}}.jpg' alt='Immagine rappresentativa della news: {{Titolo}}'/>
 	<object>
-		<h1>{{Titolo}}</h1>
+		<h2>{{Titolo}}</h2>
 		{{Testo}}
 	</object>
 	</a>
