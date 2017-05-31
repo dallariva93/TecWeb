@@ -1,6 +1,6 @@
 <!--TabellaNotizie.txt-->
 <tr>
-	<td	scope='row'><a href="new.php?id='{{Id}}'">{{Titolo}}</a></td>
+	<td	scope='row'><a href="notizia.php?news={{Id}}">{{Titolo}}</a></td>
 	<td>{{Autore}}</td>
 	<td>{{Data}}</td>
 	<td>

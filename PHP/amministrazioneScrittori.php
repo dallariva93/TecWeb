@@ -14,8 +14,7 @@
 		$nazione = (isset($_POST['nazionalita']))?
 			campoNonVuoto($errore,$_POST['nazionalita']) : "" ;
 		$searchInForm=array("{{NomeError}}","{{CognomeError}}",
-			"{{NazioneError}}"
-							,"{{DataError}}");
+			"{{NazioneError}}","{{DataError}}");
 		$replaceInForm=array(testNome($errore), testCognome($errore),$nazione,
 						testDate($errore));
 
