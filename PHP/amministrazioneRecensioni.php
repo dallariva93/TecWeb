@@ -90,7 +90,7 @@
 
 				$search=array("{{Data}}","{{Libro}}","{{Titolo}}","{{Voto}}",
 					"{{Autore}}","{{Id}}");
-				$replace=array(longData($Rec['Data_Pubblicazione']),$LibroRec,
+				$replace=array(Data($Rec['Data_Pubblicazione'],true),$LibroRec,
 					$LibroTitolo,$Rec['Valutazione'],$Autore,$Rec['Id']);
 				echo str_replace($search ,$replace,
 					file_get_contents("../HTML/Template/TabellaRecensione.txt"));

@@ -41,7 +41,7 @@
 			$searchHeader=array("{{Immagine}}","{{Cognome}}","{{Nome}}",
 				"{{Data}}","{{Nazionalita}}");
 			$replaceHeader=array($immagine,$dati['Cognome'], $dati['Nome'],
-				data($dati['Data_Nascita']),$dati['Nazionalita']);
+				Data($dati['Data_Nascita']),$dati['Nazionalita']);
 			echo str_replace($searchHeader ,$replaceHeader,
 				file_get_contents("../HTML/Template/IntestazioneAutore.txt")).
 

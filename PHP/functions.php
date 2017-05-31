@@ -1,29 +1,12 @@
 <?php
 
-function data ($value){
-	$risultato = "";
-	$giorno = substr($value, 8, 2);
-	$mese   = substr($value, 5, 2);
-	$anno   = substr($value, 0, 4);
-	$risultato = $giorno. "/". $mese. "/". $anno;
+function Data($value,$time = false){
+	$data = multiexplode(array(":", " ", "-"), $value);
+	$risultato = $data[2]. "/". $data[1]. "/". $data[0];
+	if( $time )
+		$risultato .= " ". $data[3]. ":" .$data[4];
 	return $risultato;
 }
-function longData ($value){
-	$risultato = "";
-	$ora   = substr($value, 11, 2);
-	$minuti   = substr($value, 14, 2);
-	$risultato = data($value). " ". $ora. ":". $minuti;
-	return $risultato;
-}
-
-function formattaData($data)
-{
-	$ris=multiexplode(array(":", " ", "-"), $data);
-	$dataFormattata=$ris[2]. "/". $ris[1]. "/". $ris[0]. " ". $ris[3].":".$ris[4];
-	return $dataFormattata;
-
-}
-
 function menu(){
 		if(!isset($_SESSION))
         	session_start();
@@ -245,14 +228,6 @@ function testDate(&$errore)
 	return $dateErr;
 }
 
-function GetData($data){
-	$correctData = "";
-	if ($data != ""){
-		$arrayData = multiexplode(array("-",".","/"),$data);
-		$correctData = $arrayData[2]."/" .$arrayData[1]."/" .$arrayData[0];	//ricostruisco la data con il separatore "/"
-	}
-	return $correctData;
-}
 
 function testPassword(&$errore, $wrongPassword = false)
 {

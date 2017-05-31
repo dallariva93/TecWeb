@@ -61,7 +61,7 @@
 					$autoreNotizia = $New['Autore'];
 				$searchNotizie=array("{{Id}}","{{Titolo}}","{{Data}}","{{Autore}}");
 				$replaceNotizie=array($New['Id'],$New['Titolo'],
-					longData($New['Data']),	$autoreNotizia);
+					Data($New['Data'],true),$autoreNotizia);
 				echo str_replace($searchNotizie ,$replaceNotizie,
 				 	file_get_contents("../HTML/Template/TabellaNotizie.txt"));
 

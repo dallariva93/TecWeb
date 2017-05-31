@@ -23,13 +23,13 @@
 		{
 			$insert="INSERT INTO `Scrittore`(Nome, Cognome,Data_Nascita
 				,Nazionalita) VALUES ('".$_POST['nome']."','".$_POST['cognome'].
-					"','".GetData($_POST['data'])."','".$_POST['nazionalita']."')";
+					"','".Data($_POST['data'])."','".$_POST['nazionalita']."')";
 
 			if($db->query($insert)){
 
 				$queryCercaAutore = "SELECT Id FROM Scrittore WHERE Nome =
 					'". $_POST['nome']. "' AND Cognome = '". $_POST['cognome'].
-					"' AND Data_Nascita = '". GetData($_POST['data']). "' AND
+					"' AND Data_Nascita = '". Data($_POST['data']). "' AND
 					Nazionalita = '".$_POST['nazionalita']. "'";
 
 				//Inserimento immagine

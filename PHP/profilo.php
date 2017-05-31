@@ -171,7 +171,7 @@
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN=(SELECT Libro FROM `Recensione` WHERE Id='".$arrayCommenti[$i][1]."')");
 			$libro=mysqli_fetch_array($lib);
 			
-			$data=formattaData($arrayCommenti[$i][0]);
+			$data=Data($arrayCommenti[$i][0],true);
 			$replaceCommento=array($libro[0], $data, $arrayCommenti[$i][2]);
 			echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoProfilo.txt"));
 			$i++;

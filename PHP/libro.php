@@ -114,7 +114,7 @@
 			$replaceHeader=array($errore,$datiL['ISBN'],$datiL['Titolo'],
 				$datiL['Autore'],$autoreNome,$autoreCognome
 				,$datiL['Casa_Editrice'],$datiL['Genere']
-				,data($datiL['Anno_Pubblicazione']));
+				,Data($datiL['Anno_Pubblicazione']));
 			echo str_replace($searchHeader ,$replaceHeader,
 				file_get_contents("../HTML/Template/IntestazioneLibro.txt"));
 
@@ -195,7 +195,7 @@
 					}
 
 					$searchCommento=array("{{Username}}","{{Data}}", "{{Testo}}");
-					$replaceCommento=array($username,longData($Commento['Data_Pubblicazione']),
+					$replaceCommento=array($username,Data($Commento['Data_Pubblicazione'],true),
 						$Commento['Commento']);
 					echo str_replace($searchCommento ,$replaceCommento,
 						file_get_contents("../HTML/Template/CommentoLibro.txt"));
