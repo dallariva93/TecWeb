@@ -73,9 +73,8 @@
 		if($UltimeNews->num_rows>0) {
 			echo "<ul>";
 			while ($rowNews = $UltimeNews->fetch_array(MYSQLI_ASSOC)) {
-				echo "<li><a href='new.php?id=",$rowNews['Id'], "'>",
-					$rowNews['Titolo'], "</a></li>
-				";
+				echo "<li><a href='notizia.php?news=". $rowNews['Id']. "'>".
+					$rowNews['Titolo']. "</a></li>";
 			}
 			echo "</ul>";
 		}
