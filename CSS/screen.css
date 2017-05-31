@@ -499,7 +499,7 @@ fieldset label {
 ***************************************************************/
 .boxAdmin a{
 	border: 1px solid blue;
-	width: 32%;
+	width: calc(32.33% - 2px);
 	margin-left: 0.5%;
 	margin-right: 0.5%;
 	margin-top: 1%;
@@ -510,6 +510,7 @@ fieldset label {
 	font-size: 1.5em;
 	font-weight: bold;
 	text-decoration: none;
+	word-wrap: break-word;
 }
 .boxAdmin a:hover {
 	background-color: lightblue;

@@ -98,10 +98,8 @@
 		AMMINISTRAZIONE
 ***************************/
 
-.boxAdmin {
-	width: 48%;
-}
-
+.boxAdmin a{
+	width: calc(49% - 2px);
 /**************************
 		BOTTONI
 ***************************/
