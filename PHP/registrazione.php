@@ -14,11 +14,11 @@
 		$residenza = ($_POST['residenza'])? $_POST['residenza'] : "";
 
 		$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );
-		
+
 
 		$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname
 			, Data_Nascita, Password, Residenza) VALUES ('".$_POST['email']."','".$_POST['nome']."','".$_POST['cognome']."','"
-			.$_POST['nickname']."','". Data($_POST['data']). "','$ENC_password', '".$residenza."')";
+			.$_POST['nickname']."','". GetData($_POST['data']). "','$ENC_password', '".$residenza."')";
 
 		if($db->query($insert)){
 			session_start();

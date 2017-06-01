@@ -39,7 +39,7 @@
 					</select>
 				</label>
 				<label for='file'>Scegli una copertina: 
-				<input type='file' name='img' id='file'/></label>
+				<input type='file' name='img' id='file'/></label><div class="inputError" id="FileError">{{FileError}}</div>
 				<input type='submit' value='Inserisci' class='btnLong'/>
 			</div>
 		</form>

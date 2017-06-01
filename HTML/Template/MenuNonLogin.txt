@@ -1,0 +1,2 @@
+<li class='right'><a href='login.php' tabindex='3'>Accedi</a></li>
+			<li class='right'><a href='registrazione.php' tabindex='2'>Iscriviti</a></li>

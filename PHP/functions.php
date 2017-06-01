@@ -1,12 +1,24 @@
 <?php
 
 function Data($value,$time = false){
-	$data = multiexplode(array(":", " ", "-"), $value);
-	$risultato = $data[2]. "/". $data[1]. "/". $data[0];
-	if( $time )
-		$risultato .= " ". $data[3]. ":" .$data[4];
+	$risultato = "";
+	if( $value != ""){
+		$data = multiexplode(array(":", " ", "-"), $value);
+		$risultato = $data[2]. "/". $data[1]. "/". $data[0];
+		if( $time )
+			$risultato .= " ". $data[3]. ":" .$data[4];
+	}
 	return $risultato;
 }
+function GetData($data){
+	$correctData = "";
+	if ($data != ""){
+		$arrayData = multiexplode(array("-",".","/"),$data);
+		$correctData = $arrayData[2]."/" .$arrayData[1]."/" .$arrayData[0];	//ricostruisco la data con il separatore "/"
+	}
+	return $correctData;
+}
+
 function menu(){
 		if(!isset($_SESSION))
         	session_start();
@@ -25,16 +37,14 @@ function menu(){
 
 		}
 		else{
-			echo "
-			<li class='right'><a href='login.php' tabindex='3'>Accedi</a></li>
-			<li class='right'><a href='registrazione.php' tabindex='2'>Iscriviti</a></li>";
+			echo file_get_contents("../HTML/Template/MenuNonLogin.txt");
 		}
 		echo
 		"</ul>
 		</div>";
 	}
 
-	
+
 function pagingNews($currentPage, $totalNumber){
 	$total = floor($totalNumber/5);
 	echo "<div id='paging'><form method='post' action='news.php'><div>";
@@ -61,7 +71,7 @@ function pagingNews($currentPage, $totalNumber){
 	echo "</div></form></div>";
 }
 
-	
+
 function paging($currentPage, $totalNumber,$genere = ""){
 	$total = floor($totalNumber/5); //numero totale di pagine
 	if($totalNumber%5 == 0) //caso in cui il numero è divisibile
@@ -316,6 +326,25 @@ function campoNonVuoto(&$errore,$campo)
 	   $Err="Il campo non puó essere vuoto";
 	}
 	return $Err;
+}
+
+function testImage(&$flag)
+{
+	$Errore = "";
+	if (isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
+		is_uploaded_file($_FILES['img']['tmp_name'])){
+		$imageFileType = pathinfo($_FILES["img"]["name"],PATHINFO_EXTENSION);
+		if($imageFileType != "jpg" && $imageFileType != "png" &&
+			$imageFileType != "jpeg" && $imageFileType != "gif" ) {
+			$flag = true;
+			$Errore = "Formato non corretto";
+		}
+		else if($_FILES["img"]["size"] > 500000) {
+			$flag = true;
+			$Errore = "Dimensione troppo grande";
+		}
+	}
+	return $Errore;
 }
 
 function printStar($num)
