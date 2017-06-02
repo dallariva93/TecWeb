@@ -3,9 +3,8 @@
 	if(isset($_REQUEST['news']) && $datiNews = $db->query("SELECT * FROM Notizie WHERE id = '". ($_REQUEST['news'])."'")) {
 		Require_once('functions.php');
 
-		$datiN = $datiNews->fetch_array(MYSQLI_ASSOC);
+		
 		$codice = $_REQUEST['news'];
-		$codiceNews = $datiN['Id'];
 		$errore ="";
 
 		if(!isset($_SESSION))
@@ -20,7 +19,7 @@
 				$autore = $_SESSION['id'];
 				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
 				$sql = "INSERT INTO Commentinews (News,Autore,Commento)
-						VALUES ('$codiceNews','$autore','$ntesto');";
+						VALUES ('$codice','$autore','$ntesto');";
 				if(!$db->query($sql)){
 					$errore = "<p>Problema inserimento commento</p>";
 				}
@@ -29,9 +28,9 @@
 			else if(isset($_POST['deleteUser'])) {
 				$deleteautore = $_POST['deleteUser'];
 				$ndata = $_POST['deleteData'];
-				$sql = "DELETE FROM `CommentiNews` WHERE `Commenti`.`News` = '$codiceNews'
-						AND `Commenti`.`Autore` = '$deleteautore'
-						AND `Commenti`.`Data_Pubblicazione` = '$ndata'";
+				$sql = "DELETE FROM `CommentiNews` WHERE `CommentiNews`.`News` = '$codice'
+						AND `CommentiNews`.`Autore` = '$deleteautore'
+						AND `CommentiNews`.`Data_Pubblicazione` = '$ndata'";
 
 				if(!$db->query($sql)){
 					$errore = "<p>Problema eliminazione commento</p>";
@@ -41,7 +40,7 @@
 
 		
 		if($datiNews->num_rows > 0) {
-
+			$datiN = $datiNews->fetch_array(MYSQLI_ASSOC);
 			$autoreNome = "";
 			$autoreCognome = "";
 			
@@ -69,16 +68,14 @@
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneNews.txt"));
 
 		}
-		/*
-		if($datiNews) { //Stampa testo della Notizia
-			echo $datiN['Testo'];
-
-		} // fine stampa della notizia
-		*/
+		
+		
+		$datiNews->free();
+		$autoreArray->free();
 
 		// SEZIONE COMMENTI
 
-		if ($datiCommenti = $db->query("SELECT * FROM Commentinews WHERE news = '". $codiceNews. "' ORDER BY Data_Pubblicazione DESC")) {
+		if ($datiCommenti = $db->query("SELECT * FROM Commentinews WHERE news = '". $codice. "' ORDER BY Data_Pubblicazione DESC")) {
 			if($datiCommenti->num_rows>0) {
 				echo "<h2>Commenti</h2>";
 				echo "<div class='comments'>";
@@ -97,7 +94,7 @@
 					if(isset($_SESSION['type']) && ($Commento['Autore'] == $_SESSION['id'] || $_SESSION['type'] == 'admin' )) {
 						$searchDeleteCommento=array("{{codice}}","{{Autore}}", "{{Data}}");
 						$replaceDeleteCommento=array($codice,$Commento['Autore'], $Commento['Data_Pubblicazione']);
-						echo str_replace($searchDeleteCommento ,$replaceDeleteCommento, file_get_contents("../HTML/Template/DeleteLibro.txt"));
+						echo str_replace($searchDeleteCommento ,$replaceDeleteCommento, file_get_contents("../HTML/Template/DeleteNews.txt"));
 					}
 					echo "<div class='autoreCommento'>". $username."</div>";
 					echo "</div>";//Fine class commentTitle
@@ -108,8 +105,6 @@
 			echo "</div>";// Fine class comments
 			}
 		$datiCommenti->free();
-		$datiNews->free();
-		$autoreArray->free();
 		}
 
 		//Form inserimento commenti (solo per un utente loggato)
@@ -117,7 +112,7 @@
 		if(isset($_SESSION['type']) &&  $_SESSION['type'] == 'user'){
 			$searchNuovoCommento=array("{{codice}}");
 			$replaceNuovoCommento=array($codice);
-			echo str_replace($searchNuovoCommento ,$replaceNuovoCommento, file_get_contents("../HTML/Template/AddCommento.txt"));
+			echo str_replace($searchNuovoCommento ,$replaceNuovoCommento, file_get_contents("../HTML/Template/AddCommentoNews.txt"));
 		}
 
 		echo "</div>"; // Fine class text
