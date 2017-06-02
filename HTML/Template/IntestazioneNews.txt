@@ -1,7 +1,9 @@
 <div class='centrato presentazione content'>
 <div class='Errore'>{{errore}}</div>
 <div class='text'>
-<img class='VleftSmall' src='../img/cover/{{IdNews}}.jpg' alt=''/>
+<img class='VleftSmall' src='../img/news/{{Id}}.jpg' alt=''/>
 <h1>{{Titolo}}</h1>
 
-<h3>Recensione scritta da {{Cognome}} {{Nome}} </h3>
+{{Testo}}
+
+<h3>Autore: {{Cognome}} {{Nome}} </h3>

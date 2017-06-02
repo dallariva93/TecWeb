@@ -3,14 +3,15 @@
 	if(isset($_REQUEST['news']) && $datiNews = $db->query("SELECT * FROM Notizie WHERE id = '". ($_REQUEST['news'])."'")) {
 		Require_once('functions.php');
 
+		$datiN = $datiNews->fetch_array(MYSQLI_ASSOC);
 		$codice = $_REQUEST['news'];
+		$codiceNews = $datiN['Id'];
 		$errore ="";
 
 		if(!isset($_SESSION))
         	session_start();
 
 		
-		/*
 		
 		//Azioni form
 		if(isset($_SESSION['id'])){
@@ -18,8 +19,8 @@
 			if(isset($_POST['text']) && !$_POST['text']==""){
 				$autore = $_SESSION['id'];
 				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
-				$sql = "INSERT INTO Commenti (Recensione,Autore,Commento)
-						VALUES ('$codiceRec','$autore','$ntesto');";
+				$sql = "INSERT INTO Commentinews (News,Autore,Commento)
+						VALUES ('$codiceNews','$autore','$ntesto');";
 				if(!$db->query($sql)){
 					$errore = "<p>Problema inserimento commento</p>";
 				}
@@ -28,7 +29,7 @@
 			else if(isset($_POST['deleteUser'])) {
 				$deleteautore = $_POST['deleteUser'];
 				$ndata = $_POST['deleteData'];
-				$sql = "DELETE FROM `Commenti` WHERE `Commenti`.`Recensione` = '$codiceRec'
+				$sql = "DELETE FROM `CommentiNews` WHERE `Commenti`.`News` = '$codiceNews'
 						AND `Commenti`.`Autore` = '$deleteautore'
 						AND `Commenti`.`Data_Pubblicazione` = '$ndata'";
 
@@ -38,11 +39,9 @@
 			}
 		}//Fine azioni form
 
-		*/
 		
 		if($datiNews->num_rows > 0) {
 
-			$datiN = $datiNews->fetch_array(MYSQLI_ASSOC);
 			$autoreNome = "";
 			$autoreCognome = "";
 			
@@ -56,7 +55,7 @@
 			}
 			
 			$searchHead=array("{{title}}","{{description}}");
-			$replaceHead=array("<title>". $datiN['Titolo']. " - FaceOnTheBook </title>","<meta name='description' content='Social network per topi di bibblioteca'/>");
+			$replaceHead=array($datiN['Titolo']. " - FaceOnTheBook","<meta name='description' content='Social network per topi di bibblioteca'/>");
 			echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 			
 			echo menu();
@@ -65,24 +64,21 @@
 			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/". $datiN['Titolo']);
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
-			$searchHeader=array("{{errore}}","{{IdNews}}","{{Titolo}}","{{IdAutore}}","{{Cognome}}","{{Nome}}");
-			$replaceHeader=array($errore,$datiN['Id'],$datiN['Titolo'],$datiN['Autore'],$autoreNome,$autoreCognome);
+			$searchHeader=array("{{errore}}","{{Id}}","{{Titolo}}","{{IdAutore}}","{{Testo}}","{{Cognome}}","{{Nome}}");
+			$replaceHeader=array($errore,$datiN['Id'],$datiN['Titolo'],$datiN['Autore'],$datiN['Testo'],$autoreNome,$autoreCognome);
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneNews.txt"));
 
 		}
+		/*
 		if($datiNews) { //Stampa testo della Notizia
 			echo $datiN['Testo'];
 
 		} // fine stampa della notizia
-
-		$datiNews->free();
-		$autoreArray->free();
-
+		*/
 
 		// SEZIONE COMMENTI
 
-		if ($datiCommenti = $db->query("SELECT * FROM Commenti WHERE Recensione = '". $codiceRec. "'
-										ORDER BY Data_Pubblicazione DESC")) {
+		if ($datiCommenti = $db->query("SELECT * FROM Commentinews WHERE news = '". $codiceNews. "' ORDER BY Data_Pubblicazione DESC")) {
 			if($datiCommenti->num_rows>0) {
 				echo "<h2>Commenti</h2>";
 				echo "<div class='comments'>";
@@ -112,6 +108,8 @@
 			echo "</div>";// Fine class comments
 			}
 		$datiCommenti->free();
+		$datiNews->free();
+		$autoreArray->free();
 		}
 
 		//Form inserimento commenti (solo per un utente loggato)
