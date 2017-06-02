@@ -47,6 +47,15 @@
 
 			file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
+			if($Descrizioni = $db->query("SELECT Testo FROM DescrizioneAutore WHERE Autore ='".
+				$_REQUEST['autore']. "'")){
+
+				if( $descrizione = $Descrizioni->fetch_array(MYSQLI_ASSOC) )
+				echo "<div id='DescrizioneAutore'>".
+					$descrizione['Testo']. "</div>";
+				
+			}
+
 			//Ricerca di tutti i libri dell' autore nel sito
 			if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione
 				FROM Libro WHERE Autore ='". $_REQUEST['autore'].
