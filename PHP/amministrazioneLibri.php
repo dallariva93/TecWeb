@@ -26,48 +26,27 @@
 		}
 
 		$searchInForm=array("{{ISBNError}}","{{TitoloError}}","{{DataError}}",
-							"{{CasaError}}", "{{TramaError}}","{{Scrittori}}");
+							"{{CasaError}}", "{{TramaError}}","{{Scrittori}}",
+							"{{FileError}}");
 		$replaceInForm=array(testISBN($errore),$titolo,testDate($errore), $casa,
-						$trama,$scrittore);
+						$trama,$scrittore,testImage($errore));
 
 		if(!$errore && isset($_POST['isbn']) && isset($_POST['titolo'])
 			&& isset($_POST['data']) && isset($_POST['casa']) && isset($_POST['trama'])
-			&& isset($_POST['genere']) && isset($_POST['autore']))
+			&& isset($_POST['genere']) && isset($_POST['autore']) &&
+			isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
+			is_uploaded_file($_FILES['img']['tmp_name']))
 		{
 			$insert="INSERT INTO `Libro` (ISBN, Titolo, Autore,Casa_Editrice,Anno_Pubblicazione
 				, Genere, Trama) VALUES ('".$_POST['isbn']."','".$_POST['titolo']."','".$_POST['autore']."','"
-				.$_POST['casa']."','".Data($_POST['data']). "','". $_POST['genere']. "', '".$_POST['trama']."')";
-			if($db->query($insert)){//Inserimento copertina
-				if(isset($_POST['img']))
-					echo $_POST['img'];
+				.$_POST['casa']."','".GetData($_POST['data']). "','". $_POST['genere']. "', '".$_POST['trama']."')";
+			if($db->query($insert)){
+				//Inserimento copertina
 
-				if (file_exists($_FILES['img']['tmp_name']) &&
-					is_uploaded_file($_FILES['img']['tmp_name'])){
+				$target_file = "../img/cover/" . $_POST['isbn']. ".jpg" ;
 
-
-							$erroreFile = false;
-							$target_dir = "../img/cover/";
-							$target_file = $target_dir . $_POST['isbn']. ".jpg" ;
-
-							$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-							if($_FILES["img"]["size"] > 500000 && $imageFileType != "jpg"
-								&& $imageFileType != "png" && $imageFileType != "jpeg"
-								&& $imageFileType != "gif" ) {
-								$erroreFile = true;
-							}
-
-			    			if(!$erroreFile){
-								move_uploaded_file($_FILES["img"]["tmp_name"],
-									$target_file);
-							}
-
-					}//fine if (file_exists($_FILES...
-
-
+				move_uploaded_file($_FILES["img"]["tmp_name"],$target_file);
 			}
-
-
 		}
 
 		$searchHead=array("{{title}}","{{description}}");

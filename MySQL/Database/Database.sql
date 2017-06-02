@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS VotoRecensione;
 DROP TABLE IF EXISTS VotoLibro;
 DROP TABLE IF EXISTS Notizie;
 DROP TABLE IF EXISTS FotoAutori;
+DROP TABLE IF EXISTS DescrizioneAutore;
 
 /* TABELLE */
 
@@ -119,11 +120,19 @@ CREATE TABLE Notizie
 );
 
 CREATE TABLE FotoAutori
-(	Autore	INT UNSIGNED,
-	Foto varchar(60),
-	PRIMARY KEY (Foto, Autore),
+(	Autore	INT UNSIGNED PRIMARY KEY,
+	Foto varchar(60) NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
+
+CREATE TABLE DescrizioneAutore
+(	Autore	INT UNSIGNED PRIMARY KEY,
+	Testo text NOT NULL,
+	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
 SET foreign_key_checks = 1;

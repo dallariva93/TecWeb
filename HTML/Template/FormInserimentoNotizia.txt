@@ -9,6 +9,8 @@
 				<input type='text' name='titolo' id='titolo'/>
 				<label for='testo' >Testo</label><div class="inputError" id="TestoError">{{TestoError}}</div>
 				<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
+				<label for='file'>Inserisci un'immagine: 
+				<input type='file' name='img' id='file'/></label><div class="inputError" id="FileError">{{FileError}}</div>
 				<input type='submit' value='Inserisci' class='btnLong'/>
 			</div>
 		</form>

@@ -15,7 +15,7 @@
 			<label for='data'>Data di nascita</label><div class="inputError" id="DataError">{{DataError}}</div>
 			<input type='text' name='data' id='data'/>
 			<label for='file'>Scegli un' immagine: 
-			<input type='file' name='img' id='file'/></label>
+			<input type='file' name='img' id='file'/></label><div class="inputError" id="FileError">{{FileError}}</div>
 			<input type='submit' value='Inserisci' class='btnLong'/>
 		</div>
 	</form>

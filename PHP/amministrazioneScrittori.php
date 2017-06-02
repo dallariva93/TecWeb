@@ -14,55 +14,41 @@
 		$nazione = (isset($_POST['nazionalita']))?
 			campoNonVuoto($errore,$_POST['nazionalita']) : "" ;
 		$searchInForm=array("{{NomeError}}","{{CognomeError}}",
-			"{{NazioneError}}","{{DataError}}");
+			"{{NazioneError}}","{{DataError}}","{{FileError}}");
 		$replaceInForm=array(testNome($errore), testCognome($errore),$nazione,
-						testDate($errore));
+						testDate($errore),testImage($errore));
 
 		if(!$errore && isset($_POST['nome']) && isset($_POST['cognome'])
-			&& isset($_POST['data']) && isset($_POST['nazionalita']))
+			&& isset($_POST['data']) && isset($_POST['nazionalita']) &&
+			isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
+			is_uploaded_file($_FILES['img']['tmp_name']))
 		{
 			$insert="INSERT INTO `Scrittore`(Nome, Cognome,Data_Nascita
 				,Nazionalita) VALUES ('".$_POST['nome']."','".$_POST['cognome'].
-					"','".Data($_POST['data'])."','".$_POST['nazionalita']."')";
+					"','".GetData($_POST['data'])."','".$_POST['nazionalita']."')";
 
 			if($db->query($insert)){
 
 				$queryCercaAutore = "SELECT Id FROM Scrittore WHERE Nome =
 					'". $_POST['nome']. "' AND Cognome = '". $_POST['cognome'].
-					"' AND Data_Nascita = '". Data($_POST['data']). "' AND
+					"' AND Data_Nascita = '". GetData($_POST['data']). "' AND
 					Nazionalita = '".$_POST['nazionalita']. "'";
 
 				//Inserimento immagine
-				if (file_exists($_FILES['img']['tmp_name']) &&
-					is_uploaded_file($_FILES['img']['tmp_name'])){
+				if ($Scrittori = $db->query($queryCercaAutore))
+					if($Scrittore = $Scrittori->fetch_array(MYSQLI_ASSOC)){
 
-					if ($Scrittori = $db->query($queryCercaAutore))
-						if($Scrittore = $Scrittori->fetch_array(MYSQLI_ASSOC)){
+						$target_file = "../img/autori/" . basename($_FILES["img"]["name"]);
 
-							$autore = $Scrittore['Id'];
-							$erroreFile = false;
-							$target_dir = "../img/autori/";
-							$target_file = $target_dir . basename($_FILES["img"]["name"]);
+						$queryFile = "INSERT INTO `FotoAutori`(Autore,Foto)
+							VALUES ('". $Scrittore['Id'].  "','".$target_file."')";
 
-							$query = "INSERT INTO `FotoAutori`(Autore,Foto)
-								VALUES ('". $autore.  "','".$target_file."')";
-
-							$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-							if($_FILES["img"]["size"] > 500000 && $imageFileType != "jpg"
-								&& $imageFileType != "png" && $imageFileType != "jpeg"
-								&& $imageFileType != "gif" ) {
-								$erroreFile = true;
-							}
-
-			    			if (!$erroreFile &&
-								move_uploaded_file($_FILES["img"]["tmp_name"],
-								$target_file)) {
-								$db->query($query);
-							}
+		    			if (move_uploaded_file($_FILES["img"]["tmp_name"],
+							$target_file)) {
+							$db->query($queryFile);
 						}
-					}//fine if (file_exists($_FILES...
-				}//fine if($db->query($insert)){
+					}
+			}//fine if($db->query($insert)){
 		}// fine if(!$errore...
 
 		$searchHead=array("{{title}}","{{description}}");

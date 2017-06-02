@@ -1,0 +1,10 @@
+<!--AddCommentoNews.txt-->
+<div class='inserisciCommento'>
+	<h3>Inserisci un commento</h3>
+	<form action='notizia.php?news={{codice}}' method='post'>
+		<div >
+			<textarea id ='testo' name= 'text' rows='4' cols='20'></textarea>
+			<input type ='submit' value='Invia!' class='btnShort' />
+		</div>
+	</form>
+</div>

@@ -14,16 +14,38 @@
 		$titolo = (isset($_POST['titolo']))? campoNonVuoto($errore,$_POST['titolo']) : "" ;
 		$testo = (isset($_POST['testo']))? campoNonVuoto($errore,$_POST['testo']) : "" ;
 
-		$searchInForm=array("{{TitoloError}}","{{TestoError}}");
-		$replaceInForm=array($titolo,$testo);
+		$searchInForm=array("{{TitoloError}}","{{TestoError}}","{{FileError}}");
+		$replaceInForm=array($titolo,$testo,testImage($errore));
 
-		if(!$errore && isset($_POST['titolo']) && isset($_POST['testo']))
+		if(!$errore && isset($_POST['titolo']) && isset($_POST['testo']) &&
+			isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
+			is_uploaded_file($_FILES['img']['tmp_name']))
 		{
 			$insert="INSERT INTO `Notizie` (Titolo, Autore,Testo)
 			 	VALUES ('".$_POST['titolo']."','".$_SESSION['id']."','".
 					$_POST['testo']."')";
-			$db->query($insert);
-		}
+
+			if($db->query($insert)){
+
+				$queryCercaNotizia = "SELECT Id FROM Notizia WHERE Titolo =
+					'". $_POST['titolo']. "' AND Autore = '". $_SESSION['id'].
+					"' AND Testo = '". $_POST['testo']. "'";
+
+				//Inserimento immagine
+				if ($Notizie = $db->query($queryCercaNotizia))
+					if($Notizia = $Notizie->fetch_array(MYSQLI_ASSOC)){
+						$target_file = "../img/news/" . basename($_FILES["img"]["name"]);
+
+						$queryFile = "INSERT INTO `FotoNotizie`(Notizia,Foto)
+							VALUES ('". $Notizia['Id'].  "','".$target_file."')";
+
+		    			if (move_uploaded_file($_FILES["img"]["tmp_name"],
+							$target_file)) {
+							$db->query($queryFile);
+						}
+					}
+			}//fine if($db->query($insert)){
+		}// fine if(!$errore...
 
 		$searchHead=array("{{title}}","{{description}}");
 		$replaceHead=array("Amministrazione Notizie - ",

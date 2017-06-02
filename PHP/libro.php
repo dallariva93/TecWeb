@@ -127,6 +127,7 @@
 				<li>Voto della redazione: <div class='stelle'>".
 				printStar($datiRec['Valutazione']). "</div></li>";
 
+
 			//Voto al libro dato dalla media dei voti al libro degli utenti
 			if($votoLibArray = $db->query("SELECT ROUND(AVG(Valutazione),1) AS Media
 											FROM VotoLibro GROUP BY (Libro)
@@ -148,8 +149,9 @@
 				}
 				$votoRecArray->free();
 			}
-			
+
 			echo "</ul><h3>Recensione scritta da ".$redazioneNome. " ".$redazioneCognome. "</h3></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt");
+
 
 		} // FINE  voti recensione
 		

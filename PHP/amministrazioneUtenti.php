@@ -30,7 +30,7 @@
 			$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname
 				, Data_Nascita, Password, Residenza) VALUES ('".$_POST['email'].
 					"','".$_POST['nome']."','".$_POST['cognome']."','"
-					.$_POST['nickname']."','". Data($_POST['data']).
+					.$_POST['nickname']."','". GetData($_POST['data']).
 					"','$ENC_password', '".$residenza."')";
 			$db->query($insert);
 		}
