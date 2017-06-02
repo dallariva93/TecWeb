@@ -122,8 +122,8 @@
 		if($datiRec) { //Stampa della recensione e dei suoi dati
 
 			//Voto al libro dato dalla redazione
-			echo "<h3>Recensione scritta da ".$redazioneNome. " ".
-			 	$redazioneCognome. "</h3>
+
+				echo "
 				<div class='valutazioniRecensione'><ul>
 				<li>Valutazione dalla redazione: ".
 				printStar($datiRec['Valutazione']). "</li>";
@@ -150,7 +150,9 @@
 				$votoRecArray->free();
 			}
 
-			echo "</ul></div></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt");
+			echo "</ul></div>
+			<h3>Recensione scritta da ".$redazioneNome. " ".
+			 	$redazioneCognome. "</h3></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
 		} // FINE  voti recensione
 		echo "<div class='text'><h2>Trama: </h2>".
