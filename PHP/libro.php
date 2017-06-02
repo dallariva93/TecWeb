@@ -122,11 +122,10 @@
 		if($datiRec) { //Stampa della recensione e dei suoi dati
 
 			//Voto al libro dato dalla redazione
-			echo "<h3>Recensione scritta da ".$redazioneNome. " ".
-			 	$redazioneCognome. "</h3>
-				<div class='valutazioniRecensione'><ul>
-				<li>Valutazione dalla redazione: ".
-				printStar($datiRec['Valutazione']). "</li>";
+			
+			echo "<ul class='valutazioniRecensione'>
+				<li>Voto della redazione: <div class='stelle'>".
+				printStar($datiRec['Valutazione']). "</div></li>";
 
 			//Voto al libro dato dalla media dei voti al libro degli utenti
 			if($votoLibArray = $db->query("SELECT ROUND(AVG(Valutazione),1) AS Media
@@ -134,7 +133,7 @@
 											HAVING Libro ='$codice'")){
 				if($votoLibArray->num_rows>0){
 					$votoLib = $votoLibArray->fetch_array(MYSQLI_ASSOC);
-					echo "<li>Voto degli utenti: ". printStar($votoLib['Media']). "</li>";
+					echo "<li>Voto degli utenti: <div class='stelle'>". printStar($votoLib['Media']). "</div></li>";
 				}
 				$votoLibArray->free();
 			}
@@ -145,14 +144,15 @@
 											HAVING Recensione ='".$datiRec['Id']."'")){
 				if($votoRecArray->num_rows>0){
 					$votoRec = $votoRecArray->fetch_array(MYSQLI_ASSOC);
-					echo "<li>Voto alla recensione: ". printStar($votoRec['Media']). "</li>";
+					echo "<li>Voto alla recensione: <div class='stelle'>". printStar($votoRec['Media']). "</div></li>";
 				}
 				$votoRecArray->free();
 			}
-
-			echo "</ul></div></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt");
+			
+			echo "</ul><h3>Recensione scritta da ".$redazioneNome. " ".$redazioneCognome. "</h3></div>". file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
 		} // FINE  voti recensione
+		
 		echo "<div class='text'><h2>Trama: </h2>".
 		$datiL['Trama'].
 		file_get_contents("../HTML/Template/LinkAlMenu.txt");

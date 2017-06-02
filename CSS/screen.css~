@@ -329,10 +329,13 @@ fieldset label {
 /**************************************************************
 		PAGINA RECENSIONE
 ***************************************************************/
-.presentazione li {
-	list-style-type: circle;
-	padding: 0.5em;
-	margin-left: 2em;
+.presentazione dd{
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+.presentazione dt, .presentazione li{
+	font-size: 1.2em;
 }
 .Errore{
 	width: 96%;
@@ -345,8 +348,16 @@ fieldset label {
 .Intestazione {
 	margin-top: 1em;
 }
+.Intestazione dl{
+	float: left;
+    border-right: 1px solid #d7d6d6;
+    padding-right: 3%;
+    margin-right: 3%;
+    /* width: 23%; */
+    margin-left: 3%;
+    margin-top: 1%;
+}
 .Intestazione img:first-child{
-	height: 20%;
 	margin-top: 0.5em;
 }
 .Intestazione>div:not(:last-child){
@@ -364,34 +375,43 @@ fieldset label {
 }
 .Intestazione h3{
 	width: 98%;
-	margin: 2%;
+	margin: 1%;
 	float: left;
 	opacity: 0.9;
 }
 .Intestazione>div>div>p{
 	font-weight: bold;
-	margin: 1%;
+	/*margin: 1%;*/
+}
+.Intestazione h1{
+	margin-left: 33%;
+	font-size: 1.5em;
+}
+.Intestazione h3{
+	clear: both;
 }
 .valutazioniRecensione{
 	float: left;
-	width: 98%;
-	margin: 1%;
+	width: 33%;
+	margin-top: 1%;
+	/*margin: 1%;
 	box-shadow: 0px 2px 5px grey;
-	font-size: 1.2em;
+	font-size: 1.2em;*/
 
 }
 .valutazioniRecensione li {
-	margin-left: 5%;
+	/*margin-left: 5%;*/
 	list-style-type: none;
 }
 .valutazioniRecensione li:first-child{
-	font-size: 1.3em;
-	font-weight: bold;
+	/*font-size: 1.3em;
+	font-weight: bold;*/
 }
 .comment{
 	max-width: 62.8em;
 	word-wrap: break-word;
 }
+
 /**************************************************************
 			TESTO
 ***************************************************************/
@@ -403,10 +423,10 @@ fieldset label {
 	margin-top: 1em;
 }
 .text h1 {
-	padding: 0.5em;
+	padding: 0.5em 0 0.5em 0;
 }
 .text h2 {
-	padding: 0.2em;
+padding: 0.2em 0 0.2em 0;
 }
 .info {
 	padding: 0.5em;
@@ -499,7 +519,7 @@ fieldset label {
 ***************************************************************/
 .boxAdmin a{
 	border: 1px solid blue;
-	width: 32%;
+	width: calc(32.33% - 2px);
 	margin-left: 0.5%;
 	margin-right: 0.5%;
 	margin-top: 1%;
@@ -510,6 +530,7 @@ fieldset label {
 	font-size: 1.5em;
 	font-weight: bold;
 	text-decoration: none;
+	word-wrap: break-word;
 }
 .boxAdmin a:hover {
 	background-color: lightblue;
@@ -536,14 +557,13 @@ thead th{
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-.adminButton:link{
+.adminButton:link,.adminButton:visited{
 	text-decoration:none;
 	padding:0.5em;
 	margin:0.5em;
 	float: right;
 	color: white;
 	background-color: #388E3C;
-
 }
 .adminButton:link:hover {
 	background-color: #4CAF50;
@@ -587,6 +607,7 @@ tr:nth-child(even) {
 	background-color: white;
 	padding: 0.5em 0.2em 0.5em 0.2em;
 	word-wrap: break-word;
+	text-align: left;
 }
 .datalibro {
 	overflow: hidden;

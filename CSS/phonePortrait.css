@@ -86,3 +86,20 @@ tr {
 .Table{
 	font-size: 0.8em;
 }
+
+.Intestazione>img {
+    width: 70%;
+    height: inherit;
+    margin-left: 15%;
+}
+.valutazioniRecensione{
+	margin-left: 2%;
+	width: 97%;
+}
+
+.Intestazione h3 {
+    width: 97%;
+    margin: 1% 0 1% 3%;
+    float: left;
+    opacity: 0.9;
+}

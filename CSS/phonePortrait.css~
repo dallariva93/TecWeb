@@ -41,8 +41,8 @@
 }
 .leftBig p{
 	 margin-right: 0.2em;
-    font-size: 0.8em;
-    max-height: 140px;
+    font-size: 0.7em;
+    max-height: 120px;
     overflow: hidden;
 }
 
@@ -86,3 +86,14 @@ tr {
 .Table{
 	font-size: 0.8em;
 }
+
+.Intestazione>img {
+    width: 70%;
+    height: inherit;
+    margin-left: 15%;
+}
+.valutazioniRecensione{
+	margin-left: 2%;
+	width: 97%;
+}
+
