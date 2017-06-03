@@ -118,9 +118,15 @@
 
 .boxAdmin a{
 	width: calc(49% - 2px);
+}
 /**************************
 		BOTTONI
 ***************************/
+.btnLongMobile {
+    width: 97%;
+    margin-right: 1.5%;
+    position: relative;
+}
 
 .button {
 	width:98%;
@@ -143,11 +149,8 @@
 /**************************
 		RECENSIONI
 ***************************/
-.btnLongMobile{
-	width: 98%;
-	    margin-right: 0.5em;
-    /* margin-left: 0.5em; */
-    position: relative;
+.filtri>h1{
+	margin-top: 0.2em;
 }
 
 .filtri>form>div>div{
@@ -156,6 +159,5 @@
    left: 2%;
 }
 
-/**************************
-		LIBRO
-***************************/
+
+
