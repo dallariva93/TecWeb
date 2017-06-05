@@ -1,5 +1,5 @@
 <!--IndexHeader.txt-->
 <div class='header centrato'>
-	<h1>FACE ON THE BOOK</h1>
+	<h1><span xml:lang="en">FACE ON THE BOOK</span></h1>
 	<p>Tieniti informato sui tuoi libri preferiti!</p>
 </div>

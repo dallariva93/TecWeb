@@ -1,5 +1,5 @@
 <!--RecensioniFiltri.txt-->
 <div>
-<label class='marginMobile' for="{{GENERE}}">{{GENERE}}</label>
-<input type="radio" name="genere" id="{{GENERE}}" class='radioMobile' value="{{VALUE}}" {{CHECK}}/>
+<label class='marginMobile' for="{{ID}}">{{GENERE}}</label>
+<input type="radio" name="genere" id="{{ID}}" class='radioMobile' value="{{VALUE}}" {{CHECK}}/>
 </div>

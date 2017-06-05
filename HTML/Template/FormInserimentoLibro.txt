@@ -28,13 +28,13 @@
 				<label for='genere'>Genere
 					<select name='genere' id='genere'>
 						<option value='Commedia'>Commedia</option>
-						<option value='Horror'>Horror</option>
-						<option value='Fantasy'>Fantasy</option>
+						<option value="<span xml:lang='en'>Horror</span>"><span xml:lang='en'>Horror</span></option>
+						<option value="<span xml:lang='en'>Fantasy</span>"><span xml:lang='en'>Fantasy</span></option>
 						<option value='Narrativa'>Narrativa</option>
 						<option value='Saggistica'>Saggistica</option>
 						<option value='Commedia'>Commedia</option>
 						<option value='Classico'>Classico</option>
-						<option value='Thriller'>Thriller</option>
+						<option value="<span xml:lang='en'>Thriller</span>"><span xml:lang='en'>Thriller</span></option>
 						<option value='Fantascienza'>Fantascienza</option>		
 					</select>
 				</label>

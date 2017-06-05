@@ -1,25 +1,4 @@
-# TecWeb
-
-Titolo: ----
-
-Nome Gruppo: ---
-
-### !! Questo file può essere ampliato se qualcuno nota che manca qualcosa !!
-
-# N.B.
- 
-Validare **SEMPRE** tutti i documenti (html, css, ecc), esistono siti apposta per farlo (es. w3c validator)
-
-(Per approfondimenti vedere slide!!)
-
-## Regole:
-- avvertire tutti i membri del gruppo prima di ogni modifica
-- rispettate i gusti della gaggi e le specifiche anche se pensate non abbiano senso
-
-## Bug noti:
-- Mobile: manca tutta la gestione per gli schermi piccoli
-
-## Specifiche:
+# Specifiche:
 
 Si richiede la progettazione e lo sviluppo di un sito web con contenuto a scelta dello studente ma che rispetti le seguenti caratteristiche:
 
@@ -43,6 +22,33 @@ indipendentemente dal browser e dalle dimensioni dello schermo del dispositivo d
 Considerazioni riguardanti diversi dispositivi (laddove possibile) verranno valutate 
 positivamente.
 
+## Accessibilità:
+
+Principi:
+
+1. Trasformazione elegante:
+
+	* separare struttura dalla presentazione
+
+	* Fornire sempre un’equivalente testuale per ogni media diverso dal testo: il testo può 
+	 essere riprodotto secondo modalità accessibili a quasi tutti gli utenti
+
+	* Creare documenti che veicolino l’informazione anche se l’utente non può vedere o sentire: 
+	 fornire informazioni attraverso diversi canali sensoriali alternativi
+
+	* Creare documenti che non necessitino di un hw specifico: 
+	 le pagine dovrebbero essere utilizzabili anche senza 
+	 le pagine dovrebbero essere utilizzabili anche senza 
+	 mouse, con piccoli schermi, a bassa risoluzione, in bianco 
+	 e nero, oppure senza schermo attraverso output di voce o 
+	 testo
+
+2. Contenuto comprensibile e navigabile
+
+	* Dotare la pagina di strumenti di navigazione ed orientamento
+
+	* Considerare strumenti ed informazioni di orientamento per utenti non vedenti
+
 ## Idea generale:
 
 - i libri nel sito possono essere visti in 2 categorie: libri recensiti e libri non 
@@ -55,10 +61,6 @@ positivamente.
 
 - sono presenti anche notizie (news) riguardo ai libri, queste non sono le uscite del mese(gestite a parte)
  ma sono più contenuti che possono interessare l'utente
-
-## Proposte:
-1. sondaggi
-
 
 ## Pagine necessarie:
 
@@ -118,41 +120,5 @@ positivamente.
 	
 	L: Luca
 
-## Accessibilità:
-
-Principi:
-
-1. Trasformazione elegante:
-
-	* separare struttura dalla presentazione
-
-	* Fornire sempre un’equivalente testuale per ogni media diverso dal testo: il testo può 
-	 essere riprodotto secondo modalità accessibili a quasi tutti gli utenti
-
-	* Creare documenti che veicolino l’informazione anche se l’utente non può vedere o sentire: 
-	 fornire informazioni attraverso diversi canali sensoriali alternativi
-
-	* Creare documenti che non necessitino di un hw specifico: 
-	 le pagine dovrebbero essere utilizzabili anche senza 
-	 le pagine dovrebbero essere utilizzabili anche senza 
-	 mouse, con piccoli schermi, a bassa risoluzione, in bianco 
-	 e nero, oppure senza schermo attraverso output di voce o 
-	 testo
-
-2. Contenuto comprensibile e navigabile
-
-	* Dotare la pagina di strumenti di navigazione ed orientamento
-
-	* Considerare strumenti ed informazioni di orientamento per utenti non vedenti
-
-### Breakpoint:
-
-* 320 pixel   Piccoli schermi, telefoni usati in modalità portrait
-
-* 480 pixel   Piccoli schermi, telefoni usati in modalità landscape
-* 600 pixel   Piccoli tablet, (Amazon kindle) usati in modalità portrait
-* 768 pixel   Tablet da 10 pollici(iPad 1024x768) usati in modalità portrait
-
-* 1024 pixel  Tablet (iPad) usati in modalità landscape, piccoli desktop o portatili, in generale una finestra che non occupa tutto lo schermo in un qualsiasi schermo
-
-* 1200 pixel Schermi grandi,pensato per computer ad alta definizione e/o desktop
+## Bug noti:
+- Mobile: manca tutta la gestione per gli schermi piccoli

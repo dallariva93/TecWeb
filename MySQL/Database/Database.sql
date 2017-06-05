@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS VotoLibro;
 DROP TABLE IF EXISTS Notizie;
 DROP TABLE IF EXISTS FotoAutori;
 DROP TABLE IF EXISTS DescrizioneAutore;
+DROP TABLE IF EXISTS FotoNotizie;
 
 /* TABELLE */
 
@@ -36,11 +37,11 @@ CREATE TABLE Scrittore
 
 CREATE TABLE Libro
 (	ISBN varchar(13) PRIMARY KEY,
-	Titolo	varchar(80) NOT NULL,
+	Titolo	varchar(160) NOT NULL,
 	Autore	INT UNSIGNED NOT NULL,
 	Anno_Pubblicazione	date NOT NULL,
 	Casa_Editrice	varchar (40) NOT NULL,
-	Genere enum('Commedia','Horror','Fantasy','Narrativa','Saggistica','Classico','Thriller','Fantascienza') NOT NULL,
+	Genere varchar(50) NOT NULL,
 	Trama text NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)
    	ON DELETE CASCADE
@@ -110,7 +111,7 @@ CREATE TABLE VotoLibro
 
 CREATE TABLE Notizie
 (	Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Titolo varchar(90) NOT NULL,
+	Titolo varchar(180) NOT NULL,
 	Autore varchar(60) NOT NULL,
 	Data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	Testo text NOT NULL,
@@ -123,6 +124,14 @@ CREATE TABLE FotoAutori
 (	Autore	INT UNSIGNED PRIMARY KEY,
 	Foto varchar(60) NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+CREATE TABLE FotoNotizie
+(	Notizia	INT UNSIGNED PRIMARY KEY,
+	Foto varchar(60) NOT NULL,
+	FOREIGN KEY (Notizia) REFERENCES Notizie(Id)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );

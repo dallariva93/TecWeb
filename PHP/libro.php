@@ -20,7 +20,7 @@
 			//Inserimento commento
 			if(isset($_POST['text']) && !$_POST['text']==""){
 				$autore = $_SESSION['id'];
-				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
+				$ntesto ="<p>". (htmlentities($_POST['text'])). "</p>";
 				$sql = "INSERT INTO Commenti (Recensione,Autore,Commento)
 						VALUES ('$codiceRec','$autore','$ntesto');";
 				if(!$db->query($sql)){
@@ -94,8 +94,8 @@
 				$redazioneArray->free();
 			}
 			$searchHead=array("{{title}}","{{description}}");
-			$replaceHead=array($datiL['Titolo']. " - "
-				,"Recensione di '". $datiL['Titolo']. "' su FaceOnTheBook");
+			$replaceHead=array(strip_tags($datiL['Titolo']). " - "
+				,"Recensione di '". strip_tags($datiL['Titolo']). "' su FaceOnTheBook");
 			echo str_replace($searchHead ,$replaceHead,
 							 file_get_contents("../HTML/Template/Head.txt"));
 

@@ -65,7 +65,7 @@
 
 	"</div><div class='rightSmall'>
 
-	<h1>News</h1>";
+	<h1><span xml:lang='en'>News</span></h1>";
 	//ULTIME NOTIZIE
 
 	if ($UltimeNews = $db->query("SELECT * FROM Notizie

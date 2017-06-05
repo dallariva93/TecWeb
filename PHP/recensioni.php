@@ -35,8 +35,8 @@
 
 	//Creo opzione per selezionare tutte le recensioni
 	$check = ($genere == "")? "checked = 'checked'" : "";
-	$searchGenere=array("{{GENERE}}","{{VALUE}}","{{CHECK}}");
-	$replaceGenere=array("Tutti","", $check);
+	$searchGenere=array("{{GENERE}}","{{VALUE}}","{{CHECK}}","{{ID}}");
+	$replaceGenere=array("Tutti","", $check,"Tutti");
 	echo str_replace($searchGenere ,$replaceGenere,
 		file_get_contents("../HTML/Template/RecensioniFiltri.txt"));
 
@@ -45,8 +45,9 @@
 		if($TuttiGeneri->num_rows > 0){
 			while($Genere = $TuttiGeneri->fetch_array(MYSQLI_ASSOC)){
 				$check = ($Genere['Genere'] == $genere)? "checked = 'checked'" : "";
-				$searchGenere=array("{{GENERE}}","{{VALUE}}","{{CHECK}}");
-				$replaceGenere=array($Genere['Genere'],$Genere['Genere'], $check);
+				$searchGenere=array("{{GENERE}}","{{VALUE}}","{{CHECK}}","{{ID}}");
+				$replaceGenere=array($Genere['Genere'],htmlentities($Genere['Genere']),
+					$check,strip_tags($Genere['Genere']));
 				echo str_replace($searchGenere ,$replaceGenere,
 					file_get_contents("../HTML/Template/RecensioniFiltri.txt"));
 			}
@@ -73,7 +74,7 @@
 
 	 //Se è presente un genere rendo più specifica la query
 	 if( $genere != "")
-	 	$sqlQuery .= " WHERE Libro.Genere = '$genere'";
+	 	$sqlQuery .= " WHERE Libro.Genere = \"$genere\"";
 
 	if($UltimeRec = $db->query($sqlQuery .
 		" ORDER BY Recensione.Data_Pubblicazione DESC LIMIT 5 OFFSET ".($page * 5))){
@@ -81,7 +82,8 @@
 			while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
 				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}");
 				$replaceLibro=array($row['ISBN'],$row['Titolo'],ReadMore($row['Testo']));
-				echo str_replace($searchLibro ,$replaceLibro, file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
+				echo str_replace($searchLibro ,$replaceLibro,
+					file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
 			}
 		}
 		$UltimeRec->free();
@@ -91,7 +93,9 @@
 	file_get_contents("../HTML/Template/LinkAlMenu.txt");
 	//Stampa funzione per il paging
 	$count = "SELECT COUNT(*) AS Totale FROM ($sqlQuery) AS Count";
-	if($totNumber = ($db->query($count)->fetch_array(MYSQLI_ASSOC))){
+
+	if($Number = ($db->query($count)))
+		if($totNumber = $Number->fetch_array(MYSQLI_ASSOC)){
 		paging($page,$totNumber['Totale'],$genere);
 	}
 
