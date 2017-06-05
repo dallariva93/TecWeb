@@ -39,7 +39,8 @@
 		{
 			$insert="INSERT INTO `Libro` (ISBN, Titolo, Autore,Casa_Editrice,Anno_Pubblicazione
 				, Genere, Trama) VALUES ('".$_POST['isbn']."','".$_POST['titolo']."','".$_POST['autore']."','"
-				.$_POST['casa']."','".GetData($_POST['data']). "','". $_POST['genere']. "', '".$_POST['trama']."')";
+				.$_POST['casa']."','".GetData($_POST['data']). "',\"". $_POST['genere']. "\", '".$_POST['trama']."')";
+
 			if($db->query($insert)){
 				//Inserimento copertina
 

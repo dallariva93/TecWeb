@@ -99,8 +99,8 @@ function paging($currentPage, $totalNumber,$genere = ""){
 			echo "<button id='PagingCurrentPage' ";
 		else
 			echo "<button ";
-		echo "type='submit' value='".
-			$i."-$genere' name='page'>". ($i + 1). "</button>";
+		echo "type='submit' value=\"".
+			$i."-$genere\" name='page'>". ($i + 1). "</button>";
 	}
 	echo "</div></form></div>";
 }
