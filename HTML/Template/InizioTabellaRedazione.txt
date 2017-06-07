@@ -1,10 +1,12 @@
 <!--InizioTabellaRedazione.txt-->
-<div class='Table'><table summary = 'Elenco di tutti gli amministratori del sito'>
+<div class='Table'>
+<table>
+	<caption class="Nascondi">Elenco di tutti gli amministratori del sito</caption>
 	<thead>
 		<tr>
-			<th scope='col'>E-mail</th>
-			<th scope='col'>Nome</th>
 			<th scope='col'>Cognome</th>
+			<th scope='col'>Nome</th>
+			<th scope='col'>E-mail</th>
 		</tr>
 	</thead>
 	<tbody>
