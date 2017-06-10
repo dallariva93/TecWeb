@@ -54,17 +54,17 @@
 			}
 			
 			$searchHead=array("{{title}}","{{description}}");
-			$replaceHead=array($datiN['Titolo']. " - FaceOnTheBook","<meta name='description' content='Social network per topi di bibblioteca'/>");
+			$replaceHead=array(strip_tags($datiN['Titolo']). " - ","<meta name='description' content='Social network per topi di bibblioteca'/>");
 			echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 			
 			echo menu();
 
 			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span>/". $datiN['Titolo']);
+			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span> > <span xml:lang='en'><a href='news.php'>News</a></span> > ". strip_tags($datiN['Titolo']));
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			$searchHeader=array("{{errore}}","{{Id}}","{{Titolo}}","{{IdAutore}}","{{Testo}}","{{Cognome}}","{{Nome}}");
-			$replaceHeader=array($errore,$datiN['Id'],$datiN['Titolo'],$datiN['Autore'],$datiN['Testo'],$autoreNome,$autoreCognome);
+			$replaceHeader=array($errore,$datiN['Id'],strip_tags($datiN['Titolo']),$datiN['Autore'],$datiN['Testo'],$autoreNome,$autoreCognome);
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneNews.txt"));
 
 		}

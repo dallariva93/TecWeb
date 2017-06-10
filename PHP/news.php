@@ -20,7 +20,7 @@
 	file_get_contents("../HTML/Template/IndexHeader.txt");
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-	$replaceBreadcrumb=array("attacca"," <span xml:lang='en'>Home</span>");
+	$replaceBreadcrumb=array("attacca"," <span xml:lang='en'><a href='index.php'>Home</a></span> > 	<span xml:lang='en'>News</span>");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 	//apro i div per le news e le colonne laterali se presenti
@@ -39,7 +39,7 @@
 		if($UltimeNews->num_rows>0) {
 			while($rowNews = $UltimeNews->fetch_array(MYSQLI_ASSOC)){
 				$searchNews=array("{{Id}}","{{Titolo}}","{{Testo}}");
-				$replaceNews=array($rowNews['Id'],$rowNews['Titolo'],ReadMore($rowNews['Testo']));
+				$replaceNews=array($rowNews['Id'],strip_tags($rowNews['Titolo']),ReadMore($rowNews['Testo']));
 				echo str_replace($searchNews ,$replaceNews, file_get_contents("../HTML/Template/MiniaturaNews.txt"));
 			}
 		}
