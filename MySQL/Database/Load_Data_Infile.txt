@@ -4,6 +4,7 @@ LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/scrittore.txt' IN
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/utenti.txt' INTO TABLE Utente;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/recensioni.txt' INTO TABLE Recensione;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/commenti.txt' INTO TABLE Commenti;
+LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/commentinews.txt' INTO TABLE CommentiNews;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/notizie.txt' INTO TABLE Notizie;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoAutori.txt' INTO TABLE FotoAutori;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/redazione.txt' INTO TABLE Redazione;

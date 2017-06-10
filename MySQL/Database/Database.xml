@@ -28,6 +28,18 @@
                   CONSTRAINT `Commenti_ibfk_2` FOREIGN KEY (`Recensione`) REFERENCES `Recensione` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             </pma:table>
+			<pma:table name="CommentiNews">
+                CREATE TABLE `CommentiNews` (
+                  `News` int(10) unsigned NOT NULL,
+                  `Autore` varchar(60) NOT NULL,
+                  `Commento` text NOT NULL,
+                  `Data_Pubblicazione` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`News`,`Autore`,`Data_Pubblicazione`),
+                  KEY `Autore` (`Autore`),
+                  CONSTRAINT `CommentiNews_ibfk_1` FOREIGN KEY (`Autore`) REFERENCES `Utente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `CommentiNews_ibfk_2` FOREIGN KEY (`News`) REFERENCES `Notizie` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
             <pma:table name="DescrizioneAutore">
                 CREATE TABLE `DescrizioneAutore` (
                   `Autore` int(10) unsigned NOT NULL,
