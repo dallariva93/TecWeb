@@ -22,9 +22,7 @@ CREATE TABLE Utente
 	Nome	varchar(30) NOT NULL,
 	Cognome	varchar(30) NOT NULL,
 	Nickname	varchar(30) UNIQUE NOT NULL,
-	Data_Nascita	date,	
-	Password varchar(255) NOT NULL,
-	Residenza	varchar(30) 
+	Password varchar(255) NOT NULL
 );
 
 CREATE TABLE Scrittore
@@ -40,7 +38,7 @@ CREATE TABLE Libro
 	Titolo	varchar(160) NOT NULL,
 	Autore	INT UNSIGNED NOT NULL,
 	Anno_Pubblicazione	date NOT NULL,
-	Casa_Editrice	varchar (40) NOT NULL,
+	Casa_Editrice	varchar (60) NOT NULL,
 	Genere varchar(50) NOT NULL,
 	Trama text NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Scrittore(Id)

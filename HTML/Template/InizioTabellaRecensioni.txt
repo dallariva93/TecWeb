@@ -1,5 +1,7 @@
 <!--InizioTabellaRecensioni.txt-->
-<div class='Table'><table summary = 'Elenco di tutte le recensioni presenti nel sito'>
+<div class='Table'>
+<table>
+	<caption class="Nascondi">Elenco di tutte le recensioni presenti nel sito</caption>	
 	<thead>
 		<tr>
 			<th scope='col'>Data Pubblicazione</th>

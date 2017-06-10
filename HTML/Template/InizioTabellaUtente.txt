@@ -1,13 +1,13 @@
 <!--InizioTabellaUtente.txt-->
-<div class='Table'><table summary = 'Elenco di tutti gli utenti presenti nel sito'>
+<div class='Table'>
+<table>
+		<caption class="Nascondi">Elenco di tutti gli utenti presenti nel sito</caption>
 		<thead>
 			<tr>
 				<th scope='col'>Cognome</th>
 				<th scope='col'>Nome</th>
 				<th scope='col'>E-Mail</th>
 				<th scope='col'>Username</th>
-				<th class="NascondiMobile" scope='col'>Data di nascita</th>
-				<th class="NascondiMobile" scope='col'>Residenza</th>
 			</tr>
 		</thead>
 		<tbody>

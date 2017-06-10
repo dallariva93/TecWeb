@@ -21,17 +21,14 @@
 
 		if(!$errore && isset($_POST['email']) && isset($_POST['nome']) &&
 			isset($_POST['cognome'])	&& isset($_POST['nickname']) &&
-			isset($_POST['data']) && isset($_POST['password']))
+			isset($_POST['password']))
 		{
-			$residenza = ($_POST['residenza'])? $_POST['residenza'] : "";
-
 			$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );
 
 			$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname
-				, Data_Nascita, Password, Residenza) VALUES ('".$_POST['email'].
+				, Password) VALUES ('".$_POST['email'].
 					"','".$_POST['nome']."','".$_POST['cognome']."','"
-					.$_POST['nickname']."','". GetData($_POST['data']).
-					"','$ENC_password', '".$residenza."')";
+					.$_POST['nickname']. "','". $ENC_password. "')";
 			$db->query($insert);
 		}
 
@@ -59,10 +56,9 @@
 			echo file_get_contents("../HTML/Template/InizioTabellaUtente.txt");
 			while ($Utente = $Utenti->fetch_array(MYSQLI_ASSOC)){
 
-				$search=array("{{Email}}","{{Cognome}}","{{Nome}}","{{Nickname}}",
-					"{{Data}}","{{Residenza}}");
+				$search=array("{{Email}}","{{Cognome}}","{{Nome}}","{{Nickname}}");
 				$replace=array($Utente['Email'],$Utente['Cognome'],$Utente['Nome'],
-					$Utente['Nickname'],Data($Utente['Data_Nascita']),$Utente['Residenza']);
+					$Utente['Nickname']);
 				echo str_replace($search ,$replace,
 					file_get_contents("../HTML/Template/TabellaUtente.txt"));
 			}

@@ -106,14 +106,16 @@ function paging($currentPage, $totalNumber,$genere = ""){
 }
 
 function ReadMore($text){
+	
 	$string = strip_tags($text);
-	$maxLemgth = 250;
-	if (strlen($string) > $maxLemgth) {
-	    $stringCut = substr($string, 0, $maxLemgth);
-		$string = $stringCut;
-		$string .= "...  continua...";
-	}
-	return "<p>". $string. "</p>";
+	$numeroMassimo = 25;
+	
+	
+	$parole = explode(" ", $string);
+	$risultato = implode(" ", array_splice($parole, 0, $numeroMassimo));
+	
+	
+	return "<p>". $risultato. " &#8230;</p>";
 }
 
 

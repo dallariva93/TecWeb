@@ -1,8 +1,8 @@
 <!--TabellaRedazione.txt-->
 <tr>
-	<td scope='row'>{{Email}}</td>
-	<td scope='row'>{{Nome}}</td>
 	<td scope='row'>{{Cognome}}</td>
+	<td>{{Nome}}</td>
+	<td>{{Email}}</td>
 	<td>
 		<form action='amministrazioneRedazione.php' method='post'>
 			<div >

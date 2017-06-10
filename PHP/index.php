@@ -61,9 +61,9 @@
 		$UltimeExt->free();
 	}
 	// Fine ultime uscite
-	echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
+	echo "</div>". file_get_contents("../HTML/Template/LinkAlMenu.txt").
 
-	"</div><div class='rightSmall'>
+	"<div class='rightSmall'>
 
 	<h1><span xml:lang='en'>News</span></h1>";
 	//ULTIME NOTIZIE
@@ -83,11 +83,10 @@
 
 	$db->close();
 
-	echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
+	echo "</div>". //Fine Ultime news
+	file_get_contents("../HTML/Template/LinkAlMenu.txt").
 	"</div>
-	</div>
 	</div>".
-	//Fine Ultime news
 	//Fine classe elenco
 	//Fine classe content
 	file_get_contents("../HTML/Template/Footer.txt");

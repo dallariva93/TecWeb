@@ -1,7 +1,7 @@
 <!--TabellaRecensione.txt-->
 <tr>
-	<td scope='row'>{{Data}}</td>
-	<td><a href="libro.php?libro='{{Libro}}'">{{Titolo}}</a></td>
+	<td>{{Data}}</td>
+	<td scope='row'><a href="libro.php?libro='{{Libro}}'">{{Titolo}}</a></td>
 	<td>{{Autore}}</td>
 	<td>{{Voto}} / 5</td>
 	<td>
