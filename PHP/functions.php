@@ -24,6 +24,13 @@ function GetData($data){
 function menu(){
 		if(!isset($_SESSION))
         	session_start();
+        	
+        if (isset($_SESSION['ultimaAttivita']) && (time() - $_SESSION['ultimaAttivita'] > 1800)) //dopo 30 minuti di inattività distrugge la sessione
+        {			
+			session_unset();      
+			session_destroy();   
+		}
+		$_SESSION['ultimaAttivita'] = time();
 
 		Require('connect.php');
 		echo file_get_contents("../HTML/Template/Menu.txt");
@@ -195,7 +202,6 @@ function testNick(&$errore)
 			$errore=true;
 			$nickErr="Il nickname deve essere compreso tra i 4 e i 12 caratteri";
 		}*/
-		echo $db->real_escape_string($_POST['nickname']);
 	}
 	return $nickErr;
 }

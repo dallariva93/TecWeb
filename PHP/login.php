@@ -69,12 +69,12 @@
 			$_SESSION['type'] = 'admin';
 
 		$_SESSION['id'] = $_POST['email'];
+		$_SESSION['ultimaAttivita'] = time();
+		
 		header('Location: index.php');
 
 	}
 
-	$stringa="ciao ' ciao";
-	echo mysqli_real_escape_string($db,$stringa);
 
 	echo file_get_contents("../HTML/Template/FileJs.txt");
 	echo file_get_contents("../HTML/Template/Footer.txt");

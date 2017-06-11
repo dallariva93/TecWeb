@@ -21,8 +21,9 @@
 			session_start();
 			$_SESSION["type"] = "user";
 			$_SESSION["id"] = $_POST['email'];
-			//header('Location: index.php');
-			//exit;
+			$_SESSION['ultimaAttivita'] = time();
+			header('Location: index.php');
+			exit;
 		}
 	}
 
