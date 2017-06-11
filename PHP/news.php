@@ -4,7 +4,7 @@
 	Require_once('functions.php');
 
 	$searchHead=array("{{title}}","{{description}}");
-	$replaceHead=array("News - ","<meta name='description' content='Social network per topi di bibblioteca'/>");
+	$replaceHead=array("News - ","Social network per topi di bibblioteca/>");
 	echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 
 	
@@ -15,12 +15,10 @@
 		$page = 0;	
 	
 	
-	echo menu().
-
-	file_get_contents("../HTML/Template/IndexHeader.txt");
+	echo menu();
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-	$replaceBreadcrumb=array("attacca"," <span xml:lang='en'><a href='index.php'>Home</a></span> > 	<span xml:lang='en'>News</span>");
+	$replaceBreadcrumb=array(""," <span xml:lang='en'><a href='index.php'>Home</a></span> > 	<span xml:lang='en'>News</span>");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 	//apro i div per le news e le colonne laterali se presenti
@@ -28,7 +26,7 @@
 	echo "<div class='centrato content'>
 	<div class='elenco'>";
 	
-	echo " <dl class='centrato'>
+	echo " <dl class='centerBig'>
 	<dt>Ultime News</dt>";
 	
 	$sqlQuery = "SELECT * FROM Notizie ";
@@ -52,19 +50,15 @@
 	
 	//Stampa funzione per il paging
 	$count = "SELECT COUNT(*) AS Totale FROM ($sqlQuery) AS Count";
+	
 	if($totNumber = ($db->query($count)->fetch_array(MYSQLI_ASSOC))){
 		pagingNews($page,$totNumber['Totale']);
 	}
 	
-	
 	//fine content
 	echo "</div>";
-	
+	echo file_get_contents("../HTML/Template/Footer.txt");
 	//chiudo il db
 	$db->close();
-
-	// chiudo i div che ho aperto
-
-	file_get_contents("../HTML/Template/Footer.txt");
 ?>
 	

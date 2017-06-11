@@ -54,7 +54,7 @@
 			}
 			
 			$searchHead=array("{{title}}","{{description}}");
-			$replaceHead=array(strip_tags($datiN['Titolo']). " - ","<meta name='description' content='Social network per topi di bibblioteca'/>");
+			$replaceHead=array(strip_tags($datiN['Titolo']). " - ","Social network per topi di bibblioteca/>");
 			echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 			
 			echo menu();
@@ -119,8 +119,8 @@
 
 		
 		$db->close();
-		echo "</div>". //Fine classe content
-		file_get_contents("../HTML/Template/Footer.txt");
+		echo "</div>"; //Fine classe content
+		echo file_get_contents("../HTML/Template/Footer.txt");
 
 	} //end if(isset($_REQUEST['news']) && !$datiNews)
 	else {
