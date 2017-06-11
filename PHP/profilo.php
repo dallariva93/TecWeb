@@ -51,9 +51,8 @@
 	{
 		$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
 		$utente = $user->fetch_array(MYSQLI_ASSOC);
-		$searchDati=array("{{nickname}}","{{nome}}","{{cognome}}","{{email}}","{{data}}","{{residenza}}");
-		//echo $utente['Data'];
-		$replaceDati=array($utente['Nickname'], $utente['Nome'], $utente['Cognome'], $utente['Email'], $utente['Data_Nascita'], $utente['Residenza']);
+		$searchDati=array("{{nickname}}","{{nome}}","{{cognome}}","{{email}}");
+		$replaceDati=array($utente['Nickname'], $utente['Nome'], $utente['Cognome'], $utente['Email']);
 		return str_replace($searchDati ,$replaceDati, file_get_contents("../HTML/Template/Dati.txt"));
 		
 		

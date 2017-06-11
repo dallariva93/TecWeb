@@ -1,5 +1,7 @@
 <?php
 
+Require_once('connect.php');
+
 function Data($value,$time = false){
 	$risultato = "";
 	if( $value != ""){
@@ -108,14 +110,14 @@ function paging($currentPage, $totalNumber,$genere = ""){
 function ReadMore($text){
 	
 	$string = strip_tags($text);
-	$numeroMassimo = 25;
+	$numeroMassimo = 35;
 	
 	
 	$parole = explode(" ", $string);
 	$risultato = implode(" ", array_splice($parole, 0, $numeroMassimo));
 	
 	
-	return "<p>". $risultato. " &#8230;</p>";
+	return "<p>". $risultato. "&#8230;</p>";
 }
 
 
@@ -193,6 +195,7 @@ function testNick(&$errore)
 			$errore=true;
 			$nickErr="Il nickname deve essere compreso tra i 4 e i 12 caratteri";
 		}*/
+		echo $db->real_escape_string($_POST['nickname']);
 	}
 	return $nickErr;
 }

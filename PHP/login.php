@@ -1,7 +1,7 @@
 <?php
 	Require_once('connect.php');
 	Require_once('functions.php');
-
+	
 	//stampo l'head dell'html
 	$replaceHead=array("<title>Accedi a such wow</title>"
 		,"<meta name='description' content='Social network per topi di bibblioteca'/>");
@@ -72,6 +72,9 @@
 		header('Location: index.php');
 
 	}
+
+	$stringa="ciao ' ciao";
+	echo mysqli_real_escape_string($db,$stringa);
 
 	echo file_get_contents("../HTML/Template/FileJs.txt");
 	echo file_get_contents("../HTML/Template/Footer.txt");

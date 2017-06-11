@@ -4,8 +4,6 @@
 		<li>Nome: {{nome}}</li>
 		<li>Cognome: {{cognome}}</li>
 		<li>Email: {{email}}</li>
-		<li>Data di nascita: {{data}}</li>
-		<li>Residenza: {{residenza}}</li>
 	</ul>
 	<form method="post" class="formProfilo" action="profilo.php">
 		<fieldset>
