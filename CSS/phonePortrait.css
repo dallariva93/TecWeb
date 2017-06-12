@@ -127,3 +127,7 @@ tr {
 .linkLib{
 	max-width: 9em; 
 }
+
+.elenco dd h1 {
+    font-size: 0.9em;
+}

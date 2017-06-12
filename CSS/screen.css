@@ -204,6 +204,9 @@ fieldset label {
 	background-color:#fff;
 	box-shadow: 0 1px 5px black;
 }
+.elenco dd h1{
+	font-size: 1.5em;
+}
 
 .elenco ul{
 	height: auto;

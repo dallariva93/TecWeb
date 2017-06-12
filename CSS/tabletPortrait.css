@@ -111,7 +111,9 @@
     width: 6.5em;
     height: 9.4em;
 }
-
+.elenco dd h1 {
+    font-size: 1.2em;
+}
 /**************************
 		AMMINISTRAZIONE
 ***************************/

@@ -173,5 +173,5 @@ th,td{
    border-left: 1px solid #ddd;
    padding: 0.1em 0.2em 0.1em 0.2em;
    text-align: left;
-   font-size: 0.9em;
+   font-size: 0.8em;
 }

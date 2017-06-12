@@ -36,7 +36,7 @@ fieldset label {
 
 .box{
 	display: block;
-	padding: 1em;
+	padding: 0.9em;
 	width: 50%;
 	margin: auto;
 	margin-top: 0.5em;
@@ -203,6 +203,9 @@ fieldset label {
 	overflow: hidden;
 	background-color:#fff;
 	box-shadow: 0 1px 5px black;
+}
+.elenco>dd h1{
+	font-size: 1.5em;
 }
 
 .elenco ul{
