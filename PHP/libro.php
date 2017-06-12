@@ -153,23 +153,25 @@
 			}
 
 			echo "</ul><h3>Recensione scritta da ".$redazioneNome. " ".
-				$redazioneCognome. "</h3></div>".
+				$redazioneCognome. "</h3>".
 				file_get_contents("../HTML/Template/LinkAlMenu.txt");
 
 
 		} // FINE  voti recensione
 
-		echo "<div class='text'><h2>Trama: </h2>".
+
+		echo "</div><div class='text'><h2>Trama: </h2>".
 		$datiL['Trama'].
 		file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		if($datiRec){
 			echo "<h2>Recensione:</h2>".
 			$datiRec['Testo'];
+			echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		}
 		$datiLibro->free();
 		$datiRecensione->free();
 
-		echo file_get_contents("../HTML/Template/LinkAlMenu.txt");
+
 		// SEZIONE COMMENTI
 
 		if ($datiCommenti = $db->query("SELECT * FROM Commenti WHERE Recensione = '". $codiceRec. "'
@@ -223,10 +225,11 @@
 			$searchNuovoCommento=array("{{codice}}");
 			$replaceNuovoCommento=array($codice);
 			echo str_replace($searchNuovoCommento ,$replaceNuovoCommento
-						, file_get_contents("../HTML/Template/AddCommento.txt"));
+						, file_get_contents("../HTML/Template/AddCommento.txt")).
+			file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		}
-		echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
-		"</div>"; // Fine class text
+
+		echo "</div>"; // Fine class text
 
 
 
@@ -244,11 +247,12 @@
 			$searchVotaRec=array("{{codice}}","{{titolo}}", "{{id}}");
 			$replaceVotaRec=array($codice,"Vota la recensione!", "valutazioneRec");
 			echo str_replace($searchVotaRec ,$replaceVotaRec
-							, file_get_contents("../HTML/Template/VotoLibro.txt"));
+							, file_get_contents("../HTML/Template/VotoLibro.txt")).
 
+			file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		} //Fine voti libro/recensione
-		echo file_get_contents("../HTML/Template/LinkAlMenu.txt").
-		"</div>". //Fine classe content
+
+		echo "</div>". //Fine classe content
 		file_get_contents("../HTML/Template/Footer.txt");
 		$db->close();
 

@@ -449,8 +449,13 @@ padding: 0.2em 0 0.2em 0;
 .inserisciCommento{
 	margin-top: 2em;
 }
+.inserisciCommento textarea{
+	
+	
+}
 .comments{
 	display: inherit;
+
 }
 .comment{
 	display: block;
