@@ -1,0 +1,5 @@
+		<div class='autoreCommento'>{{Username}}</div>
+		<div class='dataCommento'>{{Data}}</div>
+	</div><!--Fine class commentTitle-->
+	{{Testo}}
+</div><!--Fine class comment-->

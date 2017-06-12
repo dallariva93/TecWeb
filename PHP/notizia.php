@@ -79,6 +79,7 @@
 			if($datiCommenti->num_rows>0) {
 				echo "<h2>Commenti</h2>";
 				echo "<div class='comments'>";
+				$id = 0;
 				while ($Commento = $datiCommenti->fetch_array(MYSQLI_ASSOC)) {
 					if($Utentecm = $db->query("SELECT Nickname FROM Utente WHERE Email = '". $Commento['Autore']. "'")){
 						$Utente = $Utentecm->fetch_array(MYSQLI_ASSOC);
@@ -92,14 +93,15 @@
 					//Form eliminazione commento
 					//Gli unici che possono cancellare un commento solo l'autore del commento oppure un amministratore
 					if(isset($_SESSION['type']) && ($Commento['Autore'] == $_SESSION['id'] || $_SESSION['type'] == 'admin' )) {
-						$searchDeleteCommento=array("{{codice}}","{{Autore}}", "{{Data}}");
-						$replaceDeleteCommento=array($codice,$Commento['Autore'], $Commento['Data_Pubblicazione']);
+						$searchDeleteCommento=array("{{codice}}","{{Autore}}", "{{Data}}", "{{IdCommento}}");
+						$replaceDeleteCommento=array($codice,$Commento['Autore'], $Commento['Data_Pubblicazione'], $id);
 						echo str_replace($searchDeleteCommento ,$replaceDeleteCommento, file_get_contents("../HTML/Template/DeleteNews.txt"));
 					}
-					echo "<div class='autoreCommento'>". $username."</div>";
-					echo "</div>";//Fine class commentTitle
-					echo $Commento['Commento']."</div>";//Fine class comment
-
+					
+					$searchCommento=array("{{Username}}", "{{Data}}", "{{Testo}}");
+					$replaceCommento=array($username, Data($Commento['Data_Pubblicazione'], true), $Commento['Commento']);
+					echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoNotizia.txt"));
+					$id += 1;
 				} //Fine ciclo
 
 			echo "</div>";// Fine class comments

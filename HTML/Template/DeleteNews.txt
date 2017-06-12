@@ -1,8 +1,9 @@
 <!--DeleteNews.txt-->
 <form action='notizia.php?news={{codice}}' method='post'>
 	<div >
+		<label for='cancella{{IdCommento}}' class='Nascondi'>Elimina commento</label>
 		<input type = 'hidden' name = 'deleteUser' value ='{{Autore}}' />
 		<input type ='hidden' name= 'deleteData' value= '{{Data}}' />
-		<input type ='submit' value='&#x2718;' class='btnDeleteComment' />
+		<input type ='submit' value='&#x2718;' id="cancella{{IdCommento}}" class='btnDeleteComment' />
 	</div>
 </form>
