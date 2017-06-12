@@ -8,7 +8,9 @@
 	<form method="post" class="formProfilo" action="profilo.php">
 		<fieldset>
 			<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica Password</button>
+			<button type="submit" value="5" class="Pbutton" name="EliminaAccount">Cancella Account</button>
 		</fieldset>
 	</form>
+	<div class="errorMsg">Attenzione! Una volta eliminato il profilo non sarà possibile recuperarlo!</div>
 </div>
 

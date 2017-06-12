@@ -408,10 +408,7 @@ fieldset label {
 	/*font-size: 1.3em;
 	font-weight: bold;*/
 }
-.comment{
-	max-width: 62.8em;
-	word-wrap: break-word;
-}
+
 
 /**************************************************************
 			TESTO
@@ -449,12 +446,16 @@ padding: 0.2em 0 0.2em 0;
 .inserisciCommento{
 	margin-top: 2em;
 }
+.comments{
+	display: inherit;
+}
 .comment{
 	display: block;
 	min-height: 3em;
 	border: 1px solid black;
 	margin-bottom: 0.5em;
 	box-shadow: 2px 2px  15px grey;
+	
 }
 .commentTitle{
 	float: left;
@@ -462,34 +463,36 @@ padding: 0.2em 0 0.2em 0;
 	width: 100%;
 	min-height: 1.5em;
 	border-bottom: 1px solid black;
-	padding-top: 0.5em;
-	overflow: auto;
+	overflow: hidden;
 }
 .comment p {
 	clear: both;
 	padding: 0.5em;
+	word-wrap: break-word;
 
 }
 .autoreCommento {
 	float:left;
 	font-weight: bold;
 	height: 1.5em;
+	padding-top: 0.5em;
 	margin-left: 0.5em;
 
 }
 .dataCommento {
 	float: right;
 	height: 1.5em;
+	padding-top: 0.5em;
 	margin-right: 0.5em;
 }
 
 
 .btnDeleteComment {
     height: 2.5em;
-    width: 3%;
+    width: 2.5em;
     float: right;
-    bottom: 0.65em;
-    left: 0.039em;
+   /* bottom: 0.65em;
+    left: 0.039em;*/
     position: relative;
 }
 
@@ -588,9 +591,15 @@ tr:nth-child(even) {
 	border:none;
 }
 .Pbutton{
-	padding: 0.5em;
-	width: 15%;
+	width: 25%;
+    height: 3em;
 
+}
+
+.errorMsg{
+	text-align: center;
+	color: red;
+	font-size: 0.9em;
 }
 
 .profCommento
@@ -617,18 +626,13 @@ tr:nth-child(even) {
 	overflow: hidden;
 	border-bottom: 1px solid black;
 	border-top: 1px solid black;
-	padding: 0.5em;
-	background-color: #1e4b61;
+	background-color: #2e7597;
 }
 
-.dataCommento{
-	float: right;
-
-}
 
 .libro{
 	float: left;
-
+	margin: 0.5em;
 }
 
 .profDati{
@@ -679,6 +683,12 @@ tr:nth-child(even) {
 	margin-top: 0.3em;
 	pointer-events: none;
 }
+.stelle{
+	max-width: 6.5em;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .MiniaturaLibro a:first-child:link{
 	display: block;
@@ -698,6 +708,8 @@ tr:nth-child(even) {
 	overflow: hidden;
 
 }
+
+
 /**************************************************************
 			VOTAZIONE
 ***************************************************************/

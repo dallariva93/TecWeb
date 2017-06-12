@@ -160,4 +160,9 @@
 }
 
 
+.btnDeleteComment {
+    height: 3.1em;
+    width: 3.1em;
+    float: right;
+}
 

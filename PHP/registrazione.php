@@ -14,7 +14,7 @@
 		$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );
 
 
-		$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname, Password) VALUES ('".$_POST['email']."','".$_POST['nome']."','".$_POST['cognome']."','"
+		$insert="INSERT INTO `Utente`(Email, Nome, Cognome, Nickname, Password) VALUES ('".mysqli_real_escape_string($db,$_POST['email'])."','".mysqli_real_escape_string($db,$_POST['nome'])."','".mysqli_real_escape_string($db,$_POST['cognome'])."','"
 			.mysqli_real_escape_string($db,$_POST['nickname'])."','$ENC_password')";
 
 		if($db->query($insert)){

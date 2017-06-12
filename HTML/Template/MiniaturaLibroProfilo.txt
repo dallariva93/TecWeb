@@ -1,10 +1,11 @@
 <!--MiniaturaLibroProfilo.txt-->
-
 <li class='MiniaturaLibro'>	
 		<a href='libro.php?libro={{ISBN}}'>
 			<img src='../img/cover/{{ISBN}}.jpg' alt=''/>
 		</a>
+		<div class="stelle">
 			{{voto}}
+		</div>
 		<a class='linkLib' href='libro.php?libro={{ISBN}}'>		
 			{{titolo}}
 		</a>		

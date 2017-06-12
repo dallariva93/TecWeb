@@ -16,8 +16,8 @@
 	if(isset($_POST['email']))
 	//Controllo se l'utete é un amministratore o un utente e verifico la sua password
 	{
-		$UserPassQuery="SELECT Password FROM `Utente` WHERE Email='".$_POST['email']."'";
-		$AdminPassQuery="SELECT Password FROM `Redazione` WHERE Email='".$_POST['email']."'";
+		$UserPassQuery="SELECT Password FROM `Utente` WHERE Email='".mysqli_real_escape_string($db,$_POST['email'])."'";
+		$AdminPassQuery="SELECT Password FROM `Redazione` WHERE Email='".mysqli_real_escape_string($db,$_POST['email'])."'";
 		$password = "";
 		//cerco tra gli utenti
 		$gruppo = $db->query($UserPassQuery);
