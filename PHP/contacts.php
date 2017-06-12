@@ -10,7 +10,7 @@
 	if(isset($_POST['testo']) && !$_POST['testo']=="" &&
 	isset($_POST['oggetto']) && isset($_POST['email'])
 	&& !$_POST['email']=="" && isset($_POST['nome'])){
-		$header = "Da: ". $_POST['nome'];
+		$header = "Da: ". $_POST['nome']."(".$_POST['email'].")";
 		//Invio la stessa E-mail a tutti gli amministratori
 		if($Redazione = $db->query("SELECT Email FROM Redazione")) {
 			while($admin = $Redazione->fetch_array(MYSQLI_ASSOC)){
@@ -27,7 +27,7 @@
 	echo str_replace($searchHead ,$replaceHead,
 		file_get_contents("../HTML/Template/Head.txt"));
 
-	echo menu();
+	//echo menu();
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("","<span xml:lang='en'>
