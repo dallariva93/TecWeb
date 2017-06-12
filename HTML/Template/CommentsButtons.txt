@@ -1,6 +1,6 @@
 <!--CommentsButtons.txt-->
 <form method="get" class="formProfilo" action="profilo.php">
-	<button type="submit" value="{{valp}}" class="Pbutton {{classeIndietro}}" name="page">Indietro</button>	
-	<button type="submit" value="{{vals}}" class="Pbutton" {{classeAvanti}} name="page">Avanti</button>
+	<button type="submit" value="{{valp}}" class="PbuttonS {{classeIndietro}}" name="page">Indietro</button>	
+	<button type="submit" value="{{vals}}" class="PbuttonS {{classeAvanti}}" name="page">Avanti</button>
 </form>
 </div>

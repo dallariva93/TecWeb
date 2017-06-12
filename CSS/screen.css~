@@ -5,8 +5,10 @@
 html, body{
 	font-family: Verdana, Helvetica, sans-serif;
 	margin: auto;
+	height: 97%;
 	background-color:#e0e0e4;
 }
+
 textarea{
 	width: 100%;
 	max-width: 100%;
@@ -39,7 +41,7 @@ fieldset label {
 	padding: 0.9em;
 	width: 50%;
 	margin: auto;
-	margin-top: 0.5em;
+	margin-top: 2.5em;
 	background-color: #fff;
 	border: 1px solid #d8dee2;
 }
@@ -204,7 +206,7 @@ fieldset label {
 	background-color:#fff;
 	box-shadow: 0 1px 5px black;
 }
-.elenco>dd h1{
+.elenco dd h1{
 	font-size: 1.5em;
 }
 
@@ -241,12 +243,10 @@ fieldset label {
 		FOOTER
 ***************************************************************/
 #footer{
-	position: relative;
+	position: absolute;
 	background-color: #1e4b61;
 	clear: both;
 	width: 100%;
-	bottom:0;
-	top: 100%;
 	min-height: 3em;
 	overflow: auto;
 	
@@ -286,7 +286,7 @@ fieldset label {
 	margin-bottom: 1em;
 	margin-top: 1em;
 	margin: 1px solid #e8e8e8;
-	background-color: #fff;
+	background-color: white;
 }
 .filtri div{
 	width: 100%;
@@ -603,7 +603,11 @@ tr:nth-child(even) {
     height: 3em;
 
 }
+.PbuttonS{
+	width: 20%;
+    height: 2.5em;
 
+}
 .errorMsg{
 	text-align: center;
 	color: red;
@@ -691,11 +695,16 @@ tr:nth-child(even) {
 	margin-top: 0.3em;
 	pointer-events: none;
 }
+li .stelle{
+	position: relative;
+    top: 0.15em;
+}
 .stelle{
 	max-width: 6.5em;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+	display: inline-block;
 }
 
 .MiniaturaLibro a:first-child:link{
@@ -769,6 +778,18 @@ tr:nth-child(even) {
 	padding-bottom: 1em;
 	background-color: white;
 	width: 100%;
+	width: 100%;
+   min-height: 84.1%;
+
+}
+
+.contentProf {
+	overflow: auto;
+	padding-bottom: 1em;
+	background-color: white;
+	width: 100%;
+	width: 100%;
+   min-height: 67.3%;
 
 }
 
@@ -781,6 +802,11 @@ tr:nth-child(even) {
 	width:35%;
 	padding:0.6em;
 	font-size:0.9em;
+	margin-top: 4.5em;
+}
+
+.content>.strict:last-child:not(:only-child){
+	margin-top: 0.5em;
 }
 .formError {
 	color: red;

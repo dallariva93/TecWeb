@@ -1,4 +1,5 @@
 <!--ContattiForm.txt-->
+<div class="content centrato">
 <div  class="box">
 	<h1>Contatta la redazione</h1>
 	<form action="contacts.php" method="post">
@@ -14,4 +15,5 @@
 			<input type="submit" value="Invia!" class="btnShort" />
 		</div>
 	</form>
+</div>
 </div>

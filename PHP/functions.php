@@ -457,7 +457,7 @@ function deleteProfile($db)
 		
 		
 		$searchVotiLibro=array("{{ISBN}}", "{{titolo}}", "{{voto}}");
-		echo "<div class='content centrato'>";
+		echo "<div class='contentProf centrato'>";
 		if(count($arrayISBN)>0)
 			echo "<ul>";
 		while($i<count($arrayISBN) )  		//riempio l'array
@@ -472,7 +472,7 @@ function deleteProfile($db)
 		//stampo le miniature dei libri
 		$i=0;
 		if(count($arrayISBN)==0)	
-				echo "<h2>Non hai votato nessun libro!</h2>";
+				echo "<div class='Errore'>Non hai votato nessun libro!</div>";
 		if(count($arrayISBN)>0)
 		{	while($i<$bookPerPage && $i+($page*$bookPerPage)<count($arrayISBN) )
 			{
@@ -533,9 +533,9 @@ function deleteProfile($db)
 			array_push($arrayTotCommenti,$row);
 		}
 		
-		echo "<div class='content centrato'>";
+		echo "<div class='contentProf centrato'>";
 		if(count($arrayTotCommenti)==0)
-			echo "<h2>Non hai nessun commento.</h2>";
+			echo "<div class='Errore'>Non hai nessun commento!</div>";
 		while($i<count($arrayCommenti))
 		{
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN=(SELECT Libro FROM `Recensione` WHERE Id='".$arrayCommenti[$i][1]."')");

@@ -1,4 +1,5 @@
-<!--RegFormcrumb.txt-->
+<!--RegForm.txt-->
+<div class="content centrato">
 <div class="box {{AggiungiClassi}}">
 	<h1>{{Titolo}}</h1>
 	<form action="{{Pagina}}" onsubmit="return controlloErrori()" method="post">
@@ -16,4 +17,5 @@
 			<input type="submit" value="Registrati" class="btnLong"/>
 		</div>
 	</form>
+</div>
 </div>

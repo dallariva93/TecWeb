@@ -1,14 +1,14 @@
 <!--Dati.txt-->
-<div class='content centrato'>
+<div class='contentProf centrato'>
 	<ul class="dati">
 		<li>Nome: {{nome}}</li>
 		<li>Cognome: {{cognome}}</li>
-		<li>Email: {{email}}</li>
+		<li xml:lang='en'>E-mail: {{email}}</li>
 	</ul>
 	<form method="post" class="formProfilo" action="profilo.php">
 		<fieldset>
-			<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica Password</button>
-			<button type="submit" value="5" class="Pbutton" name="EliminaAccount">Cancella Account</button>
+			<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica <span xml:lang='en'>Password</span></button>
+			<button type="submit" value="5" class="Pbutton" name="EliminaAccount">Cancella <span xml:lang='en'>Account</span></button>
 		</fieldset>
 	</form>
 	<div class="errorMsg">Attenzione! Una volta eliminato il profilo non sarà possibile recuperarlo!</div>

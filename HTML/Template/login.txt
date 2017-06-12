@@ -1,7 +1,7 @@
 <!--login.txt-->
-<div class="spazia">
+<div class="content centrato">
 	<div class="box strict">
-		<h1>Accedi a Such Wow</h1>
+		<h1>Accedi a FaceOnTheBook</h1>
 		<form action="../PHP/login.php" method="post" onsubmit='return controlloErrori()'>
 			<div>
 				<label for="email">E-mail</label><div class="inputError" id="EmailError">{{emailError}}</div>
