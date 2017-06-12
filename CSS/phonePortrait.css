@@ -43,14 +43,9 @@
 }
 
 .btnDelete {
-    width: 5.5%;
     height: 2.5em;
     position: relative;
-    bottom: 0.63em;
 }
-/*td,th {
-	border-right: 1px solid blue;
-}*/
 
 .filtri>form>div>div{
 	position: relative;

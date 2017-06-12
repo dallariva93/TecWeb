@@ -125,8 +125,8 @@ tr {
 	width: 18px;
 }
 
-.MiniaturaLibro{
-
+.Pbutton{
+	width: 32%;
 }
 
 .linkLib{

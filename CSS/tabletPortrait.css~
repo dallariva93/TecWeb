@@ -119,6 +119,10 @@
 .boxAdmin a{
 	width: calc(49% - 2px);
 }
+.Table{
+	overflow-x: scroll;
+    width: 100%;
+    }
 /**************************
 		BOTTONI
 ***************************/
@@ -132,10 +136,9 @@
 	width:98%;
 }
 .btnDelete{
-    width: 5%;
     height: 3.1em;
     position: relative;
-    bottom: 0.78em;
+    
  }
 
 /**************************
@@ -161,11 +164,14 @@
 
 
 .btnDeleteComment {
-    height: 2.5em;
-    width: 5%;
+    height: 3.1em;
+    width: 3.1em;
     float: right;
-    /* bottom: 0.65em; */
-    left: 0.039em;
-    position: relative;
 }
-
+th,td{
+  	border-bottom: 1px solid #ddd;
+   border-left: 1px solid #ddd;
+   padding: 0.1em 0.2em 0.1em 0.2em;
+   text-align: left;
+   font-size: 0.9em;
+}
