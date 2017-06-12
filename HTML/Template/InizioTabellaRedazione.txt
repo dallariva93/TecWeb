@@ -6,7 +6,7 @@
 		<tr>
 			<th scope='col'>Cognome</th>
 			<th scope='col'>Nome</th>
-			<th scope='col'>E-mail</th>
+			<th scope='col' xml:lang='en'>E-mail</th>
 		</tr>
 	</thead>
 	<tbody>

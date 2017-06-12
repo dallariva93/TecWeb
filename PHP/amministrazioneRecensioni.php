@@ -31,7 +31,7 @@
 		{
 			$insert="INSERT INTO `Recensione` (Libro, Autore,Testo,Valutazione)
 				VALUES ('".$_POST['isbn']."','".$_SESSION['id']."','".
-					$_POST['testo']. "','".$_POST['valutazione']. "')";
+					htmlentities($_POST['testo']). "','".$_POST['valutazione']. "')";
 			$db->query($insert);
 		}
 

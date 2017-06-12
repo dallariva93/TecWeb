@@ -1,7 +1,0 @@
-<!--Delete.txt-->
-<form action='{{Action}}' method='post'>
-	<div >
-		<input type = 'hidden' name = 'id' value = '{{Id}}' />
-		<input type ='submit' value='&#x2718;' class='btnDelete' />
-	</div>
-</form>

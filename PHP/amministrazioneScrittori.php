@@ -7,25 +7,45 @@
 
 		if(isset($_POST['delete'])){
 			$delete = "DELETE FROM `Scrittore` WHERE `Id` = '". $_POST['delete']. "'";
-			$db->query($delete);
+
+			$searchImage = "SELECT Foto FROM FotoAutori WHERE Autore = '".
+				$_POST['delete']."'";
+				
+			if ($Images = $db->query($searchImage))
+				if($image = $Images->fetch_array(MYSQLI_ASSOC)){
+					if (unlink($image['Foto']))
+						$db->query($delete);
+				}
 		}
 
 		$errore=false;
+		//Vengono fatti controlli meno severi per permettere all'amministratore
+		//di inserire anche tag HTML dove necessario
 		$nazione = (isset($_POST['nazionalita']))?
 			campoNonVuoto($errore,$_POST['nazionalita']) : "" ;
+		$nome = (isset($_POST['nome']))?
+			campoNonVuoto($errore,$_POST['nome']) : "" ;
+		$cognome = (isset($_POST['cognome']))?
+			campoNonVuoto($errore,$_POST['cognome']) : "" ;
+		$testo = (isset($_POST['testo']))? campoNonVuoto($errore,$_POST['testo']) : "" ;
+
 		$searchInForm=array("{{NomeError}}","{{CognomeError}}",
-			"{{NazioneError}}","{{DataError}}","{{FileError}}");
-		$replaceInForm=array(testNome($errore), testCognome($errore),$nazione,
-						testDate($errore),testImage($errore));
+			"{{NazioneError}}","{{DataError}}","{{FileError}}","{{TestoError}}");
+		$replaceInForm=array($nome, $cognome,$nazione,
+						testDate($errore),testImage($errore),$testo);
 
 		if(!$errore && isset($_POST['nome']) && isset($_POST['cognome'])
 			&& isset($_POST['data']) && isset($_POST['nazionalita']) &&
-			isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
+			isset($_POST['testo']) && isset($_FILES['img']) &&
+			file_exists($_FILES['img']['tmp_name']) &&
 			is_uploaded_file($_FILES['img']['tmp_name']))
 		{
 			$insert="INSERT INTO `Scrittore`(Nome, Cognome,Data_Nascita
 				,Nazionalita) VALUES ('".$_POST['nome']."','".$_POST['cognome'].
 					"','".GetData($_POST['data'])."','".$_POST['nazionalita']."')";
+
+
+
 
 			if($db->query($insert)){
 
@@ -33,6 +53,7 @@
 					'". $_POST['nome']. "' AND Cognome = '". $_POST['cognome'].
 					"' AND Data_Nascita = '". GetData($_POST['data']). "' AND
 					Nazionalita = '".$_POST['nazionalita']. "'";
+
 
 				//Inserimento immagine
 				if ($Scrittori = $db->query($queryCercaAutore))
@@ -43,10 +64,17 @@
 						$queryFile = "INSERT INTO `FotoAutori`(Autore,Foto)
 							VALUES ('". $Scrittore['Id'].  "','".$target_file."')";
 
+
+
 		    			if (move_uploaded_file($_FILES["img"]["tmp_name"],
 							$target_file)) {
 							$db->query($queryFile);
 						}
+						//Inserimento descrizione
+						$descrizione = "INSERT INTO `DescrizioneAutore`
+							(Autore,Testo) VALUES ('".$Scrittore['Id']."','".
+								$_POST['testo']."')";
+						$db->query($descrizione);
 					}
 			}//fine if($db->query($insert)){
 		}// fine if(!$errore...

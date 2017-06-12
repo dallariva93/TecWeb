@@ -69,17 +69,17 @@ Principi:
 	- [X] CSS
 	- [X] PHP
 2. News [I]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [ ] CSS
-	- [ ] PHP
+	- [X] PHP
 3. Recensioni [L]
 	- [X] HTML validato
 	- [X] CSS
 	- [X] PHP
 4. Classifica [I]
-	- [ ] HTML validato
+	- [X] HTML validato
 	- [ ] CSS
-	- [ ] PHP
+	- [X] PHP
 5. Contatti [L]
 	- [X] HTML validato
 	- [X] CSS

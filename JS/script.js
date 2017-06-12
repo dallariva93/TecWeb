@@ -56,6 +56,20 @@ function controlloErrori(){
 			risultato = true;
 		}
 	}
+	//Check Nome in Amministrazione
+	if(document.getElementById("nomeAmm")){
+
+		var input =document.getElementById("nomeAmm").value;
+		document.getElementById("NomeError").innerHTML = campoNonVuoto(input);
+		risultato = (input != "");
+	}
+	//Check Cognome in Amministrazione
+	if(document.getElementById("cognomeAmm")){
+
+		var input =document.getElementById("cognomeAmm").value;
+		document.getElementById("CognomeError").innerHTML = campoNonVuoto(input);
+		risultato = (input != "");
+	}
 	//Check Email
 	if(document.getElementById("email")){
 		var input =document.getElementById("email").value;
@@ -166,7 +180,7 @@ function controlloErrori(){
 function campoNonVuoto(campo){
 	var ritorno;
 	if(campo == "")
-		ritorno = "Il campo non puó essere vuoto";
+		ritorno = "Campo obbligatorio";
 	else
 		ritorno = "";
 	return ritorno;

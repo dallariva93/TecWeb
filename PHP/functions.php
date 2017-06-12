@@ -54,33 +54,6 @@ function menu(){
 	}
 
 
-function pagingNews($currentPage, $totalNumber){
-	$total = floor($totalNumber/5);
-	echo "<div id='paging'><form method='post' action='news.php'><div>";
-	if( $currentPage > 3 ){
-		if (  $total - 1 <= $currentPage ){
-			$i = $total-4;
-		}
-		else {
-			$i = $currentPage - 2;
-		}
-	}
-	else {
-		$i = 0;
-	}
-	$max = ( $i + 4 < $total)? $i + 4 : $total;
-	for( $i; $i <= $max; $i++){
-		if( $i == $currentPage )
-			echo "<button id='PagingCurrentPage' ";
-		else
-			echo "<button ";
-		echo "type='submit' value='".
-			$i."' name='page'>". ($i + 1). "</button>";
-	}
-	echo "</div></form></div>";
-}
-
-
 function paging($currentPage, $totalNumber,$genere = ""){
 	$total = floor($totalNumber/5); //numero totale di pagine
 	if($totalNumber%5 == 0) //caso in cui il numero è divisibile
@@ -113,6 +86,63 @@ function paging($currentPage, $totalNumber,$genere = ""){
 	}
 	echo "</div></form></div>";
 }
+function pagingNews($currentPage, $totalNumber){
+	$total = floor($totalNumber/5);
+	if($totalNumber%5 == 0) 
+		$total -= 1;
+	
+	echo "<div id='paging'><form method='post' action='news.php'><div>";
+	if( $currentPage > 3 ){
+		if (  $total - 1 <= $currentPage ){
+			$i = $total-4;
+		}
+		else {
+			$i = $currentPage - 2;
+		}
+	}
+	else {
+		$i = 0;
+	}
+	$max = ( $i + 4 < $total)? $i + 4 : $total;
+	for( $i; $i <= $max; $i++){
+		if( $i == $currentPage )
+			echo "<button id='PagingCurrentPage' ";
+		else
+			echo "<button ";
+		echo "type='submit' value='".
+			$i."' name='page'>". ($i + 1). "</button>";
+	}
+	echo "</div></form></div>";
+}
+
+function pagingClassifica($currentPage, $totalNumber,$tipoClassifica = "",$ordine = "",$genere = ""){
+	$total = floor($totalNumber/10);
+	if($totalNumber%10 == 0)
+		$total -= 1;
+	echo "<div id='paging'><form method='post' action='classifica.php'><div>";
+	if( $currentPage > 3 ){
+		if (  $total - 1 <= $currentPage ){
+			$i = $total-4;
+		}
+		else {
+			$i = $currentPage - 2;
+		}
+	}
+	else {
+		$i = 0;
+	}
+	$max = ( $i + 4 < $total)? $i + 4 : $total;
+	for( $i; $i <= $max; $i++){
+		if( $i == $currentPage )
+			echo "<button id='PagingCurrentPage' ";
+		else
+			echo "<button ";
+		echo "type='submit' value=\"".
+			$i."-$tipoClassifica-$ordine-$genere\" name='page'>". ($i + 1). "</button>";
+	}
+	echo "</div></form></div>";
+}
+
 
 function ReadMore($text){
 	

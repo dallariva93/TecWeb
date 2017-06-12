@@ -20,7 +20,7 @@
 			//Inserimento commento
 			if(isset($_POST['text']) && !$_POST['text']==""){
 				$autore = $_SESSION['id'];
-				$ntesto ="<p>". (htmlentities($_POST['text'])). "</p>";
+				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
 				$sql = "INSERT INTO Commenti (Recensione,Autore,Commento)
 						VALUES ('$codiceRec','$autore','$ntesto');";
 				if(!$db->query($sql)){
@@ -177,6 +177,7 @@
 			if($datiCommenti->num_rows>0) {
 				echo "<h2>Commenti</h2>
 					<div class='comments'>";
+					$id = 0;
 				while ($Commento = $datiCommenti->fetch_array(MYSQLI_ASSOC)) {
 					if($Utentecm = $db->query("SELECT Nickname FROM Utente
 												WHERE Email = '". $Commento['Autore']. "'")){
@@ -192,9 +193,10 @@
 					//l'autore del commento oppure un amministratore
 					if(isset($_SESSION['type']) && ($Commento['Autore'] == $_SESSION['id']
 						|| $_SESSION['type'] == 'admin' )) {
-						$searchDeleteCommento=array("{{codice}}","{{Autore}}", "{{Data}}");
+						$searchDeleteCommento=array("{{codice}}","{{Autore}}", "{{Data}}",
+							"{{IdCommento}}");
 						$replaceDeleteCommento=array($codice,$Commento['Autore'],
-						 	$Commento['Data_Pubblicazione']);
+						 	$Commento['Data_Pubblicazione'],$id);
 						echo str_replace($searchDeleteCommento ,
 							$replaceDeleteCommento,
 							file_get_contents("../HTML/Template/DeleteLibro.txt"));
@@ -205,7 +207,7 @@
 						$Commento['Commento']);
 					echo str_replace($searchCommento ,$replaceCommento,
 						file_get_contents("../HTML/Template/CommentoLibro.txt"));
-
+					$id += 1;
 				} //Fine ciclo
 
 			echo "</div>".// Fine class comments

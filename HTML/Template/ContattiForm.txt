@@ -5,9 +5,9 @@
 		<div>
 			<label for="nome">Nome </label><div class="inputError" id="NomeError">{{nomeError}}</div>
 			<input type="text" name="nome" id="nome"/>
-			<label for="email">Email </label><div class="inputError" id="EmailError">{{emailError}}</div>
+			<label for="email"  xml:lang='en'>Email </label><div class="inputError" id="EmailError">{{emailError}}</div>
 			<input type="text" name="email" id="email"/>
-			<label for="oggetto">Oggetto E-mail: </label>
+			<label for="oggetto">Oggetto <span xml:lang='en'>E-mail</span>: </label>
 			<input type="text" id="oggetto" name="oggetto"/>
 			<label for='testo'>Messaggio:</label><div class="inputError" id="TestoError">{{TestoError}}</div>
 			<textarea name='testo' id='testo' rows='4' cols='50'></textarea>
