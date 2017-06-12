@@ -7,7 +7,15 @@
 
 		if(isset($_POST['delete'])){
 			$delete = "DELETE FROM `Notizie` WHERE `Id` = '". $_POST['delete']. "'";
-			$db->query($delete);
+
+			$searchImage = "SELECT Foto FROM FotoNotizie WHERE Notizia = '".
+				$_POST['delete']."'";
+
+			if ($Images = $db->query($searchImage))
+				if($image = $Images->fetch_array(MYSQLI_ASSOC)){
+					if (unlink($image['Foto']))
+						$db->query($delete);
+				}
 		}
 
 		$errore = false;
@@ -23,7 +31,7 @@
 		{
 			$insert="INSERT INTO `Notizie` (Titolo, Autore,Testo)
 			 	VALUES ('".$_POST['titolo']."','".$_SESSION['id']."','".
-					$_POST['testo']."')";
+					htmlentities($_POST['testo'])."')";
 
 			if($db->query($insert)){
 

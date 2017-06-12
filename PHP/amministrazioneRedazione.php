@@ -11,19 +11,27 @@
 		}
 
 		$errore=false;
+		//Vengono fatti controlli meno severi per permettere all'amministratore
+		//di inserire anche tag HTML dove necessario
+		$nome = (isset($_POST['nome']))?
+			campoNonVuoto($errore,$_POST['nome']) : "" ;
+		$cognome = (isset($_POST['cognome']))?
+			campoNonVuoto($errore,$_POST['cognome']) : "" ;
 
 		$searchInForm=array("{{EmailError}}","{{PasswordError}}","{{NomeError}}",
 					"{{CognomeError}}");
 		$replaceInForm=array(testEmail($errore),testPassword($errore),
-		 						testNome($errore), testCognome($errore));
+		 						$nome, $cognome);
 
 		if(!$errore && isset($_POST['email']) && isset($_POST['nome']) && isset($_POST['cognome'])
 			&& isset($_POST['password']))
 		{
 			$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );
 			$insert="INSERT INTO `Redazione`(Email, Nome, Cognome, Password)
-				VALUES ('" .$_POST['email']. "','" .$_POST['nome']. "','"
-						.$_POST['cognome']. "','". $ENC_password. "')";
+			VALUES ('".htmlentities($_POST['email']).
+				"','".htmlentities($_POST['nome'])."','".
+				htmlentities($_POST['cognome'])."','".
+				htmlentities($_POST['nickname']). "','". $ENC_password. "')";
 			$db->query($insert);
 		}
 
