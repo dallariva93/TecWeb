@@ -3,8 +3,7 @@
 	Require_once('functions.php');
 	
 	//stampo l'head dell'html
-	$replaceHead=array("<title>Accedi a such wow</title>"
-		,"<meta name='description' content='Social network per topi di bibblioteca'/>");
+	$replaceHead=array("Accedi a FaceOnTheBook", "Pagina di login");
 	$searchHead=array("{{title}}","{{description}}");
 	echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
 
