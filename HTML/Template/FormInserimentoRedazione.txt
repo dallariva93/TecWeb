@@ -5,14 +5,14 @@
 		<h1>Inserisci nuovo amministratore</h1>
 		<form action='amministrazioneRedazione.php' method='post' onsubmit='return controlloErrori()'>
 			<div>
-				<label for='email'>Email</label><div class="inputError" id="EmailError">{{EmailError}}</div>
+				<label for='email' xml:lang='en'>Email</label><div class="inputError" id="EmailError">{{EmailError}}</div>
 				<input type='text' name='email' id='email'/>
-				<label for='password'>Password</label><div class="inputError" id="PasswordError">{{PasswordError}}</div>
+				<label for='password' xml:lang='en'>Password</label><div class="inputError" id="PasswordError">{{PasswordError}}</div>
 				<input type='password' name='password' id='password'/>
-				<label for='nome'>Nome</label><div class="inputError" id="NomeError">{{NomeError}}</div>
-				<input type='text' name='nome' id='nome'/>
-				<label for='cognome'>Cognome</label><div class="inputError" id="CognomeError">{{CognomeError}}</div>
-				<input type='text' name='cognome' id='cognome'/>
+				<label for='nomeAmm'>Nome</label><div class="inputError" id="NomeError">{{NomeError}}</div>
+				<input type='text' name='nome' id='nomeAmm'/>
+				<label for='cognomeAmm'>Cognome</label><div class="inputError" id="CognomeError">{{CognomeError}}</div>
+				<input type='text' name='cognome' id='cognomeAmm'/>
 				<input type='submit' value='Aggiungi' class='btnLong'/>
 			</div>
 		</form>

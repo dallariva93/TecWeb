@@ -6,8 +6,8 @@
 			<tr>
 				<th scope='col'>Cognome</th>
 				<th scope='col'>Nome</th>
-				<th scope='col'>E-Mail</th>
-				<th scope='col'>Username</th>
+				<th scope='col' xml:lang='en'>E-Mail</th>
+				<th scope='col' xml:lang='en'>Username</th>
 			</tr>
 		</thead>
 		<tbody>
