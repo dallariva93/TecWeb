@@ -31,7 +31,7 @@
 		{
 			$insert="INSERT INTO `Notizie` (Titolo, Autore,Testo)
 			 	VALUES ('".$_POST['titolo']."','".$_SESSION['id']."','".
-					htmlentities($_POST['testo'])."')";
+					$_POST['testo']."')";
 
 			if($db->query($insert)){
 

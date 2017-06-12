@@ -6,7 +6,11 @@
 		Require_once('functions.php');
 		if(isset($_POST['delete'])){
 			$delete = "DELETE FROM `Libro` WHERE `ISBN` = '". $_POST['delete']. "'";
-			$db->query($delete);
+
+			if (unlink("../img/cover/" . $_POST['delete']. ".jpg"))
+				$db->query($delete);
+
+
 		}
 
 		$errore = false;
@@ -40,7 +44,7 @@
 			$insert="INSERT INTO `Libro` (ISBN, Titolo, Autore,Casa_Editrice,Anno_Pubblicazione
 				, Genere, Trama) VALUES ('".$_POST['isbn']."','".$_POST['titolo']."','".$_POST['autore']."','"
 				.$_POST['casa']."','".GetData($_POST['data']). "',\"". $_POST['genere']. "\", '".
-				htmlentities($_POST['trama'])."')";
+				$_POST['trama']."')";
 
 			if($db->query($insert)){
 				//Inserimento copertina
