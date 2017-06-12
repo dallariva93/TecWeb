@@ -1,0 +1,5 @@
+<!--ClassificaFiltri.txt-->
+<div>
+<label class='marginMobile' for="{{ID}}">{{TESTO}}</label>
+<input type="radio" name="{{NAME}}" id="{{ID}}" class='radioMobile' value="{{VALUE}}" {{CHECK}}/>
+</div>

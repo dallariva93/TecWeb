@@ -1,3 +1,4 @@
+<!--MiniaturaNews.txt-->
 <dd>
 	<a href='notizia.php?news={{Id}}'>
 	<img src='../img/news/{{Id}}.jpg' alt='Immagine rappresentativa della news: {{Titolo}}'/>
