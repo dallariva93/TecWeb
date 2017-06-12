@@ -11,8 +11,6 @@ html, body{
 
 textarea{
 	width: 100%;
-	max-width: 100%;
-	min-width: 100%;
 }
 a:link {
 	color: #2196F3;
