@@ -132,8 +132,8 @@
 	
 	//query per ottenere le recensioni
 	if($tipoCl == 'redazione'){
-		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, recensione.Valutazione FROM (Libro JOIN
-				recensione ON (recensione.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." ORDER BY recensione.Valutazione".$sqlOrdine.",Libro.Titolo";
+		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, Recensione.Valutazione FROM (Libro JOIN
+				Recensione ON (Recensione.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." ORDER BY Recensione.Valutazione".$sqlOrdine.",Libro.Titolo";
 	}
 	else{
 		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, ROUND(AVG(votolibro.Valutazione),1) AS Valutazione, COUNT(votolibro.Valutazione) AS nVoti FROM (Libro JOIN

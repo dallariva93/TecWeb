@@ -10,5 +10,5 @@ LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoAutori.txt' I
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoNotizie.txt' INTO TABLE FotoNotizie;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/redazione.txt' INTO TABLE Redazione;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/descrizioni.txt' INTO TABLE DescrizioneAutore;
-LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/VotoLibro.txt' INTO TABLE votolibro;
+LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/VotoLibro.txt' INTO TABLE VotoLibro;
 SET foreign_key_checks = 1;
