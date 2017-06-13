@@ -136,8 +136,8 @@
 				Recensione ON (Recensione.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." ORDER BY Recensione.Valutazione".$sqlOrdine.",Libro.Titolo";
 	}
 	else{
-		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, ROUND(AVG(votolibro.Valutazione),1) AS Valutazione, COUNT(votolibro.Valutazione) AS nVoti FROM (Libro JOIN
-				votolibro ON (votolibro.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." GROUP BY Libro.ISBN ORDER BY Valutazione".$sqlOrdine.",Libro.Titolo";
+		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, ROUND(AVG(VotoLibro.Valutazione),1) AS Valutazione, COUNT(VotoLibro.Valutazione) AS nVoti FROM (Libro JOIN
+				VotoLibro ON (VotoLibro.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." GROUP BY Libro.ISBN ORDER BY Valutazione".$sqlOrdine.",Libro.Titolo";
 	}
 
 	if($ClassificaLib = $db->query($sqlQuery." LIMIT 10 OFFSET ".($page * 10))){
