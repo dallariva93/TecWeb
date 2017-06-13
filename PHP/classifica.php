@@ -140,12 +140,6 @@
 				votolibro ON (votolibro.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." GROUP BY Libro.ISBN ORDER BY Valutazione".$sqlOrdine.",Libro.Titolo";
 	}
 
-	
-	/*
-	//Ordine crescente o decrescente
-	if($ordine != 'cresc')
-		$sqlQuery .=" DESC ";
-	*/
 	if($ClassificaLib = $db->query($sqlQuery." LIMIT 10 OFFSET ".($page * 10))){
 		if($ClassificaLib->num_rows > 0){
 			$i = 1 + 10*$page;

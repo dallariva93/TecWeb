@@ -448,7 +448,7 @@ fieldset label {
 .classifica a > img{
 	margin:0.3em;
 	top: 0;
-	height:5em;
+	height:5.3em;
 	float: left;
 	padding-right: 0.5em;
 	width: 3.5em;
@@ -472,9 +472,11 @@ fieldset label {
 	padding: 0.4em;
 }
 .posizione{
-	float: left;
+	float: right;
+	font-size: 2em;
+	margin-top:1.7em;
 }
-li .classStar{
+span .classStar{
 	position: relative;
     top: 0.15em;
 }
