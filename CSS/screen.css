@@ -294,7 +294,6 @@ fieldset label {
 .filtri>h1{
 	text-align: center;
 	margin-bottom: 0.2em;
-
 }
 .filtri input{
 	margin-top: 0.2em;
@@ -303,6 +302,11 @@ fieldset label {
 .filtri>form>div>div{
 	border-bottom:1px solid #e8e8e8;
 	padding-bottom: 5px;
+}
+.filtri>form>div>h1{
+	text-align: center;
+	margin-top:0.2em;
+	margin-bottom: 0.1em;
 }
 /**************************************************************
 		PAGING
@@ -475,10 +479,11 @@ fieldset label {
 	float: right;
 	font-size: 2em;
 	margin-top:1.7em;
+	clear:right;
 }
 span .classStar{
 	position: relative;
-    top: 0.15em;
+    top: 0.35em;
 }
 .classStar{
 	/*max-width: 6.5em;*/

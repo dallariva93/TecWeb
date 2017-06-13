@@ -131,3 +131,28 @@ tr {
 .elenco dd h1 {
     font-size: 0.9em;
 }
+
+.classifica dd h1 {
+	font-size: 0.9em;
+}
+
+.classifica dd h2 {
+	margin-top: 0.2em;
+	font-size: 0.65em;
+}
+.posizione {
+	margin-top:3.4em;
+	margin-right: 0.3em;
+	font-size: 1.5em;
+}
+.classifica dd, .classifica ul{
+	height: 6.9em;
+}
+.classifica a > img{
+	margin:0.3em;
+	top: 0;
+	height:6.3em;
+	float: left;
+	padding-right: 0.5em;
+	width: 4em;
+}
