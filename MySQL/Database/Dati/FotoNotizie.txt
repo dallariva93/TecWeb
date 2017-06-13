@@ -1,4 +1,4 @@
+0	../img/news/0.jpg
 1	../img/news/1.jpg
 2	../img/news/2.jpg
 3	../img/news/3.jpg
-4	../img/news/4.jpg
