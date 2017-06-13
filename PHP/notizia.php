@@ -1,6 +1,6 @@
 <?php
 	Require_once('connect.php');
-	if(isset($_REQUEST['news']) && $datiNews = $db->query("SELECT * FROM Notizie WHERE id = '". ($_REQUEST['news'])."'")) {
+	if(isset($_REQUEST['news']) && $datiNews = $db->query("SELECT * FROM Notizie JOIN FotoNotizie ON (Notizie.Id = FotoNotizie.Notizia) WHERE id = '". ($_REQUEST['news'])."'")) {
 		Require_once('functions.php');
 
 		
@@ -63,8 +63,8 @@
 			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span> > <span xml:lang='en'><a href='news.php'>News</a></span> > ". strip_tags($datiN['Titolo']));
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
-			$searchHeader=array("{{errore}}","{{Id}}","{{Titolo}}","{{IdAutore}}","{{Testo}}","{{Cognome}}","{{Nome}}");
-			$replaceHeader=array($errore,$datiN['Id'],strip_tags($datiN['Titolo']),$datiN['Autore'],$datiN['Testo'],$autoreNome,$autoreCognome);
+			$searchHeader=array("{{errore}}","{{Path}}","{{Titolo}}","{{IdAutore}}","{{Testo}}","{{Cognome}}","{{Nome}}");
+			$replaceHeader=array($errore,$datiN['Foto'],strip_tags($datiN['Titolo']),$datiN['Autore'],$datiN['Testo'],$autoreNome,$autoreCognome);
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneNews.txt"));
 
 		}

@@ -29,15 +29,15 @@
 	echo " <dl class='centerBig'>
 	<dt>Ultime News</dt>";
 	
-	$sqlQuery = "SELECT * FROM Notizie ";
+	$sqlQuery = "SELECT * FROM Notizie JOIN FotoNotizie ON (Notizie.Id = FotoNotizie.Notizia) ";
 	
 	//prelevo le news dal db e le stampo in ordine
 	//se il numero di news e maggiore di 8, in caso devo attivare i pulsanti in basso per caricare notizie piu vecchie
 	if ($UltimeNews = $db->query( $sqlQuery ."ORDER BY Data DESC LIMIT 5 OFFSET ".($page * 5))) {
 		if($UltimeNews->num_rows>0) {
 			while($rowNews = $UltimeNews->fetch_array(MYSQLI_ASSOC)){
-				$searchNews=array("{{Id}}","{{Titolo}}","{{Testo}}");
-				$replaceNews=array($rowNews['Id'],strip_tags($rowNews['Titolo']),ReadMore($rowNews['Testo']));
+				$searchNews=array("{{Path}}","{{Id}}","{{Titolo}}","{{Testo}}");
+				$replaceNews=array($rowNews['Foto'],$rowNews['Id'],strip_tags($rowNews['Titolo']),ReadMore($rowNews['Testo']));
 				echo str_replace($searchNews ,$replaceNews, file_get_contents("../HTML/Template/MiniaturaNews.txt"));
 			}
 		}

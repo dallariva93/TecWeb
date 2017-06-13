@@ -1,7 +1,7 @@
 <!--MiniaturaNews.txt-->
 <dd>
 	<a href='notizia.php?news={{Id}}'>
-	<img src='../img/news/{{Id}}.jpg' alt=''/>
+	<img src='{{Path}}' alt=''/>
 	<object>
 		<h2>{{Titolo}}</h2>
 		{{Testo}}
