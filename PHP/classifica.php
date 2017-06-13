@@ -49,6 +49,7 @@
 	//Colonna dei filtri
 	echo file_get_contents("../HTML/Template/ClassificaInizioFiltri.txt");
 	
+	$strClassifica = "";
 	//variabili check
 	$checkTUser = "";
 	$checkTRed = "";
@@ -57,10 +58,14 @@
 	
 	//Classifica Utente o Redazione
 	echo "<h1>Classifica</h1>";
-	if($tipoCl == 'redazione')
+	if($tipoCl == 'redazione'){
 		$checkTRed = "checked = 'checked'";
-	else
+		$strClassifica = "<li>Voto della redazione: ";
+	}
+	else{
 		$checkTUser = "checked = 'checked'";
+		$strClassifica = "<li>Voto degli utenti: ";
+	}
 	$searchGenere=array("{{NAME}}","{{TESTO}}","{{VALUE}}","{{CHECK}}","{{ID}}");
 	$replaceGenere=array("voti","Classifica voti degli Utenti","utenti", $checkTUser,"utenti");
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
@@ -112,7 +117,7 @@
 
 
 	//Elenco di tutte le recensioni
-	echo "<div class='elenco marginMobile' ><dl class='VrightBig MiniaturaClassifica'>
+	echo "<div class='classifica marginMobile' ><dl class='VrightBig'>
 	<dt>Classifica Libri</dt>";
 
 	
@@ -126,8 +131,8 @@
 				recensione ON (recensione.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlAdd." ORDER BY recensione.Valutazione";
 	}
 	else{
-		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, votolibro.Valutazione FROM (Libro JOIN
-				votolibro ON (votolibro.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlAdd." ORDER BY votolibro.Valutazione";
+		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, ROUND(AVG(votolibro.Valutazione),1) AS Valutazione FROM (Libro JOIN
+				votolibro ON (votolibro.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlAdd." GROUP BY Libro.ISBN ORDER BY Valutazione";
 	}
 
 	
@@ -138,12 +143,15 @@
 	
 	if($ClassificaLib = $db->query($sqlQuery." LIMIT 10 OFFSET ".($page * 10))){
 		if($ClassificaLib->num_rows > 0){
+			$i = 1 + 10*$page;
 			while($row = $ClassificaLib->fetch_array(MYSQLI_ASSOC)){
-				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Autore}}","{{Valutazione}}");
-				$replaceLibro=array($row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$row['Valutazione']);
+				$searchLibro=array("{{Indice}}","{{ISBN}}","{{Titolo}}","{{Autore}}","{{Star}}","{{Valutazione}}");
+				$replaceLibro=array($i,$row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$strClassifica.$row['Valutazione'],"<div class='classStar'>".printStar($row['Valutazione']). "</div></li>");
 				echo str_replace($searchLibro,$replaceLibro,file_get_contents("../HTML/Template/MiniaturaLibroClassifica.txt"));
+				$i += 1;
 			}
 		}
+		//echo "<li>Voto degli utenti: <div class='stelle'>".printStar($row['Valutazione']). "</div></li>";
 		$ClassificaLib->free();
 	}
 	//Fine stampa classifica
