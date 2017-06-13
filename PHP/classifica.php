@@ -8,8 +8,11 @@
 	echo str_replace($searchHead ,$replaceHead,
 		file_get_contents("../HTML/Template/Head.txt"));
 
+	$strClassifica = "";
+	$numVoti = "";
 	$sqlQuery = "";
-	$sqlAdd = "";
+	$sqlGenere = "";
+	$sqlOrdine = "";
 	$tipoCl = "";
 	$ordine = "";
 	$genere = "";
@@ -49,7 +52,7 @@
 	//Colonna dei filtri
 	echo file_get_contents("../HTML/Template/ClassificaInizioFiltri.txt");
 	
-	$strClassifica = "";
+	
 	//variabili check
 	$checkTUser = "";
 	$checkTRed = "";
@@ -60,11 +63,11 @@
 	echo "<h1>Classifica</h1>";
 	if($tipoCl == 'redazione'){
 		$checkTRed = "checked = 'checked'";
-		$strClassifica = "<li>Voto della redazione: ";
+		$strClassifica = "<span class = 'note'>Voto della redazione: ";
 	}
 	else{
 		$checkTUser = "checked = 'checked'";
-		$strClassifica = "<li>Voto degli utenti: ";
+		$strClassifica = "<span class = 'note'>Voto degli utenti: ";
 	}
 	$searchGenere=array("{{NAME}}","{{TESTO}}","{{VALUE}}","{{CHECK}}","{{ID}}");
 	$replaceGenere=array("voti","Classifica voti degli Utenti","utenti", $checkTUser,"utenti");
@@ -76,8 +79,10 @@
 	echo "<h1>Ordine</h1>";
 	if($ordine == 'cresc')
 		$checkOrCres = "checked = 'checked'";
-	else
+	else{
 		$checkOrDesc = "checked = 'checked'";
+		$sqlOrdine = " DESC ";
+	}
 	$searchGenere=array("{{NAME}}","{{TESTO}}","{{VALUE}}","{{CHECK}}","{{ID}}");
 	$replaceGenere=array("ordine","Decrescente","desc", $checkOrDesc,"desc");
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
@@ -123,35 +128,37 @@
 	
 	//Se è presente un genere rendo più specifica la query
 	 if( $genere != "")
-	 	$sqlAdd.= " WHERE Libro.Genere = \"$genere\"";
+	 	$sqlGenere.= " WHERE Libro.Genere = \"$genere\"";
 	
 	//query per ottenere le recensioni
 	if($tipoCl == 'redazione'){
 		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, recensione.Valutazione FROM (Libro JOIN
-				recensione ON (recensione.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlAdd." ORDER BY recensione.Valutazione";
+				recensione ON (recensione.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." ORDER BY recensione.Valutazione".$sqlOrdine.",Libro.Titolo";
 	}
 	else{
-		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, ROUND(AVG(votolibro.Valutazione),1) AS Valutazione FROM (Libro JOIN
-				votolibro ON (votolibro.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlAdd." GROUP BY Libro.ISBN ORDER BY Valutazione";
+		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, ROUND(AVG(votolibro.Valutazione),1) AS Valutazione, COUNT(votolibro.Valutazione) AS nVoti FROM (Libro JOIN
+				votolibro ON (votolibro.Libro = Libro.ISBN)) JOIN Scrittore ON (Libro.Autore = Scrittore.Id) ".$sqlGenere." GROUP BY Libro.ISBN ORDER BY Valutazione".$sqlOrdine.",Libro.Titolo";
 	}
 
 	
-
+	/*
 	//Ordine crescente o decrescente
 	if($ordine != 'cresc')
 		$sqlQuery .=" DESC ";
-	
+	*/
 	if($ClassificaLib = $db->query($sqlQuery." LIMIT 10 OFFSET ".($page * 10))){
 		if($ClassificaLib->num_rows > 0){
 			$i = 1 + 10*$page;
 			while($row = $ClassificaLib->fetch_array(MYSQLI_ASSOC)){
-				$searchLibro=array("{{Indice}}","{{ISBN}}","{{Titolo}}","{{Autore}}","{{Star}}","{{Valutazione}}");
-				$replaceLibro=array($i,$row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$strClassifica.$row['Valutazione'],"<div class='classStar'>".printStar($row['Valutazione']). "</div></li>");
+				if(isset($row['nVoti']))
+					$numVoti = " (".$row['nVoti']."-voti)";
+				$searchLibro=array("{{Indice}}","{{ISBN}}","{{Titolo}}","{{Autore}}","{{Valutazione}}","{{Star}}","{{Nvoti}}");
+				$replaceLibro=array($i,$row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$strClassifica.$row['Valutazione']." - ","<div class='classStar'>".printStar($row['Valutazione']),$numVoti."</div></span>");
 				echo str_replace($searchLibro,$replaceLibro,file_get_contents("../HTML/Template/MiniaturaLibroClassifica.txt"));
 				$i += 1;
 			}
 		}
-		//echo "<li>Voto degli utenti: <div class='stelle'>".printStar($row['Valutazione']). "</div></li>";
+		// 
 		$ClassificaLib->free();
 	}
 	//Fine stampa classifica
