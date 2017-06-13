@@ -27,7 +27,7 @@
 	echo str_replace($searchHead ,$replaceHead,
 		file_get_contents("../HTML/Template/Head.txt"));
 
-	//echo menu();
+	echo menu();
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("","<span xml:lang='en'>
