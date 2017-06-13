@@ -8,7 +8,7 @@
 	<object>
 		<h1>{{Titolo}}</h1>
 		<h2>Scritto da {{Autore}}</h2>
-		{{Valutazione}} {{Star}}
+		{{Valutazione}}{{Star}}{{Nvoti}}
 	</object>
 	</a>
 </dd>
