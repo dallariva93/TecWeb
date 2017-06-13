@@ -147,7 +147,7 @@
 				if(isset($row['nVoti']))
 					$numVoti = " (".$row['nVoti']."-voti)";
 				$searchLibro=array("{{Indice}}","{{ISBN}}","{{Titolo}}","{{Autore}}","{{Valutazione}}","{{Star}}","{{Nvoti}}");
-				$replaceLibro=array($i,$row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$strClassifica.$row['Valutazione']." - ","<div class='classStar'>".printStar($row['Valutazione']),$numVoti."</div></span>");
+				$replaceLibro=array($i,$row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$strClassifica.$row['Valutazione']." - ","<div class='classStar'>".printStar($row['Valutazione']),"</div>".$numVoti."</span>");
 				echo str_replace($searchLibro,$replaceLibro,file_get_contents("../HTML/Template/MiniaturaLibroClassifica.txt"));
 				$i += 1;
 			}
