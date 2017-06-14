@@ -380,7 +380,7 @@ function testImage(&$flag)
 			$flag = true;
 			$Errore = "Formato non corretto";
 		}
-		else if($_FILES["img"]["size"] > 500000) {
+		else if($_FILES["img"]["size"] > 1000000) {
 			$flag = true;
 			$Errore = "Dimensione troppo grande";
 		}
