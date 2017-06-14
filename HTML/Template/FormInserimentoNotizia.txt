@@ -3,7 +3,7 @@
 <a href='#top' class = 'adminButton'>Torna all' elenco</a>
 	<div class='box'>
 		<h1>Inserisci Notizia </h1>
-		<form action='amministrazioneNotizie.php' method='post' onsubmit='return controlloErrori()'>
+		<form action='amministrazioneNotizie.php' method='post' onsubmit='return controlloErrori()' enctype="multipart/form-data">
 			<div>
 				<label for='titolo'>Titolo</label><div class="inputError" id="TitoloError">{{TitoloError}}</div>
 				<input type='text' name='titolo' id='titolo'/>

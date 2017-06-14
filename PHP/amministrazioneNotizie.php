@@ -7,7 +7,6 @@
 
 		if(isset($_POST['delete'])){
 			$delete = "DELETE FROM `Notizie` WHERE `Id` = '". $_POST['delete']. "'";
-
 			$searchImage = "SELECT Foto FROM FotoNotizie WHERE Notizia = '".
 				$_POST['delete']."'";
 
@@ -29,13 +28,14 @@
 			isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
 			is_uploaded_file($_FILES['img']['tmp_name']))
 		{
+
 			$insert="INSERT INTO `Notizie` (Titolo, Autore,Testo)
 			 	VALUES ('".$_POST['titolo']."','".$_SESSION['id']."','".
 					$_POST['testo']."')";
 
 			if($db->query($insert)){
 
-				$queryCercaNotizia = "SELECT Id FROM Notizia WHERE Titolo =
+				$queryCercaNotizia = "SELECT Id FROM Notizie WHERE Titolo =
 					'". $_POST['titolo']. "' AND Autore = '". $_SESSION['id'].
 					"' AND Testo = '". $_POST['testo']. "'";
 
