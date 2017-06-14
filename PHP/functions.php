@@ -24,11 +24,11 @@ function GetData($data){
 function menu(){
 		if(!isset($_SESSION))
         	session_start();
-        	
+
         if (isset($_SESSION['ultimaAttivita']) && (time() - $_SESSION['ultimaAttivita'] > 1800)) //dopo 30 minuti di inattività distrugge la sessione
-        {			
-			session_unset();      
-			session_destroy();   
+        {
+			session_unset();
+			session_destroy();
 		}
 		$_SESSION['ultimaAttivita'] = time();
 
@@ -88,9 +88,9 @@ function paging($currentPage, $totalNumber,$genere = ""){
 }
 function pagingNews($currentPage, $totalNumber){
 	$total = floor($totalNumber/5);
-	if($totalNumber%5 == 0) 
+	if($totalNumber%5 == 0)
 		$total -= 1;
-	
+
 	echo "<div id='paging'><form method='post' action='news.php'><div>";
 	if( $currentPage > 3 ){
 		if (  $total - 1 <= $currentPage ){
@@ -145,15 +145,15 @@ function pagingClassifica($currentPage, $totalNumber,$tipoClassifica = "",$ordin
 
 
 function ReadMore($text){
-	
+
 	$string = strip_tags($text);
 	$numeroMassimo = 35;
-	
-	
+
+
 	$parole = explode(" ", $string);
 	$risultato = implode(" ", array_splice($parole, 0, $numeroMassimo));
-	
-	
+
+
 	return "<p>". $risultato. "&#8230;</p>";
 }
 
@@ -411,13 +411,13 @@ function deleteProfile($db)
 		echo $_SESSION['id'];
 		$query="DELETE FROM `Utente` WHERE `Email` = '".$_SESSION['id']."'";
 		mysqli_query($db, $query);
-		session_unset();      
-		session_destroy(); 		
-		header('Location: index.php');	
+		session_unset();
+		session_destroy();
+		header('Location: index.php');
 	}
-	
-	
-	
+
+
+
 	function stampaDati($db)
 	{
 		$user = $db->query("SELECT * FROM Utente WHERE Email = '".$_SESSION['id']. "'" );
@@ -425,53 +425,53 @@ function deleteProfile($db)
 		$searchDati=array("{{nickname}}","{{nome}}","{{cognome}}","{{email}}");
 		$replaceDati=array($utente['Nickname'], $utente['Nome'], $utente['Cognome'], $utente['Email']);
 		return str_replace($searchDati ,$replaceDati, file_get_contents("../HTML/Template/Dati.txt"));
-		
-		
+
+
 	}
-	
+
 	function stampaLibri($db, $page=0)
 	{
 		$lib=$db->query("SELECT Libro FROM VotoLibro WHERE Autore = '".$_SESSION['id']. "'");
-		$vot=$db->query("SELECT Valutazione FROM VotoLibro WHERE Autore = '".$_SESSION['id']. "'");		
+		$vot=$db->query("SELECT Valutazione FROM VotoLibro WHERE Autore = '".$_SESSION['id']. "'");
 		$arrayVoti=array();
 		$arrayISBN=array();
 		$arrayLibri=array();
 		$arrayStelle=array();
 		$i=$l=0;
 		$bookPerPage=15;
-		while ($row = mysqli_fetch_array($lib)) 	//riempio l'array 
+		while ($row = mysqli_fetch_array($lib)) 	//riempio l'array
 		{
 			array_push($arrayISBN,$row);
 		}
-		
-		while ($row = mysqli_fetch_array($vot)) 	//riempio l'array 
+
+		while ($row = mysqli_fetch_array($vot)) 	//riempio l'array
 		{
 			array_push($arrayVoti,$row);
 		}
-		
+
 		while($l<count($arrayVoti))
 		{
 			$arrayStelle[$l]=printStar($arrayVoti[$l][0]);
 			$l++;
 		}
-		
-		
+
+
 		$searchVotiLibro=array("{{ISBN}}", "{{titolo}}", "{{voto}}");
 		echo "<div class='contentProf centrato'>";
 		if(count($arrayISBN)>0)
 			echo "<ul>";
 		while($i<count($arrayISBN) )  		//riempio l'array
 		{
-			
+
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN='".$arrayISBN[$i][0]."' ORDER BY Titolo");
 			$libro=mysqli_fetch_array($lib);
 			array_push($arrayLibri, $libro);
 			$i++;
 		}
-			
+
 		//stampo le miniature dei libri
 		$i=0;
-		if(count($arrayISBN)==0)	
+		if(count($arrayISBN)==0)
 				echo "<div class='Errore'>Non hai votato nessun libro!</div>";
 		if(count($arrayISBN)>0)
 		{	while($i<$bookPerPage && $i+($page*$bookPerPage)<count($arrayISBN) )
@@ -482,11 +482,11 @@ function deleteProfile($db)
 			}
 			echo "</ul>";
 		}
-		
+
 		echo "</div>";
-		
+
 		if(count($arrayISBN)<=$bookPerPage)			//ho meno elementi di bookPerPage, non stampo i bottoni
-		{}		
+		{}
 		elseif(!isset($_GET['books']) || $_GET['books']==0)				//pagina iniziale, non stampo il bottone indietro
 		{
 			$arrayButtonSearch=array("{{vals}}", "{{valp}}", "{{classeIndietro}}", "{{classeAvanti}}");
@@ -505,34 +505,34 @@ function deleteProfile($db)
 			$arrayButtonReplace=array($page+1, $page-1,"", "");
 			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/BooksButtons.txt"));
 		}
-		
-		
+
+
 	}
-	
+
 	function stampaCommenti($db, $page=0)
 	{
 		//$page do valore da get
-		
+
 		$commentsPerPage=10;
-		$com = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti 
-							WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );	
-		$totCom = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");	
-		
+		$com = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti
+							WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );
+		$totCom = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");
+
 		$arrayCommenti= array();
 		$arrayTotCommenti = array();
-		while ($row = mysqli_fetch_array($com)) 	//riempio l'array con array date, commenti e libro della recensione 
+		while ($row = mysqli_fetch_array($com)) 	//riempio l'array con array date, commenti e libro della recensione
 		{
 			array_push($arrayCommenti,$row);
 		}
-		
+
 		$i=0;
 		$searchCommento=array("{{libro}}","{{dataCommento}}","{{testoCommento}}");
 		$numComm=count($arrayCommenti);
-		while ($row = mysqli_fetch_array($totCom)) 	 
+		while ($row = mysqli_fetch_array($totCom))
 		{
 			array_push($arrayTotCommenti,$row);
 		}
-		
+
 		echo "<div class='contentProf centrato'>";
 		if(count($arrayTotCommenti)==0)
 			echo "<div class='Errore'>Non hai nessun commento!</div>";
@@ -540,17 +540,17 @@ function deleteProfile($db)
 		{
 			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN=(SELECT Libro FROM `Recensione` WHERE Id='".$arrayCommenti[$i][1]."')");
 			$libro=mysqli_fetch_array($lib);
-			
+
 			$data=Data($arrayCommenti[$i][0],true);
 			$replaceCommento=array($libro[0], $data, $arrayCommenti[$i][2]);
 			echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoProfilo.txt"));
 			$i++;
-			
-		}	
+
+		}
 		echo"</div>";
-		
-		
-		
+
+
+
 		if(count($arrayTotCommenti)<=$commentsPerPage || count($arrayTotCommenti)==0)											//ho meno di $commentsPerPage elementi non stampo ne avanti ne indietro
 		{}
 		elseif(!isset($_GET['page']) || $_GET['page']==0)				//pagina iniziale, non stampo il bottone indietro
@@ -571,12 +571,12 @@ function deleteProfile($db)
 			$arrayButtonReplace=array($page+1, $page-1,"", "");
 			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/CommentsButtons.txt"));
 		}
-	
-		
-	
-	
+
+
+
+
 }
-	
+
 	function modificaPass($db)
 	{
 		$UserPassQuery="SELECT Password FROM `Utente` WHERE Email='".$_SESSION['id']."'";
@@ -602,21 +602,21 @@ function deleteProfile($db)
 		//Controllo se la password é corretta
 		$wrongPassword =  !(password_verify($_POST['Vpassword'],$password));
 		$gruppo->free();
-		
+
 		$searchInForm=array("{{VpassError}}","{{NpassError}}","{{CpassError}}");
 		$replaceInForm=array(testVPassword($errore, $wrongPassword), testPassword($errore), ConfirmPassword($errore));
 		echo str_replace($searchInForm, $replaceInForm , file_get_contents("../HTML/Template/ModificaPass.txt"));
-		
+
 	}
-	
-	
-	
+
+
+
 	function testVPassword(&$errore, $wrongPassword = false)
 {
 	$passErr = "";
 	if(isset($_POST['Vpassword']) && !($_POST['Vpassword'] == "admin" || $_POST['Vpassword'] == "user"))
 	{
-		
+
 		if (empty($_POST ["Vpassword"]))
 		{
 			$errore=true;
@@ -633,7 +633,7 @@ function deleteProfile($db)
 			$errore=true;
 			return $passErr = "Password non corretta";
 		}
-		
+
 	}
 	return $passErr;
 }

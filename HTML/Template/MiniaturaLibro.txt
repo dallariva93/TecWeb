@@ -3,7 +3,7 @@
 	<a href='libro.php?libro={{ISBN}}'>
 	<img src='../img/cover/{{ISBN}}.jpg' alt=''/>
 	<object>
-		<h1>{{Titolo}}</h1>
+		<h3>{{Titolo}}</h3>
 		{{Testo}}
 	</object>
 	</a>

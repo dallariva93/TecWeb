@@ -45,7 +45,7 @@
 
 	"<div class='rightSmall'>
 
-	<h1>Ultime uscite</h1>";
+	<h2>Ultime uscite</h2>";
 	//ULTIMI LIBRI USCITI
 	if($UltimeExt = $db->query("SELECT ISBN, Titolo, Trama FROM Libro
 		ORDER BY Anno_Pubblicazione DESC LIMIT 11")){
@@ -65,7 +65,7 @@
 
 	"<div class='rightSmall'>
 
-	<h1><span xml:lang='en'>News</span></h1>";
+	<h2><span xml:lang='en'>News</span></h2>";
 	//ULTIME NOTIZIE
 
 	if ($UltimeNews = $db->query("SELECT * FROM Notizie
