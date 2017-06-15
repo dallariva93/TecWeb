@@ -34,24 +34,18 @@
 					$_POST['testo']."')";
 
 			if($db->query($insert)){
-
-				$queryCercaNotizia = "SELECT Id FROM Notizie WHERE Titolo =
-					'". $_POST['titolo']. "' AND Autore = '". $_SESSION['id'].
-					"' AND Testo = '". $_POST['testo']. "'";
-
 				//Inserimento immagine
-				if ($Notizie = $db->query($queryCercaNotizia))
-					if($Notizia = $Notizie->fetch_array(MYSQLI_ASSOC)){
-						$target_file = "../img/news/" . basename($_FILES["img"]["name"]);
 
-						$queryFile = "INSERT INTO `FotoNotizie`(Notizia,Foto)
-							VALUES ('". $Notizia['Id'].  "','".$target_file."')";
+				$target_file = "../img/news/" . basename($_FILES["img"]["name"]);
 
-		    			if (move_uploaded_file($_FILES["img"]["tmp_name"],
-							$target_file)) {
-							$db->query($queryFile);
-						}
-					}
+				$queryFile = "INSERT INTO `FotoNotizie`(Notizia,Foto)
+					VALUES ('". $db->insert_id.  "','".$target_file."')";
+
+    			if (move_uploaded_file($_FILES["img"]["tmp_name"],
+					$target_file)) {
+					$db->query($queryFile);
+				}
+
 			}//fine if($db->query($insert)){
 		}// fine if(!$errore...
 
@@ -76,22 +70,13 @@
 		<a href = '#insert' class = 'adminButton'>&#43;&nbsp;Nuova Notizia</a>";
 
 		//Tabella con tutte le notizie
-		if($Notizie = $db->query("SELECT * FROM Notizie ORDER BY Data DESC")){
+		if($Notizie = $db->query("SELECT * FROM Notizie JOIN Redazione ON
+		 	(Notizie.Autore = Redazione.Email) ORDER BY Data DESC")){
 			echo file_get_contents("../HTML/Template/InizioTabellaNotizie.txt");
 			while ($New = $Notizie->fetch_array(MYSQLI_ASSOC)){
-				$autoreNotizia;
-				if($autoreArray = $db->query("SELECT Nome,Cognome FROM Redazione
-					WHERE Email ='".$New['Autore']."'"))
-				{
-					$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
-					$autoreNotizia = $autore['Nome']. " ". $autore['Cognome'];
-					$autoreArray->free();
-				}
-				else
-					$autoreNotizia = $New['Autore'];
 				$searchNotizie=array("{{Id}}","{{Titolo}}","{{Data}}","{{Autore}}");
 				$replaceNotizie=array($New['Id'],$New['Titolo'],
-					Data($New['Data'],true),$autoreNotizia);
+					Data($New['Data'],true),$New['Nome']." ".$New['Cognome']);
 				echo str_replace($searchNotizie ,$replaceNotizie,
 				 	file_get_contents("../HTML/Template/TabellaNotizie.txt"));
 

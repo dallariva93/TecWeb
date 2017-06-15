@@ -55,43 +55,19 @@
 		<a name = 'top'></a>
 		<a href = '#insert' class = 'adminButton'>&#43;&nbsp;Nuova Recensione</a>";
 
-		if($Recensioni = $db->query("SELECT * FROM Recensione
-			ORDER BY Data_Pubblicazione DESC")){
+		if($Recensioni = $db->query("SELECT Redazione.Nome,Redazione.Cognome,
+			Recensione.Id,Recensione.Libro,Recensione.Data_Pubblicazione,
+			Recensione.Valutazione,Libro.Titolo FROM Redazione JOIN Recensione ON
+			(Redazione.Email = Recensione.Autore) JOIN Libro ON
+			(Recensione.Libro = Libro.ISBN)	ORDER BY Data_Pubblicazione DESC")){
 
 			echo file_get_contents("../HTML/Template/InizioTabellaRecensioni.txt");
 			while ($Rec = $Recensioni->fetch_array(MYSQLI_ASSOC)){
-				//Controllo il libro sia nel database
-				$LibroRec = "";
-				$LibroTitolo;
-				if($libro = $db->query("SELECT Titolo,ISBN FROM Libro
-					WHERE ISBN =".$Rec['Libro']))
-				{
-					$lib = $libro->fetch_array(MYSQLI_ASSOC);
-
-					$LibroRec = $Rec['Libro'];
-					$LibroTitolo = $lib['Titolo'];
-					$libro->free();
-				}
-				else{
-					$LibroTitolo = $Rec['Libro'];
-				}
-				//Controllo l'autore della recensione sia nel database
-				$Autore;
-				if($autoreArray = $db->query("SELECT Nome,Cognome FROM Redazione
-					WHERE Email =".$Rec['Autore']))
-				{
-					$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
-					$Autore = $autore['Nome']. " ". $autore['Cognome'];
-					$autoreArray->free();
-				}
-				else{
-					$Autore = $Rec['Autore'];
-				}
-
 				$search=array("{{Data}}","{{Libro}}","{{Titolo}}","{{Voto}}",
 					"{{Autore}}","{{Id}}");
-				$replace=array(Data($Rec['Data_Pubblicazione'],true),$LibroRec,
-					$LibroTitolo,$Rec['Valutazione'],$Autore,$Rec['Id']);
+				$replace=array(Data($Rec['Data_Pubblicazione'],true),$Rec['Libro'],
+					$Rec['Titolo'],floor($Rec['Valutazione']),$Rec['Nome']." ".
+					$Rec['Cognome'],$Rec['Id']);
 				echo str_replace($search ,$replace,
 					file_get_contents("../HTML/Template/TabellaRecensione.txt"));
 			}

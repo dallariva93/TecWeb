@@ -70,15 +70,15 @@ CREATE TABLE Redazione
 );
 
 CREATE TABLE Commenti
-(	Recensione INT UNSIGNED,
+(	Libro varchar(13),
 	Autore varchar(60),
 	Commento text(3000) NOT NULL,
 	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (Recensione, Autore, Data_Pubblicazione),
+	PRIMARY KEY (Libro, Autore, Data_Pubblicazione),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-	FOREIGN KEY (Recensione) REFERENCES Recensione(Id)
+	FOREIGN KEY (Libro) REFERENCES Libro(ISBN)
    	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );

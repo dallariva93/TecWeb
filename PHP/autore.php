@@ -2,8 +2,10 @@
 
 	Require_once('connect.php');
 	if(isset($_REQUEST['autore']) &&
-		($datiArray = $db->query("SELECT * FROM Scrittore
-			WHERE Id =". $_REQUEST['autore'])
+		($datiArray = $db->query("SELECT Nome,Cognome,Data_Nascita,
+			Nazionalita, Foto, Testo FROM DescrizioneAutore JOIN Scrittore On
+			(DescrizioneAutore.Autore = Id) JOIN FotoAutori ON
+			(FotoAutori.Autore =Id) WHERE Id = ". $_REQUEST['autore'])
 		)) {
 
 		Require_once('functions.php');
@@ -28,33 +30,17 @@
 				file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			//Stampo le informazioni dell' autore
-			$immagine;
-
-			if($Foto = $db->query("SELECT Foto FROM FotoAutori WHERE Autore ='".
-				$_REQUEST['autore']. "'")){
-
-				$foto = $Foto->fetch_array(MYSQLI_ASSOC);
-				$immagine = $foto['Foto'];
-				$Foto->free();
-			}else
-				$immagine = "";
 			$searchHeader=array("{{Immagine}}","{{Cognome}}","{{Nome}}",
 				"{{Data}}","{{Nazionalita}}");
-			$replaceHeader=array($immagine,$dati['Cognome'], $dati['Nome'],
+			$replaceHeader=array($dati['Foto'],$dati['Cognome'], $dati['Nome'],
 				Data($dati['Data_Nascita']),$dati['Nazionalita']);
 			echo str_replace($searchHeader ,$replaceHeader,
 				file_get_contents("../HTML/Template/IntestazioneAutore.txt")).
 
-			file_get_contents("../HTML/Template/LinkAlMenu.txt");
+			file_get_contents("../HTML/Template/LinkAlMenu.txt").
 
-			if($Descrizioni = $db->query("SELECT Testo FROM DescrizioneAutore WHERE Autore ='".
-				$_REQUEST['autore']. "'")){
-
-				if( $descrizione = $Descrizioni->fetch_array(MYSQLI_ASSOC) )
-				echo "<div id='DescrizioneAutore'>".
-					$descrizione['Testo']. "</div>";
-				
-			}
+			"<div id='DescrizioneAutore'>".
+					$dati['Testo']. "</div>";
 
 			//Ricerca di tutti i libri dell' autore nel sito
 			if($AltriLibri = $db->query("SELECT Titolo,ISBN,Anno_Pubblicazione

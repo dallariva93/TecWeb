@@ -10,7 +10,7 @@
 
 			$searchImage = "SELECT Foto FROM FotoAutori WHERE Autore = '".
 				$_POST['delete']."'";
-				
+
 			if ($Images = $db->query($searchImage))
 				if($image = $Images->fetch_array(MYSQLI_ASSOC)){
 					if (unlink($image['Foto']))
@@ -44,9 +44,6 @@
 				,Nazionalita) VALUES ('".$_POST['nome']."','".$_POST['cognome'].
 					"','".GetData($_POST['data'])."','".$_POST['nazionalita']."')";
 
-
-
-
 			if($db->query($insert)){
 
 				$queryCercaAutore = "SELECT Id FROM Scrittore WHERE Nome =
@@ -56,26 +53,22 @@
 
 
 				//Inserimento immagine
-				if ($Scrittori = $db->query($queryCercaAutore))
-					if($Scrittore = $Scrittori->fetch_array(MYSQLI_ASSOC)){
 
-						$target_file = "../img/autori/" . basename($_FILES["img"]["name"]);
+				$target_file = "../img/autori/" . basename($_FILES["img"]["name"]);
+				$Id = $db->insert_id;
+				$queryFile = "INSERT INTO `FotoAutori`(Autore,Foto)
+					VALUES ('". $Id.  "','".$target_file."')";
 
-						$queryFile = "INSERT INTO `FotoAutori`(Autore,Foto)
-							VALUES ('". $Scrittore['Id'].  "','".$target_file."')";
+    			if (move_uploaded_file($_FILES["img"]["tmp_name"],
+					$target_file)) {
+					$db->query($queryFile);
+				}
+				//Inserimento descrizione
+				$descrizione = "INSERT INTO `DescrizioneAutore`
+					(Autore,Testo) VALUES ('".$Id."','".
+						$_POST['testo']."')";
+				$db->query($descrizione);
 
-
-
-		    			if (move_uploaded_file($_FILES["img"]["tmp_name"],
-							$target_file)) {
-							$db->query($queryFile);
-						}
-						//Inserimento descrizione
-						$descrizione = "INSERT INTO `DescrizioneAutore`
-							(Autore,Testo) VALUES ('".$Scrittore['Id']."','".
-								$_POST['testo']."')";
-						$db->query($descrizione);
-					}
 			}//fine if($db->query($insert)){
 		}// fine if(!$errore...
 

@@ -75,26 +75,15 @@
 		<a name = 'top'></a>
 		<a href = '#insert' class = 'adminButton'>&#43;&nbsp;Nuovo Libro</a>";
 		//Stampa tutti i libri in una tabella
-		if($Libri = $db->query("SELECT * FROM Libro ORDER BY Titolo")){
+		if($Libri = $db->query("SELECT * FROM Libro JOIN Scrittore ON
+			(Libro.Autore = Scrittore.Id) ORDER BY Titolo")){
 			echo file_get_contents("../HTML/Template/InizioTabellaLibri.txt");
 			while ($Libro = $Libri->fetch_array(MYSQLI_ASSOC)){
-				$autoreLibro = "";
-				if($autoreArray = $db->query("SELECT Nome,Cognome FROM Scrittore
-					WHERE Id =".$Libro['Autore']))
-					{
-						$autore = $autoreArray->fetch_array(MYSQLI_ASSOC);
-						$autoreLibro = $autore['Nome']. " ". $autore['Cognome'];
-						$autoreArray->free();
-					}
-				else //Caso in cui non trovo l'autore corrispondente
-					$autoreLibro = $Libro['Autore'];
-
-
 				$searchLibri=array("{{ISBN}}","{{Titolo}}","{{Data}}","{{Autore}}",
 					"{{Casa}}","{{Genere}}");
 				$replaceLibri=array($Libro['ISBN'],$Libro['Titolo'],
-					Data($Libro['Anno_Pubblicazione']),$autoreLibro,
-					$Libro['Casa_Editrice'],$Libro['Genere']);
+					Data($Libro['Anno_Pubblicazione']),$Libro['Nome']. " ".
+					$Libro['Cognome'] ,$Libro['Casa_Editrice'],$Libro['Genere']);
 				echo str_replace($searchLibri ,$replaceLibri,
 					file_get_contents("../HTML/Template/TabellaLibri.txt"));
 			}
