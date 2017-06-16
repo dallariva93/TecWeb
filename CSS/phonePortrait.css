@@ -31,7 +31,7 @@
 	height: 8.5em;
 }
 
-.leftBig h1{
+.leftBig h3{
 	margin-top: 0.1em;
 	font-size: 0.8em;
 }
@@ -52,7 +52,7 @@
    width: 96%;
    left: 2%;
 }
-.VrightBig h1{
+.VrightBig h3{
 	margin-top: 0.1em;
    font-size: 0.8em;
 }
@@ -128,11 +128,11 @@ tr {
 	max-width: 9em; 
 }
 
-.elenco dd h1 {
+.elenco dd h3 {
     font-size: 0.9em;
 }
 
-.classifica dd h1 {
+.classifica dd h3 {
 	font-size: 0.9em;
 }
 
@@ -155,4 +155,11 @@ tr {
 	float: left;
 	padding-right: 0.5em;
 	width: 4em;
+}
+.centerBig p{
+	margin-top: 0.3em;
+	margin-right: 0.2em;
+    font-size: 0.7em;
+    max-height: 70px;
+    overflow: hidden;
 }

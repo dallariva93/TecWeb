@@ -50,7 +50,7 @@
 }*/
 
 
-.leftBig h1, .VrightBig h1{
+.leftBig h3, .VrightBig h3{
 	margin-top: 0.1em;
 	font-size: 1.2em;
 }
@@ -111,7 +111,7 @@
     width: 6.5em;
     height: 9.4em;
 }
-.elenco dd h1 {
+.elenco dd h3 {
     font-size: 1.2em;
 }
 /**************************
@@ -176,4 +176,15 @@ th,td{
    padding: 0.1em 0.2em 0.1em 0.2em;
    text-align: left;
    font-size: 0.8em;
+}
+.centerBig p{
+	    margin-right: 0.2em;
+    font-size: 0.8em;
+    max-height: 75px;
+    overflow: hidden;
+}
+.text >img{
+	height: 14.6em;
+    width: 10em;
+    margin: 1%;
 }
