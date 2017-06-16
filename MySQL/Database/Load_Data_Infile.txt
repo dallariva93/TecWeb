@@ -1,4 +1,5 @@
 SET foreign_key_checks = 0;
+
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/libri.txt' INTO TABLE Libro;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/scrittore.txt' INTO TABLE Scrittore;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/utenti.txt' INTO TABLE Utente;
@@ -8,7 +9,9 @@ LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/commentinews.txt'
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/notizie.txt' INTO TABLE Notizie;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoAutori.txt' INTO TABLE FotoAutori;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoNotizie.txt' INTO TABLE FotoNotizie;
+LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/FotoLibri.txt' INTO TABLE FotoLibri;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/redazione.txt' INTO TABLE Redazione;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/descrizioni.txt' INTO TABLE DescrizioneAutore;
 LOAD DATA INFILE '../../htdocs/Test/TecWeb/MySQL/Database/Dati/VotoLibro.txt' INTO TABLE VotoLibro;
+
 SET foreign_key_checks = 1;

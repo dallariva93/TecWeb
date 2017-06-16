@@ -372,19 +372,24 @@ function campoNonVuoto(&$errore,$campo)
 function testImage(&$flag)
 {
 	$Errore = "";
-	if (isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
-		is_uploaded_file($_FILES['img']['tmp_name'])){
-		$imageFileType = pathinfo($_FILES["img"]["name"],PATHINFO_EXTENSION);
-		if($imageFileType != "jpg" && $imageFileType != "png" &&
-			$imageFileType != "jpeg" && $imageFileType != "gif" ) {
-			$flag = true;
-			$Errore = "Formato non corretto";
+		if (isset($_FILES['img']) && file_exists($_FILES['img']['tmp_name']) &&
+			is_uploaded_file($_FILES['img']['tmp_name'])){
+			$imageFileType = pathinfo($_FILES["img"]["name"],PATHINFO_EXTENSION);
+			if($imageFileType != "jpg" && $imageFileType != "png" &&
+				$imageFileType != "jpeg" && $imageFileType != "gif" ) {
+				$flag = true;
+				$Errore = "Formato non corretto";
+			}
+			else if($_FILES["img"]["size"] > 1000000) {
+				$flag = true;
+				$Errore = "Dimensione troppo grande";
+			}
 		}
-		else if($_FILES["img"]["size"] > 1000000) {
+		else if (isset($_FILES['img']) && (!file_exists($_FILES['img']['tmp_name']) ||
+			!is_uploaded_file($_FILES['img']['tmp_name']))){
 			$flag = true;
-			$Errore = "Dimensione troppo grande";
+			$Errore = "Nessun file selezionato";
 		}
-	}
 	return $Errore;
 }
 

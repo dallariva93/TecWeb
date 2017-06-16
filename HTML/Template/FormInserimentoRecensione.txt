@@ -5,8 +5,8 @@
 	<h1>Inserisci Recensione</h1>
 	<form action='amministrazioneRecensioni.php' method='post' onsubmit='return controlloErrori()'>
 		<div>
-			<label for='isbn' >Libro
-				<select name='isbn' id='isbn'>
+			<label for='isbnList' >Libro
+				<select name='isbn' id='isbnList'>
 					{{Libri}}		
 				</select>
 			</label>

@@ -12,13 +12,17 @@
 
 		$errore = false;
 		$libri= "";
-		if($TuttiLibri = $db->query("Select Titolo,ISBN From Libro GROUP BY ISBN")){
+		if($TuttiLibri = $db->query("Select Titolo,ISBN From Libro WHERE ISBN
+			NOT IN ( SELECT ISBN FROM Libro JOIN Recensione ON
+			(Recensione.Libro = Libro.ISBN) ) GROUP BY ISBN")){
 			if($TuttiLibri->num_rows > 0){
 				while($Libro = $TuttiLibri->fetch_array(MYSQLI_ASSOC)){
 					$libri .= "<option value='". $Libro['ISBN']. "'>".
 						$Libro['Titolo']. "</option>";
 				}
 			}
+			else
+				$libri = "<option value='none'>Nessun libro da recensire</option>";
 			$TuttiLibri->free();
 		}
 		$testo = (isset($_POST['testo']))? campoNonVuoto($errore,$_POST['testo']) : "" ;

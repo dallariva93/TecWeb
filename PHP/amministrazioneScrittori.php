@@ -46,12 +46,6 @@
 
 			if($db->query($insert)){
 
-				$queryCercaAutore = "SELECT Id FROM Scrittore WHERE Nome =
-					'". $_POST['nome']. "' AND Cognome = '". $_POST['cognome'].
-					"' AND Data_Nascita = '". GetData($_POST['data']). "' AND
-					Nazionalita = '".$_POST['nazionalita']. "'";
-
-
 				//Inserimento immagine
 
 				$target_file = "../img/autori/" . basename($_FILES["img"]["name"]);

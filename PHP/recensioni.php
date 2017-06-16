@@ -68,8 +68,9 @@
 	<dt>Ultime Recensioni</dt>";
 
 	//Stampa recensioni
-	$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,Recensione.Testo,
-	 Recensione.Data_Pubblicazione FROM Libro JOIN
+	$sqlQuery = "SELECT Foto,Libro.ISBN, Libro.Titolo, Libro.Trama,Recensione.Testo,
+	 Recensione.Data_Pubblicazione FROM FotoLibri JOIN Libro ON (FotoLibri.Libro =
+		 Libro.ISBN) JOIN
 	 Recensione ON(Recensione.Libro = Libro.ISBN)";
 
 	 //Se è presente un genere rendo più specifica la query
@@ -80,8 +81,9 @@
 		" ORDER BY Recensione.Data_Pubblicazione DESC LIMIT 5 OFFSET ".($page * 5))){
 		if($UltimeRec->num_rows > 0){
 			while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
-				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}");
-				$replaceLibro=array($row['ISBN'],$row['Titolo'],ReadMore($row['Testo']));
+				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}","{{Img}}");
+				$replaceLibro=array($row['ISBN'],$row['Titolo'],ReadMore($row['Testo']),
+					$row['Foto']);
 				echo str_replace($searchLibro ,$replaceLibro,
 					file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
 			}

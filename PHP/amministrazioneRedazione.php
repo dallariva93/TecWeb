@@ -29,7 +29,7 @@
 			$ENC_password=password_hash($_POST['password'], PASSWORD_BCRYPT );
 			$insert="INSERT INTO `Redazione`(Email, Nome, Cognome, Password)
 			VALUES ('".$_POST['email']."','".$_POST['nome']."','".
-				$_POST['cognome']."','".$_POST['nickname']. "','". $ENC_password. "')";
+				$_POST['cognome']."','". $ENC_password. "')";
 			$db->query($insert);
 		}
 

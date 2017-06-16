@@ -1,10 +1,10 @@
 <?php
 	Require_once('connect.php');
 	if(isset($_REQUEST['libro']) &&
-		$datiLibro = $db->query("SELECT ISBN,Titolo, Anno_Pubblicazione,
-		Casa_Editrice, Genere, Trama, Id, Nome, Cognome FROM Libro JOIN
-		 Scrittore ON (Libro.Autore = Scrittore.Id) WHERE Libro.ISBN =
-		 ".$_REQUEST['libro'])) {
+		$datiLibro = $db->query("SELECT Foto,ISBN,Titolo, Anno_Pubblicazione,
+		Casa_Editrice, Genere, Trama, Id, Nome, Cognome FROM FotoLibri JOIN
+		Libro ON ( FotoLibri.Libro = Libro.ISBN) JOIN Scrittore ON
+		(Libro.Autore = Scrittore.Id) WHERE Libro.ISBN = ".$_REQUEST['libro'])) {
 		 if($datiLibro->num_rows > 0) {
 		Require_once('functions.php');
 
@@ -88,11 +88,11 @@
 						, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			$searchHeader=array("{{errore}}","{{ISBN}}","{{Titolo}}","{{Id}}",
-				"{{Nome}}","{{Cognome}}","{{Casa}}","{{Genere}}","{{Data}}");
+				"{{Nome}}","{{Cognome}}","{{Casa}}","{{Genere}}","{{Data}}","{{Img}}");
 			$replaceHeader=array($errore,$dati['ISBN'],$dati['Titolo'],
 				$dati['Id'],$dati['Nome'],$dati['Cognome']
 				,$dati['Casa_Editrice'],$dati['Genere']
-				,Data($dati['Anno_Pubblicazione']));
+				,Data($dati['Anno_Pubblicazione']),$dati['Foto']);
 			echo str_replace($searchHeader ,$replaceHeader,
 				file_get_contents("../HTML/Template/IntestazioneLibro.txt"));
 

@@ -7,10 +7,14 @@
 		if(isset($_POST['delete'])){
 			$delete = "DELETE FROM `Libro` WHERE `ISBN` = '". $_POST['delete']. "'";
 
-			if (unlink("../img/cover/" . $_POST['delete']. ".jpg"))
-				$db->query($delete);
+			$searchImage = "SELECT Foto FROM FotoLibri WHERE Libro = '".
+				$_POST['delete']."'";
 
-
+			if ($Images = $db->query($searchImage))
+				if($image = $Images->fetch_array(MYSQLI_ASSOC)){
+					if (unlink($image['Foto']))
+						$db->query($delete);
+				}
 		}
 
 		$errore = false;
@@ -49,9 +53,14 @@
 			if($db->query($insert)){
 				//Inserimento copertina
 
-				$target_file = "../img/cover/" . $_POST['isbn']. ".jpg" ;
+				$target_file = "../img/cover/" .basename($_FILES["img"]["name"]);
+				$queryFile = "INSERT INTO `FotoLibri`(Libro,Foto)
+					VALUES ('". $_POST['isbn'].  "','".$target_file."')";
 
-				move_uploaded_file($_FILES["img"]["tmp_name"],$target_file);
+				if (move_uploaded_file($_FILES["img"]["tmp_name"],
+					$target_file)) {
+					$db->query($queryFile);
+				}
 			}
 		}
 

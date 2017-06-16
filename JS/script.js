@@ -1,7 +1,8 @@
 "use strict";
 
 function controlloErrori(){
-	var risultato = false;
+	var risultato = true;
+
 	//Check Nickname
 	if(document.getElementById("nickname")){
 		var input =document.getElementById("nickname").value;
@@ -17,9 +18,9 @@ function controlloErrori(){
 		}
 		else {
 			document.getElementById("NicknameError").innerHTML = "";
-			risultato = true;
 		}
 	}
+
 	//Check Nome
 	if(document.getElementById("nome")){
 		var input =document.getElementById("nome").value;
@@ -35,7 +36,6 @@ function controlloErrori(){
 		}
 		else {
 			document.getElementById("NomeError").innerHTML = "";
-			risultato = true;
 		}
 	}
 	//Check Cognome
@@ -53,23 +53,27 @@ function controlloErrori(){
 		}
 		else {
 			document.getElementById("CognomeError").innerHTML = "";
-			risultato = true;
 		}
 	}
+
 	//Check Nome in Amministrazione
 	if(document.getElementById("nomeAmm")){
 
 		var input =document.getElementById("nomeAmm").value;
 		document.getElementById("NomeError").innerHTML = campoNonVuoto(input);
-		risultato = (input != "");
+		if(input == "")
+			risultato = false;
 	}
+
 	//Check Cognome in Amministrazione
 	if(document.getElementById("cognomeAmm")){
 
 		var input =document.getElementById("cognomeAmm").value;
 		document.getElementById("CognomeError").innerHTML = campoNonVuoto(input);
-		risultato = (input != "");
+		if(input == "")
+    		risultato = false;
 	}
+
 	//Check Email
 	if(document.getElementById("email")){
 		var input =document.getElementById("email").value;
@@ -80,7 +84,6 @@ function controlloErrori(){
 		}
 		else if(input == "admin" || input == "user"){
 			document.getElementById("EmailError").innerHTML = "";
-			risultato = true;
 		}
 		else if(!(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(input))){
 			document.getElementById("EmailError").innerHTML =
@@ -89,7 +92,6 @@ function controlloErrori(){
 		}
 		else {
 			document.getElementById("EmailError").innerHTML = "";
-			risultato = true;
 		}
 	}
 	//Check Data
@@ -116,8 +118,7 @@ function controlloErrori(){
 			risultato = false;
 		}
 		else if(input == "admin" || input == "user"){
-			document.getElementById("EmailError").innerHTML = "";
-			risultato = true;
+			document.getElementById("PasswordError").innerHTML = "";
 		}
 		else if (!(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(input))){
 			document.getElementById("PasswordError").innerHTML =
@@ -128,7 +129,6 @@ function controlloErrori(){
 		}
 		else {
 			document.getElementById("PasswordError").innerHTML = "";
-			risultato = true;
 		}
 	}
 	//Check ISBN
@@ -139,14 +139,13 @@ function controlloErrori(){
 														"Campo obbligatorio";
 			risultato = false;
 		}
-		else if (!(/[0-9]{13}/.test(input))){
+		else if (input.length != 13 || !(/[0-9]{13}/.test(input))){
 			document.getElementById("ISBNError").innerHTML =
 							"Il campo deve contenere 13 caratteri numerici";
 			risultato = false;
 		}
 		else {
 			document.getElementById("ISBNError").innerHTML = "";
-			risultato = true;
 		}
 	}
 	//Check Testo
@@ -154,26 +153,40 @@ function controlloErrori(){
 
 		var input =document.getElementById("testo").value;
 		document.getElementById("TestoError").innerHTML = campoNonVuoto(input);
-		risultato = (input != "");
+		if(input == "")
+    		risultato = false;
 	}
 	//Check Casa editrice
 	if(document.getElementById("casa")){
 		var input =document.getElementById("casa").value;
 		document.getElementById("CasaError").innerHTML = campoNonVuoto(input);
-		risultato = (input != "");
+		if(input == "")
+    		risultato = false;
 	}
 	//Check Titolo
 	if(document.getElementById("titolo")){
 		var input =document.getElementById("titolo").value;
 		document.getElementById("TitoloError").innerHTML = campoNonVuoto(input);
-		risultato = (input != "");
+		if(input == "")
+    		risultato = false;
 	}
 	//Check Nazionalità
 	if(document.getElementById("nazionalita")){
 		var input =document.getElementById("nazionalita").value;
 		document.getElementById("NazioneError").innerHTML = campoNonVuoto(input);
-		risultato = (input != "");
+		if(input == "")
+    		risultato = false;
 	}
+	//Check Lista libri amministrazione recensioni
+	if(document.getElementById("isbnList")){
+
+		var input =document.getElementById("isbnList");
+		var option = input.options[input.selectedIndex].value;
+		if(option == "none"){
+			risultato = false;
+		}
+	}
+
 	return risultato;
 }
 

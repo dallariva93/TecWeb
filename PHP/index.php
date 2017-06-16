@@ -23,15 +23,16 @@
 	<dt>Ultime Recensioni</dt>
 	";
 	//ULTIME RECENSIONI
-	if($UltimeRec = $db->query("SELECT Libro.ISBN, Libro.Titolo, Libro.Trama,
-		Recensione.Testo, Recensione.Data_Pubblicazione FROM Libro JOIN
+	if($UltimeRec = $db->query("SELECT Foto,Libro.ISBN, Libro.Titolo, Libro.Trama,
+		Recensione.Testo, Recensione.Data_Pubblicazione FROM FotoLibri JOIN
+		Libro ON (FotoLibri.Libro = Libro.ISBN) JOIN
 		Recensione ON(Recensione.Libro = Libro.ISBN)
 		ORDER BY Recensione.Data_Pubblicazione DESC LIMIT 5")){
 		if($UltimeRec->num_rows > 0){
 			while($row = $UltimeRec->fetch_array(MYSQLI_ASSOC)){
-				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}");
+				$searchLibro=array("{{ISBN}}","{{Titolo}}","{{Testo}}","{{Img}}");
 				$replaceLibro=array($row['ISBN'],$row['Titolo'],
-					ReadMore($row['Testo']));
+					ReadMore($row['Testo']),$row['Foto']);
 				echo str_replace($searchLibro ,$replaceLibro,
 					file_get_contents("../HTML/Template/MiniaturaLibro.txt"));
 			}

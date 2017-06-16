@@ -3,7 +3,7 @@
 <div class='Errore'>{{errore}}</div>
 <div class='Intestazione'>
 <h1>{{Titolo}}</h1>
-<img class='VleftSmall' src='../img/cover/{{ISBN}}.jpg' alt=''/>
+<img class='VleftSmall' src='{{Img}}' alt=''/>
 <dl>
 <dt>Autore</dt><dd><a href='autore.php?autore={{Id}}'>{{Nome}} {{Cognome}}</a></dd>
 <dt>Casa Editrice</dt><dd>{{Casa}}</dd>
