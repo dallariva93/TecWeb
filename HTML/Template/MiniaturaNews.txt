@@ -3,7 +3,7 @@
 	<a href='notizia.php?news={{Id}}'>
 	<img src='{{Path}}' alt=''/>
 	<object>
-		<h2>{{Titolo}}</h2>
+		<h3>{{Titolo}}</h3>
 		{{Testo}}
 	</object>
 	</a>
