@@ -60,7 +60,6 @@
 	$checkOrDesc = "";
 	
 	//Classifica Utente o Redazione
-	echo "<h1>Classifica</h1>";
 	if($tipoCl == 'redazione'){
 		$checkTRed = "checked = 'checked'";
 		$strClassifica = "<span class = 'note'>Voto della redazione: ";
