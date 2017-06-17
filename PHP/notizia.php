@@ -18,7 +18,7 @@
 			if(isset($_POST['text']) && !$_POST['text']==""){
 				$autore = $_SESSION['id'];
 				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
-				$sql = "INSERT INTO Commentinews (News,Autore,Commento)
+				$sql = "INSERT INTO CommentiNews (News,Autore,Commento)
 						VALUES ('$codice','$autore','$ntesto');";
 				if(!$db->query($sql)){
 					$errore = "<p>Problema inserimento commento</p>";
