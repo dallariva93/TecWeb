@@ -18,7 +18,7 @@
 			if(isset($_POST['text']) && !$_POST['text']==""){
 				$autore = $_SESSION['id'];
 				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
-				$sql = "INSERT INTO Commentinews (News,Autore,Commento)
+				$sql = "INSERT INTO CommentiNews (News,Autore,Commento)
 						VALUES ('$codice','$autore','$ntesto');";
 				if(!$db->query($sql)){
 					$errore = "<p>Problema inserimento commento</p>";
@@ -75,7 +75,7 @@
 
 		// SEZIONE COMMENTI
 
-		if ($datiCommenti = $db->query("SELECT * FROM Commentinews WHERE news = '". $codice. "' ORDER BY Data_Pubblicazione DESC")) {
+		if ($datiCommenti = $db->query("SELECT * FROM CommentiNews WHERE News = '". $codice. "' ORDER BY Data_Pubblicazione DESC")) {
 			if($datiCommenti->num_rows>0) {
 				echo "<h2>Commenti</h2>";
 				echo "<div class='comments'>";
