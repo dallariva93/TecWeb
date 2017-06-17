@@ -29,6 +29,7 @@ function menu(){
         {
 			session_unset();
 			session_destroy();
+			header('Location: index.php');
 		}
 		$_SESSION['ultimaAttivita'] = time();
 
@@ -519,9 +520,9 @@ function deleteProfile($db)
 		//$page do valore da get
 
 		$commentsPerPage=10;
-		$com = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti
+		$com = $db->query("SELECT Data_Pubblicazione, Libro, Commento FROM Commenti
 							WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );
-		$totCom = $db->query("SELECT Data_Pubblicazione, Recensione, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");
+		$totCom = $db->query("SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");
 
 		$arrayCommenti= array();
 		$arrayTotCommenti = array();
@@ -543,7 +544,7 @@ function deleteProfile($db)
 			echo "<div class='Errore'>Non hai nessun commento!</div>";
 		while($i<count($arrayCommenti))
 		{
-			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN=(SELECT Libro FROM `Recensione` WHERE Id='".$arrayCommenti[$i][1]."')");
+			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN='".$arrayCommenti[$i][1]."'");
 			$libro=mysqli_fetch_array($lib);
 
 			$data=Data($arrayCommenti[$i][0],true);

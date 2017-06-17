@@ -185,7 +185,7 @@ fieldset label {
 .elenco dl {
 	margin-bottom: 1em;
 }
-.elenco dt , .elenco >div > h1, .filtri legend{
+.elenco dt , .elenco >div > h1, .filtri legend, .rightSmall>h2{
 	margin-top: 1em;
 	padding: 0.5em;
 	text-align: center;
@@ -291,7 +291,7 @@ fieldset label {
 	float: left;
 	margin-bottom: 5px;
 }
-.filtri>h1{
+.filtri>h1, .filtri>form>div>h1{
 	text-align: center;
 	margin-bottom: 0.2em;
 }
@@ -303,11 +303,11 @@ fieldset label {
 	border-bottom:1px solid #e8e8e8;
 	padding-bottom: 5px;
 }
-.filtri>form>div>h1{
+/*.filtri>form>div>h1{
 	text-align: center;
 	margin-top:0.2em;
 	margin-bottom: 0.1em;
-}
+}*/
 /**************************************************************
 		PAGING
 ***************************************************************/
@@ -479,6 +479,7 @@ fieldset label {
 	float: right;
 	font-size: 2em;
 	margin-top:1.7em;
+	margin-right: 0.3em;
 	clear:right;
 }
 span .classStar{

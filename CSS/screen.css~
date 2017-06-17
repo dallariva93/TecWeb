@@ -185,7 +185,7 @@ fieldset label {
 .elenco dl {
 	margin-bottom: 1em;
 }
-.elenco dt , .elenco >div > h1, .filtri legend{
+.elenco dt , .elenco >div > h1, .filtri legend, .rightSmall>h2{
 	margin-top: 1em;
 	padding: 0.5em;
 	text-align: center;
@@ -294,7 +294,6 @@ fieldset label {
 .filtri>h1{
 	text-align: center;
 	margin-bottom: 0.2em;
-
 }
 .filtri input{
 	margin-top: 0.2em;
@@ -303,6 +302,11 @@ fieldset label {
 .filtri>form>div>div{
 	border-bottom:1px solid #e8e8e8;
 	padding-bottom: 5px;
+}
+.filtri>form>div>h1{
+	text-align: center;
+	margin-top:0.2em;
+	margin-bottom: 0.1em;
 }
 /**************************************************************
 		PAGING
@@ -410,6 +414,88 @@ fieldset label {
 	font-weight: bold;*/
 }
 
+/**************************************************************
+		PAGINA CLASSIFICA
+***************************************************************/
+.classifica dl {
+	margin-bottom: 1em;
+}
+.classifica dt , .classifica >div > h1, .filtri legend{
+	margin-top: 1em;
+	padding: 0.5em;
+	text-align: center;
+	font-size:1em;
+	font-weight:bold;
+	margin-bottom: 0.1em;
+	background-color:#1e4b61;
+	color: white;
+	box-shadow: 1px 2px 5px black;
+}
+.classifica dd, .classifica ul{
+	display: block;
+	margin-top: 0.4em;
+	height: 6em;
+	overflow: hidden;
+	background-color:#fff;
+	box-shadow: 0 1px 5px black;
+}
+.classifica dd h1{
+	font-size: 1.3em;
+}
+.classifica dd h2{
+	font-size: 0.9em;
+}
+
+.classifica ul{
+	height: auto;
+}
+.classifica a > img{
+	margin:0.3em;
+	top: 0;
+	height:5.3em;
+	float: left;
+	padding-right: 0.5em;
+	width: 3.5em;
+}
+.classifica a{
+	text-decoration: none;
+	color: black;
+	text-align: left;
+	height: auto;
+}
+.classifica dd:hover,.classifica li:hover{
+	opacity: 0.7;
+	background-color: lightgrey;
+}
+.classifica li >a{
+	text-align:center;
+	list-style-type: none;
+	display: block;
+	border-bottom: 1px solid grey;
+	box-shadow: 0px 0px 4px grey;
+	padding: 0.4em;
+}
+.posizione{
+	float: right;
+	font-size: 2em;
+	margin-top:1.7em;
+	margin-right: 0.3em;
+	clear:right;
+}
+span .classStar{
+	position: relative;
+    top: 0.35em;
+}
+.classStar{
+	/*max-width: 6.5em;*/
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+}
+.note{
+	font-size:0.8em;
+}
 
 /**************************************************************
 			TESTO
@@ -419,7 +505,7 @@ fieldset label {
 	padding:0.5em;
 	text-align: left;
 	margin-bottom: 1em;
-	/*margin-top: 1em;*/
+	word-break: break-word;
 }
 .text h1 {
 	padding: 0.5em 0 0.5em 0;
@@ -859,7 +945,6 @@ li .stelle{
 .leftHalf:nth-last-child(3){
 	clear: both;
 }
-
 
 .centerBig:{
 	margin-left: 1%;
