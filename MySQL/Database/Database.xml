@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: localhost
-- Creato il: Giu 05, 2017 alle 13:37
+- Creato il: Giu 17, 2017 alle 12:54
 - Versione del server: 10.1.19-MariaDB
 - Versione PHP: 7.0.9
 -->
@@ -15,20 +15,20 @@
     - Structure schemas
     -->
     <pma:structure_schemas>
-        <pma:database name="ldalmedi" collation="latin1_swedish_ci" charset="latin1">
+        <pma:database name="gdallari" collation="latin1_swedish_ci" charset="latin1">
             <pma:table name="Commenti">
                 CREATE TABLE `Commenti` (
-                  `Recensione` int(10) unsigned NOT NULL,
+                  `Libro` varchar(13) NOT NULL,
                   `Autore` varchar(60) NOT NULL,
                   `Commento` text NOT NULL,
                   `Data_Pubblicazione` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                  PRIMARY KEY (`Recensione`,`Autore`,`Data_Pubblicazione`),
+                  PRIMARY KEY (`Libro`,`Autore`,`Data_Pubblicazione`),
                   KEY `Autore` (`Autore`),
                   CONSTRAINT `Commenti_ibfk_1` FOREIGN KEY (`Autore`) REFERENCES `Utente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE,
-                  CONSTRAINT `Commenti_ibfk_2` FOREIGN KEY (`Recensione`) REFERENCES `Recensione` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
+                  CONSTRAINT `Commenti_ibfk_2` FOREIGN KEY (`Libro`) REFERENCES `Libro` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE
                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             </pma:table>
-			<pma:table name="CommentiNews">
+            <pma:table name="CommentiNews">
                 CREATE TABLE `CommentiNews` (
                   `News` int(10) unsigned NOT NULL,
                   `Autore` varchar(60) NOT NULL,
@@ -56,6 +56,14 @@
                   CONSTRAINT `FotoAutori_ibfk_1` FOREIGN KEY (`Autore`) REFERENCES `Scrittore` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             </pma:table>
+            <pma:table name="FotoLibri">
+                CREATE TABLE `FotoLibri` (
+                  `Libro` varchar(13) NOT NULL,
+                  `Foto` varchar(60) NOT NULL,
+                  PRIMARY KEY (`Libro`),
+                  CONSTRAINT `FotoLibri_ibfk_1` FOREIGN KEY (`Libro`) REFERENCES `Libro` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
             <pma:table name="FotoNotizie">
                 CREATE TABLE `FotoNotizie` (
                   `Notizia` int(10) unsigned NOT NULL,
@@ -70,7 +78,7 @@
                   `Titolo` varchar(160) NOT NULL,
                   `Autore` int(10) unsigned NOT NULL,
                   `Anno_Pubblicazione` date NOT NULL,
-                  `Casa_Editrice` varchar(40) NOT NULL,
+                  `Casa_Editrice` varchar(60) NOT NULL,
                   `Genere` varchar(50) NOT NULL,
                   `Trama` text NOT NULL,
                   PRIMARY KEY (`ISBN`),
@@ -88,7 +96,7 @@
                   PRIMARY KEY (`Id`),
                   KEY `Autore` (`Autore`),
                   CONSTRAINT `Notizie_ibfk_1` FOREIGN KEY (`Autore`) REFERENCES `Redazione` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
-                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
             </pma:table>
             <pma:table name="Recensione">
                 CREATE TABLE `Recensione` (
@@ -130,9 +138,7 @@
                   `Nome` varchar(30) NOT NULL,
                   `Cognome` varchar(30) NOT NULL,
                   `Nickname` varchar(30) NOT NULL,
-                  `Data_Nascita` date DEFAULT NULL,
                   `Password` varchar(255) NOT NULL,
-                  `Residenza` varchar(30) DEFAULT NULL,
                   PRIMARY KEY (`Email`),
                   UNIQUE KEY `Nickname` (`Nickname`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -163,87 +169,112 @@
     </pma:structure_schemas>
 
     <!--
-    - Database: 'ldalmedi'
+    - Database: 'TW'
     -->
-    <database name="ldalmedi">
+    <database name="TW">
         <!-- Tabella Commenti -->
         <table name="Commenti">
-            <column name="Recensione">1</column>
-            <column name="Autore">filippo.rossi@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Romanzo robusto:un archetipo della letteratura di genere.Forse un po&amp;rsquo; troppo lungo; nel senso che alcune pagine(superflue)potevano essere espunte. Storia e tecnica narrativa invece sono interessanti.&lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2001-03-01 10:40:39</column>
-        </table>
-        <table name="Commenti">
-            <column name="Recensione">2</column>
-            <column name="Autore">sara.marvelin89@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Ne avevo sentito parlare, sicuramente non ho saputo cogliere ci&amp;ograve;  che l&amp;rsquo;autore dei racconti voleva suscitare nel lettore. A me personalmente di tutti i racconti ne &amp;egrave;  piaciuto soltanto uno. Il famoso racconto &amp;quot;il gatto nero&amp;quot; a mio parere banale , al limite del ridicolo, ma capisco che per quell&amp;rsquo;epoca era un racconto di un certo spessore. Con questo non voglio per&amp;ograve;  sconsigliarne la lettura anzi secondo me &amp;egrave;  un autore che &amp;egrave;  utile leggere &lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2010-12-02 16:05:39</column>
-        </table>
-        <table name="Commenti">
-            <column name="Recensione">2</column>
-            <column name="Autore">sara.viola123@gmail.com</column>
-            <column name="Commento">&lt;p&gt;E&amp;rsquo; uno dei libri pi&amp;ugrave;  belli che ho letto in tutta la mia vita!!! Semplicemente fantastico, una ricca raccolta di racconti uno pi&amp;ugrave;  bello dell&amp;rsquo;altro che infondono &amp;quot;terrore&amp;quot; e allo stesso tempo trasmettono l&amp;rsquo;angoscia, le paure e l&amp;rsquo;ansia che hanno tormentato l&amp;rsquo;autore nella maggior parte della vita. &lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2007-10-21 12:10:39</column>
-        </table>
-        <table name="Commenti">
-            <column name="Recensione">4</column>
+            <column name="Libro">9780140620306</column>
             <column name="Autore">roncon.michael777@gmail.com</column>
             <column name="Commento">&lt;p&gt;Un classico ma leggerlo ora &amp;egrave;  davvero, a mio paere, noioso!per&amp;ograve;  da leggere perch&amp;egrave;  &amp;egrave;  sempre storia della letteratura &lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2012-08-09 18:09:09</column>
         </table>
         <table name="Commenti">
-            <column name="Recensione">5</column>
-            <column name="Autore">marcogattuso91@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Complesso, stratificato, interminabile, fiume, un capolavoro indiscusso di cui attendiamo la versione cinematografica definitiva. Un viaggio nella notte nera, buissima, laddove i babau abbaiano latrantissimi in glaciale, spettrale incubo ad occhi aperti che durer&amp;agrave;  tutta una vita.&lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2008-10-09 22:28:09</column>
+            <column name="Libro">9788804398165</column>
+            <column name="Autore">giovanni.dallariva@studenti.unipd.it</column>
+            <column name="Commento">&lt;p&gt;gggfddffd&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2017-06-17 11:28:17</column>
         </table>
         <table name="Commenti">
-            <column name="Recensione">5</column>
-            <column name="Autore">maria.dallavalle19@gmail.com</column>
-            <column name="Commento">&lt;p&gt; La cosa splendida che questo romanzo mi lascia e&amp;rsquo; l&amp;rsquo;impresione di aver vissuto tutta la storia come se fossi l&amp;rsquo;ottavo componente dei &amp;quot;perdenti&amp;quot;. L&amp;rsquo;abilita&amp;rsquo; di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt; e&amp;rsquo; stata descrivere con assulta perfezione i caratteri di tutti i protagonisti, le loro vite, i loro sogni e le loro paure. &lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt; e&amp;rsquo; il male...&lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt; e&amp;rsquo; la paura....IT e&amp;rsquo; il buio....IT e&amp;rsquo; presente in tutti noi e solo con la vera amicizia possiamo sconfiggerlo per sempre. &lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt; e&amp;rsquo; un romanzo straordinario.&lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2002-10-09 20:27:09</column>
+            <column name="Libro">9788804627807</column>
+            <column name="Autore">sara.marvelin89@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Ne avevo sentito parlare, sicuramente non ho saputo cogliere ci&amp;ograve;  che l&amp;rsquo;autore dei racconti voleva suscitare nel lettore. A me personalmente di tutti i racconti ne &amp;egrave;  piaciuto soltanto uno. Il famoso racconto &amp;quot;il gatto nero&amp;quot; a mio parere banale , al limite del ridicolo, ma capisco che per quell&amp;rsquo;epoca era un racconto di un certo spessore. Con questo non voglio per&amp;ograve;  sconsigliarne la lettura anzi secondo me &amp;egrave;  un autore che &amp;egrave;  utile leggere &lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2010-12-02 16:05:39</column>
         </table>
         <table name="Commenti">
-            <column name="Recensione">5</column>
-            <column name="Autore">matteovanni63@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Libro da leggere per chi ama il Re e per chi vuole entrare in un mondo surreale e avvincente.l&amp;rsquo;unica nota stonata il finale,forse troppo immerso in situazioni poco convincenti .(mio parere senza voler denigrare il libro) &lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2011-09-10 09:10:09</column>
+            <column name="Libro">9788804627807</column>
+            <column name="Autore">sara.viola123@gmail.com</column>
+            <column name="Commento">&lt;p&gt;E&amp;rsquo; uno dei libri pi&amp;ugrave;  belli che ho letto in tutta la mia vita!!! Semplicemente fantastico, una ricca raccolta di racconti uno pi&amp;ugrave;  bello dell&amp;rsquo;altro che infondono &amp;quot;terrore&amp;quot; e allo stesso tempo trasmettono l&amp;rsquo;angoscia, le paure e l&amp;rsquo;ansia che hanno tormentato l&amp;rsquo;autore nella maggior parte della vita. &lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2007-10-21 12:10:39</column>
         </table>
         <table name="Commenti">
-            <column name="Recensione">6</column>
+            <column name="Libro">9788804639701</column>
             <column name="Autore">filippo.rossi@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Uno dei libri pi&amp;ugrave;  brevi di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt;. L&amp;rsquo;esistenza di una famiglia qualsiasi, narrata nei recessi pi&amp;ugrave;  intimi e teneri, sconvolta da avvenimenti soprannaturali ma anche terribilmente plausibili Scene altamente drammatiche, un finale sospeso in un climax che lascia senza fiato Teso, angosciante, vorresti che finisse al pi&amp;ugrave;  presto, vorresti che non finisse mai, vorresti poter comunicare con il protagonista, ti sorprendi a pregare per lui A mio avviso, supera &lt;span xml:lang=&quot;en&quot;&gt;It&lt;/span&gt; come tensione narrativa ed &amp;egrave;  forse il miglior libro di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt;&lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2009-12-02 09:10:19</column>
+            <column name="Commento">&lt;p&gt;Romanzo robusto:un archetipo della letteratura di genere.Forse un po&amp;rsquo; troppo lungo; nel senso che alcune pagine(superflue)potevano essere espunte. Storia e tecnica narrativa invece sono interessanti.&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2001-03-01 10:40:39</column>
         </table>
         <table name="Commenti">
-            <column name="Recensione">6</column>
-            <column name="Autore">paolo.rossi94@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Bel libro per chi vuole tensione e avidit&amp;agrave;  di lettura.nel surrealismo di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt; le incongruenze perdono di importanza perch&amp;eacute;  i personaggi e le loro vite sono sempre incastonati in una trama scorrevole e avvincente.ora sto leggendo 22-11-63 e lo trovo bello seppur fantasioso e elaborato nelle vicende personali dei protagonisti. Quale sar&amp;agrave;  il prossimo? &lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2007-05-28 19:20:09</column>
-        </table>
-        <table name="Commenti">
-            <column name="Recensione">7</column>
-            <column name="Autore">roncon.michael777@gmail.com</column>
-            <column name="Commento">&lt;p&gt;Grandissimo libro. Funziona tutto dall&amp;rsquo;inizio alla fine, una perla in tema di romanzi apocalittici, passa a pieni voti, non riesco a trovare un difetto. &lt;/p&gt;</column>
-            <column name="Data_Pubblicazione">2006-08-11 20:09:09</column>
-        </table>
-        <table name="Commenti">
-            <column name="Recensione">8</column>
+            <column name="Libro">9788807900587</column>
             <column name="Autore">matteovanni63@gmail.com</column>
             <column name="Commento">&lt;p&gt;E&amp;rsquo; un romanzo dal linguaggio estremamente elegante. Molto scorrevole, un classico del novecento che parrebbe scritto ai giorni nostri. Affascinante, lo consiglio anche come lettura &amp;quot;estiva&amp;quot; poich&amp;egrave;  &amp;egrave;  un&amp;rsquo;opera non troppo impegnativa. &lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2002-02-09 12:08:09</column>
         </table>
         <table name="Commenti">
-            <column name="Recensione">10</column>
+            <column name="Libro">9788845246005</column>
+            <column name="Autore">roncon.michael777@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Grandissimo libro. Funziona tutto dall&amp;rsquo;inizio alla fine, una perla in tema di romanzi apocalittici, passa a pieni voti, non riesco a trovare un difetto. &lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2006-08-11 20:09:09</column>
+        </table>
+        <table name="Commenti">
+            <column name="Libro">9788848603683</column>
             <column name="Autore">giorgia.tessuto65@gmail.com</column>
             <column name="Commento">&lt;p&gt;Per apprezzarlo &amp;egrave;  importante avere visto il film. Libro ben scritto, molto coinvolgente.&lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2002-10-09 18:28:09</column>
         </table>
         <table name="Commenti">
-            <column name="Recensione">10</column>
+            <column name="Libro">9788848603683</column>
             <column name="Autore">ilcorvobianco91@gmail.com</column>
             <column name="Commento">&lt;p&gt;Ho finito da poco di leggere questo libro , che dire , sono rimasto veramente a bocca aperta. E&amp;rsquo; un libro fantastico in cui non c&amp;rsquo;&amp;egrave;  solo un &lt;span xml:lang=&quot;en&quot;&gt;fantasy&lt;/span&gt; magnifico , ma sussiste anche una narrativa spettacolare e curata nei minimi dettagli , le descrizioni dei paesaggi , cose , persone sono veramente incredibili .Io credo che questa trilogia sia il pilastro del &lt;span xml:lang=&quot;en&quot;&gt;fantasy&lt;/span&gt; . E&amp;rsquo; un piacere leggerlo , lo consiglio a tutti. &lt;/p&gt;</column>
             <column name="Data_Pubblicazione">2000-10-08 22:10:09</column>
+        </table>
+        <table name="Commenti">
+            <column name="Libro">9788868360269</column>
+            <column name="Autore">marcogattuso91@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Complesso, stratificato, interminabile, fiume, un capolavoro indiscusso di cui attendiamo la versione cinematografica definitiva. Un viaggio nella notte nera, buissima, laddove i babau abbaiano latrantissimi in glaciale, spettrale incubo ad occhi aperti che durer&amp;agrave;  tutta una vita.&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2008-10-09 22:28:09</column>
+        </table>
+        <table name="Commenti">
+            <column name="Libro">9788868360269</column>
+            <column name="Autore">maria.dallavalle19@gmail.com</column>
+            <column name="Commento">&lt;p&gt; La cosa splendida che questo romanzo mi lascia e&amp;rsquo; l&amp;rsquo;impresione di aver vissuto tutta la storia come se fossi l&amp;rsquo;ottavo componente dei &amp;quot;perdenti&amp;quot;. L&amp;rsquo;abilita&amp;rsquo; di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt; e&amp;rsquo; stata descrivere con assulta perfezione i caratteri di tutti i protagonisti, le loro vite, i loro sogni e le loro paure. &lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt; e&amp;rsquo; il male...&lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt; e&amp;rsquo; la paura....IT e&amp;rsquo; il buio....IT e&amp;rsquo; presente in tutti noi e solo con la vera amicizia possiamo sconfiggerlo per sempre. &lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt; e&amp;rsquo; un romanzo straordinario.&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2002-10-09 20:27:09</column>
+        </table>
+        <table name="Commenti">
+            <column name="Libro">9788868360269</column>
+            <column name="Autore">matteovanni63@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Libro da leggere per chi ama il Re e per chi vuole entrare in un mondo surreale e avvincente.l&amp;rsquo;unica nota stonata il finale,forse troppo immerso in situazioni poco convincenti .(mio parere senza voler denigrare il libro) &lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2011-09-10 09:10:09</column>
+        </table>
+        <table name="Commenti">
+            <column name="Libro">9788868361259</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Uno dei libri pi&amp;ugrave;  brevi di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt;. L&amp;rsquo;esistenza di una famiglia qualsiasi, narrata nei recessi pi&amp;ugrave;  intimi e teneri, sconvolta da avvenimenti soprannaturali ma anche terribilmente plausibili Scene altamente drammatiche, un finale sospeso in un climax che lascia senza fiato Teso, angosciante, vorresti che finisse al pi&amp;ugrave;  presto, vorresti che non finisse mai, vorresti poter comunicare con il protagonista, ti sorprendi a pregare per lui A mio avviso, supera &lt;span xml:lang=&quot;en&quot;&gt;It&lt;/span&gt; come tensione narrativa ed &amp;egrave;  forse il miglior libro di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt;&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2009-12-02 09:10:19</column>
+        </table>
+        <table name="Commenti">
+            <column name="Libro">9788868361259</column>
+            <column name="Autore">paolo.rossi94@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Bel libro per chi vuole tensione e avidit&amp;agrave;  di lettura.nel surrealismo di &lt;span xml:lang=&quot;en&quot;&gt;King&lt;/span&gt; le incongruenze perdono di importanza perch&amp;eacute;  i personaggi e le loro vite sono sempre incastonati in una trama scorrevole e avvincente.ora sto leggendo 22-11-63 e lo trovo bello seppur fantasioso e elaborato nelle vicende personali dei protagonisti. Quale sar&amp;agrave;  il prossimo? &lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2007-05-28 19:20:09</column>
+        </table>
+        <!-- Tabella CommentiNews -->
+        <table name="CommentiNews">
+            <column name="News">2</column>
+            <column name="Autore">user</column>
+            <column name="Commento">&lt;p&gt;dove si pu&amp;ograve; vedere il video citato?&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2010-12-02 16:05:39</column>
+        </table>
+        <table name="CommentiNews">
+            <column name="News">3</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Wow, finalmente una news interessante!!&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2001-03-01 10:40:39</column>
+        </table>
+        <table name="CommentiNews">
+            <column name="News">3</column>
+            <column name="Autore">sara.viola123@gmail.com</column>
+            <column name="Commento">&lt;p&gt;Follow this&lt;/p&gt;</column>
+            <column name="Data_Pubblicazione">2007-10-21 12:10:39</column>
         </table>
         <!-- Tabella DescrizioneAutore -->
         <table name="DescrizioneAutore">
@@ -367,14 +398,179 @@
             <column name="Autore">15</column>
             <column name="Foto">../img/autori/Stoker.jpg</column>
         </table>
+        <!-- Tabella FotoLibri -->
+        <table name="FotoLibri">
+            <column name="Libro">9780140620306</column>
+            <column name="Foto">../img/cover/9780140620306.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9780828895965</column>
+            <column name="Foto">../img/cover/9780828895965.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804119142</column>
+            <column name="Foto">../img/cover/9788804119142.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804314660</column>
+            <column name="Foto">../img/cover/9788804314660.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804373308</column>
+            <column name="Foto">../img/cover/9788804373308.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804395942</column>
+            <column name="Foto">../img/cover/9788804395942.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804398165</column>
+            <column name="Foto">../img/cover/9788804398165.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804401841</column>
+            <column name="Foto">../img/cover/9788804401841.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804403029</column>
+            <column name="Foto">../img/cover/9788804403029.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804406822</column>
+            <column name="Foto">../img/cover/9788804406822.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804507949</column>
+            <column name="Foto">../img/cover/9788804507949.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804517580</column>
+            <column name="Foto">../img/cover/9788804517580.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804534396</column>
+            <column name="Foto">../img/cover/9788804534396.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804572114</column>
+            <column name="Foto">../img/cover/9788804572114.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804627807</column>
+            <column name="Foto">../img/cover/9788804627807.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804639701</column>
+            <column name="Foto">../img/cover/9788804639701.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804641728</column>
+            <column name="Foto">../img/cover/9788804641728.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788804641759</column>
+            <column name="Foto">../img/cover/9788804641759.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788806176938</column>
+            <column name="Foto">../img/cover/9788806176938.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788807900587</column>
+            <column name="Foto">../img/cover/9788807900587.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788809766013</column>
+            <column name="Foto">../img/cover/9788809766013.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788809772878</column>
+            <column name="Foto">../img/cover/9788809772878.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788845246005</column>
+            <column name="Foto">../img/cover/9788845246005.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788845268342</column>
+            <column name="Foto">../img/cover/9788845268342.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788845272400</column>
+            <column name="Foto">../img/cover/9788845272400.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788848603683</column>
+            <column name="Foto">../img/cover/9788848603683.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788848603706</column>
+            <column name="Foto">../img/cover/9788848603706.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788848603720</column>
+            <column name="Foto">../img/cover/9788848603720.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788862561723</column>
+            <column name="Foto">../img/cover/9788862561723.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788864110325</column>
+            <column name="Foto">../img/cover/9788864110325.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788867152681</column>
+            <column name="Foto">../img/cover/9788867152681.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788867158188</column>
+            <column name="Foto">../img/cover/9788867158188.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788868360269</column>
+            <column name="Foto">../img/cover/9788868360269.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788868361259</column>
+            <column name="Foto">../img/cover/9788868361259.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788877827029</column>
+            <column name="Foto">../img/cover/9788877827029.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788884516114</column>
+            <column name="Foto">../img/cover/9788884516114.jpg</column>
+        </table>
+        <table name="FotoLibri">
+            <column name="Libro">9788884516374</column>
+            <column name="Foto">../img/cover/9788884516374.jpg</column>
+        </table>
         <!-- Tabella FotoNotizie -->
+        <table name="FotoNotizie">
+            <column name="Notizia">0</column>
+            <column name="Foto">../img/news/0.jpg</column>
+        </table>
+        <table name="FotoNotizie">
+            <column name="Notizia">1</column>
+            <column name="Foto">../img/news/1.jpg</column>
+        </table>
+        <table name="FotoNotizie">
+            <column name="Notizia">2</column>
+            <column name="Foto">../img/news/2.jpg</column>
+        </table>
+        <table name="FotoNotizie">
+            <column name="Notizia">3</column>
+            <column name="Foto">../img/news/3.jpg</column>
+        </table>
         <!-- Tabella Libro -->
         <table name="Libro">
             <column name="ISBN">9780140620306</column>
             <column name="Titolo">&lt;span xml:lang='en'&gt;Frankestein&lt;/span&gt;</column>
             <column name="Autore">12</column>
             <column name="Anno_Pubblicazione">1994-01-01</column>
-            <column name="Casa_Editrice">&lt;span xml:lang='en'&gt;Puffin Classics&lt;/spa</column>
+            <column name="Casa_Editrice">&lt;span xml:lang='en'&gt;Puffin Classics&lt;/span&gt;</column>
             <column name="Genere">&lt;span xml:lang='en'&gt;Horror&lt;/span&gt;</column>
             <column name="Trama">&lt;p&gt;Nel &lt;abbr title=&quot;diciottesimo&quot;&gt;XVIII&lt;/abbr&gt; secolo (la data non &amp;egrave; precisata nel romanzo), un giovane capitano, &lt;span xml:lang='en'&gt;Robert Walton&lt;/span&gt;, scrive delle lettere alla sorella &lt;span xml:lang='en'&gt;Margareth&lt;/span&gt;. Il giovane esploratore, appena diventato ricco per l&amp;#39;eredit&amp;agrave; di un cugino, decide di intraprendere un viaggio nella speranza di giungere al polo e quindi circumnavigare il globo. Giunti nell&amp;#39;estremit&amp;agrave; dell&amp;#39;emisfero, la sua nave rimane intrappolata fra blocchi di ghiaccio, e dopo alcuni giorni l&amp;#39;equipaggio scorge fra i ghiacci una figura enorme e mostruosa su una slitta che, poco tempo dopo, scompare.&lt;/p&gt;&lt;p&gt;Il giorno successivo appare una seconda slitta, con a bordo un uomo congelato: costui si avvicina alla nave e, dopo l&amp;#39;insistenza da parte dell&amp;#39;equipaggio, sale a bordo. &lt;span xml:lang='en'&gt;Walton&lt;/span&gt; inizia a scrivere alla sorella degli avvenimenti che si susseguono e dell&amp;#39;incredibile storia del forestiero, che si presenta come il dottor &lt;span xml:lang='en'&gt;Victor Frankenstein&lt;/span&gt;, di Ginevra.&lt;/p&gt;&lt;p&gt;Il dottor &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; inizia il suo racconto narrando della sua infanzia in Svizzera. Vive un&amp;#39;infanzia felice, con i suoi amorevoli genitori, &lt;span xml:lang='en'&gt;Alphonse&lt;/span&gt; e &lt;span xml:lang='en'&gt;Caroline Beaufort Frankenstein&lt;/span&gt;, la cugina &lt;span xml:lang='en'&gt;Elizabeth Lavenza&lt;/span&gt; e i fratelli minori &lt;span xml:lang='en'&gt;Ernest&lt;/span&gt; e &lt;span xml:lang='en'&gt;William&lt;/span&gt;, e trascorre il tempo studiando con impegno insieme alla cugina, leggendo con passione le opere di antichi autori come Paracelso, Cornelio Agrippa e Alberto Magno e frequentando l&amp;#39;amico &lt;span xml:lang='en'&gt;Henry Clerval&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;L&amp;#39;esistenza di &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; viene sconvolta dalla morte della madre, contagiata da &lt;span xml:lang='en'&gt;Elizabeth&lt;/span&gt;, ammalata di una forma lieve di scarlattina. Caduto in un trauma psicologico, &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; studia coltivando segretamente un sogno impossibile per chiunque: la creazione di un essere umano pi&amp;ugrave; intelligente, dotato di salute perfetta e lunga vita.&lt;/p&gt;&lt;p&gt;Pensando sempre con affetto a &lt;span xml:lang='en'&gt;Elizabeth&lt;/span&gt;, si reca all&amp;#39;universit&amp;agrave; di &lt;span xml:lang=&quot;de&quot;&gt;Ingolstadt&lt;/span&gt;, in Germania, per elevarsi culturalmente. &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; decide di dedicarsi alla filosofia naturale, che gli era sempre stata invisa. Si presenta quindi ai professori &lt;span xml:lang=&quot;de&quot;&gt;Krempe&lt;/span&gt; e &lt;span xml:lang=&quot;de&quot;&gt;Waldman&lt;/span&gt;, che, ciascuno in un modo diverso, lo spingono a uno studio appassionato della materia fino a che, nel giro di due anni, &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; diventa il pi&amp;ugrave; profondo conoscitore della filosofia naturale in tutta l&amp;#39;universit&amp;agrave;. Assimilate conoscenze mediche insperate, il giovane &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; si reca nottetempo nei cimiteri, dove apre le tombe e studia la decomposizione e il percorso degenerativo dei cadaveri, acquisendo cos&amp;igrave; la conoscenza che gli permetter&amp;agrave; di generare vita nella morte, da materia inanimata. La creatura viene realizzata e portata in vita, ma fin da subito appare deforme e sgraziata alla vista, dotata di una forza fisica smisurata e fugge nella notte, portando con s&amp;eacute;  il diario personale del suo creatore, che, colmo di disgusto, l&amp;#39;ha abbandonata al suo destino.&lt;/p&gt;&lt;p&gt;Terminati gli studi medici, &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; rientra a Ginevra, ma la creatura ritorna in segreto e uccide &lt;span xml:lang='en'&gt;William&lt;/span&gt;, suo fratello minore, facendo ricadere i sospetti su &lt;span xml:lang='en'&gt;Justine Moritz&lt;/span&gt;, la governante della famiglia &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; che, una volta rinchiusa in prigione, morir&amp;agrave; impiccata dopo essere stata giudicata colpevole dal tribunale.&lt;/p&gt;&lt;p&gt;Durante una breve vacanza distensiva lungo i passi sul confine con la Francia, il giovane scienziato incontra il mostro da lui creato, che confessa il suo crimine e gli racconta di averlo seguito grazie alle indicazioni del diario, imparando la lingua francese, osservando di nascosto la famiglia di &lt;span xml:lang=&quot;fr&quot;&gt;De Lacey&lt;/span&gt;, un ricco francese caduto in disgrazia e ritiratosi in un villaggio tedesco. Questa famiglia si dedicava all&amp;#39;agricoltura e all&amp;#39;allevamento e il mostro li aiutava e li osservava in segreto, portando loro di notte legna per l&amp;#39;inverno e ortaggi nei periodi di magra. Quando per&amp;ograve; aveva deciso di mostrarsi a loro, essi lo avevano scacciato violentemente, disgustati dal suo aspetto esteriore, dandosi immediatamente alla fuga.&lt;/p&gt;&lt;p&gt;A questo punto il mostro fa al suo creatore una richiesta insolita: la creazione di una donna come lui, con la promessa che i due mostri si ritireranno insieme nelle terre sconosciute dell&amp;#39;America del Sud. In un primo momento &lt;span xml:lang='en'&gt;Victor&lt;/span&gt; accetta, decidendo di recarsi in Gran Bretagna, con lo scopo di sviluppare le proprie conoscenze, sempre insieme a &lt;span xml:lang='en'&gt;Henry Clerval&lt;/span&gt;. La creatura, in segreto, continua a seguirlo.&lt;/p&gt;&lt;p&gt;Ritiratosi su un&amp;#39;isola delle Orcadi, il giovane inizia a creare un altro mostro, di genere femminile, ma in seguito pensa che ci&amp;ograve; potrebbe avere conseguenze tragiche e distrugge il secondo mostro ancora prima di dargli vita. Scoperto dal mostro, &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; tenta la fuga ma, approdato in Irlanda a seguito di un burrascoso viaggio, viene arrestato con l&amp;#39;accusa dell&amp;#39;omicidio dell&amp;#39;amico Clerval, ucciso in realt&amp;agrave; dal mostro.&lt;/p&gt;&lt;p&gt;Dopo essere stato rilasciato grazie all&amp;#39;aiuto del magistrato locale (che lo ritiene innocente), &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt; torna in Svizzera accompagnato dal padre e decide di sposare la sua amata &lt;span xml:lang='en'&gt;Elizabeth&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;Il mostro per&amp;ograve; colpisce ancora, uccidendo &lt;span xml:lang='en'&gt;Elizabeth&lt;/span&gt; proprio la notte delle nozze, come aveva preannunciato. La tragedia di &lt;span xml:lang='en'&gt;Frankestein&lt;/span&gt; non finisce: infatti il padre, dopo la notizia della morte della nipote, che amava come una figlia, muore a causa un colpo apoplettico. Victor decide quindi di vendicarsi del mostro, seguendo le sue tracce per il mondo, dalla Svizzera al Mediterraneo, dalle steppe russe fino al Polo Nord, dove incontra l&amp;#39;equipaggio del capitano &lt;span xml:lang='en'&gt;Robert Walton&lt;/span&gt;. Qui finisce il racconto di &lt;span xml:lang='en'&gt;Frankenstein&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;&lt;span xml:lang='en'&gt;Walton&lt;/span&gt; scrive un&amp;#39;altra lettera alla sorella, in cui le racconta della morte dell&amp;#39;amico e di come egli gli avesse chiesto di continuare la sua impresa di uccidere il mostro. Il &amp;quot;Demone&amp;quot; - come lo chiamava &lt;span xml:lang='en'&gt;Frankestein&lt;/span&gt; - &amp;egrave; piegato e piangente sul corpo del suo creatore e, appena &lt;span xml:lang='en'&gt;Walton&lt;/span&gt; lo accusa dell&amp;#39;assassinio di persone innocenti, il mostro (desideroso solo della morte) gli risponde che il suo odio e la sua malvagit&amp;agrave; sono state condizionate dal disprezzo e dalla rabbia che gli uomini, primo tra tutti il suo stesso creatore, gli hanno rivolto contro solo per le sue sembianze. Abbandona quindi la nave, decidendo di darsi la morte nell&amp;#39;estremit&amp;agrave; del polo dandosi fuoco, in modo che nessuno possa capire dai suoi resti come creare un altro essere come lui.&lt;/p&gt;</column>
         </table>
@@ -578,7 +774,7 @@
         </table>
         <table name="Libro">
             <column name="ISBN">9788845268342</column>
-            <column name="Titolo">Il Signore degli Anelli: Lo Hobbit</column>
+            <column name="Titolo">Lo Hobbit</column>
             <column name="Autore">8</column>
             <column name="Anno_Pubblicazione">2012-01-01</column>
             <column name="Casa_Editrice">Bompiani</column>
@@ -587,7 +783,7 @@
         </table>
         <table name="Libro">
             <column name="ISBN">9788845272400</column>
-            <column name="Titolo">Il Signore degli Anelli: Il Silmarillion</column>
+            <column name="Titolo">Il Silmarillion</column>
             <column name="Autore">8</column>
             <column name="Anno_Pubblicazione">2013-01-01</column>
             <column name="Casa_Editrice">Bompiani</column>
@@ -704,32 +900,32 @@
         </table>
         <!-- Tabella Notizie -->
         <table name="Notizie">
-            <column name="Id">1</column>
+            <column name="Id">0</column>
             <column name="Titolo">&lt;span xml:lang=&quot;en&quot;&gt;J.K. Rowling&lt;/span&gt; ha annunciato la pubblicazione di due nuovi romanzi</column>
             <column name="Autore">dellucci.roberto@gmail.com</column>
             <column name="Data">2016-12-23 22:09:18</column>
             <column name="Testo">&lt;p&gt;a scrittrice britannica &lt;a href='autore.php?autore=7'&gt;&lt;span xml:lang=&quot;en&quot;&gt;J.K. Rowling&lt;/span&gt;&lt;/a&gt;, autrice della celebre saga del giovane mago &lt;span xml:lang=&quot;en&quot;&gt;Harry Potter&lt;/span&gt;, ha confermato sul suo profilo &lt;span xml:lang=&quot;en&quot;&gt;Twitter&lt;/span&gt; che sta lavorando a due nuovi romanzi. Uno verr&amp;agrave;  firmato con il suo vero nome e l&amp;rsquo;altro con il suo pseudonimo, &lt;span xml:lang=&quot;en&quot;&gt;Robert Galbraith. Rowling&lt;/span&gt; ha scritto tre romanzi con lo pseudonimo di &lt;span xml:lang=&quot;en&quot;&gt;Robert Galbraith&lt;/span&gt;, l&amp;rsquo;ultimo uscito nel 2015, intitolato La via del male.&lt;/p&gt;&lt;p&gt;&lt;span xml:lang=&quot;en&quot;&gt;Rowling&lt;/span&gt; ha dichiarato che nei nuovi libri il protagonista non sar&amp;agrave;  &lt;span xml:lang=&quot;en&quot;&gt;Newt Scamander&lt;/span&gt;, dal libro e film Animali fantastici e dove trovarli, uscito il 17 novembre 2016. &lt;span xml:lang=&quot;en&quot;&gt;Scamander&lt;/span&gt; &amp;egrave;  un autore di fantasia menzionato nella saga di &lt;span xml:lang=&quot;en&quot;&gt;Harry Potter&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;Animali fantastici &amp;egrave;  il primo &lt;span xml:lang=&quot;en&quot;&gt;spin-off&lt;/span&gt; della saga cinematografica del mondo dei maghi e, seppur solo nelle sale, avr&amp;agrave;  un seguito, con altri quattro capitoli.&lt;/p&gt;</column>
         </table>
         <table name="Notizie">
-            <column name="Id">2</column>
+            <column name="Id">1</column>
             <column name="Titolo">&lt;span xml:lang=&quot;en&quot;&gt;Stephen King&lt;/span&gt; ci invita a pensare come bambini in un corto animato</column>
             <column name="Autore">silviabarese@gmail.com</column>
             <column name="Data">2016-12-23 12:09:16</column>
-            <column name="Testo">&lt;p&gt;&lt;a href='autore.php?autore=11'&gt;l&amp;rsquo;Autore&lt;/a&gt;  racconta la sua infanzia e quella degli altri in un corto animato: come gli vengono certe idee?&lt;/p&gt;&lt;p&gt;&lt;a href='autore.php?autore=11'&gt;l&amp;rsquo;Autore&lt;/a&gt;  viene definito il maestro dell&amp;rsquo;&lt;span xml:lang=&quot;en&quot;&gt;horror&lt;/span&gt; grazie al successo dei suoi libri che negli anni hanno spaventato milioni di lettori.Molti dei suoi romanzi sono diventati dei film di successo (anche se non tutti): ad esempio, presto torner&amp;agrave;  al cinema anche il pagliaccio &lt;span xml:lang=&quot;en&quot;&gt;Pennywise&lt;/span&gt; con il &lt;span xml:lang=&quot;en&quot;&gt;remake&lt;/span&gt; di &lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt;.Vista l&amp;rsquo;ambientazione dei suoi libri, molti ammiratori si sono chiesti nel tempo come fosse stata l&amp;rsquo;infanzia di &lt;a href='autore.php?autore=11'&gt;l&amp;rsquo;Autore&lt;/a&gt; , pensando che le idee per i suoi romanzi arrivassero da un trauma vissuto da bambino.Nel 1989 lo scrittore rispose a quella domanda durante una trasmissione radio e ora gli esperti d&amp;rsquo;animazione di del programma &lt;span xml:lang=&quot;en&quot;&gt;Blank on Blank&lt;/span&gt; hanno realizzato un video basato proprio su quell&amp;rsquo;intervista.&lt;a href='autore.php?autore=11'&gt;l&amp;rsquo;Autore&lt;/a&gt;  spiega come non abbia avuto nessun trauma da bambino e che le idee per i libri arrivino solo dalla sua fantasia.L&amp;rsquo;autore inoltre ricorda come i bambini abbiano una mentalit&amp;agrave;  diversa, che molto spesso gli adulti dimenticano. Per &lt;a href='autore.php?autore=11'&gt;l&amp;rsquo;Autore&lt;/a&gt;  i bambini vedono il mondo in maniera diversa e per questo hanno idee speciali e fantastiche, che lui ha cercato di riproporre nei suoi romanzi.&lt;/p&gt;</column>
+            <column name="Testo">&lt;p&gt;&lt;a href='autore.php?autore=11'&gt;Stephen King&lt;/a&gt;  racconta la sua infanzia e quella degli altri in un corto animato: come gli vengono certe idee?&lt;/p&gt;&lt;p&gt;L&amp;rsquo;autore viene definito il maestro dell&amp;rsquo;&lt;span xml:lang=&quot;en&quot;&gt;horror&lt;/span&gt; grazie al successo dei suoi libri che negli anni hanno spaventato milioni di lettori.Molti dei suoi romanzi sono diventati dei film di successo (anche se non tutti): ad esempio, presto torner&amp;agrave;  al cinema anche il pagliaccio &lt;span xml:lang=&quot;en&quot;&gt;Pennywise&lt;/span&gt; con il &lt;span xml:lang=&quot;en&quot;&gt;remake&lt;/span&gt; di &lt;span xml:lang=&quot;en&quot;&gt;IT&lt;/span&gt;.Vista l&amp;rsquo;ambientazione dei suoi libri, molti ammiratori si sono chiesti nel tempo come fosse stata l&amp;rsquo;infanzia dell&amp;rsquo;autore, pensando che le idee per i suoi romanzi arrivassero da un trauma vissuto da bambino.Nel 1989 lo scrittore rispose a quella domanda durante una trasmissione radio e ora gli esperti d&amp;rsquo;animazione di del programma &lt;span xml:lang=&quot;en&quot;&gt;Blank on Blank&lt;/span&gt; hanno realizzato un video basato proprio su quell&amp;rsquo;intervista.L&amp;rsquo;autore spiega come non abbia avuto nessun trauma da bambino e che le idee per i libri arrivino solo dalla sua fantasia.L&amp;rsquo;autore inoltre ricorda come i bambini abbiano una mentalit&amp;agrave;  diversa, che molto spesso gli adulti dimenticano. Per l&amp;rsquo;autore i bambini vedono il mondo in maniera diversa e per questo hanno idee speciali e fantastiche, che lui ha cercato di riproporre nei suoi romanzi.&lt;/p&gt;</column>
         </table>
         <table name="Notizie">
-            <column name="Id">3</column>
+            <column name="Id">2</column>
             <column name="Titolo">&lt;span xml:lang=&quot;en&quot;&gt;George Martin&lt;/span&gt; dice che &lt;span xml:lang=&quot;en&quot;&gt;Game of Thrones&lt;/span&gt; finir&amp;agrave;  male</column>
             <column name="Autore">francesco.piazza@gmail.com</column>
             <column name="Data">2016-12-24 18:50:27</column>
             <column name="Testo">&lt;p&gt;Si mettano il cuore in pace coloro che sperano in una conclusione felice della saga del &amp;rsquo;Trono di Spade&amp;rsquo;: lo scrittore &lt;span xml:lang=&quot;en&quot;&gt;George Martin&lt;/span&gt; ha detto chiaramente che l&amp;rsquo;ultimo romanzo di &amp;rsquo;&lt;span xml:lang=&quot;en&quot;&gt;Game of Thrones&lt;/span&gt;&amp;rsquo;, intitolato &amp;rsquo;&lt;span xml:lang=&quot;en&quot;&gt;The Winds of Winter&lt;/span&gt;&amp;rsquo;, sar&amp;agrave;  decisamente drammatico.Invitato come ospite speciale durante il &lt;span xml:lang=&quot;en&quot;&gt;Guadalajara International Book Fair, George Martin&lt;/span&gt; ha intrattenuto il proprio pubblico per un&amp;rsquo;oretta abbondante, rispondendo a domande e commenti vari. Non poteva mancare un accenno al suo prossimo libro: &amp;quot;Ci sono molti capitoli cupi, nelle pagine che sto scrivendo. Sapete, il romanzo si intitola &amp;rsquo;I venti dell&amp;rsquo;inverno&amp;rsquo; e sono 20 anni che dico che l&amp;rsquo;inverno sta arrivando. E l&amp;rsquo;inverno &amp;egrave;  quel momento in cui le cose muoiono e... beh, freddo, ghiaccio e oscurit&amp;agrave;  invadono il mondo. Insomma, non leggerete qualcosa di felice e pacificato, nonostante sia il desiderio di molti&amp;quot;.Tutti morti, insomma? No, perch&amp;eacute;  &amp;quot;la struttura classica di ogni storia prevede che le cose peggiorino parecchio prima di migliorare. Cos&amp;igrave;, per molti personaggi le cose peggioreranno moltissimo&amp;quot;. Dunque qualcuno riuscir&amp;agrave;  a cavarsela, presumibilmente, pagando per&amp;ograve;  un prezzo molto alto.L&amp;rsquo;esatto ammontare del prezzo &amp;egrave;  ovviamente un mistero e ci tocca aspettare la pubblicazione di &amp;rsquo;&lt;span xml:lang=&quot;en&quot;&gt;The Winds of Winter&lt;/span&gt;&amp;rsquo;, che ancora non &amp;egrave;  stata ufficializzata.&lt;/p&gt;</column>
         </table>
         <table name="Notizie">
-            <column name="Id">4</column>
+            <column name="Id">3</column>
             <column name="Titolo">&lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently&lt;/span&gt;: il &lt;span xml:lang=&quot;en&quot;&gt;trailer&lt;/span&gt; della serie tv ispirata al libro di &lt;span xml:lang=&quot;en&quot;&gt;Douglas Adams&lt;/span&gt;</column>
             <column name="Autore">dellucci.roberto@gmail.com</column>
             <column name="Data">2016-12-11 10:46:29</column>
-            <column name="Testo">&lt;p&gt;Azione, mistero o &lt;span xml:lang=&quot;en&quot;&gt;comedy&lt;/span&gt;? Nell&amp;rsquo;incertezza, potrebbe piacervi &lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently, Holistic Detective Agency&lt;/span&gt;, la nuova serie di &lt;span xml:lang=&quot;en&quot;&gt;BBC America&lt;/span&gt; (in Italia su &lt;span xml:lang=&quot;en&quot;&gt;Netflix&lt;/span&gt;), che &lt;span xml:lang=&quot;en&quot;&gt;Elijah Wood&lt;/span&gt; ha scelto per il suo ritorno in tv, a 4 anni dall&amp;rsquo;Isola del Tesoro.&lt;h3&gt;Che cosa vedremo?&lt;/h3&gt;&lt;p&gt;All&amp;rsquo;improvviso la vita del mite &lt;span xml:lang=&quot;en&quot;&gt;Todd (Elijah Wood)&lt;/span&gt; piomba nel caos. Omicidi, avventure, persino una vincita alla lotteria: tutti avvenimenti misteriosamente collegati tra loro, come prova a spiegargli &lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently (Samuel Barnett)&lt;/span&gt;, il bizzarro investigatore privato &amp;ldquo;olistico&amp;rdquo;, che gli piomba in casa per arruolarlo come assistente. Mentre la &lt;span xml:lang=&quot;en&quot;&gt;CIA&lt;/span&gt;, un paio di strampalate bande di criminali e una &lt;span xml:lang=&quot;en&quot;&gt;killer&lt;/span&gt; olistica (la brava &lt;span xml:lang=&quot;en&quot;&gt;Fiona Dourif&lt;/span&gt;) si mettono sulle loro tracce.&lt;/p&gt;&lt;h3&gt;Da sapere.&lt;/h3&gt;&lt;p&gt;In ricordo di &lt;span xml:lang=&quot;en&quot;&gt;Adams&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently&lt;/span&lt; &amp;egrave;  un personaggio letterario nato nel 1987 dalla penna di &lt;span xml:lang=&quot;en&quot;&gt;Douglas Adams&lt;/span&gt;, gi&amp;agrave;  autore di Guida Galattica Per Autostoppisti.&lt;/p&gt;&lt;h3&gt;Che cosa hanno scritto&lt;/h3&gt;&lt;p&gt;Â«Una serie in parti uguali stravagante, incoerente, divertente e fumettisitcamente violenta e confusa, ma il tutto in modo efficace. &lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently&lt;/span&gt; &amp;egrave;  una di quelle serie in cui ci si deve solo rilassare e godersi il viaggioÂ». &lt;span xml:lang=&quot;en&quot;&gt;(Michael Starr, New York Post)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Â«La serie viene fuori come un omaggio bizzarro ad &lt;span xml:lang=&quot;en&quot;&gt;Adams&lt;/span&gt;, piuttosto che incanalare il suo spirito e il suo grande cuoreÂ». &lt;span xml:lang=&quot;en&quot;&gt;(Kevin P. Sullivan, Entertainment Weekly)&lt;/span&gt;.&lt;/p&gt;</column>
+            <column name="Testo">&lt;p&gt;Azione, mistero o &lt;span xml:lang=&quot;en&quot;&gt;comedy&lt;/span&gt;? Nell&amp;rsquo;incertezza, potrebbe piacervi &lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently, Holistic Detective Agency&lt;/span&gt;, la nuova serie di &lt;span xml:lang=&quot;en&quot;&gt;BBC America&lt;/span&gt; (in Italia su &lt;span xml:lang=&quot;en&quot;&gt;Netflix&lt;/span&gt;), che &lt;span xml:lang=&quot;en&quot;&gt;Elijah Wood&lt;/span&gt; ha scelto per il suo ritorno in tv, a 4 anni dall&amp;rsquo;Isola del Tesoro.&lt;h3&gt;Che cosa vedremo?&lt;/h3&gt;&lt;p&gt;All&amp;rsquo;improvviso la vita del mite &lt;span xml:lang=&quot;en&quot;&gt;Todd (Elijah Wood)&lt;/span&gt; piomba nel caos. Omicidi, avventure, persino una vincita alla lotteria: tutti avvenimenti misteriosamente collegati tra loro, come prova a spiegargli &lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently (Samuel Barnett)&lt;/span&gt;, il bizzarro investigatore privato &amp;ldquo;olistico&amp;rdquo;, che gli piomba in casa per arruolarlo come assistente. Mentre la &lt;span xml:lang=&quot;en&quot;&gt;CIA&lt;/span&gt;, un paio di strampalate bande di criminali e una &lt;span xml:lang=&quot;en&quot;&gt;killer&lt;/span&gt; olistica (la brava &lt;span xml:lang=&quot;en&quot;&gt;Fiona Dourif&lt;/span&gt;) si mettono sulle loro tracce.&lt;/p&gt;&lt;h3&gt;Che cosa hanno scritto&lt;/h3&gt;&lt;p&gt;Â«Una serie in parti uguali stravagante, incoerente, divertente e fumettisitcamente violenta e confusa, ma il tutto in modo efficace. &lt;span xml:lang=&quot;en&quot;&gt;Dirk Gently&lt;/span&gt; &amp;egrave;  una di quelle serie in cui ci si deve solo rilassare e godersi il viaggioÂ». &lt;span xml:lang=&quot;en&quot;&gt;(Michael Starr, New York Post)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Â«La serie viene fuori come un omaggio bizzarro ad &lt;span xml:lang=&quot;en&quot;&gt;Adams&lt;/span&gt;, piuttosto che incanalare il suo spirito e il suo grande cuoreÂ». &lt;span xml:lang=&quot;en&quot;&gt;(Kevin P. Sullivan, Entertainment Weekly)&lt;/span&gt;.&lt;/p&gt;</column>
         </table>
         <!-- Tabella Recensione -->
         <table name="Recensione">
@@ -1179,9 +1375,7 @@
             <column name="Nome">Filippo</column>
             <column name="Cognome">Rossi</column>
             <column name="Nickname">error_404</column>
-            <column name="Data_Nascita">1956-04-14</column>
-            <column name="Password">nchjbjugye</column>
-            <column name="Residenza">Padova
+            <column name="Password">nchjbjugye
 </column>
         </table>
         <table name="Utente">
@@ -1189,9 +1383,7 @@
             <column name="Nome">Giacomo</column>
             <column name="Cognome">Verdi</column>
             <column name="Nickname">giardinoverde</column>
-            <column name="Data_Nascita">1996-11-12</column>
-            <column name="Password">fckj3e85r</column>
-            <column name="Residenza">Torrebelvicino
+            <column name="Password">fckj3e85r
 </column>
         </table>
         <table name="Utente">
@@ -1199,19 +1391,22 @@
             <column name="Nome">Giorgia</column>
             <column name="Cognome">Tessuto</column>
             <column name="Nickname">shile865</column>
-            <column name="Data_Nascita">1965-10-08</column>
-            <column name="Password">n38djhdvp3</column>
-            <column name="Residenza">Napoli
+            <column name="Password">n38djhdvp3
 </column>
+        </table>
+        <table name="Utente">
+            <column name="Email">giovanni.dallariva@studenti.unipd.it</column>
+            <column name="Nome">Giovanni</column>
+            <column name="Cognome">Dalla Riva</column>
+            <column name="Nickname">giovi0906</column>
+            <column name="Password">$2y$10$/5RD/WyvmedNcNPcZXhSu.Ffy4YzIXmHjPv.QpzIM43in9TRnZH/O</column>
         </table>
         <table name="Utente">
             <column name="Email">ilcorvobianco91@gmail.com</column>
             <column name="Nome">Fabrizio</column>
             <column name="Cognome">Corvo</column>
             <column name="Nickname">il_corvo_bianco</column>
-            <column name="Data_Nascita">1991-02-02</column>
-            <column name="Password">djdudcy489g</column>
-            <column name="Residenza">Verona
+            <column name="Password">djdudcy489g
 </column>
         </table>
         <table name="Utente">
@@ -1219,9 +1414,7 @@
             <column name="Nome">Karim</column>
             <column name="Cognome">Musa</column>
             <column name="Nickname">yotobifeic</column>
-            <column name="Data_Nascita">1989-04-20</column>
-            <column name="Password">jf74hjfg56fhc</column>
-            <column name="Residenza">Torino
+            <column name="Password">jf74hjfg56fhc
 </column>
         </table>
         <table name="Utente">
@@ -1229,9 +1422,7 @@
             <column name="Nome">Marco</column>
             <column name="Cognome">Gattuso</column>
             <column name="Nickname">ilGattoSulTubo</column>
-            <column name="Data_Nascita">1991-05-01</column>
-            <column name="Password">fnhjx2l4za5</column>
-            <column name="Residenza">Padova
+            <column name="Password">fnhjx2l4za5
 </column>
         </table>
         <table name="Utente">
@@ -1239,9 +1430,7 @@
             <column name="Nome">Maria</column>
             <column name="Cognome">Dalla Valle</column>
             <column name="Nickname">valpensa1987</column>
-            <column name="Data_Nascita">1987-09-19</column>
-            <column name="Password">c73n25cnb</column>
-            <column name="Residenza">Trieste
+            <column name="Password">c73n25cnb
 </column>
         </table>
         <table name="Utente">
@@ -1249,9 +1438,7 @@
             <column name="Nome">Mario</column>
             <column name="Cognome">Bianchi</column>
             <column name="Nickname">il_bianco95</column>
-            <column name="Data_Nascita">1995-03-15</column>
-            <column name="Password">jhfc8u9frn</column>
-            <column name="Residenza">Vicenza
+            <column name="Password">jhfc8u9frn
 </column>
         </table>
         <table name="Utente">
@@ -1259,9 +1446,7 @@
             <column name="Nome">Matteo</column>
             <column name="Cognome">Vanni</column>
             <column name="Nickname">superman63</column>
-            <column name="Data_Nascita">1963-08-19</column>
-            <column name="Password">v5d8frhh25de</column>
-            <column name="Residenza">Milano
+            <column name="Password">v5d8frhh25de
 </column>
         </table>
         <table name="Utente">
@@ -1269,9 +1454,7 @@
             <column name="Nome">Paolo</column>
             <column name="Cognome">Rossi</column>
             <column name="Nickname">rosso_malpelo</column>
-            <column name="Data_Nascita">1994-03-22</column>
-            <column name="Password">kjdfi8vm</column>
-            <column name="Residenza">Vicenza
+            <column name="Password">kjdfi8vm
 </column>
         </table>
         <table name="Utente">
@@ -1279,9 +1462,7 @@
             <column name="Nome">Michael</column>
             <column name="Cognome">Roncon</column>
             <column name="Nickname">l&amp;rsquo;uomo_dei_goti</column>
-            <column name="Data_Nascita">1995-01-21</column>
-            <column name="Password">n348xsesw</column>
-            <column name="Residenza">Sarcedo
+            <column name="Password">n348xsesw
 </column>
         </table>
         <table name="Utente">
@@ -1289,9 +1470,7 @@
             <column name="Nome">Sara</column>
             <column name="Cognome">Marvelin</column>
             <column name="Nickname">deadpoolpersforza</column>
-            <column name="Data_Nascita">1989-12-09</column>
-            <column name="Password">mnbyut6er43a</column>
-            <column name="Residenza">Roma
+            <column name="Password">mnbyut6er43a
 </column>
         </table>
         <table name="Utente">
@@ -1299,9 +1478,7 @@
             <column name="Nome">Sara</column>
             <column name="Cognome">Sbalchiero</column>
             <column name="Nickname">sailormoon64</column>
-            <column name="Data_Nascita">1964-08-06</column>
-            <column name="Password">b28xv4vl</column>
-            <column name="Residenza">Bologna
+            <column name="Password">b28xv4vl
 </column>
         </table>
         <table name="Utente">
@@ -1309,9 +1486,7 @@
             <column name="Nome">Sara</column>
             <column name="Cognome">Viola</column>
             <column name="Nickname">XX_violetta_XX</column>
-            <column name="Data_Nascita">2000-08-16</column>
-            <column name="Password">438cvdxhf</column>
-            <column name="Residenza">Trento
+            <column name="Password">438cvdxhf
 </column>
         </table>
         <table name="Utente">
@@ -1319,12 +1494,354 @@
             <column name="Nome">Ombretta</column>
             <column name="Cognome">Gaggi</column>
             <column name="Nickname">Ombretta</column>
-            <column name="Data_Nascita">1989-10-20</column>
             <column name="Password">user</column>
-            <column name="Residenza">Padova
-</column>
         </table>
         <!-- Tabella VotoLibro -->
+        <table name="VotoLibro">
+            <column name="Libro">9780140620306</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9780140620306</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9780140620306</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9780828895965</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9780828895965</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">2.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9780828895965</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">2.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9780828895965</column>
+            <column name="Autore">marcogattuso91@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9780828895965</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804119142</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804119142</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804314660</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804314660</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804314660</column>
+            <column name="Autore">sara.sbalchiero64@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804314660</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804373308</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804373308</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">2.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804373308</column>
+            <column name="Autore">marcogattuso91@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804373308</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804373308</column>
+            <column name="Autore">sara.sbalchiero64@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804395942</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804395942</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804398165</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804398165</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804398165</column>
+            <column name="Autore">giovanni.dallariva@studenti.unipd.it</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804398165</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804401841</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804403029</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804403029</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804406822</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804507949</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804517580</column>
+            <column name="Autore">marcogattuso91@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804534396</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804572114</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804572114</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804627807</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804627807</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804639701</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804639701</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804639701</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804639701</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">2.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804641728</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">2.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804641728</column>
+            <column name="Autore">marcogattuso91@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804641759</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788804641759</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788806176938</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788806176938</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788807900587</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788807900587</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788809766013</column>
+            <column name="Autore">filippo.rossi@gmail.com</column>
+            <column name="Valutazione">1.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788809766013</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788809766013</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788809772878</column>
+            <column name="Autore">giorgia.tessuto65@gmail.com</column>
+            <column name="Valutazione">2.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788809772878</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">2.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845246005</column>
+            <column name="Autore">marcogattuso91@gmail.com</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845246005</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845246005</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845268342</column>
+            <column name="Autore">karimmusa89@gmail.com</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845268342</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845268342</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845272400</column>
+            <column name="Autore">marcogattuso91@gmail.com</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788845272400</column>
+            <column name="Autore">mario.bianchi95@gmail.com</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoLibro">
+            <column name="Libro">9788884516374</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">4.0</column>
+        </table>
         <!-- Tabella VotoRecensione -->
+        <table name="VotoRecensione">
+            <column name="Recensione">7</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoRecensione">
+            <column name="Recensione">13</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">4.0</column>
+        </table>
+        <table name="VotoRecensione">
+            <column name="Recensione">20</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">3.0</column>
+        </table>
+        <table name="VotoRecensione">
+            <column name="Recensione">32</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoRecensione">
+            <column name="Recensione">33</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoRecensione">
+            <column name="Recensione">34</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
+        <table name="VotoRecensione">
+            <column name="Recensione">37</column>
+            <column name="Autore">user</column>
+            <column name="Valutazione">5.0</column>
+        </table>
     </database>
 </pma_xml_export>
