@@ -75,7 +75,7 @@
 
 		// SEZIONE COMMENTI
 
-		if ($datiCommenti = $db->query("SELECT * FROM Commentinews WHERE news = '". $codice. "' ORDER BY Data_Pubblicazione DESC")) {
+		if ($datiCommenti = $db->query("SELECT * FROM CommentiNews WHERE news = '". $codice. "' ORDER BY Data_Pubblicazione DESC")) {
 			if($datiCommenti->num_rows>0) {
 				echo "<h2>Commenti</h2>";
 				echo "<div class='comments'>";
