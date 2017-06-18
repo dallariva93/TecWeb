@@ -163,3 +163,6 @@ tr {
     max-height: 70px;
     overflow: hidden;
 }
+.centerBig h3{
+	line-height: 1em;
+}
