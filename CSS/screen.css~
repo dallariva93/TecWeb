@@ -5,8 +5,12 @@
 html, body{
 	font-family: Verdana, Helvetica, sans-serif;
 	margin: auto;
-	height: 97%;
+	height: 95.6%;
 	background-color:#e0e0e4;
+}
+
+a img {				/*per IE8*/
+ border:none;
 }
 
 textarea{
@@ -202,7 +206,8 @@ fieldset label {
 	height: 10em;
 	overflow: hidden;
 	background-color:#fff;
-	box-shadow: 0 1px 5px black;
+	box-shadow: 0 1px 5px #5e5e5e;
+   border: 1px solid #b5b5b5;
 }
 .elenco dd h1{
 	font-size: 1.5em;
@@ -229,13 +234,16 @@ fieldset label {
 	opacity: 0.7;
 	background-color: lightgrey;
 }
-.elenco li >a{
-	text-align:center;
+
+.rightSmall>ul>li{
 	list-style-type: none;
-	display: block;
-	border-bottom: 1px solid grey;
-	box-shadow: 0px 0px 4px grey;
-	padding: 0.4em;
+}
+.elenco li >a {
+    text-align: center;
+    display: block;
+    border-bottom: 1px solid #b5b5b5;
+    box-shadow: 0px 0px 4px #5e5e5e;
+    padding: 0.4em;
 }
 /**************************************************************
 		FOOTER
@@ -291,7 +299,7 @@ fieldset label {
 	float: left;
 	margin-bottom: 5px;
 }
-.filtri>h1{
+.filtri>h1, .filtri>form>div>h1{
 	text-align: center;
 	margin-bottom: 0.2em;
 }
@@ -303,11 +311,11 @@ fieldset label {
 	border-bottom:1px solid #e8e8e8;
 	padding-bottom: 5px;
 }
-.filtri>form>div>h1{
+/*.filtri>form>div>h1{
 	text-align: center;
 	margin-top:0.2em;
 	margin-bottom: 0.1em;
-}
+}*/
 /**************************************************************
 		PAGING
 ***************************************************************/
@@ -390,7 +398,8 @@ fieldset label {
 	/*margin: 1%;*/
 }
 .Intestazione h1{
-	margin-left: 33%;
+	text-align: center;
+	/*margin-left: 33%;*/
 	font-size: 1.5em;
 }
 .Intestazione h3{
@@ -867,8 +876,7 @@ li .stelle{
 	padding-bottom: 1em;
 	background-color: white;
 	width: 100%;
-	width: 100%;
-   min-height: 84.1%;
+	min-height: 84.1%;
 
 }
 
