@@ -3,54 +3,38 @@
 ***************************/
 .menu {
 	position: static;
-
 	}
 .menu li{
 	float: none;
 	width: 100%;
 }
-.header {
+.header, .breadcrumb {
 	margin-top: 0;
 }
-.breadcrumb {
-	margin-top: 0;
-}
+
 .menu li.right {
 	float: none;
 }
 
-.breadcrumb , .menu {
+.breadcrumb , .menu, .elenco, .elenco dd h3, .text {
 	font-size: 1.2em;
 }
 /**************************
 		GENERALI
 ***************************/
-.rightBig , .rightSmall,.VrightBig{
+.rightBig , .rightSmall,.VrightBig, .leftBig ,.VleftSmall, .leftSmall, .lefthalf{
 	margin: 0;
 }
-.leftBig ,.VleftSmall, .leftSmall{
-	margin:0;
-}
-.leftHalf{
+
+.leftHalf, .button{
 	width: 98%;
 }
-
-.leftBig ,.VleftSmall, .leftSmall, .rightBig , .rightSmall,.VrightBig{
+ 
+.leftBig ,.VleftSmall, .leftSmall, .rightBig , .rightSmall,.VrightBig,.Intestazione>div:not(:last-child), .valutazioniRecensione{
 	width:100%;
 }
-.rightBig , .rightSmall,.VrightBig{
-	margin: 0;
-}
-.leftBig ,.VleftSmall, .leftSmall, .lefthalf{
-	margin: 0;
-}
-/*.marginMobile {
-    margin-right: 0.5em;
-    margin-left: 0.5em;
-}*/
 
-
-.leftBig h1, .VrightBig h1{
+.leftBig h3, .VrightBig h3{
 	margin-top: 0.1em;
 	font-size: 1.2em;
 }
@@ -71,9 +55,6 @@
 /**************************
 		TESTO
 ***************************/
-.text {
-	font-size: 1.3em;
-}
 .Intestazione>dl{
 	border: none;
 }
@@ -84,16 +65,11 @@
 }
 .Intestazione h1 {
 	margin-left: 0;
-    text-align: center;
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
+  	text-align: center;
+   font-size: 1.5em;
+   margin-bottom: 0.5em;
 }
-.Intestazione>div:not(:last-child){
-	width: 100%;
-}
-.valutazioniRecensione {
-    width: 100%;
-}
+
 .valutazioniRecensione li{
     margin-left: 1%;
 }
@@ -104,9 +80,6 @@
 		ELENCO
 ***************************/
 
-.elenco {
-	font-size: 1.2em;
-}
 .elenco img {
     width: 6.5em;
     height: 9.4em;
@@ -132,9 +105,6 @@
     position: relative;
 }
 
-.button {
-	width:98%;
-}
 .btnDelete{
     height: 3.1em;
     position: relative;
@@ -174,4 +144,10 @@ th,td{
    padding: 0.1em 0.2em 0.1em 0.2em;
    text-align: left;
    font-size: 0.8em;
+}
+.centerBig p{
+	    margin-right: 0.2em;
+    font-size: 0.8em;
+    max-height: 75px;
+    overflow: hidden;
 }
