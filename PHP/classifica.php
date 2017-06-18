@@ -60,6 +60,7 @@
 	$checkOrDesc = "";
 	
 	//Classifica Utente o Redazione
+	echo "<h1>Classifica</h1>";
 	if($tipoCl == 'redazione'){
 		$checkTRed = "checked = 'checked'";
 		$strClassifica = "<span class = 'note'>Voto della redazione: ";
@@ -69,9 +70,9 @@
 		$strClassifica = "<span class = 'note'>Voto degli utenti: ";
 	}
 	$searchGenere=array("{{NAME}}","{{TESTO}}","{{VALUE}}","{{CHECK}}","{{ID}}");
-	$replaceGenere=array("voti","Classifica voti degli Utenti","utenti", $checkTUser,"utenti");
+	$replaceGenere=array("voti","Voti degli Utenti","utenti", $checkTUser,"utenti");
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
-	$replaceGenere=array("voti","Classifica voti della Redazione","redazione", $checkTRed,"redazione");
+	$replaceGenere=array("voti","Voti della Redazione","redazione", $checkTRed,"redazione");
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
 	
 	//Ordine ascendente o discendente dei risultati
