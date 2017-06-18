@@ -1,9 +1,10 @@
 <div class='centrato presentazione content'>
 <div class='Errore'>{{errore}}</div>
-<div class='text'>
-<img class='VleftSmall' src='{{Path}}' alt=''/>
+<div class='Intestazione'>
 <h1>{{Titolo}}</h1>
-
+<img class='VleftSmall' src='{{Path}}' alt=''/>
+</div>
+<div class='text'>
 {{Testo}}
 
 <h3>Autore: {{Cognome}} {{Nome}} </h3>

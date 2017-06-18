@@ -108,7 +108,7 @@
 			}
 		$datiCommenti->free();
 		}
-
+		
 		//Form inserimento commenti (solo per un utente loggato)
 
 		if(isset($_SESSION['type']) &&  $_SESSION['type'] == 'user'){
