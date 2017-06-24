@@ -1,7 +1,7 @@
 <?php
 	Require_once('connect.php');
 	Require_once('functions.php');
-	
+
 	//stampo l'head dell'html
 	$replaceHead=array("Accedi a FaceOnTheBook", "Pagina di login");
 	$searchHead=array("{{title}}","{{description}}");
@@ -44,7 +44,7 @@
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("",
-		"<span xml:lang='en'> <a href='index.php'>Home</a></span> > Accedi");
+		"<span xml:lang='en'> <a href='index.php'>Home</a></span> &gt; Accedi");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,
 		file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
@@ -69,7 +69,7 @@
 
 		$_SESSION['id'] = $_POST['email'];
 		$_SESSION['ultimaAttivita'] = time();
-		
+
 		header('Location: index.php');
 
 	}

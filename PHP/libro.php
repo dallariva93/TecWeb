@@ -81,9 +81,9 @@
 
 			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 			$replaceBreadcrumb=array(""
-						,"<span xml:lang='en'><a href='index.php'>Home</a></span> > <span>
+						,"<span xml:lang='en'><a href='index.php'>Home</a></span> &gt; <span>
 						<a href='recensioni.php'>Recensioni</a>
-						</span> > ". $dati['Titolo']);
+						</span> &gt; ". $dati['Titolo']);
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb
 						, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
@@ -130,8 +130,8 @@
 				$votoRecArray->free();
 
 		if($datiRec) {
-			echo "</ul><h3>Recensione scritta da ".$datiRec['Nome']. " ".
-				$datiRec['Cognome']. "</h3>".
+			echo "</ul><h2>Recensione scritta da ".$datiRec['Nome']. " ".
+				$datiRec['Cognome']. "</h2>".
 				file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		}
 

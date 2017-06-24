@@ -1,6 +1,7 @@
 <!--RecensioniInizioFiltri.txt-->
 <div class="centrato content ">
 <div  class="filtri VleftSmall ">
-<h1>Genere</h1>	
+	
 <form action="recensioni.php" method="post">
-	<div class='btnLongMobile'>
+	<fieldset class='btnLongMobile'>
+	<legend>Genere</legend>

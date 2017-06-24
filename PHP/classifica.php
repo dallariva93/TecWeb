@@ -18,63 +18,63 @@
 	$genere = "";
 	$replaceTipo = "";
 	$replaceOrdine = "";
-	
+
 	//Numero della pagina,tipo di classifica, ordine di visualizzazione e filtro dei generi
 	if(isset($_POST['page']))
 		list($page, $tipoCl, $ordine, $genere) = explode("-", $_POST['page'], 4);
 	else
 		$page = 0;
-	
+
 	//Tipo classifica (Utenti o Redazione)
 	if(isset($_POST['voti']))
 		$tipoCl = $_POST['voti'];
-	
+
 	//Ordine di visualizzazione
 	if(isset($_POST['ordine']))
 		$ordine = $_POST['ordine'];
-	
+
 	//Genere delle recensioni
 	if(isset($_POST['genere'])){
 		$genere = $_POST['genere'];
 		$page = 0;
 	}
-	
-	
+
+
 	echo menu();
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("",
 		"<span xml:lang='en'> <a href='index.php'>Home</a>
-		</span> > Classifica ". $genere);
+		</span> &gt; Classifica ". $genere);
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,
 		file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 	//Colonna dei filtri
 	echo file_get_contents("../HTML/Template/ClassificaInizioFiltri.txt");
-	
-	
+
+
 	//variabili check
 	$checkTUser = "";
 	$checkTRed = "";
 	$checkOrCres = "";
 	$checkOrDesc = "";
-	
+
 	//Classifica Utente o Redazione
 	echo "<h1>Classifica</h1>";
 	if($tipoCl == 'redazione'){
 		$checkTRed = "checked = 'checked'";
-		$strClassifica = "<span class = 'note'>Voto della redazione: ";
+		$strClassifica = "<div class = 'note'>Voto della redazione: ";
 	}
 	else{
 		$checkTUser = "checked = 'checked'";
-		$strClassifica = "<span class = 'note'>Voto degli utenti: ";
+		$strClassifica = "<div class = 'note'>Voto degli utenti: ";
 	}
 	$searchGenere=array("{{NAME}}","{{TESTO}}","{{VALUE}}","{{CHECK}}","{{ID}}");
 	$replaceGenere=array("voti","Voti degli Utenti","utenti", $checkTUser,"utenti");
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
 	$replaceGenere=array("voti","Voti della Redazione","redazione", $checkTRed,"redazione");
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
-	
+
 	//Ordine ascendente o discendente dei risultati
 	echo "<h1>Ordine</h1>";
 	if($ordine == 'cresc')
@@ -88,7 +88,7 @@
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
 	$replaceGenere=array("ordine","Crescente","cresc", $checkOrCres,"cresc");
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
-	
+
 	//Filtri per Genere
 	echo "<h1>Genere</h1>";
 	//Creo opzione per selezionare tutte le recensioni
@@ -125,11 +125,11 @@
 	echo "<div class='classifica marginMobile' ><dl class='VrightBig'>
 	<dt>Classifica Libri</dt>";
 
-	
+
 	//Se è presente un genere rendo più specifica la query
 	 if( $genere != "")
 	 	$sqlGenere.= " WHERE Libro.Genere = \"$genere\"";
-	
+
 	//query per ottenere le recensioni
 	if($tipoCl == 'redazione'){
 		$sqlQuery = "SELECT Libro.ISBN, Libro.Titolo, Scrittore.Nome, Scrittore.Cognome, Recensione.Valutazione FROM (Libro JOIN
@@ -147,12 +147,12 @@
 				if(isset($row['nVoti']))
 					$numVoti = " (".$row['nVoti']."-voti)";
 				$searchLibro=array("{{Indice}}","{{ISBN}}","{{Titolo}}","{{Autore}}","{{Valutazione}}","{{Star}}","{{Nvoti}}");
-				$replaceLibro=array($i,$row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$strClassifica.$row['Valutazione']." - ","<div class='classStar'>".printStar($row['Valutazione']),"</div>".$numVoti."</span>");
+				$replaceLibro=array($i,$row['ISBN'],$row['Titolo'],$row['Nome']." ". $row['Cognome'],$strClassifica.$row['Valutazione']." - ","<div class='classStar'>".printStar($row['Valutazione']),"</div>".$numVoti."</div>");
 				echo str_replace($searchLibro,$replaceLibro,file_get_contents("../HTML/Template/MiniaturaLibroClassifica.txt"));
 				$i += 1;
 			}
 		}
-		// 
+		//
 		$ClassificaLib->free();
 	}
 	//Fine stampa classifica

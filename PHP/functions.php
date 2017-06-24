@@ -44,14 +44,12 @@ function menu(){
 				$utente = $user->fetch_array(MYSQLI_ASSOC);
 				echo "<li class='right'><a href='profilo.php' tabindex='2'>". $utente['Nickname']."</a></li>";
 			}
-
 		}
 		else{
 			echo file_get_contents("../HTML/Template/MenuNonLogin.txt");
 		}
 		echo
-		"</ul>
-		</div>";
+		"</ul></div>";
 	}
 
 

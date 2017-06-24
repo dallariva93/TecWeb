@@ -31,7 +31,7 @@
 
 	$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 	$replaceBreadcrumb=array("","<span xml:lang='en'>
-		<a href='index.php'>Home</a></span> > Contatti");
+		<a href='index.php'>Home</a></span> &gt; Contatti");
 	echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,
 		file_get_contents("../HTML/Template/Breadcrumb.txt")).
 

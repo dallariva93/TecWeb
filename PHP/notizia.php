@@ -3,15 +3,15 @@
 	if(isset($_REQUEST['news']) && $datiNews = $db->query("SELECT * FROM Notizie JOIN FotoNotizie ON (Notizie.Id = FotoNotizie.Notizia) WHERE id = '". ($_REQUEST['news'])."'")) {
 		Require_once('functions.php');
 
-		
+
 		$codice = $_REQUEST['news'];
 		$errore ="";
 
 		if(!isset($_SESSION))
         	session_start();
 
-		
-		
+
+
 		//Azioni form
 		if(isset($_SESSION['id'])){
 			//Inserimento commento
@@ -38,12 +38,12 @@
 			}
 		}//Fine azioni form
 
-		
+
 		if($datiNews->num_rows > 0) {
 			$datiN = $datiNews->fetch_array(MYSQLI_ASSOC);
 			$autoreNome = "";
 			$autoreCognome = "";
-			
+
 			//DATI AUTORE della NEWS
 			if($autoreArray = $db->query("SELECT Nome,Cognome,Email FROM Redazione WHERE Email = '". $datiN['Autore']. "'")){
 				if($autoreArray->num_rows > 0) {
@@ -52,15 +52,15 @@
 					$autoreCognome = $autore['Cognome'];
 				}
 			}
-			
+
 			$searchHead=array("{{title}}","{{description}}");
 			$replaceHead=array(strip_tags($datiN['Titolo']). " - ","Social network per topi di bibblioteca/>");
 			echo str_replace($searchHead ,$replaceHead, file_get_contents("../HTML/Template/Head.txt"));
-			
+
 			echo menu();
 
 			$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
-			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span> > <span xml:lang='en'><a href='news.php'>News</a></span> > ". strip_tags($datiN['Titolo']));
+			$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a></span> &gt; <span xml:lang='en'><a href='news.php'>News</a></span> &gt; ". strip_tags($datiN['Titolo']));
 			echo str_replace($searchBreadcrumb ,$replaceBreadcrumb, file_get_contents("../HTML/Template/Breadcrumb.txt"));
 
 			$searchHeader=array("{{errore}}","{{Path}}","{{Titolo}}","{{IdAutore}}","{{Testo}}","{{Cognome}}","{{Nome}}");
@@ -68,8 +68,8 @@
 			echo str_replace($searchHeader ,$replaceHeader, file_get_contents("../HTML/Template/IntestazioneNews.txt"));
 
 		}
-		
-		
+
+
 		$datiNews->free();
 		$autoreArray->free();
 
@@ -97,7 +97,7 @@
 						$replaceDeleteCommento=array($codice,$Commento['Autore'], $Commento['Data_Pubblicazione'], $id);
 						echo str_replace($searchDeleteCommento ,$replaceDeleteCommento, file_get_contents("../HTML/Template/DeleteNews.txt"));
 					}
-					
+
 					$searchCommento=array("{{Username}}", "{{Data}}", "{{Testo}}");
 					$replaceCommento=array($username, Data($Commento['Data_Pubblicazione'], true), $Commento['Commento']);
 					echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoNotizia.txt"));
@@ -108,7 +108,7 @@
 			}
 		$datiCommenti->free();
 		}
-		
+
 		//Form inserimento commenti (solo per un utente loggato)
 
 		if(isset($_SESSION['type']) &&  $_SESSION['type'] == 'user'){
@@ -119,7 +119,7 @@
 
 		echo "</div>"; // Fine class text
 
-		
+
 		$db->close();
 		echo "</div>"; //Fine classe content
 		echo file_get_contents("../HTML/Template/Footer.txt");
