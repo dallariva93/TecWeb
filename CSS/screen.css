@@ -289,7 +289,8 @@ fieldset label {
 .filtri {
 	margin-bottom: 1em;
 	margin-top: 1em;
-	margin: 1px solid #e8e8e8;
+	/*-----------------------margin: 1px solid #e8e8e8;
+	Intendevi border:???------------------------------*/
 	background-color: white;
 }
 .filtri div{
@@ -490,7 +491,7 @@ span .classStar{
 	padding:0.5em;
 	text-align: left;
 	margin-bottom: 1em;
-	word-break: break-word;
+	word-wrap: break-word;
 }
 .text h1 {
 	padding: 0.5em 0 0.5em 0;
@@ -767,7 +768,8 @@ tr:nth-child(even) {
 	width: 20px;
 	text-align: center;
 	margin-top: 0.3em;
-	pointer-events: none;
+	/*----------------------pointer-events: none;
+	 Non fa parte dello standard CSS3, è ancora sperimentale*/
 }
 li .stelle{
 	position: relative;
@@ -924,7 +926,7 @@ li .stelle{
 	width: 48%;
 }
 
-.centerBig:{
+.centerBig{
 	margin-left: 1%;
 	margin-right: 1%;
 }
