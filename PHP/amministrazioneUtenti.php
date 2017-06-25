@@ -1,7 +1,7 @@
 <?php
 	if(!isset($_SESSION))
 		session_start();
-	if($_SESSION['type'] == "admin"){
+	if(isset($_SESSION['type']) && $_SESSION['type'] == "admin"){
 		Require_once('connect.php');
 		Require_once('functions.php');
 
@@ -42,8 +42,8 @@
 
 		$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 		$replaceBreadcrumb=array("","<span xml:lang='en'> <a href='index.php'>Home</a>
-			</span> > <span><a href='amministrazione.php'>Amministrazione</a>
-			</span> > Utenti");
+			</span> &gt; <span><a href='amministrazione.php'>Amministrazione</a>
+			</span> &gt; Utenti");
 		echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,
 		 	file_get_contents("../HTML/Template/Breadcrumb.txt")).
 
@@ -55,9 +55,10 @@
 			echo file_get_contents("../HTML/Template/InizioTabellaUtente.txt");
 			while ($Utente = $Utenti->fetch_array(MYSQLI_ASSOC)){
 
-				$search=array("{{Email}}","{{Cognome}}","{{Nome}}","{{Nickname}}");
+				$search=array("{{Email}}","{{Cognome}}","{{Nome}}","{{Nickname}}",
+								"{{Id}}");
 				$replace=array($Utente['Email'],$Utente['Cognome'],$Utente['Nome'],
-					$Utente['Nickname']);
+					$Utente['Nickname'],str_replace("@","",$Utente['Email']));
 				echo str_replace($search ,$replace,
 					file_get_contents("../HTML/Template/TabellaUtente.txt"));
 			}

@@ -7,9 +7,9 @@
 	<td>
 		<form action='amministrazioneUtenti.php' method='post'>
 			<div >
-				<label for='cancella{{Nickname}}' class='Nascondi'>Elimina</label>
+				<label for='cancella{{Id}}' class='Nascondi'>Elimina</label>
 				<input type = 'hidden' name = 'delete' value = '{{Email}}' />
-				<input type ='submit' value='&#x2718;' id='cancella{{Nickname}}' class='btnDelete' />
+				<input type ='submit' value='&#x2718;' id='cancella{{Id}}' class='btnDelete' />
     		</div>
 		</form>
 	</td>

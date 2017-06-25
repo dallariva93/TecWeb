@@ -1,6 +1,6 @@
 <!--InizioTabellaUtente.txt-->
 <div class='Table'>
-<table>
+<table summary="Insieme di tutti gli utenti presenti nel database ordinati per cognome, al termine di ogni riga è presente un bottone per eliminare l'utente inoltre a fine tabella è possibile inserirne di nuovi.">
 		<caption class="Nascondi">Elenco di tutti gli utenti presenti nel sito</caption>
 		<thead>
 			<tr>

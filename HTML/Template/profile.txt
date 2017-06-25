@@ -2,6 +2,7 @@
 	<div class=" corpo menuProfilo">
 			<form method='post' class="formProfilo centrato" action='profilo.php'>
 				<fieldset>
+					<legend class="Nascondi">Seleziona quali dati vuoi visualizzare</legend>
 					<button type="submit" value="1" class="Pbutton" name="dati">Dati</button>
 					<button type="submit" value="2" class="Pbutton" name="libriVotati">Libri Votati</button>
 					<button type="submit" value="3" class="Pbutton" name="commenti">Tuoi Commenti</button>					

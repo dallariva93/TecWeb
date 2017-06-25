@@ -1,6 +1,6 @@
 <!--InizioTabellaScrittore.txt-->
 <div class='Table'>
-<table>
+<table summary="Insieme di tutti gli scrittori presenti nel database ordinati per cognome, al termine di ogni riga è presente un bottone per eliminare lo scrittore inoltre a fine tabella è possibile inserirne di nuovi. Nella colonna 'Cognome è presente un link per visualizzare la pagina dedicata allo scrittore">
 	<caption class="Nascondi">Elenco di tutti gli scrittori presenti nel sito</caption>
 	<thead>
 		<tr>

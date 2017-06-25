@@ -7,6 +7,7 @@
 	</ul>
 	<form method="post" class="formProfilo" action="profilo.php">
 		<fieldset>
+			<legend class="Nascondi">Azioni sul profilo</legend>
 			<button type="submit" value="4" class="Pbutton" name="ModificaPass">Modifica <span xml:lang='en'>Password</span></button>
 			<button type="submit" value="5" class="Pbutton" name="EliminaAccount">Cancella <span xml:lang='en'>Account</span></button>
 		</fieldset>

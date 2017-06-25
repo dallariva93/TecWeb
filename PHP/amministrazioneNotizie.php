@@ -1,7 +1,7 @@
 <?php
 	if(!isset($_SESSION))
 		session_start();
-	if($_SESSION['type'] == "admin"){
+	if(isset($_SESSION['type']) && $_SESSION['type'] == "admin"){
 		Require_once('connect.php');
 		Require_once('functions.php');
 
@@ -59,9 +59,9 @@
 
 		$searchBreadcrumb=array("{{AggiungiClassi}}","{{Path}}");
 		$replaceBreadcrumb=array("","<span xml:lang='en'>
-			<a href='index.php'>Home</a></span> >
+			<a href='index.php'>Home</a></span> &gt;
 			<span><a href ='amministrazione.php'>Amministrazione</a>
-			</span> > Notizie");
+			</span> &gt; Notizie");
 		echo str_replace($searchBreadcrumb ,$replaceBreadcrumb,
 			file_get_contents("../HTML/Template/Breadcrumb.txt")).
 

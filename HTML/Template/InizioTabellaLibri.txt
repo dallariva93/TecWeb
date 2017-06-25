@@ -1,15 +1,15 @@
 <!--InizioTabellaLibri.txt-->
 <div class='Table'>
-<table>
-		<caption class="Nascondi">Elenco di tutti i libri nel sito</caption>
-		<thead>
-			<tr>
-				<th scope='col'>ISBN</th>
-				<th scope='col'>Titolo</th>
-				<th scope='col'>Autore</th>
-				<th scope='col'>Anno di Pubblicazione</th>
-				<th scope='col'>Casa Editrice</th>
-				<th scope='col'>Genere</th>
-			</tr>
-		</thead>
-		<tbody>
+<table summary="Insieme di tutti i libri presenti nel database ordinati per titolo, al termine di ogni riga è presente un bottone per eliminare il libro inoltre a fine tabella è possibile inserirne di nuovi">
+	<caption class="Nascondi">Elenco di tutti i libri nel sito</caption>
+	<thead>
+		<tr>
+			<th scope='col'>ISBN</th>
+			<th scope='col'>Titolo</th>
+			<th scope='col'>Autore</th>
+			<th scope='col'>Anno di Pubblicazione</th>
+			<th scope='col'>Casa Editrice</th>
+			<th scope='col'>Genere</th>
+		</tr>
+	</thead>
+	<tbody>

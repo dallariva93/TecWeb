@@ -1,6 +1,6 @@
 <!--InizioTabellaRecensioni.txt-->
 <div class='Table'>
-<table>
+<table summary="Insieme di tutte le recensioni scritte ordinate per data di pubblicazione, nella colonna 'libro' sono presenti i link per visualizzare la pagina del libro. Al termine di ogni riga è presente un bottone per eliminare la recensione inoltre a fine tabella è possibile inserirne di nuove">
 	<caption class="Nascondi">Elenco di tutte le recensioni presenti nel sito</caption>	
 	<thead>
 		<tr>

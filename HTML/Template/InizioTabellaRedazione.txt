@@ -1,6 +1,6 @@
 <!--InizioTabellaRedazione.txt-->
 <div class='Table'>
-<table>
+<table summary="Insieme degli amministratori del sito ordinati per cognome, al termine di ogni riga è presente un bottone per eliminare l'amministratore inoltre a fine tabella è possibile inserirne di nuovi.">
 	<caption class="Nascondi">Elenco di tutti gli amministratori del sito</caption>
 	<thead>
 		<tr>
