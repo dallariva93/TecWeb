@@ -70,7 +70,7 @@
    margin-bottom: 0.5em;
 }
 
-.valutazioniRecensione li{
+.valutazioniRecensione li, .Intestazione h2{
     margin-left: 1%;
 }
 .stelle{
@@ -99,12 +99,10 @@
 /**************************
 		BOTTONI
 ***************************/
-.btnLongMobile {
-    width: 97%;
-    margin-right: 1.5%;
-    position: relative;
+.btnLongMobile:not(:first-child) {
+  	width:98%;
 }
-
+:first-child
 .btnDelete{
     height: 3.1em;
     position: relative;
@@ -132,7 +130,6 @@
    left: 2%;
 }
 
-
 .btnDeleteComment {
     height: 3.1em;
     width: 3.1em;
@@ -146,8 +143,12 @@ th,td{
    font-size: 0.8em;
 }
 .centerBig p{
-	    margin-right: 0.2em;
+	margin-right: 0.2em;
     font-size: 0.8em;
     max-height: 75px;
     overflow: hidden;
+}
+
+.filtri legend{
+	width: 100%;
 }

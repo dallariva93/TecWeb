@@ -30,7 +30,7 @@ fieldset legend {
 }
 
 fieldset label {
-	padding: 1em;
+    margin-left: 1%;
 }
 
 
@@ -94,7 +94,7 @@ fieldset label {
 		BOTTONI
 ***************************************************************/
 
-.btnLong , .btnShort{
+.btnLong, .btnShort{
 	padding: 0.4em;
 	margin: auto;
 	margin-top:1em;
@@ -289,7 +289,6 @@ fieldset label {
 .filtri {
 	margin-bottom: 1em;
 	margin-top: 1em;
-	margin: 1px solid #e8e8e8;
 	background-color: white;
 }
 .filtri div{
@@ -304,10 +303,14 @@ fieldset label {
 .filtri input{
 	margin-top: 0.2em;
 	float: right;
+	margin-right: 1%;
 }
-.filtri>form>div>div{
+.filtri>form>div>div, .filtri>form>fieldset>div {
 	border-bottom:1px solid #e8e8e8;
 	padding-bottom: 5px;
+	margin-left: 1%;
+	margin-right: 1%;
+	
 }
 /**************************************************************
 		PAGING
@@ -377,7 +380,11 @@ fieldset label {
 }
 .Intestazione h2{
 	font-weight: normal;
-	opacity: 0.7;
+	float: left;
+	clear: both;
+	margin-left: 1%;
+	margin-top: 0.2em;
+	font-size: 1.3em;
 }
 .Intestazione h3{
 	width: 98%;
@@ -404,9 +411,6 @@ fieldset label {
 /**************************************************************
 		PAGINA CLASSIFICA
 ***************************************************************/
-.classifica dl {
-	margin-bottom: 1em;
-}
 .classifica dt , .classifica >div > h1, .filtri legend{
 	margin-top: 1em;
 	padding: 0.5em;
@@ -475,7 +479,6 @@ span .classStar{
     top: 0.35em;
 }
 .classStar{
-	/*max-width: 6.5em;*/
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -493,7 +496,7 @@ span .classStar{
 	padding:0.5em;
 	text-align: left;
 	margin-bottom: 1em;
-	word-break: break-word;
+	word-wrap: break-word;
 }
 .text h1 {
 	padding: 0.5em 0 0.5em 0;
@@ -571,8 +574,6 @@ padding: 0.2em 0 0.2em 0;
     height: 2.5em;
     width: 2.5em;
     float: right;
-   /* bottom: 0.65em;
-    left: 0.039em;*/
     position: relative;
 }
 
@@ -580,8 +581,6 @@ padding: 0.2em 0 0.2em 0;
     height: 2.5em;
     width: 100%;
     float: right;
-    /* bottom: 0.65em; */
-    /* left: 0.039em; */
     position: relative;
  }
  thead{
@@ -671,9 +670,16 @@ tr:nth-child(even) {
 	margin-bottom: 2em;
 	margin-top: 2em;
 }
+.formProfilo fieldset, fieldset.btnLongMobile {
+    border: none;
+}
 
-.formProfilo fieldset{
-	border:none;
+fieldset.btnLongMobile{
+	margin-top: 1em;
+}
+.filtri legend{
+	width: 93%;
+	margin-bottom: 0.5em;
 }
 .Pbutton{
 	width: 25%;
@@ -770,7 +776,6 @@ tr:nth-child(even) {
 	width: 20px;
 	text-align: center;
 	margin-top: 0.3em;
-	pointer-events: none;
 }
 li .stelle{
 	position: relative;
@@ -927,7 +932,7 @@ li .stelle{
 	width: 48%;
 }
 
-.centerBig:{
+.centerBig{
 	margin-left: 1%;
 	margin-right: 1%;
 }

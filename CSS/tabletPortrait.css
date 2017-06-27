@@ -70,7 +70,7 @@
    margin-bottom: 0.5em;
 }
 
-.valutazioniRecensione li{
+.valutazioniRecensione li, .Intestazione h2{
     margin-left: 1%;
 }
 .stelle{
@@ -99,10 +99,8 @@
 /**************************
 		BOTTONI
 ***************************/
-.btnLongMobile {
-    width: 97%;
-    margin-right: 1.5%;
-    position: relative;
+.btnLongMobile:not(:first-child) {
+  	width:98%;
 }
 
 .btnDelete{
@@ -149,4 +147,8 @@ th,td{
     font-size: 0.8em;
     max-height: 75px;
     overflow: hidden;
+}
+
+.filtri legend{
+	width: 100%;
 }
