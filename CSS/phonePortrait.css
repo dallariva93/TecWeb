@@ -1,5 +1,5 @@
 
-.elenco dd h3,.classifica dd h3, .profommento, .text{
+.elenco dd h1,.classifica dd h3, .profommento, .text{
     font-size: 0.9em;
 }
 .radioMobile{
@@ -8,7 +8,6 @@
 
 .Intestazione>div>div{
 	width: 98%;
-    /*------------------------????text-align:*/
  }
 .MiniaturaLibro{
 	width: 33%;
@@ -149,4 +148,11 @@ tr {
 }
 .centerBig h3{
 	line-height: 1em;
+}
+.classifica dd h1{
+    font-size: 1em;
+    margin-top: 0.3em;
+} 
+.text{
+	clear: both;
 }

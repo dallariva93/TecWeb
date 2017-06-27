@@ -138,7 +138,7 @@
 		} // FINE  voti recensione
 
 
-		echo "</div><div class='text'><h2>Trama: </h2>".
+		echo "</div><div class='text sotto'><h2>Trama: </h2>".
 		$dati['Trama'].
 		file_get_contents("../HTML/Template/LinkAlMenu.txt");
 		if($datiRec){

@@ -509,8 +509,6 @@ function deleteProfile($db)
 			$arrayButtonReplace=array($page+1, $page-1,"", "");
 			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/BooksButtons.txt"));
 		}
-
-
 	}
 
 	function stampaCommenti($db, $page=0)
@@ -575,9 +573,6 @@ function deleteProfile($db)
 			$arrayButtonReplace=array($page+1, $page-1,"", "");
 			echo str_replace($arrayButtonSearch,$arrayButtonReplace , file_get_contents("../HTML/Template/CommentsButtons.txt"));
 		}
-
-
-
 
 }
 

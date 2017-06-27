@@ -1,6 +1,5 @@
 <!--RecensioniFiltri.txt-->
 <div>
-
 <input type="radio" name="genere" id="{{ID}}" class='radioMobile' value="{{VALUE}}" {{CHECK}}/>
 <label class='marginMobile' for="{{ID}}">{{GENERE}}</label>
 </div>

@@ -60,7 +60,7 @@
 	$checkOrDesc = "";
 
 	//Classifica Utente o Redazione
-	echo "<h1>Classifica</h1>";
+	echo "<legend>Classifica</legend>";
 	if($tipoCl == 'redazione'){
 		$checkTRed = "checked = 'checked'";
 		$strClassifica = "<div class = 'note'>Voto della redazione: ";
@@ -76,7 +76,7 @@
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
 
 	//Ordine ascendente o discendente dei risultati
-	echo "<h1>Ordine</h1>";
+	echo "<legend>Ordine</legend>";
 	if($ordine == 'cresc')
 		$checkOrCres = "checked = 'checked'";
 	else{
@@ -90,7 +90,7 @@
 	echo str_replace($searchGenere ,$replaceGenere,file_get_contents("../HTML/Template/ClassificaFiltri.txt"));
 
 	//Filtri per Genere
-	echo "<h1>Genere</h1>";
+	echo "<legend>Genere</legend>";
 	//Creo opzione per selezionare tutte le recensioni
 	$check = ($genere == "")? "checked = 'checked'" : "";
 	$searchGenere=array("{{NAME}}","{{TESTO}}","{{VALUE}}","{{CHECK}}","{{ID}}");
