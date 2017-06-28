@@ -2,4 +2,4 @@
 <div class="centrato content">
 <div  class="filtri VleftSmall ">
 <form action="classifica.php" method="post">
-	<div class='btnLongMobile'>
+	<fieldset class='btnLongMobile'>
