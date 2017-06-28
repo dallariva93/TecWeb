@@ -70,7 +70,7 @@
 				$search=array("{{Data}}","{{Libro}}","{{Titolo}}","{{Voto}}",
 					"{{Autore}}","{{Id}}");
 				$replace=array(Data($Rec['Data_Pubblicazione'],true),$Rec['Libro'],
-					$Rec['Titolo'],floor($Rec['Valutazione']),$Rec['Nome']." ".
+					$Rec['Titolo'],$Rec['Valutazione'],$Rec['Nome']." ".
 					$Rec['Cognome'],$Rec['Id']);
 				echo str_replace($search ,$replace,
 					file_get_contents("../HTML/Template/TabellaRecensione.txt"));
