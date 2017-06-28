@@ -376,6 +376,7 @@ fieldset label {
 	margin-left: 1%;
 	margin-top: 0.2em;
 	font-size: 1.3em;
+	margin-right: 0.2em;
 }
 .Intestazione h3{
 	width: 98%;
@@ -385,12 +386,14 @@ fieldset label {
 }
 .Intestazione>div>div>p{
 	font-weight: bold;
+	font-size: 1.3em;
+    margin-top: 0.2em;
 }
 .Intestazione h1{
 	text-align: center;
 	font-size: 1.5em;
 }
-.Intestazione h3, .leftHalf:nth-last-child(3), .sotto{
+.Intestazione h3, .leftHalf:nth-last-child(3), .sotto, .info ul{
 	clear: both;
 }
 .valutazioniRecensione{

@@ -1,9 +1,9 @@
 <!--IntestazioneAutore.txt-->
 <div class='centrato presentazione content'>
 	<div class='Intestazione'>
-		<img class='VleftSmall' src='{{Immagine}}' alt=''/>
 		<h1>{{Nome}} {{Cognome}}</h1>
-		<div>
-		<div><h2>Data di nascita</h2><p>{{Data}}</p></div>
-		<div><h2>Nazionalit&agrave;</h2><p>{{Nazionalita}}</p></div>
+		<img class='VleftSmall' src='{{Immagine}}' alt=''/>
+		<div class="datiAutore">
+		<div><h2>Data di nascita:</h2><p>{{Data}}</p></div>
+		<div><h2>Nazionalit&agrave;:</h2><p>{{Nazionalita}}</p></div>
 	</div>

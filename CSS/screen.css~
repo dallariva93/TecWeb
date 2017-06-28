@@ -376,6 +376,7 @@ fieldset label {
 	margin-left: 1%;
 	margin-top: 0.2em;
 	font-size: 1.3em;
+	margin-right: 0.2em;
 }
 .Intestazione h3{
 	width: 98%;
@@ -385,6 +386,8 @@ fieldset label {
 }
 .Intestazione>div>div>p{
 	font-weight: bold;
+	font-size: 1.3em;
+    margin-top: 0.2em;
 }
 .Intestazione h1{
 	text-align: center;
@@ -942,6 +945,9 @@ li .stelle{
 	text-align: center;
 	margin-bottom: 0.5em;
 	top: 1em;
+}
+.filtri fieldset{
+	margin-top: 1em;
 }
 /*
  .filtri legend{
