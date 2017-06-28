@@ -1,7 +1,9 @@
 <!--DeadLink.txt-->
-<div class='centrato'>
-	<div class = 'error404'>
-		<h1>Grande giove!!</h1>
-		<p>Qualcosa è andato storto, usa il menù per tornare al sito</p>
+<div class='centrato content'>
+	<div class="error404">
+		<h1>Pagina non trovata!</h1>
+		<p>Sorry, abbiamo cercato la pagina richiesta in tutto questo settore della galassia ma non è saltata fuori!</p>
+		<p>Forse in qualche universo parallelo?</p>
+		<a href="index.php">Torna in Home</a>
 	</div>
 </div>

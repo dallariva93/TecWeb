@@ -2,7 +2,7 @@
      $username = "root";
      $password = "";
      $host = "localhost";
-     $database= "gdallari";
+     $database= "TW";
      $db = new mysqli($host, $username, $password,$database);
 
     if ($db->connect_errno) {
