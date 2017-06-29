@@ -516,9 +516,9 @@ function deleteProfile($db)
 		//$page do valore da get
 
 		$commentsPerPage=10;
-		$com = $db->query("SELECT Data_Pubblicazione, News, Commento FROM CommentiNews WHERE Autore = 'user' 
+		$com = $db->query("SELECT Data_Pubblicazione, News, Commento FROM CommentiNews WHERE Autore = '".$_SESSION['id']. "' 
 						UNION 
-						SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = 'user' 
+						SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "' 
 						ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );
 		$totCom = $db->query("SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");
 
