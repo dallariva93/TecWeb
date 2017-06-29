@@ -1,6 +1,7 @@
 
 .elenco dd h1,.classifica dd h3, .profommento, .text{
     font-size: 0.9em;
+	line-height:1.1em;
 }
 .radioMobile{
 	margin-right: 0.5em;
