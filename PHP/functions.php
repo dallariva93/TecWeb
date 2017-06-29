@@ -516,8 +516,10 @@ function deleteProfile($db)
 		//$page do valore da get
 
 		$commentsPerPage=10;
-		$com = $db->query("SELECT Data_Pubblicazione, Libro, Commento FROM Commenti
-							WHERE Autore = '".$_SESSION['id']. "' ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );
+		$com = $db->query("SELECT Data_Pubblicazione, News, Commento FROM CommentiNews WHERE Autore = '".$_SESSION['id']. "' 
+						UNION 
+						SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "' 
+						ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );
 		$totCom = $db->query("SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");
 
 		$arrayCommenti= array();
@@ -540,9 +542,9 @@ function deleteProfile($db)
 			echo "<div class='Errore'>Non hai nessun commento!</div>";
 		while($i<count($arrayCommenti))
 		{
-			$lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN='".$arrayCommenti[$i][1]."'");
+			
+			($arrayCommenti[$i][1]>9779999999999) ? $lib=$db->query("SELECT Titolo FROM `Libro` WHERE ISBN='".$arrayCommenti[$i][1]."'") : $lib=$db->query("SELECT Titolo FROM `Notizie` WHERE Id='".$arrayCommenti[$i][1]."'");
 			$libro=mysqli_fetch_array($lib);
-
 			$data=Data($arrayCommenti[$i][0],true);
 			$replaceCommento=array($libro[0], $data, $arrayCommenti[$i][2]);
 			echo str_replace($searchCommento, $replaceCommento, file_get_contents("../HTML/Template/CommentoProfilo.txt"));
