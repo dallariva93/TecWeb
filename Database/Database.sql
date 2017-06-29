@@ -53,7 +53,7 @@ CREATE TABLE Recensione
 	Libro varchar(13) NOT NULL,
 	Autore varchar(60) NOT NULL,
 	Data_Pubblicazione	TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-	Valutazione  DECIMAL(2,1) NOT NULL,
+	Valutazione  INT(1) UNSIGNED DEFAULT 0 NOT NULL,
 	Testo	text NOT NULL,
 	FOREIGN KEY (Autore) REFERENCES Redazione(Email)
   	ON DELETE CASCADE
@@ -101,7 +101,7 @@ CREATE TABLE CommentiNews
 CREATE TABLE VotoRecensione
 (	Recensione INT UNSIGNED,
 	Autore varchar(60),
-	Valutazione DECIMAL(2,1) NOT NULL,
+	Valutazione INT(1) UNSIGNED DEFAULT 0 NOT NULL,
 	PRIMARY KEY (Recensione, Autore),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
 	ON DELETE CASCADE
@@ -113,7 +113,7 @@ CREATE TABLE VotoRecensione
 CREATE TABLE VotoLibro
 (	Libro varchar(13),
 	Autore varchar(60),
-	Valutazione DECIMAL(2,1) NOT NULL,
+	Valutazione INT(1) UNSIGNED DEFAULT 0 NOT NULL,
 	PRIMARY KEY (Libro, Autore),
 	FOREIGN KEY (Autore) REFERENCES Utente(Email)
 	ON DELETE CASCADE

@@ -2,7 +2,7 @@
 <div class="content centrato">
 <div  class="box">
 	<h1>Contatta la redazione</h1>
-	<form action="contacts.php" method="post">
+	<form action="contatti.php" method="post">
 		<div>
 			<label for="nome">Nome </label><div class="inputError" id="NomeError">{{nomeError}}</div>
 			<input type="text" name="nome" id="nome"/>
