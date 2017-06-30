@@ -53,10 +53,11 @@
    font-size: 0.8em;
 }
 .VrightBig p{
-    margin-right: 0.2em;
-    font-size: 0.7em;
-    max-height: 120px;
-    overflow: hidden;
+   margin-right: 0.2em;
+   font-size: 0.7em;
+	max-height: 98px;
+	line-height: 14px;
+   overflow: hidden;
 }
 
 tr {

@@ -3,7 +3,7 @@
 	padding: 0em;
 }
 html, body{
-	font-family: Verdana, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	margin: auto;
 	height: 95.6%;
 	background-color:#e0e0e4;
@@ -588,7 +588,7 @@ padding: 0.2em 0 0.2em 0;
 	margin-bottom: 0;
     font-size: 1.5em;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 5em;
     width: 80%;
     margin-left: 10%;
 }
@@ -666,7 +666,7 @@ tr:nth-child(even) {
 	margin-bottom: 2em;
 	margin-top: 2em;
 }
-.formProfilo fieldset, fieldset.btnLongMobile {
+.formProfilo fieldset, fieldset.btnLongMobile, .noBorder {
     border: none;
 }
 
@@ -849,7 +849,7 @@ li .stelle{
 	padding-bottom: 1em;
 	background-color: white;
 	width: 100%;
-	min-height: 84.1%;
+    min-height: 89.8%;
 
 }
 
@@ -858,8 +858,7 @@ li .stelle{
 	padding-bottom: 1em;
 	background-color: white;
 	width: 100%;
-	width: 100%;
-   min-height: 65%;
+	min-height: 75%;
 
 }
 

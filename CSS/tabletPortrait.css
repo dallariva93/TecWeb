@@ -16,9 +16,15 @@
 	float: none;
 }
 
+.elenco dd h1 {
+    font-size: 1.2em;
+}
+
 .breadcrumb , .menu, .elenco, .elenco dd h3, .text {
 	font-size: 1.2em;
 }
+
+
 /**************************
 		GENERALI
 ***************************/
@@ -39,10 +45,13 @@
 	font-size: 1.2em;
 }
 .leftBig p, .VrightBig p{
-	 margin-right: 0.2em;
+    margin-right: 0.2em;
     font-size: 0.9em;
-    max-height: 130px;
+    max-height: 100px;
     overflow: hidden;
+    line-height: 20px;
+}
+
 }
 /**************************
 		BOX

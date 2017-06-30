@@ -3,7 +3,7 @@
 	padding: 0em;
 }
 html, body{
-	font-family: Verdana, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	margin: auto;
 	height: 95.6%;
 	background-color:#e0e0e4;
@@ -666,7 +666,7 @@ tr:nth-child(even) {
 	margin-bottom: 2em;
 	margin-top: 2em;
 }
-.formProfilo fieldset, fieldset.btnLongMobile {
+.formProfilo fieldset, fieldset.btnLongMobile, .noBorder {
     border: none;
 }
 
@@ -802,12 +802,13 @@ li .stelle{
 /**************************************************************
 			VOTAZIONE
 ***************************************************************/
-.RatingStars{
-	float: left;
-	padding-left: 2em;
-	padding-bottom: 2em;
-	overflow:hidden;
-	direction: rtl;
+.RatingStars {
+    float: left;
+    padding-left: 2em;
+    padding-bottom: 1em;
+    overflow: hidden;
+    direction: rtl;
+    padding-top: 0.5em;
 }
 .RatingStars>button{
 	width: 40px;

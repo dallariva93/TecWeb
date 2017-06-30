@@ -3,7 +3,7 @@
 <div class="box {{AggiungiClassi}}">
 	<h1>{{Titolo}}</h1>
 	<form action="{{Pagina}}" onsubmit="return controlloErrori()" method="post">
-		<div>
+		<fieldset class="noBorder">
 			<label for="nickname">Nickname </label><div class="inputError" id="NicknameError">{{nickError}}</div>
 			<input type="text" name="nickname" id="nickname"/>
 			<label for="nome">Nome </label><div class="inputError" id="NomeError">{{nomeError}}</div>
@@ -15,7 +15,7 @@
 			<label for="password">Password </label><div class="inputError" id="PasswordError">{{passError}}</div>
 			<input type="password" name="password" id="password"/>
 			<input type="submit" value="Registrati" class="btnLong"/>
-		</div>
+		</fieldset>
 	</form>
 </div>
 </div>
