@@ -3,7 +3,7 @@
 ***************************/
 .menu {
 	position: static;
-	}
+}
 .menu li{
 	float: none;
 	width: 100%;
@@ -28,7 +28,7 @@
 /**************************
 		GENERALI
 ***************************/
-.rightBig , .rightSmall,.VrightBig, .leftBig ,.VleftSmall, .leftSmall, .lefthalf{
+.rightBig , .rightSmall, .VrightBig, .leftBig , .VleftSmall, .leftSmall, .lefthalf{
 	margin: 0;
 }
 
@@ -36,7 +36,7 @@
 	width: 98%;
 }
  
-.leftBig ,.VleftSmall, .leftSmall, .rightBig , .rightSmall,.VrightBig, .valutazioniRecensione{
+.leftBig , .VleftSmall, .leftSmall, .rightBig , .rightSmall, .VrightBig, .valutazioniRecensione{
 	width:100%;
 }
 
@@ -76,6 +76,9 @@
   	text-align: center;
    margin-bottom: 0.5em;
 }
+.Intestazione>div>div{
+	width: 98%;
+ }
 
 .valutazioniRecensione li, .Intestazione h2{
     margin-left: 1%;
