@@ -7,9 +7,6 @@
 	margin-right: 0.5em;
 }
 
-.Intestazione>div>div{
-	width: 98%;
- }
 .MiniaturaLibro{
 	width: 33%;
 	font-size: 0.9em;
@@ -146,6 +143,7 @@ tr {
 	margin-right: 0.2em;
     font-size: 0.7em;
     max-height: 70px;
+	line-height: 14px;
     overflow: hidden;
 }
 .centerBig h3{

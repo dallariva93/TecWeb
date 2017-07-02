@@ -24,7 +24,7 @@
 		if(isset($_SESSION['id'])){
 			//Inserimento commento
 			if(isset($_POST['text']) && !$_POST['text']==""){
-				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'])). "</p>";
+				$ntesto ="<p>". strip_tags(htmlentities($_POST['text'], ENT_QUOTES)). "</p>";
 				$sql = "INSERT INTO Commenti (Libro,Autore,Commento)
 						VALUES ('".$_REQUEST['libro']."','".$_SESSION['id']."','$ntesto')";
 				if(!$db->query($sql)){

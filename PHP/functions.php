@@ -520,7 +520,9 @@ function deleteProfile($db)
 						UNION 
 						SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "' 
 						ORDER BY Data_Pubblicazione DESC LIMIT $commentsPerPage OFFSET " .($page*$commentsPerPage) );
-		$totCom = $db->query("SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");
+		$totCom = $db->query("SELECT Data_Pubblicazione, News, Commento FROM CommentiNews WHERE Autore = '".$_SESSION['id']. "' 
+						UNION 
+						SELECT Data_Pubblicazione, Libro, Commento FROM Commenti WHERE Autore = '".$_SESSION['id']. "'");
 
 		$arrayCommenti= array();
 		$arrayTotCommenti = array();
