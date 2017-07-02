@@ -1,0 +1,44 @@
+html {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+}
+
+table{
+	width:100%; 
+	border-spacing: 0.1em;
+}
+table td{ 
+	padding:7px;
+}
+table th{
+	border:#000000 1px solid;
+}
+
+table td:not(:last-child){
+	border:#000000 1px solid;
+}
+#footer {
+	display: none;
+}
+.menu, .breadcrumb, .header, #paging, .filtri, .inserisciCommento, .leftHalf, .menuProfilo, .formProfilo,tr td :last-child{
+	display: none;
+}
+table td :last-child{
+border-right: 1px solid black;
+}
+.VrightBig{
+	width: 99%;
+}
+
+.elenco dt, .elenco >div > h1, .rightSmall>h2{
+	border-top:1px solid black;
+	border-left:1px solid black;
+	color: black;
+}
+
+.stelle{
+	display: block;
+	margin-left: 0;
+}
+
+

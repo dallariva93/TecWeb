@@ -10,9 +10,10 @@
 		<meta name="viewport" content="width=device-width"/>
 		<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 		<link rel="icon" href="../img/icon/logo.png" />
-		<link rel="stylesheet" media="screen" href="../CSS/screen.css" type="text/css" />
+		<link rel="stylesheet" media="screen, print" href="../CSS/screen.css" type="text/css" />
 		<link rel="stylesheet" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)" href="../CSS/tabletPortrait.css" type="text/css" />
 		<link rel="stylesheet" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" href="../CSS/phonePortrait.css" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="../CSS/print.css" media="print" />
 	</head>
 
 
