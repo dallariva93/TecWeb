@@ -117,7 +117,7 @@
 	echo file_get_contents("../HTML/Template/ClassificaFineFiltri.txt").
 
 	file_get_contents("../HTML/Template/LinkAlMenu.txt").
-	"</fieldset>";
+	"</div>";
 
 
 

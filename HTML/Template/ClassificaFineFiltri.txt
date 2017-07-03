@@ -1,4 +1,4 @@
 <!--ClassificaFineFiltri.txt-->
 <input type="submit"  value="Aggiorna" class="btnLong btnLongMobile"/>
-</div>
+</fieldset>
 </form>
